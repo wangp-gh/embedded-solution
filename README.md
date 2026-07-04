@@ -53,8 +53,6 @@ embedded-solution/
 ├── SKILL.md                                       # Skill contract — read this first
 ├── README.md                                      # This file
 ├── VERIFICATION.md                                # Trust hierarchy and per-vendor upgrade paths
-├── RELEASE-v0.5.0.md                             # Release notes for v0.5.0
-├── SHA256SUMS.txt                                 # File-by-file integrity hashes
 ├── requirements.txt                               # Python dependencies for development
 ├── scripts/                                       # Helper scripts (10 entries)
 │   ├── build_application_index.py                # Regenerate references/application-solution/INDEX.md
@@ -103,7 +101,7 @@ This skill supports four install modes transparently:
 | **Public release** (this repo, public) | No `specs/`, no `embedded_dev/` PDFs. Skill uses Tier 3 (product page fetch) and Tier 4 (mirror) for all parameters. |
 | **Public release + datasheets plug-in** | Tier 2 local PDFs available. Faster, offline-capable. |
 | **Public release + specs plug-in** | Tier 1 YAML field cache available. Fewest network calls. |
-| **Dev clone** (`git submodule update --init`) | All plug-ins loaded. Includes the private `specs/` submodule with curated YAML data. |
+| **Dev clone** (`git submodule update --init`) | All plug-ins loaded. Includes the private `specs/` submodule with curated YAML data. (See `SKILL.md` Search Priority section for tier details.) |
 
 Each tier is conditionally enabled based on what the host environment has installed. The skill transparently falls back when a tier is unavailable — see `SKILL.md` Search Priority section.
 
@@ -134,12 +132,10 @@ Each tier is conditionally enabled based on what the host environment has instal
 ### Cutting a new public release
 
 1. Bump `version:` in `SKILL.md`
-2. Write `RELEASE-v<version>.md` following the structure of `RELEASE-v0.5.0.md`
-3. Regenerate `SHA256SUMS.txt` (`find . -type f | xargs sha256sum > SHA256SUMS.txt`)
-4. Run `python3 scripts/build_application_index.py` to refresh `references/application-solution/INDEX.md`
-5. `git tag -a v<version> -m "<release notes>"`
-6. `gh release create v<version> --notes-file RELEASE-v<version>.md --public --target main`
-7. `clawhub publish .` (one dot — repo root is the skill root)
+2. Run `python3 scripts/build_application_index.py` to refresh `references/application-solution/INDEX.md`
+3. `git tag -a v<version> -m "<release notes>"`
+4. `gh release create v<version> --target main` (use `--notes-file` to attach RELEASE notes from publish repo)
+5. `clawhub publish .` (one dot — repo root is the skill root)
 
 ## Testing
 
