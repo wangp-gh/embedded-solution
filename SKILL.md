@@ -106,7 +106,7 @@ When looking up chip data, BOM candidates, or reference designs, **always follow
 - Tier 3 is two-step: read the `product_families.md` row for the URL/status, then fetch the URL for actual values when needed. Don't skip step 3b just because you found the URL — fetch the spec.
 - Tier 4 is region-aware: domestic-CN mirrors first for GigaDevice / WCH / GD / QH / Nation Tech / HDSC; overseas mirrors first for ST / TI / Nordic / NXP / Renesas / Silicon Labs / Espressif.
 - If Tier 4 is needed, return to Step 6 output template — only the source depth changes, the format stays the same.
-- **Dual install modes** (public release without plug-ins vs dev clone / with plug-ins) are handled transparently: each tier is independently conditional on the relevant plug-in being installed. See *Privacy / Publishing Notes* > *Maintainer note* below for install mode details.
+- **Dual install modes** (public release without plug-ins vs dev clone / with plug-ins) are handled transparently: each tier is independently conditional on the relevant plug-in being installed.
 
 **Per-parameter, not per-chip**: Each spec field (RAM, flash, current, ...) goes through the 4 tiers independently. A chip may have RAM verified from Tier 1 YAML, flash from Tier 2 local datasheet, core count from Tier 3 product_families.md, and pricing from Tier 4 distributor — that's normal and the citation format should make each tier explicit.
 
