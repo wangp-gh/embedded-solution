@@ -1,0 +1,36 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python bytecode / cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtualenv / build
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Local secrets (in case scripts/ grow any)
+*.key
+*.local
+.env
+
+# Tooling caches (if maintainers add them locally)
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Skill-specific runtime state (the skill should never write here, but
+# be defensive against accidental local file generation)
+.cache/
+tmp/
+*.log
