@@ -3,15 +3,10 @@
   "version": "0.5.0",
   "release_date": "2026-07-04",
   "release_notes_file": "RELEASE-v0.5.0.md",
-  "artifacts": {
-    "tarball": {
-      "filename": "embedded-solution-v0.5.0.tar.gz",
-      "size_bytes": 192765,
-      "sha256": "398b2d35d593cd3b3a0db50ab6725f5189d3b9445f593f7cc5ac7496de56f9a9",
-      "extracted_size_bytes": 946176,
-      "entry_count": 174
-    }
-  },
+  "layout": "expanded",
+  "layout_description": "Each releases/<version>/ directory is the complete, deployable skill — every file needed for `clawhub install` lives directly here, not packaged as a tarball.",
+  "publish_source": "embedded-solution-release/releases/v0.5.0/",
+  "clawhub_publish_command": "clawhub publish ~/.openclaw/workspace/embedded-solution-release/releases/v0.5.0/",
   "compatibility": {
     "clawhub_min_version": "0.6.0",
     "openclaw_min_version": "0.6.0",
@@ -47,7 +42,25 @@
       "usb-bridge-adapter",
       "wifi-smart-plug"
     ],
-    "chip_count_in_catalogue": 110
+    "chip_count_in_catalogue": 110,
+    "total_files": 135,
+    "files_layout": {
+      "top_level": [
+        "SKILL.md",
+        "README.md",
+        "RELEASE-v0.5.0.md",
+        "VERIFICATION.md",
+        "manifest.json",
+        "SHA256SUMS.txt",
+        "requirements.txt"
+      ],
+      "scripts_count": 9,
+      "references_dirs": [
+        "semiconductor-vendor/",
+        "application-solution/",
+        "testing/"
+      ]
+    }
   },
   "highlights": [
     "First public release (v0.5.0)",
@@ -55,7 +68,8 @@
     "HTML-first fast path (Tier 3 step 3d) — 5-10 s/headline spec",
     "Capability-driven tool selection — runtime-agnostic",
     "Step 2 routing: Option A (default) / B (curate) / C (disambiguate)",
-    "No fabrication; all 110 chips cite vendor source"
+    "No fabrication; all 110 chips cite vendor source",
+    "Layout is expanded (no tarball); clawhub publish from releases/<version>/"
   ],
   "supersedes": "v0.4.3",
   "source_commit": "988e2a5 release(v0.5.0): marketing minor bump after 5-commit concision cycle",

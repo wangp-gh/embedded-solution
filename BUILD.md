@@ -92,21 +92,34 @@ tar tzf /tmp/embedded-solution-v0.6.0.tar.gz | wc -l
 ls -lh /tmp/embedded-solution-v0.6.0.tar.gz
 ```
 
-### 4. Stage in release repo
+### 4. Stage in release repo (expanded layout, NOT a tarball)
 
 ```bash
 cd ~/.openclaw/workspace/embedded-solution-release
 mkdir -p releases/v0.6.0
-cp /tmp/embedded-solution-v0.6.0.tar.gz releases/v0.6.0/
-cp ~/.openclaw/workspace/embedded-solution-publish/RELEASE-v0.6.0.md releases/v0.6.0/
+
+# Expand the tarball into the release directory — every file lives
+# at releases/<version>/<...>, no tarball is committed to git.
+mkdir -p /tmp/release-staging
+cd /tmp/release-staging
+rm -rf embedded-solution-v0.6.0
+tar xzf /tmp/embedded-solution-v0.6.0.tar.gz
+cp -R embedded-solution-v0.6.0/. ~/.openclaw/workspace/embedded-solution-release/releases/v0.6.0/
+rm -rf embedded-solution-v0.6.0
+
+# Copy release notes from publish repo
+cp ~/.openclaw/workspace/embedded-solution-publish/RELEASE-v0.6.0.md \
+   ~/.openclaw/workspace/embedded-solution-release/releases/v0.6.0/
 ```
 
 ### 5. Generate SHA256SUMS.txt
 
 ```bash
 cd releases/v0.6.0
-sha256sum embedded-solution-v0.6.0.tar.gz > SHA256SUMS.txt
-cat SHA256SUMS.txt
+# File-by-file hashes for every tracked file in this release
+find . -type f \( -name '*.md' -o -name '*.py' -o -name '*.sh' -o -name '*.txt' -o -name '*.json' \) \
+  | sort | xargs sha256sum > SHA256SUMS.txt
+wc -l SHA256SUMS.txt
 ```
 
 ### 6. Write manifest.json
@@ -144,19 +157,19 @@ git tag v0.6.0
 GitHub:
 
 ```bash
-gh release create v0.6.0 ./releases/v0.6.0/embedded-solution-v0.6.0.tar.gz \
+gh release create v0.6.0 \
   --title "v0.6.0 — <title>" \
   --notes-file ./releases/v0.6.0/RELEASE-v0.6.0.md \
-  --public
+  --public \
+  --target main
+# The release directory itself is the artefact; no separate tarball upload.
 ```
 
 ClawHub:
 
 ```bash
-# Extract tarball contents (ClawHub publishes from a directory, not a tarball)
-mkdir -p /tmp/clawhub-staging
-tar xzf ./releases/v0.6.0/embedded-solution-v0.6.0.tar.gz -C /tmp/clawhub-staging/
-clawhub publish /tmp/clawhub-staging/embedded-solution-v0.6.0/
+# Direct publish from the expanded release directory
+clawhub publish ~/.openclaw/workspace/embedded-solution-release/releases/v0.6.0/
 ```
 
 ### 10. Verify

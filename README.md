@@ -11,16 +11,27 @@
 ```
 embedded-solution-release/
 ├── README.md                       # this file
+├── BUILD.md                        # canonical release-cut procedure
+├── CONTRIBUTING.md                 # contribution policy
+├── CHANGELOG.md                    # per-release changelog
 ├── releases/
-│   └── <version>/
-│       ├── embedded-solution-<version>.tar.gz
-│       ├── SHA256SUMS.txt
-│       ├── RELEASE-<version>.md
-│       └── manifest.json
+│   └── <version>/                  # a complete, deployable skill
+│       ├── SKILL.md                #   the skill contract
+│       ├── README.md               #   skill-side README
+│       ├── RELEASE-<version>.md    #   release notes
+│       ├── VERIFICATION.md         #   verification doc
+│       ├── manifest.json           #   ClawHub / GitHub metadata
+│       ├── SHA256SUMS.txt          #   file-by-file integrity hashes
+│       ├── requirements.txt        #   Python deps for development
+│       ├── scripts/                #   helper Python + shell scripts
+│       └── references/             #   vendor pages + application solutions
+│           ├── semiconductor-vendor/
+│           ├── application-solution/
+│           └── testing/
 └── latest -> releases/<most-recent>   # symlink to latest stable
 ```
 
-Each `releases/vX.Y.Z/` directory contains everything needed to verify, install, and audit a single release.
+Each `releases/vX.Y.Z/` directory is a **complete, deployable skill** — the layout mirrors what `clawhub install embedded-solution@X.Y.Z` would extract. No tarball is committed to git; the expanded form is the source of truth.
 
 ---
 
@@ -40,10 +51,10 @@ Each minor / major release corresponds to a `release(vX.Y.Z)` commit in `embedde
 
 Each `releases/vX.Y.Z/` directory is uploaded to:
 
-1. **GitHub Releases** — `gh release create vX.Y.Z ./releases/vX.Y.Z/embedded-solution-X.Y.Z.tar.gz --notes-file ./releases/vX.Y.Z/RELEASE-X.Y.Z.md`
-2. **ClawHub registry** — `clawhub publish ./releases/vX.Y.Z/embedded-solution/` (extracts `embedded-solution-<X.Y.Z>.tar.gz` first)
+1. **GitHub Releases** — `gh release create vX.Y.Z --notes-file ./releases/vX.Y.Z/RELEASE-vX.Y.Z.md --public --target main` (the git tag points at a commit that contains the entire release directory; GitHub Releases surfaces the contents automatically)
+2. **ClawHub registry** — `clawhub publish ./releases/vX.Y.Z/` (publishes the directory directly, no tarball step)
 
-Both targets use the SHA256 in `SHA256SUMS.txt` for integrity verification.
+Both targets use the file-by-file hashes in `SHA256SUMS.txt` for integrity verification.
 
 ---
 
@@ -66,9 +77,10 @@ The release commit in `embedded-solution-publish` (e.g. `988e2a5 release(v0.5.0)
 
 ## Why a separate release repo?
 
-- **Avoids maintenance-cache leaks.** The development repo accumulates large maintenance caches (`references/semiconductor-vendor/*/firecrawl-snapshots/`, `datasheets/`, etc.) that should never ship in a public release. By preparing tarballs in a separate repo, the public GitHub history never even sees these files.
-- **Cleaner public history.** Public users see only one commit per release, plus the curated tarball + release notes. Internal development churn (test fixtures, scratch scripts, subagent work) stays in the private `embedded-solution-publish` repo.
-- **Independent ClawHub publishing.** The ClawHub CLI can `publish` from this repo's `releases/vX.Y.Z/embedded-solution/` directories without conflicting with development-side tooling.
+- **Avoids maintenance-cache leaks.** The development repo accumulates large maintenance caches (`references/semiconductor-vendor/*/firecrawl-snapshots/`, `datasheets/`, etc.) that should never ship in a public release. By keeping the development repo private and only publishing expanded release directories from this repo, the public GitHub history never sees these files.
+- **Cleaner public history.** Public users see one commit per release; that commit contains the entire release directory at `releases/<version>/` — all files visible, all directories explorable. Internal development churn (test fixtures, scratch scripts, subagent work) stays in the private `embedded-solution-publish` repo.
+- **Layout = clawhub-friendly.** The expanded layout mirrors what `clawhub install` would extract. A single command — `clawhub publish ./releases/vX.Y.Z/` — ships the whole release.
+- **No binary drift.** Tarballs in git generate new blob hashes on every byte change. The expanded form makes every file's content individually diffable and auditable.
 
 ---
 

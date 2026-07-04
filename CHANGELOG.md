@@ -8,6 +8,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.5.0] — 2026-07-04 — First public release
 
+### Layout
+
+The release repository uses an **expanded layout** — each `releases/vX.Y.Z/` directory is the complete, deployable skill with every file at its install-time path. No tarball is committed to git; the git tree IS the artefact. This makes every file individually diffable, every SHA256 individually auditable, and `clawhub publish ./releases/vX.Y.Z/` a one-liner.
+
 ### Added
 
 - HTML-first fast path (Tier 3 step 3d): vendor product pages render headline specs in 5-10 s instead of downloading a 30-MB PDF first. Validated against Nordic nRF5340, Renesas DA14706, TI CC2640R2F, ST STM32WB55, NXP NXH3675, Silicon Labs EFR32BG26, BlueTrum AB5602C.
