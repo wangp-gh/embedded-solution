@@ -1,0 +1,1 @@
+398b2d35d593cd3b3a0db50ab6725f5189d3b9445f593f7cc5ac7496de56f9a9  embedded-solution-v0.5.0.tar.gz
