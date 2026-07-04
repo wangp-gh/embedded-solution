@@ -1,89 +1,132 @@
-# embedded-solution — Release Repository
+# embedded-solution
 
-> **Public release artifacts** for the `embedded-solution` skill.
-> Source development happens in the sibling `embedded-solution-publish` repo (private).
-> This repo contains only prepared, versioned artifacts that are pushed to GitHub Releases and ClawHub.
+Recommend embedded system solutions: chip selection, BOM design, vendor
+comparison, and reference design matching across multiple semiconductor vendors.
 
----
+## What this skill does
 
-## Layout
+When you ask a question about embedded systems — chips, MCUs, BLE/WiFi/LoRa
+SoCs, sensor selection, BOM design, reference designs — this skill:
 
-```
-embedded-solution-release/
-├── README.md                       # this file
-├── BUILD.md                        # canonical release-cut procedure
-├── CONTRIBUTING.md                 # contribution policy
-├── CHANGELOG.md                    # per-release changelog
-├── releases/
-│   └── <version>/                  # a complete, deployable skill
-│       ├── SKILL.md                #   the skill contract
-│       ├── README.md               #   skill-side README
-│       ├── RELEASE-<version>.md    #   release notes
-│       ├── VERIFICATION.md         #   verification doc
-│       ├── manifest.json           #   ClawHub / GitHub metadata
-│       ├── SHA256SUMS.txt          #   file-by-file integrity hashes
-│       ├── requirements.txt        #   Python deps for development
-│       ├── scripts/                #   helper Python + shell scripts
-│       └── references/             #   vendor pages + application solutions
-│           ├── semiconductor-vendor/
-│           ├── application-solution/
-│           └── testing/
-└── latest -> releases/<most-recent>   # symlink to latest stable
+1. Checks its catalogue of chip indexes (`references/semiconductor-vendor/<Vendor>/product_families.md`)
+2. Cross-references application-solution templates (`references/application-solution/<topic>/solution.md`)
+3. Returns **top 3 candidates + comparison table** by default (not a single pick)
+4. Cites vendor URLs for every recommendation
+5. Says **"not verified"** for any parameter it cannot confirm against official sources
+
+It does **not** fabricate part numbers, specs, prices, or stock counts.
+
+## Quick start
+
+```text
+You: "I'm designing a smart ring with BLE and 1-week battery life."
+
+Skill: (asks Step 5 clarifying questions — battery capacity, size, sensor set, ...)
+You: (answers)
+
+Skill: (returns top 3 BLE SoC candidates + comparison table + trade-offs,
+        each linked to vendor URL and marked with verification status)
 ```
 
-Each `releases/vX.Y.Z/` directory is a **complete, deployable skill** — the layout mirrors what `clawhub install embedded-solution@X.Y.Z` would extract. No tarball is committed to git; the expanded form is the source of truth.
+## When this skill triggers
+
+✅ Triggers for: BLE SoC selection, WiFi+BLE combo, BOM design, vendor
+comparison, datasheet parameter verification, application-solution matching,
+matter/thread/lorawan design, industrial IoT, smart home/ring/glasses/lock
+design, motor control BOM.
+
+❌ Does NOT trigger for: pure software/learning ("how to write Hello World
+in Rust"), web/cloud/database questions, math without hardware context.
+
+See [`SKILL.md`](SKILL.md) for full trigger conditions and workflow.
+
+## Install
+
+```bash
+clawhub install embedded-solution
+```
+
+Public release mode (no `specs/`). Maintainers / dev clones with
+`git submodule update --init` get the full private spec database — see
+[`SKILL.md`](SKILL.md) → *Privacy / Publishing Notes* > *Maintainer note*.
+
+## Repository layout
+
+```
+embedded-solution/
+├── SKILL.md                                       # Read this first — the whole skill
+├── README.md                                      # This file
+├── scripts/
+│   ├── update_specs.py                            # Extract specs from datasheets (maintainer)
+│   ├── build_application_index.py                 # Regenerate INDEX.md (maintainer)
+│   └── check_no_specs_dead_refs.sh                # CI guard: scan for user-facing specs/ path refs
+├── references/
+│   ├── semiconductor-vendor/<Vendor>/             # Per-vendor chip indexes (8 vendors)
+│   │   ├── product_families.md                    # The canonical "what does this vendor offer" file
+│   │   └── system-solutions/                      # Single-vendor reference designs
+│   ├── application-solution/                      # Multi-vendor application BOM templates
+│   │   ├── INDEX.md                               # Auto-generated catalog
+│   │   ├── smart-ring/solution.md
+│   │   ├── smart-glasses/solution.md
+│   │   └── robot-gripper/solution.md
+│   └── testing/                                   # Regression test fixtures
+│       ├── README.md
+│       ├── evaluation-rubric.md
+│       ├── fixtures/                              # 7 user prompt templates
+│       └── expected-outputs/                      # Structural skeletons per fixture
+└── specs/                                         # PRIVATE — git submodule, not shipped
+```
+
+## For maintainers
+
+### Adding a new vendor
+
+1. Create `references/semiconductor-vendor/<VendorName>/product_families.md`
+   following the existing format (see `Renesas/product_families.md` for full example).
+2. Add at least one product URL and verification status.
+3. Run `bash scripts/check_no_specs_dead_refs.sh` to verify no broken paths.
+
+### Adding a new application-solution
+
+1. Create `references/application-solution/<topic>/solution.md`.
+2. Follow the structure of `smart-ring/solution.md` (Overview / BOM Candidates
+   / Reference Designs / Selection Matrix / Verification Status / Caveat).
+3. Run `python3 scripts/build_application_index.py` to refresh INDEX.md.
+
+### Adding a regression test fixture
+
+1. Add `references/testing/fixtures/<NN>-<topic>.md` with verbatim prompt +
+   workflow path + acceptance criteria.
+2. Add `references/testing/expected-outputs/<NN>-<topic>.expected.md` with
+   structural skeleton (table headers, citation anchors, anti-patterns).
+3. Optionally extend `evaluation-rubric.md` if a new scoring axis is needed.
+
+## Testing
+
+7 regression fixtures cover the main SKILL.md workflow paths. Run manual
+evaluation by feeding a fixture's "Input prompt" to the skill and scoring
+the response against `evaluation-rubric.md` (5 axes × 5 pts = 25 max,
+pass = 20+).
+
+```bash
+# Run the dead-reference guard
+bash scripts/check_no_specs_dead_refs.sh
+
+# (Optional) Run all 7 fixtures against the skill and score manually
+# See references/testing/README.md for the script template
+```
+
+## License
+
+MIT. See SKILL.md header for full license.
+
+## Contributing
+
+Issues and PRs welcome. For major changes (new vendor, new application domain,
+new top-level SKILL.md section), please open an issue first to discuss.
 
 ---
 
-## Versioning
-
-This repository follows **semantic versioning**:
-
-- **Major** (v1.0.0, v2.0.0): breaking changes to the skill's public contract (SKILL.md semantics)
-- **Minor** (v0.5.0, v0.6.0): backward-compatible new features, Anti-pattern additions, Step-rule additions
-- **Patch** (v0.5.1, v0.5.2): bug fixes, copy edits, refactors that do not change skill behaviour
-
-Each minor / major release corresponds to a `release(vX.Y.Z)` commit in `embedded-solution-publish`. Patch releases roll up multiple chore commits.
-
----
-
-## Distribution
-
-Each `releases/vX.Y.Z/` directory is uploaded to:
-
-1. **GitHub Releases** — `gh release create vX.Y.Z --notes-file ./releases/vX.Y.Z/RELEASE-vX.Y.Z.md --public --target main` (the git tag points at a commit that contains the entire release directory; GitHub Releases surfaces the contents automatically)
-2. **ClawHub registry** — `clawhub publish ./releases/vX.Y.Z/` (publishes the directory directly, no tarball step)
-
-Both targets use the file-by-file hashes in `SHA256SUMS.txt` for integrity verification.
-
----
-
-## Build process
-
-The release artefacts in this repo are **generated by hand from the `embedded-solution-publish` development repo**, never by automation inside this repo. The build steps are:
-
-1. Run `scripts/build_application_index.py` in `embedded-solution-publish/` to regenerate `references/application-solution/INDEX.md`
-2. Verify `git status` is clean in the publish repo
-3. Run `tar czf /tmp/embedded-solution-<version>.tar.gz ...` with explicit excludes for maintenance caches (see `BUILD.md` in `embedded-solution-publish`)
-4. Compute `sha256sum /tmp/embedded-solution-<version>.tar.gz`
-5. Copy tarball + `RELEASE-<version>.md` to this repo at `releases/v<version>/`
-6. Commit here with the format `release(vX.Y.Z): <one-line summary>`
-7. Tag with `git tag -a vX.Y.Z -m "<release notes>"`
-8. Push to GitHub + ClawHub
-
-The release commit in `embedded-solution-publish` (e.g. `988e2a5 release(v0.5.0): ...`) is the source of truth for the version number; this repo mirrors the same version tag.
-
----
-
-## Why a separate release repo?
-
-- **Avoids maintenance-cache leaks.** The development repo accumulates large maintenance caches (`references/semiconductor-vendor/*/firecrawl-snapshots/`, `datasheets/`, etc.) that should never ship in a public release. By keeping the development repo private and only publishing expanded release directories from this repo, the public GitHub history never sees these files.
-- **Cleaner public history.** Public users see one commit per release; that commit contains the entire release directory at `releases/<version>/` — all files visible, all directories explorable. Internal development churn (test fixtures, scratch scripts, subagent work) stays in the private `embedded-solution-publish` repo.
-- **Layout = clawhub-friendly.** The expanded layout mirrors what `clawhub install` would extract. A single command — `clawhub publish ./releases/vX.Y.Z/` — ships the whole release.
-- **No binary drift.** Tarballs in git generate new blob hashes on every byte change. The expanded form makes every file's content individually diffable and auditable.
-
----
-
-## Latest release
-
-See `releases/latest/` symlink or the most recent `releases/vX.Y.Z/` directory.
+**Full skill definition:** [`SKILL.md`](SKILL.md)
+**Test suite:** [`references/testing/`](references/testing/)
+**Evaluation rubric:** [`references/testing/evaluation-rubric.md`](references/testing/evaluation-rubric.md)
