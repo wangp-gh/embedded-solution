@@ -40,3 +40,4 @@ tmp/
 references/semiconductor-vendor/*/datasheet/
 references/semiconductor-vendor/*/datasheet-html/
 references/semiconductor-vendor/*/firecrawl-snapshots/
+references/semiconductor-vendor/*/datasheet/*.pdf
