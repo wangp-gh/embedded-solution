@@ -9,7 +9,7 @@ description: >
   NOT for pure software/learning questions).
   All component specs MUST be fetched from official vendor sources. Never
   fabricate part numbers, parameters, or pricing.
-version: 0.5.0
+version: 0.6.0
 author: wangp-gh
 license: MIT
 platforms: [linux, macos, windows]
@@ -53,6 +53,7 @@ Common mistakes when responding. These are the failure modes that show up in age
 | **Write a 1000-word essay when 3 bullets + table would do** | Lead with the comparison table; prose supports the table, not the other way around. |
 | **Block with 5 questions before recommending anything** | Default to a reasonable assumption, state it, and proceed (see Step 5); only ask when the cost of being wrong is high (AEC-Q100, FDA, regulatory locking). |
 | **"Read the datasheet at <URL> to compare"** / leave spec values blank for the user to fill in | Fetch the datasheet, extract the spec, cite URL + timestamp. Only mark `not verified` after mirrors have been tried. |
+| **Default to L1 (HTML-only) when user wants a comparison table** — leaves the table 30–60% empty because product pages don't expose electrical characteristics | When the user's query is a **comparison** (`X vs Y`, `对比 X 和 Y`, `compare X to Y`, `X 和 Y 哪个好`, etc.), after Tier 3d HTML-first completes, **auto-escalate to L2 = Tier 3c PDF fallback (curl + pdfplumber)** for any cell still showing `not in HTML` or `[~]`. Pattern-match these keywords; don't ask the user. Cost: 30-90 s per chip per PDF (parallel-fetch PDFs, then extract p.1). Outcome: ≥ 95% cell coverage instead of 41%. |
 
 ## When to Trigger
 
@@ -148,6 +149,8 @@ For each existing solution, `solution.md` contains:
 **Principle**: the skill exists to deliver verified chip specs to the user. **The skill fetches datasheets itself; the user should never have to read a 300-page PDF just to compare two BLE SoCs.** If a parameter is in any catalogue or datasheet, the skill extracts it; the user gets a filled-in comparison table, not a list of links.
 
 **Stop-early rule** (per the Search Priority section above): walk the 4 tiers in order — Tier 1 specs → Tier 2 local datasheet → Tier 3 product_families + vendor URL → Tier 4 external mirrors — and **stop at the first tier that yields a usable answer for the parameter you need**. Don't continue fetching to "double-check" or to gather extra data the user didn't ask for.
+
+**Comparison-query trigger (v0.6.0 — added 2026-07-05)**: when the user's query contains **comparison keywords** (`对比`, `vs`, `compare`, `X 和 Y`, `X or Y`, `difference between`, `which is better`, `spec table`, `对比表`), do not stop at Tier 3d HTML-first alone. After Tier 3d completes, **auto-escalate to Tier 3c PDF (curl + pdfplumber) for any parameter still marked `not in HTML`** so the comparison table reaches ≥ 95% cell coverage. Pattern-match the keywords in the user message; do not ask. Cost: 30-90 s per chip per PDF, run in parallel. Outcome: comparison tables become decision-ready, not 41% empty. See the matching Anti-pattern ("Default to L1 when user wants a comparison table") and the Step 6 escalation offer below.
 
 **v0.4.3 — Out-of-catalog escalation** (added 2026-07-02; see Anti-patterns "Drop out-of-catalog parts" for the rule, and `scripts/test_outofcatalog.py` fixture 19 for the end-to-end regression on a 17-row BLE SoC comparison).
 
@@ -252,6 +255,12 @@ End with a **Source** line: link to each vendor's `product_families.md` entry an
 
 **When fewer than 3 candidates are appropriate** (e.g. the BOM function has only 1–2 viable parts in the catalogue), present what exists and say so explicitly — do NOT pad with weak candidates to hit 3.
 
+**L2 escalation offer (v0.6.0 — added 2026-07-05)**: after rendering the comparison table, count how many cells show `not in HTML`, `[~]`, or `[D-HTML @ tier 2]` only (no datasheet-page anchor). If **≥ 30 % of the cells are non-anchor**, append this closing offer before the next turn:
+
+> **L2 (full PDF) available**: 跑 `L2 fetch` 后我会把 4 颗芯片的 PDF datasheet 走 Tier 3c Tier B 抓取，预计 30-60 秒补齐剩余 spec。回复 "L2 fetch" 即可。
+
+If the user does not request L2, the table stays at the current coverage. If they do, run `tavily_extract` / `web_search` / `curl + pdfplumber` per the v0.4.4-patch2 3c Tier A/B/C ladder, **one fetch per chip, parallel across chips**, then re-render the table. This is what makes the difference between a 41 %-empty table (HTML-only) and a ≥ 95 %-complete table (PDF-augmented).
+
 ### Step 7: External / Out-of-Scope Lookup (after Tier 4 exhausted)
 
 If Step 2 finds **no matching application-solution** AND Step 4's four-tier search (Tier 1 specs → Tier 2 local datasheet → Tier 3 product_families + vendor URL → Tier 4 external mirrors) has not surfaced a usable candidate, widen the search. Use the **cheapest source that can actually answer the question** — don't burn a web search when a vendor page will do.
@@ -280,3 +289,36 @@ Before sending any result, run this checklist:
 - [ ] Did I provide top 3 candidates with a comparison table (Step 6), not a single pick?
 - [ ] If I went outside this skill's files (Step 7), did I cite the URL?
 - [ ] For each parameter, did I follow the **4-tier Search Priority** and stop at the first tier that fully answers it? Citation should show which tier (Tier 1 specs YAML verified + recent / Tier 2 local datasheet / Tier 3 product_families.md + vendor URL fetch / Tier 4 external mirror).
+## Contributing — specs/ is Open
+
+Starting from **v0.6.0** (2026-07-05), the previously-private `specs/` directory is released alongside the skill. This means:
+
+- Anyone using this skill can read what specs are already verified for each chip
+- Anyone can submit PRs to add new chips, fix stale fields, or upgrade `link_status` from `placeholder_*` → `verified_*`
+- All contributions are cross-checked against vendor datasheets before merge (see `scripts/verify_yaml_vs_datasheet.py`)
+
+### Why we open-sourced specs/
+
+The `specs/` YAML files contain field-level extraction of official vendor datasheets. Sharing them lets the community:
+
+1. **Avoid duplication** — no need to re-parse a 400-page Renesas PDF for every consumer
+2. **Crowd-verify** — a second pair of eyes catches transcription errors that one person would miss
+3. **Accelerate new chip coverage** — a contributor who knows TI MSPM0 can add it in a focused PR without re-architecting the skill
+
+### What counts as a valid spec entry
+
+- Every numeric field must trace to a **specific page** in a **vendor official** PDF (or vendor URL). The `link_status` field documents this provenance.
+- `verified_*` = the field was extracted from the linked PDF and matches the spec table.
+- `placeholder_*` = the field is a TODO. **Never use a placeholder as if it were verified.**
+
+### Contribution workflow
+
+```bash
+# 1. Pick a missing or stale chip in specs/<Vendor>/<Part>.yaml
+# 2. Pull its datasheet into embedded_dev/<vendor>/datasheet/<Part>_datasheet.pdf
+# 3. Run scripts/update_specs.py to extract fields
+# 4. Run scripts/verify_yaml_vs_datasheet.py to check match rate
+# 5. Open a PR — review focus is provenance, not opinions
+```
+
+Welcome — and thanks for making this skill more reliable, one chip at a time. ✨
