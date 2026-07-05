@@ -5,7 +5,7 @@ comparison, and reference design matching across multiple semiconductor vendors.
 
 ## What this skill does
 
-When you ask a question about embedded systems — chips, MCUs, BLE / WiFi / LoRa
+When you ask a question about embedded systems — chips, MCUs, BLE/WiFi/LoRa
 SoCs, sensor selection, BOM design, reference designs — this skill:
 
 1. Checks its catalogue of chip indexes (`references/semiconductor-vendor/<Vendor>/product_families.md`)
@@ -30,13 +30,13 @@ Skill: (returns top 3 BLE SoC candidates + comparison table + trade-offs,
 
 ## When this skill triggers
 
-Triggers for: BLE SoC selection, WiFi+BLE combo, BOM design, vendor
+✅ Triggers for: BLE SoC selection, WiFi+BLE combo, BOM design, vendor
 comparison, datasheet parameter verification, application-solution matching,
-matter / thread / lorawan design, industrial IoT, smart home / ring / glasses /
-lock design, motor control BOM.
+matter/thread/lorawan design, industrial IoT, smart home/ring/glasses/lock
+design, motor control BOM.
 
-Does NOT trigger for: pure software / learning ("how to write Hello World
-in Rust"), web / cloud / database questions, math without hardware context.
+❌ Does NOT trigger for: pure software/learning ("how to write Hello World
+in Rust"), web/cloud/database questions, math without hardware context.
 
 See [`SKILL.md`](SKILL.md) for full trigger conditions and workflow.
 
@@ -46,64 +46,36 @@ See [`SKILL.md`](SKILL.md) for full trigger conditions and workflow.
 clawhub install embedded-solution
 ```
 
+Public release mode (no `specs/`). Maintainers / dev clones with
+`git submodule update --init` get the full private spec database — see
+[`SKILL.md`](SKILL.md) → *Privacy / Publishing Notes* > *Maintainer note*.
+
 ## Repository layout
 
 ```
 embedded-solution/
-├── SKILL.md                                       # Skill contract — read this first
+├── SKILL.md                                       # Read this first — the whole skill
 ├── README.md                                      # This file
-├── VERIFICATION.md                                # Trust hierarchy and per-vendor upgrade paths
-├── requirements.txt                               # Python dependencies for development
-├── scripts/                                       # Helper scripts (10 entries)
-│   ├── build_application_index.py                # Regenerate references/application-solution/INDEX.md
-│   ├── check_no_specs_dead_refs.sh               # CI guard for stale user-facing specs/ path refs
-│   ├── clean_markdown.py                         # Markdown normalisation
-│   ├── firecrawl_extract.py                      # Firecrawl SDK wrapper (keyed + keyless)
-│   ├── test_outofcatalog.py                      # Regression test fixture 19 — out-of-catalog escalation rule
-│   ├── update_specs.py                           # Maintainer: extract specs from datasheet PDFs
-│   ├── upgrade_yaml_html_source.py               # Maintainer: re-verify yaml from HTML sources
-│   ├── upgrade_yaml_to_verified.py                # Maintainer: bulk-verify yaml fields
-│   └── verify_yaml_vs_datasheet.py               # Maintainer: cross-check yaml vs datasheet PDF
-└── references/
-    ├── semiconductor-vendor/                     # Per-vendor chip indexes (11 vendors)
-    │   ├── Renesas/product_families.md
-    │   ├── Renesas/system-solutions/
-    │   ├── Nordic/, NXP/, ST/, TI/, Espressif/,
-    │   ├── GigaDevice/, SGMicro/, Silergy/,
-    │   ├── SiliconLabs/, WCH/
-    │   └── ...
-    ├── application-solution/                     # Multi-vendor application BOM templates (11 topics)
-    │   ├── INDEX.md                              # Auto-generated catalog
-    │   ├── smart-ring/solution.md
-    │   ├── smart-glasses/solution.md
-    │   ├── robot-gripper/solution.md
-    │   ├── smart-watch/solution.md
-    │   ├── fitness-tracker/solution.md
-    │   ├── home-security-panel/solution.md
-    │   ├── industrial-gateway/solution.md
-    │   ├── motor-control-blcd/solution.md
-    │   ├── power-mgmt-pmic-bom/solution.md
-    │   ├── usb-bridge-adapter/solution.md
-    │   └── wifi-smart-plug/solution.md
-    └── testing/                                  # Regression test fixtures (18 fixtures + 19 expected outputs)
-        ├── README.md
-        ├── evaluation-rubric.md
-        ├── fixtures/                             # 18 user prompt templates
-        └── expected-outputs/                     # Structural skeletons per fixture
+├── scripts/
+│   ├── update_specs.py                            # Extract specs from datasheets (maintainer)
+│   ├── build_application_index.py                 # Regenerate INDEX.md (maintainer)
+│   └── check_no_specs_dead_refs.sh                # CI guard: scan for user-facing specs/ path refs
+├── references/
+│   ├── semiconductor-vendor/<Vendor>/             # Per-vendor chip indexes (8 vendors)
+│   │   ├── product_families.md                    # The canonical "what does this vendor offer" file
+│   │   └── system-solutions/                      # Single-vendor reference designs
+│   ├── application-solution/                      # Multi-vendor application BOM templates
+│   │   ├── INDEX.md                               # Auto-generated catalog
+│   │   ├── smart-ring/solution.md
+│   │   ├── smart-glasses/solution.md
+│   │   └── robot-gripper/solution.md
+│   └── testing/                                   # Regression test fixtures
+│       ├── README.md
+│       ├── evaluation-rubric.md
+│       ├── fixtures/                              # 7 user prompt templates
+│       └── expected-outputs/                      # Structural skeletons per fixture
+└── specs/                                         # PRIVATE — git submodule, not shipped
 ```
-
-## Install modes
-
-This skill supports four install modes transparently:
-
-| Install state | Behaviour |
-|---|---|
-| **Public release** (this repo, public) | No `specs/`, no `embedded_dev/` PDFs. Skill uses Tier 3 (product page fetch) and Tier 4 (mirror) for all parameters. |
-| **Public release + datasheets plug-in** | Tier 2 local PDFs available. Faster, offline-capable. |
-| **Public release + specs plug-in** | Tier 1 YAML field cache available. Fewest network calls. |
-| **Dev clone** (`git submodule update --init`) | All plug-ins loaded. Includes the private `specs/` submodule with curated YAML data. (See `SKILL.md` Search Priority section for tier details.) |
-
-Each tier is conditionally enabled based on what the host environment has installed. The skill transparently falls back when a tier is unavailable — see `SKILL.md` Search Priority section.
 
 ## For maintainers
 
@@ -119,7 +91,7 @@ Each tier is conditionally enabled based on what the host environment has instal
 1. Create `references/application-solution/<topic>/solution.md`.
 2. Follow the structure of `smart-ring/solution.md` (Overview / BOM Candidates
    / Reference Designs / Selection Matrix / Verification Status / Caveat).
-3. Run `python3 scripts/build_application_index.py` to refresh `INDEX.md`.
+3. Run `python3 scripts/build_application_index.py` to refresh INDEX.md.
 
 ### Adding a regression test fixture
 
@@ -129,17 +101,9 @@ Each tier is conditionally enabled based on what the host environment has instal
    structural skeleton (table headers, citation anchors, anti-patterns).
 3. Optionally extend `evaluation-rubric.md` if a new scoring axis is needed.
 
-### Cutting a new public release
-
-1. Bump `version:` in `SKILL.md`
-2. Run `python3 scripts/build_application_index.py` to refresh `references/application-solution/INDEX.md`
-3. `git tag -a v<version> -m "<release notes>"`
-4. `gh release create v<version> --target main` (use `--notes-file` to attach RELEASE notes from publish repo)
-5. `clawhub publish .` (one dot — repo root is the skill root)
-
 ## Testing
 
-18 regression fixtures cover the main `SKILL.md` workflow paths. Run manual
+7 regression fixtures cover the main SKILL.md workflow paths. Run manual
 evaluation by feeding a fixture's "Input prompt" to the skill and scoring
 the response against `evaluation-rubric.md` (5 axes × 5 pts = 25 max,
 pass = 20+).
@@ -148,21 +112,53 @@ pass = 20+).
 # Run the dead-reference guard
 bash scripts/check_no_specs_dead_refs.sh
 
-# Run the out-of-catalog escalation regression
-python3 scripts/test_outofcatalog.py
-
-# (Optional) Run all 18 fixtures against the skill and score manually
+# (Optional) Run all 7 fixtures against the skill and score manually
 # See references/testing/README.md for the script template
 ```
 
+
+## Contributing — specs/ is open
+
+Starting from **v0.6.0** (2026-07-05), the previously-private `specs/` directory is released alongside the skill. The YAML files contain field-level extraction of official vendor datasheets, plus provenance (`link_status`) for every entry.
+
+### What this unlocks
+
+- **Transparent provenance** — every numeric spec the skill cites can be traced to its `link_status` field and the underlying datasheet page.
+- **Community contribution** — PRs adding new chips, fixing stale fields, or upgrading `link_status` from `placeholder_*` → `verified_*` are welcome.
+- **Cross-verification** — a second pair of eyes catches transcription errors that one person would miss.
+
+### What counts as a valid entry
+
+- Every numeric field must trace to a **specific page** in a **vendor official** PDF (or vendor URL). The `link_status` field documents this provenance.
+  - `verified_*` — the field was extracted from the linked PDF and matches the spec table.
+  - `placeholder_*` — the field is a TODO. **Never treat a placeholder as verified.**
+- Per-field tier citations are encouraged: see `SKILL.md` Step 4 for the 4-tier Search Priority.
+
+### Contribution workflow
+
+```bash
+# 1. Pick a missing or stale chip in specs/<Vendor>/<Part>.yaml
+# 2. Pull its datasheet into embedded_dev/<vendor>/datasheet/<Part>_datasheet.pdf
+# 3. Run scripts/update_specs.py to extract fields
+# 4. Run scripts/verify_yaml_vs_datasheet.py to check match rate
+# 5. Open a PR — review focus is provenance, not opinions
+```
+
+### Currently covered vendors
+
+See `specs/<Vendor>/` for the current chip roster. Major vendors with verified entries include Espressif, GigaDevice, NXP, Nordic, Renesas, SGMicro, ST, Silergy, SiliconLabs, TI, WCH. Missing a vendor? Open an issue first to discuss the YAML schema for that vendor's fields.
+
+Welcome — and thanks for making this skill more reliable, one chip at a time. ✨
+
+
 ## License
 
-MIT. See `SKILL.md` header for full license.
+MIT. See SKILL.md header for full license.
 
 ## Contributing
 
 Issues and PRs welcome. For major changes (new vendor, new application domain,
-new top-level `SKILL.md` section), please open an issue first to discuss.
+new top-level SKILL.md section), please open an issue first to discuss.
 
 ---
 

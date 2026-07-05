@@ -17,7 +17,6 @@ metadata:
   hermes:
     category: hardware
     tags: [embedded, semiconductor, datasheet, BOM, MCU, SoC, sensor, power, BLE, WiFi, motor-control, smart-glasses, smart-ring, robot-gripper, no-fabrication]
-    related_skills: [renesas-search]
 ---
 
 # Embedded Solution Skill
@@ -255,11 +254,6 @@ End with a **Source** line: link to each vendor's `product_families.md` entry an
 
 **When fewer than 3 candidates are appropriate** (e.g. the BOM function has only 1–2 viable parts in the catalogue), present what exists and say so explicitly — do NOT pad with weak candidates to hit 3.
 
-**L2 escalation offer (v0.6.0 — added 2026-07-05)**: after rendering the comparison table, count how many cells show `not in HTML`, `[~]`, or `[D-HTML @ tier 2]` only (no datasheet-page anchor). If **≥ 30 % of the cells are non-anchor**, append this closing offer before the next turn:
-
-> **L2 (full PDF) available**: 跑 `L2 fetch` 后我会把 4 颗芯片的 PDF datasheet 走 Tier 3c Tier B 抓取，预计 30-60 秒补齐剩余 spec。回复 "L2 fetch" 即可。
-
-If the user does not request L2, the table stays at the current coverage. If they do, run `tavily_extract` / `web_search` / `curl + pdfplumber` per the v0.4.4-patch2 3c Tier A/B/C ladder, **one fetch per chip, parallel across chips**, then re-render the table. This is what makes the difference between a 41 %-empty table (HTML-only) and a ≥ 95 %-complete table (PDF-augmented).
 
 ### Step 7: External / Out-of-Scope Lookup (after Tier 4 exhausted)
 
@@ -289,36 +283,3 @@ Before sending any result, run this checklist:
 - [ ] Did I provide top 3 candidates with a comparison table (Step 6), not a single pick?
 - [ ] If I went outside this skill's files (Step 7), did I cite the URL?
 - [ ] For each parameter, did I follow the **4-tier Search Priority** and stop at the first tier that fully answers it? Citation should show which tier (Tier 1 specs YAML verified + recent / Tier 2 local datasheet / Tier 3 product_families.md + vendor URL fetch / Tier 4 external mirror).
-## Contributing — specs/ is Open
-
-Starting from **v0.6.0** (2026-07-05), the previously-private `specs/` directory is released alongside the skill. This means:
-
-- Anyone using this skill can read what specs are already verified for each chip
-- Anyone can submit PRs to add new chips, fix stale fields, or upgrade `link_status` from `placeholder_*` → `verified_*`
-- All contributions are cross-checked against vendor datasheets before merge (see `scripts/verify_yaml_vs_datasheet.py`)
-
-### Why we open-sourced specs/
-
-The `specs/` YAML files contain field-level extraction of official vendor datasheets. Sharing them lets the community:
-
-1. **Avoid duplication** — no need to re-parse a 400-page Renesas PDF for every consumer
-2. **Crowd-verify** — a second pair of eyes catches transcription errors that one person would miss
-3. **Accelerate new chip coverage** — a contributor who knows TI MSPM0 can add it in a focused PR without re-architecting the skill
-
-### What counts as a valid spec entry
-
-- Every numeric field must trace to a **specific page** in a **vendor official** PDF (or vendor URL). The `link_status` field documents this provenance.
-- `verified_*` = the field was extracted from the linked PDF and matches the spec table.
-- `placeholder_*` = the field is a TODO. **Never use a placeholder as if it were verified.**
-
-### Contribution workflow
-
-```bash
-# 1. Pick a missing or stale chip in specs/<Vendor>/<Part>.yaml
-# 2. Pull its datasheet into embedded_dev/<vendor>/datasheet/<Part>_datasheet.pdf
-# 3. Run scripts/update_specs.py to extract fields
-# 4. Run scripts/verify_yaml_vs_datasheet.py to check match rate
-# 5. Open a PR — review focus is provenance, not opinions
-```
-
-Welcome — and thanks for making this skill more reliable, one chip at a time. ✨
