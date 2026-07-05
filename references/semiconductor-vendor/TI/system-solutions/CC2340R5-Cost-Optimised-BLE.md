@@ -19,7 +19,7 @@ disposable medical sensors, beacons, and appliance connectivity.
 ## Reference Design
 
 - **Product page:** https://www.ti.com/tool/LP-EM-CC2340R5 (verification pending)
-- **Datasheet:** _not yet downloaded — see `embedded_dev/ti/datasheet/` (no PDFs downloaded yet for this vendor)_
+- **Datasheet:** _not yet downloaded — fetch from vendor product page (see Main Page column above)_
 - **YAML:** `specs/TI/CC2340R5.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/TI/product_families.md` and the datasheet)*
 
 ## BOM Candidates (TI only)

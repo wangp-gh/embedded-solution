@@ -1,0 +1,4235 @@
+RA6T2 Group
+
+R01DS0400EJ0150
+Rev.1.50
+
+Renesas Microcontrollers
+
+Rev.1.50
+Jul 2, 2025
+
+Rev.1.50
+Jul 2, 2025
+
+High-performance 240 MHz Arm Cortex-M33 core, up to 512 KB code flash memory with background operation, 16 KB
+Data flash memory, and 64 KB SRAM with ECC. Integrated A/D converter with channel-dedicated sample-and-hold circuit
+for simultaneous sampling and single-end/pseudo-differential input supportive amplifier. Integrated General PWM Timer with
+200 MHz operation and high resolution. Integrated Secure Cryptographic Engine with cryptography accelerators and key
+management support in concert with Arm TrustZone for integrated secure element functionality.
+
+Features
+
+■ Arm® Cortex®-M33 Core
+● Armv8-M architecture with the main extension
+
+● Armv8-M architecture with the main extension
+● Maximum operating frequency: 240 MHz
+
+● Armv8-M architecture with the main extension
+● Maximum operating frequency: 240 MHz
+● Arm Memory Protection Unit (Arm MPU)
+
+● Maximum operating frequency: 240 MHz
+● Arm Memory Protection Unit (Arm MPU)
+– Protected Memory System Architecture (PMSAv8)
+– Secure MPU (MPU_S): 8 regions
+
+– Protected Memory System Architecture (PMSAv8)
+– Secure MPU (MPU_S): 8 regions
+– Non-secure MPU (MPU_NS): 8 regions
+
+– Secure MPU (MPU_S): 8 regions
+– Non-secure MPU (MPU_NS): 8 regions
+● SysTick timer
+
+– Non-secure MPU (MPU_NS): 8 regions
+● SysTick timer
+– Embeds two SysTick timers: Secure and Non-secure instance
+
+● SysTick timer
+– Embeds two SysTick timers: Secure and Non-secure instance
+– Driven by LOCO or system clock
+● CoreSight™ ETM-M33
+
+● CoreSight™ ETM-M33
+
+■ Memory
+● Up to 512-KB code flash memory
+
+● Up to 512-KB code flash memory
+● 16-KB data flash memory (125,000 program/erase (P/E) cycles)
+
+● Up to 512-KB code flash memory
+● 16-KB data flash memory (125,000 program/erase (P/E) cycles)
+● 64-KB SRAM
+
+● 16-KB data flash memory (125,000 program/erase (P/E) cycles)
+● 64-KB SRAM
+
+■ Connectivity
+● Serial Communications Interface (SCI) × 6
+
+● Serial Communications Interface (SCI) × 6
+– Asynchronous interfaces
+
+– Asynchronous interfaces
+– 8-bit clock synchronous interface
+– Smart card interface
+
+– Smart card interface
+– Simple IIC
+
+– Smart card interface
+– Simple IIC
+– Simple SPI
+
+– Simple IIC
+– Simple SPI
+– Simple LIN
+
+– Simple SPI
+– Simple LIN
+– Manchester coding
+
+– Simple LIN
+– Manchester coding
+● I2C bus interface (IIC) × 2
+
+– Manchester coding
+● I2C bus interface (IIC) × 2
+– Transfer at up to 3.2 Mbps (high speed mode)
+● Serial Peripheral Interface (SPI) × 2
+
+■ Analog
+● A/D Converter (ADC) × 2
+
+● A/D Converter (ADC) × 2
+– Up to 16-bit resolution
+– Up to 6.25 Msps
+– Channel-dedicated sample-and-hold circuit × 6
+– Programmable Gain Amplifier (PGA) × 4
+● High-Speed Analog Comparator (ACMPHS) × 4
+
+– Programmable Gain Amplifier (PGA) × 4
+● High-Speed Analog Comparator (ACMPHS) × 4
+● 12-bit D/A Converter (DAC12) × 4
+● Temperature Sensor (TSN)
+
+peripheral
+● Device lifecycle management
+
+■ Security and Encryption
+● Secure Cryptographic Engine (SCE5)
+
+● General PWM Timer 32-bit (GPT32) with High Resolution × 4
+– 156 ps resolution in 200 MHz
+● General PWM Timer 32-bit (GPT32) × 6
+
+■ System and Power Management
+● Low power modes
+
+● Event Link Controller (ELC)
+● Data Transfer Controller (DTC)
+● DMA Controller (DMAC) × 8
+
+● Low power modes
+● Event Link Controller (ELC)
+
+● General PWM Timer 32-bit (GPT32) × 6
+● Low Power Asynchronous General Purpose Timer (AGT) × 2
+
+– Symmetric algorithms: AES
+– Hash-value generation: GHASH
+– 128-bit unique ID
+
+● Low power modes
+● Event Link Controller (ELC)
+● Data Transfer Controller (DTC)
+
+● Arm® TrustZone®
+– Up to three regions for the code flash
+– Up to two regions for the data flash
+
+– Up to two regions for the data flash
+– Up to three regions for the SRAM
+– Individual secure or non-secure security attribution for each
+
+● Data Transfer Controller (DTC)
+● DMA Controller (DMAC) × 8
+● Power-on reset
+
+● Watchdog Timer (WDT)
+● Independent Watchdog Timer (IWDT)
+
+● Low Voltage Detection (LVD) with voltage settings
+● Watchdog Timer (WDT)
+● Independent Watchdog Timer (IWDT)
+
+● Key Interrupt Function (KINT)
+
+■ Data Processing Accelerator
+● Trigonometric Function Unit (TFU)
+
+● Trigonometric Function Unit (TFU)
+● IIR Filter Accelerator (IIRFA)
+
+■ Multiple Clock Sources
+● Main clock oscillator (MOSC) (8 to 24 MHz)
+
+● Main clock oscillator (MOSC) (8 to 24 MHz)
+● High-speed on-chip oscillator (HOCO) (16/18/20 MHz)
+● Middle-speed on-chip oscillator (MOCO) (8 MHz)
+
+● High-speed on-chip oscillator (HOCO) (16/18/20 MHz)
+● Middle-speed on-chip oscillator (MOCO) (8 MHz)
+● Low-speed on-chip oscillator (LOCO) (32.768 kHz)
+
+● Main clock oscillator (MOSC) (8 to 24 MHz)
+● High-speed on-chip oscillator (HOCO) (16/18/20 MHz)
+
+● Middle-speed on-chip oscillator (MOCO) (8 MHz)
+● Low-speed on-chip oscillator (LOCO) (32.768 kHz)
+● IWDT-dedicated on-chip oscillator (15 kHz)
+
+● Low-speed on-chip oscillator (LOCO) (32.768 kHz)
+● IWDT-dedicated on-chip oscillator (15 kHz)
+● Clock trim function for HOCO/MOCO/LOCO
+
+● IWDT-dedicated on-chip oscillator (15 kHz)
+● Clock trim function for HOCO/MOCO/LOCO
+●
+
+● Clock trim function for HOCO/MOCO/LOCO
+●
+● PLL/PLL2 Clock out support
+
+■ Operating Temperature and Packages
+● Ta = -40℃ to +105℃
+
+● 5-V tolerance, open drain, input pull-up, switchable driving ability
+
+– 100-pin LQFP (14 mm × 14 mm, 0.5 mm pitch)
+– 64-pin LQFP (10 mm × 10 mm, 0.5 mm pitch)
+– 48-pin LQFP (7 mm × 7 mm, 0.5 mm pitch)
+
+● Ta = -40℃ to +105℃
+– 100-pin LQFP (14 mm × 14 mm, 0.5 mm pitch)
+– 64-pin LQFP (10 mm × 10 mm, 0.5 mm pitch)
+
+– 64-pin LQFP (10 mm × 10 mm, 0.5 mm pitch)
+– 48-pin LQFP (7 mm × 7 mm, 0.5 mm pitch)
+– 64-pin QFN (8 mm × 8 mm, 0.4 mm pitch)
+
+● Ta = -40℃ to +105℃
+– 100-pin LQFP (14 mm × 14 mm, 0.5 mm pitch)
+
+– 48-pin LQFP (7 mm × 7 mm, 0.5 mm pitch)
+– 64-pin QFN (8 mm × 8 mm, 0.4 mm pitch)
+– 48-pin QFN (7 mm × 7 mm, 0.5 mm pitch)
+
+– 64-pin QFN (8 mm × 8 mm, 0.4 mm pitch)
+– 48-pin QFN (7 mm × 7 mm, 0.5 mm pitch)
+
+---
+
+1. Overview
+
+The MCU integrates multiple series of software-compatible Arm®-based 32-bit cores that share a common set of Renesas
+peripherals to facilitate design scalability and efficient platform-based product development.
+
+The MCU in this series incorporates a high-performance Arm Cortex®-M33 core running up to 240 MHz with the following
+features:
+
+● Up to 512 KB code flash memory
+
+● 64 KB SRAM
+
+● General PWM Timer (GPT) - Enhanced High Resolution
+
+● Analog peripherals
+
+● Security and safety features
+
+1.1 Function Outline
+
+| Feature | Functional description |
+| --- | --- |
+| Arm Cortex-M33 core | Maximum operating frequency: up to 240 MHzArm Cortex-M33 core:
+- Armv8-M architecture with security extension
+- Revision: r0p4-00rel0Arm Memory Protection Unit (Arm MPU)
+- Protected Memory System Architecture(PMSAv8)
+- Secure MPU(MPU_S):8 regions
+- Non-secure MPU(MPU_NS):8 regionsSysTick timer
+- Embeds two SysTick timers:Secure and Non-secure instance
+- Driven by SysTick timer clock(SYSTICCLK) or system clock(ICLK)CoreSight™ETM-M33 |
+
+Table 1.3 System (1 of 2)
+
+| Feature | Functional description |
+| --- | --- |
+| Operating modes | Two operating modes:
+ Single-chip mode
+ SCI boot mode |
+| Resets | The MCU provides 14 resets. |
+| Low Voltage Detection(LVD) | The Low Voltage Detection(LVD) module monitors the voltage level input to the VCC pin.The detection level can be selected by register settings.The LVD module consists of three separate voltage level detectors(LVD0,LVD1,LVD2).LVD0,LVD1,and LVD2 measure the voltage level input to the VCC pin.LVD registers allow your application to configure detection of VCC changes at various voltage thresholds. |
+| Clocks | Main clock oscillator(MOSC)
+High-speed on-chip oscillator(HOCO)
+Middle-speed on-chip oscillator(MOCO)
+Low-speed on-chip oscillator(LOCO)
+IWDT-dedicated on-chip oscillator
+PLL/PLL2
+Clock out support |
+
+---
+
+Table 1.3 System (2 of 2)
+
+| Feature | Functional description |
+| --- | --- |
+| Clock Frequency Accuracy Measurement Circuit(CAC) | The Clock Frequency Accuracy Measurement Circuit(CAC) counts pulses of the clock to be measured(measurement target clock) within the time generated by the clock selected as the measurement reference(measurement reference clock),and determines the accuracy depending on whether the number of pulses is within the allowable range.When measurement is complete or the number of pulses within the time generated by the measurement reference clock is not within the allowable range,an interrupt request is generated. |
+| Interrupt Controller Unit(ICU) | The Interrupt Controller Unit(ICU) controls which event signals are linked to the Nested Vector Interrupt Controller(NVIC),the DMA Controller(DMAC),and the Data Transfer Controller(DTC)modules.The ICU also controls non-maskable interrupts. |
+| Key Interrupt Function(KINT) | The key interrupt function(KINT) generates the key interrupt by detecting rising or falling edge on the key interrupt input pins. |
+| Low power modes | Power consumption can be reduced in multiple ways,including setting clock dividers,stopping modules,selecting power control mode in normal operation,and transitioning to low power modes. |
+| Register write protection | The register write protection function protects important registers from being overwritten due to software errors.The registers to be protected are set with the Protect Register(PRCR). |
+| Memory Protection Unit(MPU) | The MCU has one Memory Protection Unit(MPU). |
+
+Table 1.4 Event link
+
+| Feature | Functional description |
+| --- | --- |
+| Event Link Controller(ELC) | The Event Link Controller(ELC) uses the event requests generated by various peripheral modules as source signals to connect them to different modules, allowing direct link between the modules without CPU intervention. |
+
+| Feature | Functional description |
+| --- | --- |
+| Data Transfer Controller(DTC) | A Data Transfer Controller(DTC) module is provided for transferring data when activated by an interrupt request. |
+| DMA Controller(DMAC) | The MCU includes an 8-channel direct memory access controller(DMAC) that can transfer data without intervention from the CPU. When a DMA transfer request is generated,the DMAC transfers data stored at the transfer source address to the transfer destination address. |
+
+| Feature | Functional description |
+| --- | --- |
+| General PWM Timer(GPT) | The General PWM Timer(GPT)是a32-bit timer withGPT32×10 channels。PWM waveforms can be generated by controlling the up-counter, down-counter,或the up-和down-counter。在 addition，PWM waveforms can be generated for controlling brushless DC motors。The GPT can also be used as a general-purpose timer。 |
+| PWM Delay Generation Circuit(PDG) | The PWM Delay Generation circuit(PDG)has4channels delay circuits that can connect to the GPT.The PDG can control the rise and fall edge timing with which the PWM output for the GPT320 through the GPT323。 |
+| Port Output Enable for GPT(POEG) | The POEG issues requests to stop output from output pins of the general PWM timer(GPT)。Select the method of detection for stopping the output from the list below。 |
+| Low power Asynchronous General Purpose Timer(AGT) | The low power Asynchronous General Purpose Timer(AGT)是a32-bit timer that can be used for pulse output,external pulse width or period measurement,and counting external events.This timer consists of a reload register and a down counter.The reload register and the down counter are allocated to the same address,and can be accessed with the AGT register。 |
+| Watchdog Timer(WDT) | The Watchdog Timer(WDT)是a14-bit down counter that can be used to reset the MCU when the counter underflows because the system has run out of control and is unable to refresh the WDT.In addition,the WDT can be used to generate a non-maskable interrupt or an underflow interrupt。 |
+
+---
+
+Table 1.6 Timers (2 of 2)
+
+| Feature | Functional description |
+| --- | --- |
+| Independent Watchdog Timer (IWDT) | The Independent Watchdog Timer(IWDT) consists of a 14-bit down counter that must be serviced periodically to prevent counter underflow.The IWDT provides functionality to reset the MCU or to generate a non-maskable interrupt or an underflow interrupt.Because the timer operates with an independent, dedicated clock source,it is particularly useful in returning the MCU to a known state as a fail-safe mechanism when the system runs out of control.The IWDT can be triggered automatically by a reset,underflow,refresh error,or a refresh of the count value in the registers. |
+
+Table 1.7 Communication interfaces
+
+| Feature | Functional description |
+| --- | --- |
+| Serial Communications Interface(SCI) | The Serial Communications Interface(SCI)×6 channels have asynchronous and synchronous serial interfaces:
+·Asynchronous interfaces(UART and Asynchronous Communications Interface Adapter(ACIA))
+·8-bit clock synchronous interface
+·Simple IIC(master-only)
+·Simple SPI
+·Simple LIN
+·Smart card interface
+·Manchester interface
+The smart card interface complies with theISO/IEC7816-3standard for electronic signals and transmission protocol.SCIin(n=0to4,9)has FIFO buffers to enable continuous and full-duplex communication,and the data transfer speed can be configured independently using an on-chip baud rate generator. |
+| I2C bus interface(IIC) | TheI2Cbusinterface(IIC)has2channels.TheIICmodule conformwithandprovidea subset oftheNXPI2C(Inter-IntegratedCircuit)businterfacefunctions. |
+| Serial Peripheral Interface(SPI) | TheSerialPeripheralInterface(SPI)has2channels.TheSPIprovideshigh-speedfull-duplexsynchronousserialcommunicationswithmultipleprocessorsandperipheraldevices. |
+| CANwithFlexibleData-rate(CANFD) | TheCANwithFlexibleData-rate(CANFD)modulecanhandleclassicalCANframesandCAN-FDframescompliedwithISO11898-1standard.
+Themodulesupports4transmitbuffersand32receivebuffer. |
+
+Table 1.8 Analog
+
+| Feature | Functional description |
+| --- | --- |
+| A/D Converter(ADC) | The A/D Converter(ADC) has two units of noise-shaping SAR-type A/D converter.Hybrid architecture that combines the features of the successive approximation register-type and the delta-sigma modulation-type.Up to 16-bit resolutionUp to 6.25 MspsUp to 29 analog input channelsSupport single-ended input or differential inputsBuilt-in channel-dedicated sample-and-hold circuit(SH)Built-in Programmable Gain Amplifier(PGA)Temperature sensor output and internal reference voltage,and D/A converters output are selectable for conversion. |
+| 12-bit D/A Converter(DAC12) | A 12-bit D/A converter(DAC12)是 provided. |
+| High-Speed Analog Comparator(ACMPHS) | The High-Speed Analog Comparator(ACMPHS) compares a test voltage with a reference voltage and provides a digital output based on the conversion result.Both the test and reference voltages can be provided to the comparator from internal sources such as the DAC12output and an internal PGA output,and an external source.Such flexibility is useful in applications that require go/no-go comparisons to be performed between analog signals without necessarily requiringA/D conversion. |
+| Temperature Sensor(TSN) | The on-chip Temperature Sensor(TSN) determines and monitors the die temperature for reliable operation of the device.The sensor outputs a voltage directly proportional to the die temperature,and the relationship between the die temperature and the output voltage is fairly linear.The output voltage is provided to the ADC for conversionand can be further used by the end application. |
+
+---
+
+Table 1.9 Data processing
+
+| Feature | Functional description |
+| --- | --- |
+| Cyclic Redundancy Check(CRC) | The Cyclic Redundancy Check(CRC) generates CRC codes to detect errors in the data.The bit order of CRC calculation results can be switched for LSB-first or MSB-first communication.Additionally, various CRC-generation polynomials are available.The snoop function allows to monitor the access to specific addresses.This function is useful in applications that require CRC code to be generated automatically in certain events,such as monitoring writes to the serial transmit buffer and reads from the serial receive buffer. |
+| Data Operation Circuit(DOC) | The data operation circuit(DOC)是 used to compare，add,and subtract 16or32-bit data.An interrupt can be generated when the following conditions apply.
+● When the 16or32-bit compared values match the detection condition
+● When the result of 16or32-bit data addition overflows
+● When the result of 16or32-bit data subtraction underflows |
+
+Table 1.10 Data processing accelerator
+
+| Feature | Functional description |
+| --- | --- |
+| Trigonometric function unit(TFU) | Calculation of sine, cosine, arctangent,and hypot_k($\sqrt{x^{2}+y^{2}}/k$)
+A sine and cosine can be simultaneously calculated.
+An arctangent and hypot_k can be simultaneously calculated. |
+| IIR Filter Accelerator(IIRFA) | 16 channels of biquad IIR filter
+Cascaded biquad filter(max.32 stages)
+Operations using single-precision floating-point numbers |
+
+(\sqrt{x^{2}+y^{2}}/k)
+
+---
+
+1.2 Block Diagram
+
+Figure 1.1 shows a block diagram of the MCU superset. Some individual devices within the group have a subset of the
+features.
+
+Figure 1.1 Block diagram
+
+Figure 1.2 shows the product part number information, including memory capacity and package type. Table 1.11 shows a
+list of products.
+
+---
+
+Note: Check the order screen for each product on the Renesas website for valid symbols after the #.
+
+Figure 1.2 Part numbering scheme
+
+| Product part number | Package code | Code |
+| --- | --- | --- |
+| R7FA6T2AD3CFP | PLQP0100KB-B | 512 |
+| R7FA6T2AD3CFM | PLQP0064KB-C |  |
+| R7FA6T2AD3CFL | PLQP0048KB-B |  |
+| R7FA6T2AD3CNB | PWQN0064LB-A |  |
+| R7FA6T2AD3CNE | PWQN0048KC-A |  |
+| R7FA6T2AB3CFP | PLQP0100KB-B | 256 |
+| R7FA6T2AB3CFM | PLQP0064KB-C |  |
+| R7FA6T2AB3CFL | PLQP0048KB-B |  |
+| R7FA6T2AB3CNB | PWQN0064LB-A |  |
+| R7FA6T2AB3CNE | PWQN0048KC-A |  |
+
+| flash | Data flash | SRAM | CAN-FD | Operating temperature |
+| --- | --- | --- | --- | --- |
+| KB | 16 KB | 64 KB | Not support | -40 to +105℃ |
+| KB |  |  |  |  |
+
+-40\,\mathrm{t o}+105^{\circ}\mathrm{C}
+
+---
+
+Table 1.11 Product list (2 of 2)
+
+| Product part number | Package code | Code |
+| --- | --- | --- |
+| R7FA6T2BD3CFP | PLQP0100KB-B | 512 |
+| R7FA6T2BD3CFM | PLQP0064KB-C |  |
+| R7FA6T2BD3CFL | PLQP0048KB-B |  |
+| R7FA6T2BD3CNB | PWQN0064LB-A |  |
+| R7FA6T2BD3CNE | PWQN0048KC-A |  |
+| R7FA6T2BB3CFP | PLQP0100KB-B | 256 |
+| R7FA6T2BB3CFM | PLQP0064KB-C |  |
+| R7FA6T2BB3CFL | PLQP0048KB-B |  |
+| R7FA6T2BB3CNB | PWQN0064LB-A |  |
+| R7FA6T2BB3CNE | PWQN0048KC-A |  |
+
+| flash | Data flash | SRAM | CAN-FD | Operating temperature |
+| --- | --- | --- | --- | --- |
+| KB | 16 KB | 64 KB | Support | -40 to +105℃ |
+| KB |  |  |  |  |
+
+-40\,\mathrm{t o}+105^{\circ}\mathrm{C}
+
+---
+
+1.4 Function Comparison
+
+Table 1.12 Function Comparison
+
+| Parts number |  | R7FA6T2XX3CFP | R7FA6T2XX3CFM | R7FA6T2XX3CFL | R7FA6T2XX3CNB | R7FA6T2XX3CNE |
+| --- | --- | --- | --- | --- | --- | --- |
+| Pin count |  | 100 | 64 | 48 | 64 | 48 |
+| Package |  | LQFP |  |  | QFN |  |
+| Code flash memory |  | 512 KB, 256KB |  |  |  |  |
+| Data flash memory |  | 16 KB |  |  |  |  |
+| SRAM | ECC | 64 KB |  |  |  |  |
+| Standby SRAM | Parity | 1 KB |  |  |  |  |
+| DMA | DTC | Yes |  |  |  |  |
+| DMAC | 8 |  |  |  |  |  |
+| System | CPU clock | 240 MHz(max.) |  |  |  |  |
+| CPU clock sources | MOSC, HOCO, MOCO, LOCO, PLL |  |  |  |  |  |
+| CAC | Yes |  |  |  |  |  |
+| WDT/IWDT | Yes |  |  |  |  |  |
+| KINT | Yes |  |  |  |  |  |
+| Communication | SCI | 6 |  |  |  |  |
+| IIC | $2^{2}$ |  |  |  |  |  |
+| SPI | 2 |  |  |  |  |  |
+| CANFD | 1 |  |  |  |  |  |
+| Timers | GPT$^{-1}$ | 10 |  |  |  |  |
+| AGT$^{-1}$ | 2 |  |  |  |  |  |
+| Analog | ADC | Unit 0:12+9$^{3}$, Unit 1:8+9$^{3}$ | Unit 0:10, Unit 1:8 | Unit 0:6, Unit 1:4 | Unit 0:10, Unit 1:8 | Unit 0:6, Unit 1:4 |
+| DAC12 | 4 |  | 2 | 4 | 2 |  |
+| ACMPHS | 4 |  | 3 | 4 | 3 |  |
+| PGA | 4 |  | 3 | 4 | 3 |  |
+| TSN | Yes |  |  |  |  |  |
+| Data processing | CRC | Yes |  |  |  |  |
+| DOC | Yes |  |  |  |  |  |
+| Event control | ELC | Yes |  |  |  |  |
+| Accelerator | TFU | Yes |  |  |  |  |
+| IIRFA | Yes |  |  |  |  |  |
+| Security |  | SCE5, TrustZone and Lifecycle management |  |  |  |  |
+
+2^{*2}
+
+0!12+9^{*3}
+
+\mathsf{U n i t}:8+9^{*3}
+
+Note: The product name differs depending on the memory size and whether CAN-FD is supported. See section 1.3. Part Numbering.
+Note 1. Available pins depend on the Pin count. For details, see section 1.7. Pin Lists.
+
+Note 1. Available pins depend on the Pin count. For details, see section 1.7. Pin Lists.
+Note 2. Fm+ and Hs-mode are only available for IIC channel IIC0.
+Note 3. Shared terminal for UNIT0 and UNIT1.
+
+Note 2. Fm+ and Hs-mode are only available for IIC channel IIC0.
+Note 3. Shared terminal for UNIT0 and UNIT1.
+
+---
+
+1.5 Pin Functions
+
+Table 1.13 Pin functions (1 of 3)
+
+| Function | Signal | I/O | Description |
+| --- | --- | --- | --- |
+| Power supply | VCC | Input | Power supply pin. Connect it to the system power supply. Connect this pin to VSS by a 0.1-μF capacitor. The capacitor should be placed close to the pin. |
+| VCL | I/O | Connect this pin to the VSS pin by the smoothing capacitor used to stabilize the internal power supply. Place the capacitor close to the pin. |  |
+| VSS | Input | Ground pin. Connect it to the system power supply(0V). |  |
+| Clock | EXTAL | Input | Pins for a crystal resonator.An external clock signal can be input through the EXTAL pin. |
+| XTAL | Output |  |  |
+| CLKOUT | Output | Clock output pin |  |
+| Operating mode control | MD | Input | Pin for setting the operating mode.The signal level on this pin must not be changed during operation mode transition on release from the reset state. |
+| System control | RES | Input | Reset signal input pin.The MCU enters the reset state when this signal goes low. |
+| CAC | CACREF | Input | Measurement reference clock input pin |
+| On-chip emulator | TMS | Input | On-chip emulator or boundary scan pins |
+| TDI | Input |  |  |
+| TCK | Input |  |  |
+| TDO | Output |  |  |
+| TCLK | Output | Output clock for synchronization with the trace data |  |
+| TDATA0 to TDATA3 | Output | Trace data output |  |
+| SWO | Output | Serial wire trace output pin |  |
+| SWDIO | I/O | Serial wire debug data input/output pin |  |
+| Interrupt | NMI | Input | Non-maskable interrupt request pin |
+| IRQn | Input | Maskable interrupt request pins |  |
+| IRQn-DS | Input | Maskable interrupt request pins that can also be used in Deep Software Standby mode |  |
+| KINT | KR00 to KR07 | Input | Key interrupt input pins |
+
+---
+
+Table 1.13 Pin functions (2 of 3)
+
+| Function | Signal | I/O | Description |
+| --- | --- | --- | --- |
+| GPT | GTETRGA, GTETRGB, GTETRGC, GTETRD | Input | External trigger input pins |
+| GTIOcnA, GTIOCnB | I/O | Input capture, output compare, or PWM output pins |  |
+| GTADSM0, GTADSM1 | Output | A/D conversion start request monitoring output pins |  |
+| GTCPPO0 to GTCPPO4, GTCPPO7 | Output | Toggle output synchronized with PWM period |  |
+| GTIU | Input | Hall sensor input pin U |  |
+| GTIV | Input | Hall sensor input pin V |  |
+| GTIW | Input | Hall sensor input pin W |  |
+| GTOUUP | Output | 3-phase PWM output for BLDC motor control (positive U phase) |  |
+| GTOULO | Output | 3-phase PWM output for BLDC motor control (negative U phase) |  |
+| GTOVUP | Output | 3-phase PWM output for BLDC motor control (positive V phase) |  |
+| GTOVLO | Output | 3-phase PWM output for BLDC motor control (negative V phase) |  |
+| GTOWUP | Output | 3-phase PWM output for BLDC motor control (positive W phase) |  |
+| GTOWLO | Output | 3-phase PWM output for BLDC motor control (negative W phase) |  |
+| AGT | AGTEEn | Input | External event input enable signals |
+| AGTIOn | I/O | External event input and pulse output pins |  |
+| AGTOn | Output | Pulse output pins |  |
+| AGTOAn | Output | Output compare match A output pins |  |
+| AGTOBn | Output | Output compare match B output pins |  |
+| SCI | SCKn | I/O | Input/output pins for the clock (clock synchronous mode) |
+| RXDn | Input | Input pins for received data (asynchronous mode/clock synchronous mode) |  |
+| TXDn | Output | Output pins for transmitted data (asynchronous mode/clock synchronous mode) |  |
+| CTSn_RTSn | I/O | Input/output pins for controlling the start of transmission and reception (asynchronous mode/clock synchronous mode), active-low. |  |
+| CTSn | Input | Input for the start of transmission. |  |
+| DEn | Output | Output pins for Driver Enable signal |  |
+| SCLn | I/O | Input/output pins for the IIC clock (simple IIC mode) |  |
+| SDAn | I/O | Input/output pins for the IIC data (simple IIC mode) |  |
+| SCKn | I/O | Input/output pins for the clock (simple SPI mode) |  |
+| MISOn | I/O | Input/output pins for slave transmission of data (simple SPI mode) |  |
+| MOSIn | I/O | Input/output pins for master transmission of data (simple SPI mode) |  |
+| SSn | Input | Chip-select input pins (simple SPI mode), active-low |  |
+| IIC | SCLn | I/O | Input/output pins for the clock |
+| SDAn | I/O | Input/output pins for data |  |
+| SPI | RSPCKA, RSPCKB | I/O | Clock input/output pin |
+| MOSIA, MOSIB | I/O | Input or output pins for data output from the master |  |
+| MISOA, MISOB | I/O | Input or output pins for data output from the slave |  |
+| SSLA0, SSLB0 | I/O | Input or output pin for slave selection |  |
+| SSLA1 to SSLA3, SSLB1 to SSLB3 | Output | Output pins for slave selection |  |
+
+---
+
+Table 1.13 Pin functions (3 of 3)
+
+| Function | Signal | I/O | Description |
+| --- | --- | --- | --- |
+| CANFD | CRX0 | Input | Receive data |
+| CTX0 | Output | Transmit data |  |
+| Analog power supply | AVCC0 | Input | Analog voltage supply pin. This is used as the analog power supply for the respective modules. Supply this pin with the same voltage as the VCC pin. |
+| AVSS0 | Input | Analog ground pin. This is used as the analog ground for the respective modules. Supply this pin with the same voltage as the VSS pin. |  |
+| VREFH0 | Input | Analog reference voltage supply pin for the ADC. Connect this pin to AVCC0 when not using the ADC. |  |
+| VREFL0 | Input | Analog reference ground pin for the ADC. Connect this pin to AVSS0 when not using the ADC. |  |
+| ADC | AN000 to AN028 | Input | Input pins for the analog signals to be processed by the A/D converter. |
+| PGAIN0 to PGAIN3 | Input | Pseudo-differential input pins of programmable gain amplifier (Signal source side) |  |
+| PGAVSS0 to PGAVSS3 | Input | Pseudo-differential input pins of programmable gain amplifier (reference ground side) |  |
+| PGAOUT0 to PGAOUT3 | Output | Monitor output pins of programmable gain amplifier |  |
+| ADTRGm | Input | Input pins for the external trigger signals that start the A/D conversion, active-low. |  |
+| DAC12 | DAn | Output | Output pins for the analog signals processed by the D/A converter. |
+| ACMPHS | VCOUT | Output | Comparator output pin(OR output of all units) |
+| CMPOUTm | Output | Comparator output pin(m:unit number) |  |
+| CMPOUT012 | Output | Comparator output pin(OR output of units 0,1 and 2) |  |
+| IVREF0, IVREF1 | Input | Reference voltage input pins for comparator |  |
+| IVCMPm0, IVCMPm2, IVCMPm3 | Input | Analog voltage input pins for comparator(m:unit number) |  |
+| I/O ports | P201,P212,P213,PA08 to PA15, PB03 to PB10, PB12 to PB15, PC06 to PC12,PC14,PC15,PD00 to PD15,PE00 to PE06,PE08 to PE15 | I/O | General-purpose input/output pins |
+| P000,P001,P002,PA00 to PA07,PB00 to PB02,PC00 to PC05,PC13 | Input | General-purpose input pins |  |
+
+---
+
+1.6 Pin Assignments
+
+Figure 1.3 Pin assignment for LQFP 100-pin
+
+---
+
+Figure 1.5 Pin assignment for QFN 64-pin
+
+Figure 1.6 Pin assignment for LQFP 48-pin
+
+---
+
+Figure 1.7 Pin assignment for QFN 48-pin
+
+---
+
+1.7 Pin Lists
+
+Table 1.14 Pin list (1 of 3)
+
+| LOP100 | LOP4E4, ORN4, LORN4, LORN4, CAC | Power. System, Clock Debug, I/O ports | Ex. Interrupt/KINT | SCCIIC/SPI/CANFD | GPT/AGT | ADC/DAC12/ACMPHS |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | — | CLKOUT/TCLK | PE02 | — | SCX0_BDE0/SCK3_ADE3/RSPCK8_C | GTOWL/GTIOC78/GTIOC8A | CMPOUT0 |
+| 2 | — | TDATA0 | PE03 | — | RXD0_BMIS0_B/SCL0CTS3_ASSLB0_C | GTOWL0/GTIOC8A/GTIOC9A | CMPOUT1 |
+| 3 | — | TDATA1 | PE04 | — | TXD0_BMIS00_B/SDA0CTS3_RTS3/SS3_ADE3/SSLB0_C | GTOUIP/GTIOC8B/GTIOC78 | CMPOUT2 |
+| 4 | — | TDATA2 | PE05 | — | CTS8_RTS0/SSO0_BDE0/IRXD3_ARMS03_A SCL3/MISO0_C | GTUWUP/GTIOC9A/GTIOC8B/GTCPPO2 | CMPOUT3 |
+| 5 | — | TDATA3 | PE06 | — | CTS8_BITXD3_ARMS03_A SDA3/MOS18_C | GTOWUP/GTIOC9B/GTCPPO3 | — |
+| 6 | 1 | VCC | — | — | — | — | — |
+| 7 | 2 | 2 | PC13 | NMI | — | GTETRDG | — |
+| 8 | 3 | 3 | PC14 | IRQ14 | — | GTETRGA/GTIOC3A/GTCPPO0/GTAOSM0/GTCPPO4/AGTIO0 | ADTRG0/CMPOUT012 |
+| 9 | 4 | 4 | PC15 | IRQ15 | — | GTETRGB/GTIOC3B/GTCPPO01/GTAOSM1/GTCPPO7/AGTIO01 | ADTRG1/CMPOUT3 |
+| 10 | — | VSS | — | — | — | — | — |
+| 11 | — | VCC | — | — | — | — | — |
+| 12 | 5 | EXTAL | P212 | — | — | — | — |
+| 13 | 6 | XTAL | P213 | IRQ0 | — | — | — |
+| 14 | 7 | RES | — | — | — | — | — |
+| 15 | 8 | — | PC00 | IRQ11-DS | — | — | AN012/PGAOUT01/VCMP00 |
+| 16 | 9 | — | PC01 | IRQ12-DS | — | — | AN013/PGAOUT11/VCMP10 |
+| 17 | 10 | — | PC02 | IRQ13-DS | — | — | AN14/PGAOUT21/VCMP20 |
+| 18 | 11 | — | PC03 | IRQ14-DS | — | — | AN15/PGAOUT31/VCMP30 |
+| 19 | — | — | P000 | IRQ0 | — | — | AN16/IPREF0 |
+| 20 | 12 | 8 | VREFL0 | — | — | — | — |
+| 21 | 13 | 9 | VREFH0 | — | — | — | — |
+| 22 | — | — | P001 | IRQ2 | — | — | AN017/IPREF1 |
+| 23 | 14 | 10 | — | PA00 | IRQ0-DS | — | AN008/PGAAND1/VCMP02/VCMP03 |
+| 24 | 15 | 11 | — | PA01 | IRQ1 | — | AN001/PGAVS0 |
+| 25 | 16 | 12 | — | PA02 | IRQ2 | — | AN003/PGAAND1/VCMP12/VCMP13 |
+| 26 | 17 | 13 | — | PA03 | IRQ3 | — | AN003/PGAVS1 |
+
+---
+
+Table 1.14 Pin list (2 of 3)
+
+| LOFPP10 | LOFPP4, LOFPP6, LOFPP8, LOFPP10, LOFPP12 | Power, System, Clock, Debug, CAC | UO ports | Ex. Interrupt/KINT | SCIiIC/SPI/CANFD | GPT/AGT | AADC/DAC12/ACMPHS |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 42 | — | — | PE11 | KR03 | SSLA0_C | GT04UP/GT01C0B/GT01C5A/GT01C6A | AN023 |  |
+| 43 | — | — | PE12 | KR04 | RSPCK4_A | GT04LO/GT01C0A/GT01C6A/GT01C9A | AN024 |  |
+| 44 | — | — | PE13 | KR05 | MISOA_A | GT04UP/GT01C1B/GT04C4B/GT04C7B | AN025 |  |
+| 45 | — | — | PE14 | KR06 | MOSIA_C | GT04W/GT01C0A/GT01C5B/GT01C8B | AN026 |  |
+| 46 | — | — | PE15 | KR07 | RXD4_AMISO4_ASCL4 | GT04UP/GT01C0B/GT01C6B/GT01C9B | AN027 |  |
+| 47 | — | CACREF/VCOUT | PB10 | IRQ16-DS | TXD4_AMISO4_ASSL4/CTS3_B | GT1UGTERG4/GTETGR6/BGTCPPO4/GTCPPO7 | AN028 |  |
+| 48 | 30 | 22 | VCL | — | — | — | — | — |
+| 49 | 31 | 23 | VSS | — | — | — | — | — |
+| 50 | 32 | 24 | VCC | — | — | — | — | — |
+| 51 | 33 | 25 | PB12 | IRQ2 | SCK4_ADE4/RXD3_BMISO3_BSCL3/SSLB0_A/CRX0 | GTETRGA/GT01C0A/GT10C4A | ADTRG0 |  |
+| 52 | 34 | 26 | PB13 | IRQ3 | CTS4_AATXD3_BMISO3_BSDA3/RSPCKB_ACTX0 | GT04LO/GT01C0B/GT10C7A/GT10C9A | ADTRG0 |  |
+| 53 | 35 | 27 | PB14 | IRQ4 | CTS4_RT54AS4_ADE4/SCK3_BDE3/SDA0_C/MISOB_A | GT04LO/GT01C0A/GT10C9A/GT10C4B | ADTRG0 |  |
+| 54 | 36 | 28 | PB15 | IRQ5 | RXD4_AMISO4_ASCL4/CTS3_RTS53S3_BDE3/SCL0_CMOSIB_A | GT04LO/GT01C0B/GT10C9A/GT10C4B | ADTRG0 |  |
+| 55 | — | — | PD08 | KR00 | CTS2_BITDX1_AAMOS1_A/SDA1/SSLB1_A | GTOC2A | ADTRG0 |  |
+| 56 | — | — | PD09 | KR01 | CTS2_RTS2S2_SBCE2/RXD1_AAMOS1_A/SSLB2_A | GTOC2B | ADTRG0 |  |
+| 57 | — | — | PD10 | KR02 | SKC2_CDE2/SCK1_ADE1/SSLB3_A | GTETRGC/GT10C3A | ADTRG0 |  |
+| 58 | — | — | PD11 | KR03 | RXD2_CMISO2_CSCLI2/CTS1_A | GTOC3B | ADTRG0 |  |
+| 59 | — | — | PD12 | IRQ12/KR04 | TXD2_CMISO2_CSDA2/CTS1_RTS1/S1_ADE1/SSL_D | GTOC4A | ADTRG0 |  |
+| 60 | — | — | PD13 | IRQ13/KR05 | SKC4_CDE4/SCK3_CDE9/ASD1_D | GTOC4B | ADTRG0 |  |
+| 61 | — | — | PD14 | IRQ14/KR06 | RXD4_CMISO4_CSCLI4/RXD9_CMISO9_CSCLI9_SCL0_F | GTOC5A | ADTRG0 |  |
+| 62 | — | — | PD15 | IRQ15/KR07 | TXD4_CMISO4_CSCLI4/TXD9_CMISO9_CSCLI9_SCL0_F | GTOC5B | ADTRG0 |  |
+
+---
+
+Table 1.14 Pin list (3 of 3)
+
+| LQFPI100 | LOFP44, OFR6A | LOFP96, OFR84 | Power, System, Clock, Debug, CAC | I/O ports | Ex. Interrupt/KINT | SCI/IIC/SPI/CANFD | GPT/AGT | ADC/DAC12/ACMPHS |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 79 | 52 | — | — | PC11 | IRQ7-DS/KR06 | RXD1_B/MISO1_B/SCL1/SDA0_B/MISOB_B | AGTOA1 | CMPOUT1 |  |
+| 80 | 53 | — | — | PC12 | IRQ8-DS/KR07 | TXD4_B/MISO14_B/SDA4/SCK1_B/DE1/MOSIB_B | AGTOB1 | CMPOUT2 |  |
+| 81 | — | — | — | PD00 | KR00 | CTS2_A/RXD3_C/MISO3_C/SCL3/SSLB0_B/CRX0 | GTADSM0/GTCPPO4 | — |  |
+| 82 | — | — | — | PD01 | KR01 | CTS2_RTS2/SS2_A/DE2/TXD3_C/MISO13_C/SDA3/SSLB1_B/CTX0 | GTADSM1/GTCPPO7 | — |  |
+| 83 | 54 | — | CLKOUT | PD02 | IRQ9-DS/KR02 | RXD4_B/MISO4_B/SCL4/SCK3_C/DE3 | GTCPPP0/GTCPPO2/AGTEE1 | CMPOUT3 |  |
+| 84 | — | — | — | PD03 | KR03 | SCK4_B/DE4/CTS9_A/SSLB2_B | GTCPPO0 | CMPOUT0 |  |
+| 85 | — | — | — | PD04 | KR04 | CTS4_RTS4/SS4_B/DE4/CTS9_RTS9/SS9_A/DE9/SSLB3_B | GTCPPO1 | CMPOUT1 |  |
+| 86 | — | — | — | PD05 | KR05 | TXD9_A/MISO9_A/SDA9/SDA1_B/SSLA3_A | GTADSM0/GTCPPO3 | — |  |
+| 87 | — | — | — | PD06 | KR06 | RXD9_A/MISO9_A/SCL9_SCL1_B/SSLA2_A | GTCPPO4 | — |  |
+| 88 | — | — | — | PD07 | KR07 | SCK9_ADE9/SSLA1_A | GTADSM1/GTCPPO7 | — |  |
+| 89 | 55 | 39 | TDO/SWO | PB03 | IRQ0/KR03 | TXD2_A/MISO12_A/SDA2/TXD9_B/MISO19_B/SDA9/RSPCKA_A/CRX0 | GTIC4A/GTCPPO1/GTCPPO3/A/GTOT1 | ADTRG1/CMPOUT3 |  |
+| 90 | 56 | 40 | CACREF/VCOUT | PB04 | IRQ13/KR04 | RXD2_A/MISO12_A/SCL2/RXD3_D/MISO3_D/SCL3/MISO4_A/CTX0 | GTIC4A/GTIC5A/GTIOC0A/A/GTOA0 | — |  |
+| 91 | 57 | 41 | — | PB05 | IRQ3-DS/KR05 | SCK2_A/DE2/TXD3_D/MISO13_D/SDA3/MOSIA_A/CRX0 | GTU1/GTIC4B/GTIOC6A/GTIOC0B/A/GTOB0 | — |  |
+| 92 | 58 | 42 | — | PB06 | IRQ4-DS/KR06 | TXD0_DMISO10_D/SDA0/CTS3_RTS3_SDS3_D/DE3/SCL0_A/CTX0 | GTIV/GTIC5A/GTIOC4B/GTIOC1A/A/GTOA1 | — |  |
+| 93 | 59 | 43 | — | PB07 | IRQ5-DS/KR07 | RXD0_DMISO10_D/SCL0/CTS1_RTS1_SDS1_D/DE1/SDA0_A | GTIN/WGTIC5B/GTETRGC/GTIOC1B/AGTOB1 | — |  |
+| 94 | 60 | 44 | MD | P201 | — | — | — | — | — |
+| 95 | 61 | 45 | — | PB08 | IRQ1-DS/KR00 | RXD4/MISO4_C/SCL4/RXD1_D/MISO1_D/SCL1/SCL1_A/CRX0 | GTOC4A/GTIC5B/GTIOC2A/A/GTI00 | — |  |
+| 96 | 62 | 46 | — | PB09 | IRQ2-DS/KR01 | TXD4/MISO4_C/SDA4/TXD1_D/MISO11_D/SDA1/SDA1_A/CTX0 | GTIC08B/GTIC5B/BAGTIO1 | — |  |
+
+Note: Several pin names have the added suffix of _A, _B, _C, _D, _E and _F. The suffix can be ignored when assigning functionality.
+
+---
+
+2. Electrical Characteristics
+
+Unless otherwise specified, minimum and maximum values are guaranteed by either design simulation, characterization
+results or test in production.
+
+Supported peripheral functions and pins differ from one product name to another.
+
+Unless otherwise specified, the electrical characteristics of the MCU are defined under the following conditions:
+
+V C C=A V C C O=2.7t O3{.6V}
+
+2.7\,\ {\mathbb V{}{\ }\!{\leq}},\{{\mathbb{}}V R E{\mathrm{}H0}{\leq}}\,{{\mathsf{A}V}{\ }}{\ C}{{\mathrm{C}0{}}}
+
+\mathbb{V}S S=\mathbb{A}V S S\ underset=mathbb{V}E E F\ \underset{}\ \underset{}{=00}\,\mathbb{V}
+
+● Ta = Topr
+
+\mathrm{T_{a}=T_{o p r}}
+
+Figure 2.1 shows the timing conditions.
+
+V_{O H}=V C C\times0.7,V_{O l}=V C C\times0.3
+
+Figure 2.1 Input or output timing measurement conditions
+
+V_{H}=V C C\times0.7V,V__{{1}}=V C C\times0.3
+
+The recommended measurement conditions for the timing specification of each peripheral provided are for the best
+peripheral operation. Make sure to adjust the driving abilities of each pin to meet your conditions.
+
+| Parameter | Symbol | Value | Unit |
+| --- | --- | --- | --- |
+| Power supply voltage | VCC | -0.3 to +4.0 | V |
+| Input voltage(except for5V-tolerantports$ ^{*1}$) | $ V_{in}$ | -0.3toVCC+0.3 | V |
+| Input voltage(5V-tolerantports$ ^{*1}$) | $ V_{in}$ | -0.3toVCC+4.0(max.5.8) | V |
+| Reference power supply voltage | VREFH0 | -0.3toVCC+0.3 | V |
+| Analog power supply voltage | AVCC0$ ^{*2}$ | -0.3to+4.0 | V |
+| Analog input voltage(exceptforPA00toPA05, PB02,P002) | $ V_{AN}$ | -0.3toAVCC0+0.3 | V |
+| Analog input voltage(PA00toPA05, PB02,P002)whenPGA differential input is disabled | $ V_{AN}$ | -0.3toAVCC0+0.3 | V |
+| Analog input voltage(PA00, PA02, PA04, PB02)whenPGA differential input is enabled | $ V_{AN}$ | -1.3toAVCC0+0.3 | V |
+
+Table 2.1 Absolute maximum ratings (1 of 2)
+
+2.1 Absolute Maximum Ratings
+
+\mathrm{V n}
+
+\mathsf{A V C C0^{\star2}}
+
+---
+
+Table 2.1 Absolute maximum ratings (2 of 2)
+
+| Parameter | Symbol | Value | Unit |
+| --- | --- | --- | --- |
+| Analog input voltage(PA01, PA03, PA05,P002)whenPGA differential input is enabled | VAN | -0.8 to AVCC0+0.3 | V |
+| Operating temperature$ ^{*3} $ $ ^{*4}$ | Topr | -40to+105 | ℃ |
+| Storage temperature | Tstg | -55to+125 | ℃ |
+
+\mathbf{V}_{\mathsf{A N}}
+
+\mathsf\{I{}}{__{mathsf{o p r}}}
+
+{\mathsf T}_{\mathsf{s t g}}
+
+^{\circ}\mathbf{C}
+
+Note 1. Ports PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07, PE00, and PE01 are 5 V tolerant.
+Note 2. Connect AVCC0 to VCC.
+
+Note 1. Ports PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07, PE00, and PE01 are 5 V tolerant.
+Note 2. Connect AVCC0 to VCC.
+Note 3. See section 2.2.1. Tj/Ta Definition.
+
+Note 3. See section 2.2.1. Tj/Ta Definition.
+Note 4. Contact a Renesas Electronics sales office for information on derating operation when Ta = +85°C to +105°C. Derating is the
+
+Note 3. See section 2.2.1. Tj/Ta Definition.
+Note 4. Contact a Renesas Electronics sales office for information on derating operation when Ta = +85°C to +105°C. Derating is the
+systematic reduction of load for improved reliability.
+
+T a=+85^{\circ}C+0+105^{\circ}C
+
+Caution: Permanent damage to the MCU might result if absolute maximum ratings are exceeded.
+
+Table 2.2 Recommended operating conditions
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| --- | --- | --- | --- | --- | --- |
+| Power supply voltages | VCC | 2.7 | — | 3.6 | V |
+| VSS | — | 0 | — | V |  |
+| Analog power supply voltages | AVCC0*1 | — | VCC | — | V |
+| AVSS0 | — | 0 | — | V |  |
+
+Note 1. Connect AVCC0 to VCC. When the A/D converter and the D/A converter are not in use, do not leave the AVCC0, VREFH0, AVSS0,
+and VREFL0 pins open. Connect the AVCC0 and VREFH0 pins to VCC, and the AVSS0 and VREFL0 pins to VSS, respectively.
+
+2.2 DC Characteristics
+
+2.2.1 Tj/Ta Definition
+
+Table 2.3 DC characteristics
+
+| Parameter | Symbol | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- |
+| Permissible junction temperature | Tj | — | 125 | ℃ | High-speed modeLow-speed mode |
+
+\top_{\mathbf{j}}
+
+^{\circ}\mathbb{C}
+
+Note: Make sure that Tj = Ta + θja × total power consumption (W), where total power consumption = (VCC - VOH) × ΣIOH + VOL × ΣIOL +
+ICCmax × VCC.
+
+D H O H=N(N C C\cdot1O H)\times2H O H+N o_{2}X\times2H O l+
+
+---
+
+2.2.2 I/O VIH, VIL
+
+V_{\ H},V_{\ 1}
+
+Table 2.4 I/O VIH, VIL
+
+1/0\,\mathsf{v}_{\mathsf{I H}},\mathsf{v}_{\mathsf{I L}}
+
+| Parameter |  |  |  |
+| --- | --- | --- | --- |
+| Input voltage (except for Schmitt trigger input pins) | Peripheral function pin | EXTAL (external clock input RSPCK) |  |
+| IIC(SMBus) $ ^{*}1 $ |  |  |  |
+| IIC(SMBus) $ ^{*}2 $ |  |  |  |
+| Schmitt trigger input voltage | Peripheral function pin | IIC(Except for SMBus) $ ^{*}1 $ |  |
+| IIC(Except for SMBus) $ ^{*}2 $ |  |  |  |
+| 5V-tolerant ports $ ^{*}3 $ $ ^{*}7 $ |  |  |  |
+| Other input pins $ ^{*}4 $ |  |  |  |
+| Ports | 5V-tolerant ports $ ^{*}5 $ $ ^{*}7 $ |  |  |
+| Other input pins $ ^{*}6 $ |  |  |  |
+
+|  | Symbol | Min | Typ | Max | Unit |
+| --- | --- | --- | --- | --- | --- |
+| (I), SPI (except | $V_{IH}$ | $VCC\times0.8$ | — | — | V |
+| $V_{IL}$ | — | — | VCC\times0.2 |  |  |
+|  | $V_{IH}$ | $2.1$ | — | — |  |
+| $V_{IL}$ | — | — | 0.8 |  |  |
+| $V_{IH}$ | $2.1$ | — | VCC+3.6(max5.8) |  |  |
+|  | $V_{IL}$ | — | — | 0.8 |  |
+| $V_{IH}$ | $VCC\times0.7$ | — | — |  |  |
+| $V_{IL}$ | — | — | VCC\times0.3 |  |  |
+| $\Delta V_{T}$ | $VCC\times0.05$ | — | — |  |  |
+|  | $V_{IH}$ | $VCC\times0.7$ | — | VCC+3.6(max5.8) |  |
+| $V_{IL}$ | — | — | VCC\times0.3 |  |  |
+| $\Delta V_{T}$ | $VCC\times0.05$ | — | — |  |  |
+| $V_{IH}$ | $VCC\times0.8$ | — | VCC+3.6(max5.8) |  |  |
+|  | $V_{IL}$ | — | — | VCC\times0.2 |  |
+| $\Delta V_{T}$ | $VCC\times0.05$ | — | — |  |  |
+| $V_{IH}$ | $VCC\times0.8$ | — | — |  |  |
+| $V_{IL}$ | — | — | VCC\times0.2 |  |  |
+| $\Delta V_{T}$ | $VCC\times0.05$ | — | — |  |  |
+| $V_{IH}$ | $VCC\times0.8$ | — | — |  |  |
+|  | $V_{IL}$ | — | — | VCC\times0.2 |  |
+| $\Delta V_{T}$ | $VCC\times0.05$ | — | — |  |  |
+| $V_{IH}$ | $VCC\times0.8$ | — | — |  |  |
+| $V_{IL}$ | — | — | VCC\times0.2 |  |  |
+
+T y p
+
+\mathrm{V_{1H}}
+
+\mathsf{V C C}\times0.8
+
+\mathbf{V_{1parallel}}
+
+\ {
+
+\mathsf{V_{\ H}}
+
+\ \underset(\\ {\ }\\ {\mathsf{S M B u s}})^{\star1}
+
+\ mathrm V{\bf l}
+
+\mathsf{I I C\left({mathsf{S M B u s}}\right)^{*}}^{2}
+
+\mathsf{V_{H H H}}
+
+\mathbf{V_{11}}
+
+\mathsf{V_{\ H}}
+
+\ _\\\ {\bf l}
+
+\Delta\ _\mathrm{T}
+
+\mathsf{V__{\parallel H}}
+
+\mathsf{V C C}\times0.7
+
+\mathbf{V_{1parallel}}
+
+\mathsf{V C C}\times0.05
+
+\Delta\ _\mathrm{T}
+
+\mathsf{V_{H H H}}
+
+\mathbf{V_{11}}
+
+\mathsf{V C C}\times0.05
+
+\Delta\ _\mathrm{T}
+
+\mathsf{V C C}\times0.8
+
+\mathsf{V_{\ H}}
+
+\ mathrm V{\bf l}
+
+\Delta V_{\mathrm{T}}
+
+\ {vee!{\mathsf{C C}}}\times0.05
+
+.
+
+Note 1. SCL0_C, SDA0_C, SCL0_D, SDA0_D, SCL0_E, SDA0_E, SCL0_F, SDA0_F, SCL1_C, SDA1_C, SCL1_D, SDA1_D, SCL1_E,
+SDA1_E (total 14 pins). This is the value when IIC function is selected.
+Note 2. SCL0_A, SDA0_A, SCL0_B, SDA0_B, SCL1_A, SDA1_A, SCL1_B, SDA1_B (total 8 pins). This is the value when IIC function is
+
+\mathsf{V_{\ H}}
+
+\mathsf{V C C}\times0.05
+
+\mathbf{V_{11}}
+
+\underline{{\Delta V_{\mathsf{T}}}}\mathbf{\}
+
+SDA1_E (total 14 pins). This is the value when IIC function is selected.
+Note 2. SCL0_A, SDA0_A, SCL0_B, SDA0_B, SCL1_A, SDA1_A, SCL1_B, SDA1_B (total 8 pins). This is the value when IIC function is
+selected.
+Note 3. RES and peripheral function pins associated with PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07,
+
+\mathsf{V_{\ H}}
+
+\ mathrm V{\bf l}
+
+selected.
+Note 3. RES and peripheral function pins associated with PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07,
+PE00, and PE01 (total 26 pins).
+Note 4. All input pins except for the peripheral function pins already described in the table.
+
+PE00, and PE01 (total 26 pins).
+Note 4. All input pins except for the peripheral function pins already described in the table.
+Note 5. PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07, PE00, and PE01 (total 25 pins).
+
+Note 4. All input pins except for the peripheral function pins already described in the table.
+Note 5. PA12 to PA15, PB03, PB05 to PB09, PC10 to PC12, PC14, PC15, PD00 to PD07, PE00, and PE01 (total 25 pins).
+Note 6. All input pins except for the ports already described in the table.
+Note 7. When VCC is less than 2.7 V, the input voltage of 5 V-tolerant ports should be less than 3.6 V, otherwise breakdown may occur
+
+Note 6. All input pins except for the ports already described in the table.
+Note 7. When VCC is less than 2.7 V, the input voltage of 5 V-tolerant ports should be less than 3.6 V, otherwise breakdown may occur
+because 5 V-tolerant ports are electrically controlled so as not to violate the break down voltage.
+
+---
+
+2.2.3 I/O IOH, IOL
+
+1_{0!
+
+Table 2.5 I/O IOH, IOL
+
+\ !{\ }_{0mathrm{t}}
+
+| Parameter |  |
+| --- | --- |
+| Permissible output current(average value per pin) | IIC pins |
+| Other output pins$ ^{3}$ |  |
+| Permissible output current(maxvalue per pin) | IIC pins |
+| Other output pins$ ^{3}$ |  |
+| Permissible output current(maxvalue of total of all pins) | Maximum of all output pins |
+
+|  |  | Symbol | Min | Typ | Max | Unit |
+| --- | --- | --- | --- | --- | --- | --- |
+|  | Standard mode*1 | IOL | - | - | 3.0 | mA |
+| Fast mode*1 | IOL | - | - | 6.0 | mA |  |
+| Fast mode plus*2 | IOL | - | - | 20 | mA |  |
+| High speed mode*2 | IOL | - | - | 3.0 | mA |  |
+| Low drive*4 | IOH | - | - | -2.0 | mA |  |
+| IOL | - | - | 2.0 | mA |  |  |
+| Middle drive*5 | IOH | - | - | -4.0 | mA |  |
+| IOL | - | - | 4.0 | mA |  |  |
+| High drive*6 | IOH | - | - | -10 | mA |  |
+| IOL | - | - | 10 | mA |  |  |
+| High speed high drive*7 | IOH | - | - | -10 | mA |  |
+| IOL | - | - | 10 | mA |  |  |
+| High current drive*8 | IOH | - | - | -10 | mA |  |
+| IOL | - | - | 20 | mA |  |  |
+|  | Standard mode*1 | IOL | - | - | 3.0 | mA |
+| Fast mode*1 | IOL | - | - | 6.0 | mA |  |
+| Fast mode plus*2 | IOL | - | - | 20 | mA |  |
+| High speed mode*2 | IOL | - | - | 3.0 | mA |  |
+| Low drive*4 | IOH | - | - | -2.0 | mA |  |
+| IOL | - | - | 2.0 | mA |  |  |
+| Middle drive*5 | IOH | - | - | -4.0 | mA |  |
+| IOL | - | - | 4.0 | mA |  |  |
+| High drive*6 | IOH | - | - | -16 | mA |  |
+| IOL | - | - | 16 | mA |  |  |
+| High speed high drive*7 | IOH | - | - | -16 | mA |  |
+| IOL | - | - | 16 | mA |  |  |
+| High current drive*8 | IOH | - | - | -16 | mA |  |
+| IOL | - | - | 20 | mA |  |  |
+|  |  | ΣIOH(max) | - | - | -80 | mA |
+| ΣIOL(max) | - | - | 80 | mA |  |  |
+
+Note 2. SCL0_A, SDA0_A (total 2 pins). This is the value when IIC function is selected.
+Note 3. Except for P000 to P002, PA00 to PA07, PB00 to PB02, PC00 to PC05, PC13, which are input ports.
+
+Note 1. SCL0_A, SDA0_A, SCL1_A, SDA1_A (total 4 pins). This is the value when IIC function is selected.
+Note 2. SCL0_A, SDA0_A (total 2 pins). This is the value when IIC function is selected.
+
+Note 3. Except for P000 to P002, PA00 to PA07, PB00 to PB02, PC00 to PC05, PC13, which are input ports.
+Note 4. This is the value when low driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected driving
+ability is retained in Deep Software Standby mode.
+Note 5. This is the value when middle driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected driving
+
+ability is retained in Deep Software Standby mode.
+Note 5. This is the value when middle driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected driving
+ability is retained in Deep Software Standby mode.
+Note 6. This is the value when high driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected driving
+
+Note 6. This is the value when high driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected driving
+ability is retained in Deep Software Standby mode.
+
+---
+
+Note 7. This is the value when high speed high driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The
+selected driving ability is retained in Deep Software Standby mode.
+Note 8. This is the value when high current driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected
+
+Note 8. This is the value when high current driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected
+driving ability is retained in Deep Software Standby mode.
+
+Caution: To protect the reliability of the MCU, the output current values should not exceed the values in this table.
+The average output current indicates the average value of current measured during 100 µs.
+
+Table 2.6 I/O VOH, VOL, and other characteristics
+
+V_{0H},V_{0L}
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Output voltage | IIC*1 | VOL | - | - | 0.4 | V | IOL=3.0mA |
+| VOL | - | - | 0.6 | IOL=6.0mA |  |  |  |
+| IIC*2 | VOL | - | - | 0.4 | IOL=15.0mA(BFCTL.FMPE=1) |  |  |
+| VOL | - | 0.4 | - | IOL=20.0mA(BFCTL.FMPE=1) |  |  |  |
+| VOL | - | - | 0.4 | IOL=3.0mA(BFCTL.HSME=1) |  |  |  |
+| Ports PA08 to PA11, PB12 to PB15, PC06 to PC09, PD08 to PD15, PE10 to PE153 | VOH | VCC-0.5 | - | - | IOH=-1.0mA |  |  |
+| VOL | - | - | 0.6 | IOL=20mA |  |  |  |
+| Other output pins | VOH | VCC-0.5 | - | - | IOH=-1.0mA |  |  |
+| VOL | - | - | 0.5 | IOL=1.0mA |  |  |  |
+| Input leakage current | RES | ||in| | - | - | 5.0 | μA | Vin=0V
+Vin=5.5V |
+| Port P000,P001,PA06,PA07,PB00,PB01,PC00 to PC05,PC13 | - | - | 1.0 | Vin=0V
+Vin=VCC |  |  |  |
+| Port PA00,PA02,PA04,PB02(PGA input pins) | - | - | 1.0 | Vin=0V
+Vin=VCC |  |  |  |
+| Port PA01,PA03,PA05,P002(PGAVSS pins)4 | - | - | 1.0 | Vin=0V
+Vin=VCC |  |  |  |
+| Three-state leakage current (off state) | 5 V-tolerant ports | ||TSI| | - | - | 5.0 | μA | Vin=0V
+Vin=5.5V |
+| Other ports (except for input ports) | - | - | 1.0 | Vin=0V
+Vin=VCC |  |  |  |
+| Input pull-up MOS current | Ports P0,P2,PA to PE (except for ports P002,PA00 to PA05,PB02) | Ip | -300 | - | -10 | μA | VCC=2.7 to 3.6V
+Vin=0V |
+| Pull-up current serving as the SCL current source | IIC*5 | ICS | 3 | - | 12 | mA | VCC=3.0 to 3.6V
+Vin=0.3×VCC to 0.7×V |
+| Input capacitance | All input pins | Cin | - | - | 8 | pF | Vbias=0V
+Vamp=20mV
+f=1MHz
+Ta=25℃ |
+
+v_{0H},v_{0L}
+
+\mathrm{V}_{\mathrm{O l}}
+
+\mathrm{V_{O0}}
+
+\ |\mathrm{c}^{\star1}
+
+10L=6.0m A
+
+{\sf I__O{O L}=3.0\ m m_{A}}
+
+\mathrm{V}_{0mathrm{L}}
+
+\ _{\sf{O L}}=15.0\;\sf\{m{}A}
+
+\ \mathsf I{}_{\mathsf{O L}}=20.0\ \mathsf{m A}
+
+\mathrm{V}_{\mathrm{l}\mathrm{l}}}
+
+(\mathsf{B F C T L.F M P E}=1)
+
+\mathsf{P E15^{\star3}}
+
+{\sf I__O{O L}=3.0\ m m_{A}}
+
+\mathsf{V}_{0mathsf mathsf H}
+
+1_{\mathsf{O H}}=-1.0\;\mathsf{m A}
+
+V_{\sf{i}}=0V\,
+
+\ {mathrm V c C}-
+
+\mathrm{V}_{\mathrm{l}\
+
+V_{\mathrm{i n}}=V C C
+
+|\mathrm{l i}|\
+
+\begin{array}{r}{\mathsf{V}_{\mathsf{i n}}=\mathsf{U}\mathsf{V}}\\ {\mathsf{V}_{\mathsf{i n}}=\mathsf{V}\mathsf{C}}\end{array}
+
+Note 2. SCL0_A, SDA0_A (total 2 pins). This is the value when IIC function is selected.
+Note 3. This is the value when high current driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected
+
+Note 1. SCL0_A, SDA0_A, SCL1_A, SDA1_A (total 4 pins). This is the value when IIC function is selected.
+Note 2. SCL0_A, SDA0_A (total 2 pins). This is the value when IIC function is selected.
+
+\mathsf{V}_{\mathrm{i n}}^{\mathrm{~-~~}}\mathsf{V}
+
+Voverline{v_{i n}}=0V\ {
+
+V_{\mathrm{i n}}=V V
+
+V
+
+Note 2. SCL0_A, SDA0_A (total 2 pins). This is the value when IIC function is selected.
+Note 3. This is the value when high current driving ability is selected in the Port Drive Capability bit in the PmnPFS register. The selected
+driving ability is retained in Deep Software Standby mode.
+Note 4. This is the value when the pseudo-differential input on the PGAn pin is disabled (single-ended input).
+
+11{\mathrm^{*}}
+
+\ \mathrm{l}_{\mathrm{p}}
+
+f=1M H z
+
+\ _\\\mathrm{{c}\mathrm{s}}
+
+\begin{array}{l}{\overline{{\mathsf{V C C}=2.7\,10\,3.6\,V}}}\\ {mathsf V{\ \ }{\mathsf{V}_{n}}=0\,{\mathsf{V}}}\end{array}
+
+Note 4. This is the value when the pseudo-differential input on the PGAn pin is disabled (single-ended input).
+Note 5. SCL0_A (1 pin). This is the value when IIC high speed mode is selected.
+
+\mathrm{C}_{\mathrm{i n}}
+
+\begin{array}{l}{\big|\mathsf{V C C}=3.0\;\mathsf{t o}\;3.6\;\mathsf{V}}\\ {\mathsf{V_{i n}}=0.3\times\mathsf{V C C}\;\mathsf{t o}\;0.7\times\mathsf{V C C}}\end\array}array{{\
+
+Note 4. This is the value when the pseudo-differential input on the PGAn pin is disabled (single-ended input).
+Note 5. SCL0_A (1 pin). This is the value when IIC high speed mode is selected.
+
+---
+
+2.2.5 Operating and Standby Current
+
+Table 2.7 Operating and standby current
+
+| Parameter |  |  |  |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Supply current$^{1}$ | High-speed mode | Maximum$^{2}$ |  |  |  | ICC$^{3}$ | — | — | 150 | mA | ICLK=240MHzPCLKA=120MHzPCLKB=60MHzPCLKC=60MHzPCLKD=120MHzFCLK=60MHz |
+| CoreMark$\textcircled{8}$$\textcircled{5}$$\textcircled{6}$ |  |  |  | — | 34 | — |  |  |  |  |  |
+| Normal mode | All peripheral clocks enabled, while(1)code executing from flash$^{4}$ |  |  |  | — | 44 | — |  |  |  |  |
+| All peripheral clocks disabled, while(1)code executing from flash$^{5}$$\textcircled{6}$ |  |  |  | — | 28 | — |  |  |  |  |  |
+| Sleep mode$^{5}$$\textcircled{6}$ |  |  |  | — | 13 | 78 |  |  |  |  |  |
+| Increase during BGO operation | Data flash P/E |  |  |  | — | 6 | — |  |  |  |  |
+| Code flash P/E |  |  |  | — | 8 | — |  |  |  |  |  |
+| Low-speed mode$^{5}$$\textcircled{10}$ |  |  |  | — | 5 | — |  | ICLK=1MHz |  |  |  |
+| Software Standby mode | SNZCR.RXDREQEN=1 |  |  |  | — | — | 63 |  | ICLK=32.768kHz |  |  |
+| SNZCR.RXDREQEN=0 |  |  |  | — | 5.1 | — |  | — |  |  |  |
+| Deep Software Standby mode | Power supplied to Standby SRAM |  |  |  | — | 22.7 | 60 | μA | — |  |  |
+| Power not supplied to SRAM |  |  |  | — | 11.3 | 30 | — |  |  |  |  |
+| Power-on reset circuit low power function enabled |  |  |  | — | 4.4 | 20 | — |  |  |  |  |
+| Inrush current on returning from deep software standby mode |  |  | Inrush current$^{7}$ | IRUSH | — | 160 | — | mA | — |  |  |
+| Energy of inrush current$^{7}$ | ERUSH | — | 1.0 | — | μC | — |  |  |  |  |  |
+| Analog power supply current | During A/D conversion(1unit) |  |  | Without SH | AICC | — | 4.9 | 6.0 | mA | — |  |
+| With SH | AICC | — | 8.4 | 11.5 | mA | — |  |  |  |  |  |
+| PGA(1channel) |  |  |  | — | 1 | 3 | mA | — |  |  |  |
+| ACMPHS(1unit) |  |  |  | — | 0.1 | 0.2 | mA | — |  |  |  |
+| Temperature sensor |  |  |  | — | 0.1 | 0.2 | mA | — |  |  |  |
+| During D/A conversion(1channel)$^{8}$ |  |  | Without AMP output | — | 0.2 | 0.3 | mA | — |  |  |  |
+| With AMP output | — | 0.8 | 1.3 | mA | — |  |  |  |  |  |  |
+| Waiting for A/D,D/A conversion(all units) |  |  |  | — | 3.8 | 4.5 | mA | — |  |  |  |
+| ADC,DAC12in standby modes(all units)$^{9}$ |  |  |  | — | 0.7 | 10 | μA | — |  |  |  |
+| Reference power supply current(VREFH0) | During A/D conversion(1unit) |  |  | SAR mode | AIREFH0 | — | 21 | 50 | μA | — |  |
+| Oversampling mode and Hybrid mode | — | 100 | 160 | μA | — |  |  |  |  |  |  |
+| Waiting for A/D conversion(all units) |  | — | 18 | 50 | μA | — |  |  |  |  |  |
+| ADC in standby modes(all units)$^{9}$ |  | — | 0.03 | 1 | μA | — |  |  |  |  |  |
+
+{\mathrm_{c c}}^{\ 3}
+
+Note 1. Supply current values are with all output pins unloaded and all input pull-up MOSs in the off state.
+Note 2. Measured with clocks supplied to the peripheral functions. This does not include the BGO operation.
+
+Note 1. Supply current values are with all output pins unloaded and all input pull-up MOSs in the off state.
+Note 2. Measured with clocks supplied to the peripheral functions. This does not include the BGO operation.
+Note 3. ICC depends on f (ICLK) as follows.
+
+Note 3. ICC depends on f (ICLK) as follows.
+ICC Max. = 0.34 × f + 67 (max. operation in high-speed mode)
+
+ICC Max. = 0.34 × f + 67 (max. operation in high-speed mode)
+ICC Typ. = 0.095 × f + 4.7 (normal operation in high-speed mode, all peripheral clocks disabled)
+
+M a x.=0.34\times f+67
+
+\mathsf{T y p.}=0.095\times\mathsf{f}+4.
+
+\mathsf{T y p.}=0.9\times\mathsf{f}+4.1
+
+Note 4. This does not include the BGO operation.
+Note 5. Supply of the clock signal to peripherals is stopped in this state. This does not include the BGO operation.
+Note 6. FCLK, PCLKA, PCLKB, PCLKC, and PCLKD are set to divided by 64 (3.75 MHz).
+
+---
+
+Note 7. Reference value
+Note 8. The DAC12 includes the Reference current in the analog power supply current.
+
+Note 8. The DAC12 includes the Reference current in the analog power supply current.
+Note 9. When the MCU is in Software Standby mode or the MSTPCRD.MSTPD16 (A/D Converter Module Stop bit) is in the module-stop
+
+Note 9. When the MCU is in Software Standby mode or the MSTPCRD.MSTPD16 (A/D Converter Module Stop bit) is in the module-stop
+state.
+Note 10. FCLK, PCLKA, PCLKB, PCLKC, and PCLKD are set to divided by 64 (15.6 kHz).
+
+Note 10. FCLK, PCLKA, PCLKB, PCLKC, and PCLKD are set to divided by 64 (15.6 kHz).
+
+Table 2.8 Coremark and normal mode current
+
+| Parameter |  |  | Symbol |
+| --- | --- | --- | --- |
+| Supply Current$ ^{*1}$ | Coremark |  | Icc |
+| Normal mode | All peripheral clocks disabled, cache on, while(1)code executing from flash$ ^{*2}$ |  |  |
+| All peripheral clocks disabled, cache off, while(1)code executing from flash$ ^{*2}$ |  |  |  |
+
+|  | Typ | Unit | Test conditions |
+| --- | --- | --- | --- |
+|  | 139 | μA/MHz | ICLK=240MHzPCLKA=PCLKB=PCLKC=PCLKD=FCLK=3.75MHz |
+| 139 |  |  |  |
+| 115 |  |  |  |
+
+Note 1. Supply current values are with all output pins unloaded and all input pull-up MOSs in the off state.
+Note 2. Supply of the clock signal to peripherals is stopped in this state. This does not include the BGO operation.
+
+Note 2. Supply of the clock signal to peripherals is stopped in this state. This does not include the BGO operation.
+
+2.2.6 VCC Rise and Fall Gradient and Ripple Frequency
+
+Table 2.9 VCC rise and fall gradient characteristics
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| VCC rising gradient | Voltage monitor 0 reset disabled at startup | SrVCC | 0.0084 | — | 20 | ms/V | — |
+| Voltage monitor 0 reset enabled at startup | 0.0084 | — | — | — |  |  |  |
+| SCI boot mode$^{*1}$ | 0.0084 | — | 20 | — |  |  |  |
+| VCC falling gradient |  | SfVCC | 0.0084 | — | — | ms/V | — |
+
+Note 1. At boot mode, the reset from voltage monitor 0 is disabled regardless of the value of the OFS1.LVDAS bit.
+
+Table 2.10 VCC rising and falling gradient and ripple frequency characteristics 
+The ripple voltage must meet the allowable ripple frequency fr(VCC) within the range between the VCC upper limit (3.6 V) and lower limit (2.7
+
+\mathsf{f}_{\mathsf{r}(\mathsf{V C})
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Allowable ripple frequency | fr(VCC) | — | — | 10 | kHz | Figure 2.2Vr(VCC)≤VCC×0.2 |
+| — | — | 1 | MHz | Figure 2.2Vr(VCC)≤VCC×0.08 |  |  |
+| — | — | 10 | MHz | Figure 2.2Vr(VCC)≤VCC×0.06 |  |  |
+| Allowable voltage change rising and falling gradient | dt/dVCC | 1.0 | — | — | ms/V | When VCC change exceeds VCC±10% |
+
+\mathsf{V C C}\pm10\%
+
+\mathsf{f}_{\mathsf{r}\,(\mathsf{V C C})}
+
+V_{r(\ N C C)}{\leq}V C C\times0.2
+
+V_{r(\ C C)}^{\circ}{\leq}V C C\times0.06
+
+V_{r(4V C)}\leq C C C\times0.08
+
+---
+
+Figure 2.2 Ripple waveform
+
+2.2.7 Thermal Characteristics
+
+Maximum value of junction temperature (Tj) must not exceed the value of section 2.2.1. Tj/Ta Definition.
+Tj is calculated by either of the following equations.
+
+● Tj = Ta + θja × Total power consumption
+
+● Tj = Tt + Ψjt × Total power consumption
+
+\mathrm{T j}=\mathrm{T t}+\Psi\mathrm{j t}\,\times
+
+– Tj : Junction Temperature (°C)
+
+({}circ\ \ {C})
+
+– Ta : Ambient Temperature (°C)
+
+({}^{\circ}\!\!{!}!C)
+
+– Tt : Top Center Case Temperature (°C)
+
+({}^{\circ}\!\!{!}!C)
+
+– θja : Thermal Resistance of “Junction”-to-“Ambient” (°C/W)
+
+(^{\circ}\mathrm{C/W})
+
+– Ψjt : Thermal Resistance of “Junction”-to-“Top Center Case” (°C/W)
+
+● Total power consumption = Voltage × (Leakage current + Dynamic current)
+
+● Leakage current of IO = Σ (IOL × VOL) /Voltage + Σ (|IOH| × |VCC – VOH|) /Voltage
+
+\mathrm{\Gamma~I O}=\Sigma\left(\mathbf{I}_{\mathrm{O L}}\times\mathbf{V}_{\mathrm{O L}}\right)/\mathrm{V\ l l a a g e}+\Sigma\left(|\mathbf{I}_{\mathrm{O H}}|\times|\mathbf{V C C}-\mathbf{V}_{\mathrm{O H}}|\right)
+
+● Dynamic current of IO = Σ IO (Cin + Cload) × IO switching frequency × Voltage
+
+10\!=\!\Sigma\,[0\,(\ C_{\mathrm{i n}}+C_{\vert\up d d d})\times\ [0
+
+\mathrm{C_{i n}}.
+
+– Cin: Input capacitance
+
+– Cload: Output capacitance
+
+\mathrm{C_{l o a d}}^{\bullet}
+
+| Parameter | Package | Symbol |
+| --- | --- | --- |
+| Thermal Resistance | 100-pin LQFP(PLQP0100KB-B) | θja |
+| 64-pin LQFP(PLQP0064KB-C) |  |  |
+| 64-pin QFN(PWQN0064LB-A) |  |  |
+| 48-pin LQFP(PLQP0048KB-B) |  |  |
+| 48-pin QFN(PWQN0048KC-A) |  |  |
+| 100-pin LQFP(PLQP0100KB-B) | Ψjt |  |
+| 64-pin LQFP(PLQP0064KB-C) |  |  |
+| 64-pin QFN(PWQN0064LB-A) |  |  |
+| 48-pin LQFP(PLQP0048KB-B) |  |  |
+| 48-pin QFN(PWQN0048KC-A) |  |  |
+
+| $ol | Value^{*1}$ | Unit | Test conditions |
+| --- | --- | --- | --- |
+|  | 36 | °C/W | JESD 51-2 and 51-7 compliant |
+| 39 |  |  |  |
+| 26 |  |  |  |
+| 60 |  |  |  |
+| 28 |  |  |  |
+|  | 0.65 | °C/W | JESD 51-2 and 51-7 compliant |
+| 0.69 |  |  |  |
+| 0.15 |  |  |  |
+| 2.01 |  |  |  |
+| 0.17 |  |  |  |
+
+\Psi_\\\mathrm{}{f t},
+
+Note 1. The values are reference values when the 4-layer board is used. Thermal resistance depends on the number of layers or size of the
+board. For details, refer to the JEDEC standards.
+
+64\ \ because\angle\angle F F P(P O0664B\ C)
+
+Regarding θja and Ψjt, see Table 2.11.
+
+\Psi_{\mathrm{i f}}
+
+---
+
+2.2.7.1 Calculation guide of ICCmax
+
+Table 2.12 shows the power consumption of each unit.
+
+Table 2.12 Power consumption of each unit
+
+| Dynamic current/Leakage current | MCU Domain | Category | Item | Frequency [MHz] | Current[uA/MHz] | Current$ ^{1} $ [mA] |
+| --- | --- | --- | --- | --- | --- | --- |
+| Leakage current | Analog | LDO and Leak$ ^{2}$ | Ta=75℃$ ^{3}$ | — | — | 37.8 |
+| Ta=85℃$ ^{3}$ | — | — | 46.4 |  |  |  |
+| Ta=95℃$ ^{3}$ | — | — | 56.1 |  |  |  |
+| Ta=105℃$ ^{3}$ | — | — | 68.0 |  |  |  |
+| Dynamic current | CPU | Operation with Flash and SRAM | Coremark | 240 | 105.324 | 25.28 |
+| Peripheral Unit | Timer | GPT32(10ch)$ ^{4}$ | 120 | 29.697 | 3.56 |  |
+| POEG(4 Groups)$ ^{4}$ | 60 | 1.483 | 0.09 |  |  |  |
+| AGT(2ch)$ ^{4}$ | 60 | 3.09 | 0.19 |  |  |  |
+| WDT | 60 | 0.641 | 0.04 |  |  |  |
+| IWDT | 60 | 0.225 | 0.01 |  |  |  |
+| Communication interfaces | SCI(6ch)$ ^{4}$ | 120 | 27.683 | 3.32 |  |  |
+| IIC(2ch)$ ^{4}$ | 120 | 5.304 | 0.64 |  |  |  |
+| CANFD | 60 | 5.763 | 0.35 |  |  |  |
+| SPI(2ch)$ ^{4}$ | 120 | 5.738 | 0.69 |  |  |  |
+| Data processing accelerator | TFU | 240 | 1.188 | 0.03 |  |  |
+| IIRFA | 240 | 34.252 | 8.22 |  |  |  |
+| Data processing | DOC | 120 | 0.221 | 0.03 |  |  |
+| CRC | 120 | 0.508 | 0.06 |  |  |  |
+| Analog | ADC(2 Units)$ ^{4}$ | 60 | 172.958 | 10.38 |  |  |
+| DAC12(4ch)$ ^{4}$ | 120 | 1.097 | 0.13 |  |  |  |
+| ACMPHS(4ch)$ ^{4}$ | 60 | 0.641 | 0.04 |  |  |  |
+| TSN | 60 | 0.111 | 0.01 |  |  |  |
+| Event link | ELC | 60 | 1.852 | 0.11 |  |  |
+| Security | SCE5 | 120 | 68.404 | 8.21 |  |  |
+| System | CAC | 60 | 0.63 | 0.04 |  |  |
+| KINT | 60 | 0.072 | 0.004 |  |  |  |
+| DMA | DMAC | 240 | 5.073 | 1.22 |  |  |
+| DTC | 240 | 4.18 | 1 |  |  |  |
+
+{\mathsf a}=85\ {}^{\circ}{\mathsf C}^{*3}
+
+{\mathsf a}=75\ {}^{\circ}{\mathsf C}^{*3}
+
+{mathsf T T a}=95\,^{\circ}{\mathsf{C}}^{*3}
+
+\mathsf{T a}=105\;^{\circ}\mathsf{C}^{\star3}
+
+\mathsf{C u r r e n t}^{\ ^{\ 1}}\left[\mathsf{m}\mathsf{A}\right]
+
+{tt4}\;{\sf G r o u p s}{\tt)}^{\star4}
+
+\mathsf{G P T32\left(10c\ \right)^{*}}
+
+\mathsf{A G T}(2c h)^{\ \ 4}
+
+\ C\ (66h)^{\ 4}
+
+{(2\ {sf c}){}^{*}}_{4}
+
+Note 1. The values are guaranteed by design.
+Note 2. LDO and Leak are internal voltage regulator’s current and MCU’s leakage current.
+It is selected according to the temperature of Ta.
+Note 3. Δ(Tj-Ta) = 20 °C is considered to measure the current.
+
+S mathsf P P P\ (2c h)^{\ 4}
+
+It is selected according to the temperature of Ta.
+Note 3. Δ(Tj-Ta) = 20 °C is considered to measure the current.
+Note 4. To determine the current consumption per channel or unit, divide Current [mA] by the number of channels, groups or units.
+
+\Delta(\top{\cdot}\top{\mathsf{a}})=20\,{}^{\circ}{\mathsf{C}}
+
+\ \ (2\,\mathsf{U i i t s})^{\star4}
+
+\mathsf{D A C12\,(4c h)}^{\ast4}
+
+Note 3. Δ(Tj-Ta) = 20 °C is considered to measure the current.
+Note 4. To determine the current consumption per channel or unit, divide Current [mA] by the number of channels, groups or units.
+
+Table 2.13 Outline of operation for each unit (1 of 2)
+
+{\sf C A M P H H\ (4c h)}^{\pi4}
+
+| Peripheral | Outline of operation |
+| --- | --- |
+| GPT | Operating modes is set to saw-wave PWM mode.
+GPT is operating with PCLKD. |
+
+---
+
+Table 2.13 Outline of operation for each unit (2 of 2)
+
+| Peripheral | Outline of operation |
+| --- | --- |
+| POEG | Only clear module stop bit. |
+| AGT | AGT is operating with PCLKB. |
+| WDT | WDT is operating with PCLKB. |
+| IWDT | IWDT is operating with IWDTCLK. |
+| SCI | SCI is transmitting data in clock synchronous mode. |
+| IIC | Communication format is set to I2C-bus format. IIC is transmitting data in master mode. |
+| CANFD | CANFD is transmitting and receiving data in self-test mode 1. |
+| SPI | SPI mode is set to SPI operation (4-wire method). SPI master/slave mode is set to master mode.SPI is transmitting 8-bit width data. |
+| TFU | Performs sincos operations. |
+| IIRFA | Channel 0 performs 32 stages of channel processing. |
+| DOC | DOC is operating in data addition mode. |
+| CRC | CRC is generating CRC code using 32-bit CRC32-C polynomial. |
+| ADC | Resolution is set to 12-bit accuracy.Conversion Data Operation Control B Register is set to 16 times average mode ADC is converting the analog input in continuous scan mode ADC is operating with PCLKC. |
+| DAC12 | DAC12 is outputting the conversion result while updating the value of data register. |
+| ACMPHS | Compare between IVCMP2 and IVREF0 and enable compare output. |
+| TSN | TSN is operating. |
+| ELC | Only clear module stop bit. |
+| SCE5 | SCE5 is executing built-in self test. |
+| DMAC | Bit length of transfer data is set to 32 bits.Transfer mode is set to block transfer mode.DMAC is transferring data from SRAM0 to SRAM0. |
+| DTC | Bit length of transfer data is set to 32 bits.Transfer mode is set to block transfer mode.DTC is transferring data from SRAM0 to SRAM0. |
+| CAC | Measurement target clocks is set to PCLKB.Measurement reference clocks is set to PCLKB.CAC is measuring the clock frequency accuracy. |
+| KINT | Only clear module stop bit. |
+
+● ICCmax = 80 mA
+
+● Package 100-pin LQFP: θja = 36.0 °C/W
+
+2.2.7.2 Example of Tj calculation
+
+● Ta = 100 °C
+
+\mathbf\{I{_{O H}==1\ m A,\,V_{O H}=V C C-0.5\ V,\,12\ O u t p u t s}}
+
+● IOL = 20 mA, VOL = 1.0 V, 8 Outputs
+
+\mathrm{I_{0L}\ =l1\,m A,V_{0L}\ =0.5\,V,12\,t u p u l}
+
+● Cin = 8 pF, 16 pins, Input frequency = 10 MHz
+
+---
+
+● Cload = 30 pF, 16 pins, Output frequency = 10 MHz
+
+\mathrm{C_{l o l a}}}{{{}}}=33\0\ mathrm p p F,
+
+{\begin{array}{r l}{{\mathrm{L a i i a g e~c o r r e e t~o f~D~}}}&{={\mathbb{Z}}\left(\_{0mathrm\Lambda{\times}}\left\cdot\mathbf i chi{\mathrm{\ ~}}\right)\ {{\mathrm{V O B}}}\ \ times left((\ \ mathbf C cdot mathbf V\mathbf{\mathrm{\ ~}}\ \ times mathbf i\chi{\mathrm{~}})\times\left(\\mathbf\{i{C}mathrm}{\\ {C\ }cdot\mathbf{\mathrm{~C}\ \cdot}}\mathbf)\times\right.\right.\\ \left.\left.\ \ .\ \ .\ \ .\ \ .\ \right.\right.{\mathrm{~I A B}}\ \times.left\\((\mathbf{i\ }\\times{{mathrm~C}}timestimes\mathbfmathbf00\\\right)\times\left.\left\(.\\ ,,,,,,,,,,,\
+
+\begin{array}{r l}{\mathsf{D y n a m i c\ c u u r r e n t\ o f\ O}\ &{=\mathsf{Z}\ |mathsf\mathsf O{(C_{i n}+C_{t o a l})}\times\mathsf{O O\ s w i t c h i n g\ f e e q u e n c y\times V o t a g n a s e}}\\ &{=(\mathsf{R\mathsf P F\times\mathsf{I H})}\times\mathsf{\ \ 0\ M M z}+(30\mathsf{\ p P F\times16})\times\mathsf01M M z z)\times3.5\vee V}\\ &{=21.3\mathsf{\ m M}}\end{array}
+
+{\begin{array}{r l}{{\mathsf T o o a l\,p o w e r\,c o n s u m p i i n}}&{={\mathsf V o l t a g e\ \times({\mathsf L e a k a g e\ }c c r r e t+{\mathsf D y}a r m i c,{\mathsf C u}r e e t)\,}}\\ &{=({\mathsf O0\,m a\times3.5\vee})+({\mathsf S9\ \uparrow r r A}+2{\mathsf\ .3\ m A})\times3{\mathsf5\ 5\ \mathrm V}}\\ &{={\mathsf8S26\ \sf N W\ (0.526\ \mathsf W)}}\end{array}}
+
+\begin{array}{r l}{\mathsf{T j}}&{=\mathsf{T a}+\mathsf{a}\ \ mathsf\ \mathsf{a}\times\mathsf{o t a l\ p p o w r\ c o n s u m p t i o n}}\\ &{=\mathsf{100^{\circ}C mathsf{+}36.0^{\circ}C W mathsf{\times\0mathrm526W}}}\\ &{=\mathsf{118.9^{\circ}C}}\end{array}
+
+2.3.1 Frequency
+
+Table 2.14 Operation frequency value in high-speed mode
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit |
+| --- | --- | --- | --- | --- | --- | --- |
+| Operation frequency | System clock(ICLK) | f | — | — | 240 | MHz |
+| Peripheral module clock(PCLKA) | — | — | 120 |  |  |  |
+| Peripheral module clock(PCLKB) | — | — | 60 |  |  |  |
+| Peripheral module clock(PCLKC) | _*2 | — | 60 |  |  |  |
+| Peripheral module clock(PCLKD) | — | — | 120 |  |  |  |
+| Flash interface clock(FCLK) | _*1 | — | 60 |  |  |  |
+
+Note 1. FCLK must run at a frequency of at least 4 MHz when programming or erasing the flash memory.
+Note 2. When the ADC is used, the PCLKC frequency must be at least 1 MHz.
+
+Note 1. Programming or erasing the flash memory is disabled in low-speed mode.
+Note 2. When the ADC is used, the PCLKC frequency must be set to at least 1 MHz.
+
+Table 2.15 Operation frequency value in low-speed mode
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit |
+| --- | --- | --- | --- | --- | --- | --- |
+| Operation frequency | System clock(ICLK) | f | — | — | 1 | MHz |
+| Peripheral module clock(PCLKA) | — | — | 1 |  |  |  |
+| Peripheral module clock(PCLKB) | — | — | 1 |  |  |  |
+| Peripheral module clock(PCLKC)^{2}$ | $-\textcircled{*2}$ | — | 1 |  |  |  |
+| Peripheral module clock(PCLKD) | — | — | 1 |  |  |  |
+| Flash interface clock(FCLK)^{1}$ | — | — | 1 |  |  |  |
+
+Note 2. When the ADC is used, the PCLKC frequency must be set to at least 1 MHz.
+
+---
+
+2.3.2 Clock Timing
+
+Table 2.16 Clock timing
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| EXTAL external clock input cycle time | tEXcyc | 41.66 | - | - | ns | Figure 2.3 |
+| EXTAL external clock input high pulse width | tEXH | 15.83 | - | - | ns |  |
+| EXTAL external clock input low pulse width | tEXL | 15.83 | - | - | ns |  |
+| EXTAL external clock rise time | tEXr | - | - | 5.0 | ns |  |
+| EXTAL external clock fall time | tEXf | - | - | 5.0 | ns |  |
+| Main clock oscillator frequency | fMAIN | 8 | - | 24 | MHz | - |
+| Main clock oscillation stabilization wait time (crystal)*1 | tMAINOSCWT | - | - | _*1 | ms | Figure 2.4 |
+| LOCO clock oscillation frequency | fLOCO | 29.4912 | 32.768 | 36.0448 | kHz | - |
+| LOCO clock oscillation stabilization wait time | tLOCOWT | - | - | 60.4 | μs | Figure 2.5 |
+| ILOCO clock oscillation frequency | fILOCO | 13.5 | 15 | 16.5 | kHz | - |
+| MOCO clock oscillation frequency | FMOCO | 6.8 | 8 | 9.2 | MHz | - |
+| MOCO clock oscillation stabilization wait time | tMOCOWT | - | - | 15.0 | μs | - |
+| HOCO clock oscillator oscillation frequency | fHOCO16 | 15.78 | 16 | 16.22 | MHz | -20≤Ta≤105℃ |
+| fHOCO18 | 17.75 | 18 | 18.25 |  |  |  |
+| fHOCO20 | 19.72 | 20 | 20.28 |  |  |  |
+| fHOCO16 | 15.71 | 16 | 16.29 | -40≤Ta≤-20℃ |  |  |
+| fHOCO18 | 17.68 | 18 | 18.32 |  |  |  |
+| fHOCO20 | 19.64 | 20 | 20.36 |  |  |  |
+| HOCO clock oscillation stabilization wait time*2 | tHOCOWT | - | - | 64.7 | μs | - |
+| HOCO period jitter | - | - | ±85 | - | ps | - |
+| PLL clock frequency | fPLL | 120 | - | 240 | MHz | - |
+| PLL2 clock frequency | fPLL2 | 120 | - | 240 | MHz | - |
+| PLL/PLL2 clock oscillation stabilization wait time | tPLLWT | - | - | 174.9 | μs | Figure 2.6 |
+| PLL/PLL2 period jitter | - | - | ±100 | - | ps | - |
+| PLL/PLL2 long term jitter | - | - | ±300 | - | ps | Term:1μs,10μs |
+
+\mathsf{F}_{\mathsf{M O c o}}
+
+-20\leq\ \mathsf{T a}\leq105^{\circ}\mathsf{C}
+
+\mathsf{f}_{H O c06}
+
+\mathsf{f}_{\mathsf{H O c}018}
+
+\mathsf{f}_{\mathsf{H O c}02}
+
+-40\leq\ a\leq-20^{\circ}C
+
+\mathsf{f}_{\mathsf{H O c o11}}
+
+\mathsf{f}_{\mathsf{H O c0O}8}
+
+\mathsf{f}_{\mathsf{H O c22}}
+
+\mathfrak{t}_{\tt O O C o M}
+
+\mathsf{f}_{\mathsf{P L L2}}
+
+Note 1. When setting up the main clock oscillator, ask the oscillator manufacturer for an oscillation evaluation, and use the results as the
+recommended oscillation stabilization time. Set the MOSCWTCR register to a value equal to or greater than the recommended
+value.
+After changing the setting in the MOSCCR.MOSTP bit to start main clock operation, read the OSCSF.MOSCSF flag to confirm that
+it is 1, and then start using the main clock oscillator.
+Note 2. This is the time from release from reset state until the HOCO oscillation frequency (fHOCO) reaches the range for guaranteed
+
+After changing the setting in the MOSCCR.MOSTP bit to start main clock operation, read the OSCSF.MOSCSF flag to confirm that
+it is 1, and then start using the main clock oscillator.
+Note 2. This is the time from release from reset state until the HOCO oscillation frequency (fHOCO) reaches the range for guaranteed
+operation.
+
+---
+
+Figure 2.3 EXTAL external clock input timing
+
+Figure 2.4 Main clock oscillation start timing
+
+Figure 2.6 PLL/PLL2 clock oscillation start timing
+
+---
+
+2.3.3 Reset Timing
+
+Table 2.17 Reset timing
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| RES pulse width | Power-on | tRESWP | 0.7 | — | — | ms | Figure 2.7 |
+| Deep Software Standby mode | tRESWD | 0.6 | — | — | ms | Figure 2.8 |  |
+| Software Standby mode | tRESWS | 0.3 | — | — | ms |  |  |
+| All other | tRESW | 200 | — | — | μs |  |  |
+| Wait time after RES cancellation |  | tRESWT | — | 37.3 | 41.2 | μs | Figure 2.7 |
+| Wait time after internal reset cancellation(IWDT reset, WDT reset, software reset, SRAM parity error reset, bus master MPU error reset, TrustZone error reset, Cache parity error reset) |  | tRESW2 | — | 324 | 397.7 | μs | — |
+
+Figure 2.7 RES pin input timing under the condition that VCC exceeds VPOR voltage threshold
+
+Figure 2.8 Reset input timing
+
+---
+
+2.3.4 Wakeup Timing
+
+Table 2.18 Timing of recovery from low power modes
+
+| Parameter |  |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Recovery time from Software Standby mode$^{1}$ | Crystal resonator connected to main clock oscillator | System clock source is main clock oscillator$^{2}$ | tSBYMC$^{11}$ | — | 2.1 | 2.4 | ms | Figure 2.9The division ratio of all oscillators is 1. |  |
+| System clock source is PLL with main clock oscillator$^{3}$ | tSBYPC$^{11}$ | — | 2.2 | 2.6 | ms |  |  |  |  |
+| External clock input to main clock oscillator | System clock source is main clock oscillator$^{4}$ | tSBYEX$^{11}$ | — | 45 | 125 | μs |  |  |  |
+| System clock source is PLL with main clock oscillator$^{5}$ | tSBYPE$^{11}$ | — | 170 | 255 | μs |  |  |  |  |
+| System clock source is LOCO$^{6}$ |  | tSBYLO$^{11}$ | — | 0.7 | 0.9 | ms |  |  |  |
+| System clock source is HOCO clock oscillator$^{7}$ |  | tSBYHO$^{11}$ | — | 55 | 130 | μs |  |  |  |
+| System clock source is PLL with HOCO$^{8}$ |  | tSBYPH$^{11}$ | — | 175 | 265 | μs |  |  |  |
+| System clock source is MOCO clock oscillator$^{9}$ |  | tSBYMO$^{11}$ | — | 35 | 65 | μs |  |  |  |
+| Recovery time from Deep Software Standby mode | DPSBYCR.DEEPCUT[1] = 0 and DPSWCR.WTSTS[5:0] = 0x0E |  | tDSBY | — | 0.38 | 0.54 | ms | Figure 2.10 |  |
+| DPSBYCR.DEEPCUT[1] = 1 and DPSWCR.WTSTS[5:0] = 0x19 |  | tDSBY | — | 0.55 | 0.73 | ms |  |  |  |
+| Wait time after cancellation of Deep Software Standby mode |  |  | tDSBYWT | 56 | — | 57 | tcyc |  |  |
+| Recovery time from Software Standby mode to Snooze mode | High-speed mode when system clock source is HOCO(20 MHz) |  | tSNZ | — | 35$^{10}$ | 70$^{10}$ | μs | Figure 2.11 |  |
+| High-speed mode when system clock source is MOCO(8 MHz) |  | tSNZ | — | 11$^{10}$ | 14$^{10}$ | μs |  |  |  |
+
+\ {mathfrak t_{\ S B Y Y M C}}^{\star11}
+
+\mathsf{t}_{\mathsf{S B Y P c}}{}^{\star_{11}}
+
+\ _{\mathsf{S B Y Y L}}^{\ \ 1}\!
+
+\ !{\ }\mathsf{t B}Y{\mathsf H0{}}^{\ 11}
+
+\ !{\ }\mathsf{t B}{\mathsf Y Y Y}^{\ 11}
+
+{\sf t_{S B Y M o}}^{\star}
+
+\mathfrak{t}_{\mathrm{c y c}}
+
+11^{\star10}
+
+14^{*10}
+
+tSBYOSCWT for the system clock + 2 LOCO cycles (when LOCO is operating)
+Note 2. When the frequency of the crystal is 24 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x05) and the
+greatest value of the internal clock division setting is 1.
+Note 3. When the frequency of PLL is 240 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x05) and the greatest
+
+Note 3. When the frequency of PLL is 240 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x05) and the greatest
+value of the internal clock division setting is 4.
+Note 4. When the frequency of the external clock is 24 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x00) and
+
+Note 4. When the frequency of the external clock is 24 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x00) and
+the greatest value of the internal clock division setting is 1.
+Note 5. When the frequency of PLL is 240 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x00) and the greatest
+
+the greatest value of the internal clock division setting is 1.
+Note 5. When the frequency of PLL is 240 MHz (Main Clock Oscillator Wait Control Register (MOSCWTCR) is set to 0x00) and the greatest
+value of the internal clock division setting is 4.
+Note 6. The LOCO frequency is 32.768 kHz and the greatest value of the internal clock division setting is 1.
+
+Note 6. The LOCO frequency is 32.768 kHz and the greatest value of the internal clock division setting is 1.
+Note 7. The HOCO frequency is 20 MHz and the greatest value of the internal clock division setting is 1.
+
+Note 7. The HOCO frequency is 20 MHz and the greatest value of the internal clock division setting is 1.
+Note 8. The PLL frequency is 240 MHz and the greatest value of the internal clock division setting is 4.
+
+Note 7. The HOCO frequency is 20 MHz and the greatest value of the internal clock division setting is 1.
+Note 8. The PLL frequency is 240 MHz and the greatest value of the internal clock division setting is 4.
+Note 9. The MOCO frequency is 8 MHz and the greatest value of the internal clock division setting is 1.
+
+Note 9. The MOCO frequency is 8 MHz and the greatest value of the internal clock division setting is 1.
+Note 10. When the SNZCR.RXDREQEN bit is set to 0, the following time is added as the power supply recovery time: 16 µs (typical), 48 µs
+
+Note 9. The MOCO frequency is 8 MHz and the greatest value of the internal clock division setting is 1.
+Note 10. When the SNZCR.RXDREQEN bit is set to 0, the following time is added as the power supply recovery time: 16 µs (typical), 48 µs
+(maximum).
+Note 11. The recovery time can be calculated with the equation of tSBYOSCWT + tSBYSEQ. And they can be determined with the following
+
+48\;\upmu\mathbf{s}
+
+| Wakeup time | TYP |  | MAX |  | Unit |
+| --- | --- | --- | --- | --- | --- |
+| tSBYOSCWT | tSBYSEQ | tSBYOSCWT | tSBYSEQ |  |  |
+| tSBYMC | (MSTS[7:0]*32+3)/0.262 | 35+18/fICLK+4n/fMAIN | (MSTS[7:0]*32+14)/0.236 | 62+18/fICLK+4n/fMAIN | μs |
+| tSBYPC | (MSTS[7:0]*32+34)/0.262 | 35+18/fICLK+4n/fPLL | (MSTS[7:0]*32+45)/0.236 | 62+18/fICLK+4n/fPLL | μs |
+
+(maximum).
+Note 11. The recovery time can be calculated with the equation of tSBYOSCWT + tSBYSEQ. And they can be determined with the following
+value and equation. For n, the greatest value is selected from among the internal clock division settings.
+
+35+18111C L+4n1+P L L
+
+---
+
+| Wakeup time | TYP |  | MAX |  | Unit |
+| --- | --- | --- | --- | --- | --- |
+| tSBYOSCWT | tSBYSEQ | tSBYOSCWT | tSBYSEQ |  |  |
+| tSBYEX | 10 | 35+18/fICLK+4n/fEXMAIN | 62 | 62+18/fICLK+4n/fEXMAIN | μs |
+| tSBYPE | 135 | 35+18/fICLK+4n/fPLL | 192 | 62+18/fICLK+4n/fPLL | μs |
+| tSBYLO | 0 | 35+18/fICLK+4n/fLOCO | 0 | 62+18/fICLK+4n/fLOCO | μs |
+| tSBYHO | 20 | 35+18/fICLK+4n/fHOCO | 67 | 62+18/fICLK+4n/fHOCO | μs |
+| tSBYPH | 140 | 35+18/fICLK+4n/fPLL | 202 | 62+18/fICLK+4n/fPLL | μs |
+| tSBYMO | 0 | 35+18/fICLK+4n/fMOCO | 0 | 62+18/fICLK+4n/fMOCO | μs |
+
+35+181+1101+1111
+
+When stabilization of the system clock oscillator is slower
+
+When stabilization of an oscillator other than the system clock is slower
+
+Figure 2.9 Software Standby mode cancellation timing
+
+---
+
+Figure 2.10 Deep Software Standby mode cancellation timing
+
+Note 1. When SNZCR.SNZDTCEN bit is set to 1, ICLK is supplied to DTC and SRAM.
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| NMI pulse width | tNMIW | 200 | - | - | ns | NMI digital filter disabled | tPcyc×2≤200 ns |
+| tPcyc×2$^{*1}$ | - | - | tPcyc×2&gt;200 ns |  |  |  |  |
+| 200 | - | - | NMI digital filter enabled | tNMICK×3≤200 ns |  |  |  |
+| tNMICK×3.5$^{*2}$ | - | - | tNMICK×3&gt;200 ns |  |  |  |  |
+| IRQ pulse width | tIRQW | 200 | - | - | ns | IRQ digital filter disabled | tPcyc×2≤200 ns |
+| tPcyc×2$^{*1}$ | - | - | tPcyc×2&gt;200 ns |  |  |  |  |
+| 200 | - | - | IRQ digital filter enabled | tIRQCK×3≤200 ns |  |  |  |
+| tIRQCK×3.5$^{*3}$ | - | - | tIRQCK×3&gt;200 ns |  |  |  |  |
+
+t_{N M I C K}\times3.5^{\ast2}
+
+2.3.5 NMI and IRQ Noise Filter
+
+Table 2.19 NMI and IRQ noise filter
+
+\mathsf{t}{}_{\mathsf{P c y c}}\times2\leq200\ \mathsf{n s}
+
+\mathsf{t}_{\mathsf{I R Q C K}}\times3.5^{*3}
+
+\mathsf{t}{_\ P y c}\times2>200\;\ \mathsf{n s}
+
+---
+
+Note: 200 ns minimum in Software Standby mode.
+Note: If the clock source is switched, add 4 clock cycles of the switched source.
+
+Note: If the clock source is switched, add 4 clock cycles of the switched source.
+Note 1. tPcyc indicates the PCLKB cycle.
+
+Note 2. tNMICK indicates the cycle of the NMI digital filter sampling clock.
+Note 3. tIRQCK indicates the cycle of the IRQi digital filter sampling clock.
+
+Note 1. tPcyc indicates the PCLKB cycle.
+Note 2. tNMICK indicates the cycle of the NMI digital filter sampling clock.
+
+Note 3. tIRQCK indicates the cycle of the IRQi digital filter sampling clock.
+
+Figure 2.12 NMI interrupt input timing
+
+2.3.6 I/O Ports, POEG, GPT, AGT, KINT and ADC Trigger Timing
+
+Table 2.20 I/O ports, POEG, GPT, AGT, KINT and ADC trigger timing (1 of 4)
+
+GPT Conditions:
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+GPT Conditions:
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+AGT Conditions:
+
+AGT Conditions:
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| I/O ports | Input data pulse width | tPRW | 1.5 | — | — | tICyc | Figure 2.14 |
+
+---
+
+Table 2.20 I/O ports, POEG, GPT, AGT, KINT and ADC trigger timing (2 of 4)
+
+GPT Conditions:
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+GPT Conditions:
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+AGT Conditions:
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| POEG | GTETRGn input pulse width |  | tPOEW | 1.5 | - | - | tPCyc | Figure 2.15 |
+| Output disable time | Input level detection of the GTETRGn pin (via flag) | tPOEGDI | - | - | 3PCLKB+0.34 | μs | Figure 2.16When the digital noise filter is not in use(POEGGn.NFEN=0(n=A to D)) |  |
+| Detection of the output stopping signal from GPT(deadtime error, simultaneous high output, or simultaneous low output) | tPOEGDE | - | - | 0.5 | μs | Figure 2.17 |  |  |
+| Edge detection signal from a comparator | tPOEGDC | - | - | 4PCLKB+0.5 | μs | Figure 2.18The time is that when the noise filter for ACMPHS is not in use(CMPCTL.CDFS[1:0]=00)and excludes the time for detection by ACMPHS. |  |  |
+| Register setting | tPOEGDS | - | - | 1PCLKB+0.3 | μs | Figure 2.19Time for access to the register is not included. |  |  |
+| Oscillation stop detection^{3}$ | tPOEGDOS | - | ≤1 | - | μs | Figure 2.20 |  |  |
+| Input level detection of the GTETRGn pin(direct path) | tPOEGDDI | - | - | 2PCLKB+1PCLKD+0.34 | μs | Figure 2.21 |  |  |
+| Level detection signal from a comparator | tPOEGDDC | - | - | 3PCLKD+0.3 | μs | Figure 2.22The time is that when the noise filter for ACMPHS is not in use(CMPCTL.CDFS[1:0]=00)and excludes the time for detection by ACMPHS. |  |  |
+
+---
+
+Table 2.20 I/O ports, POEG, GPT, AGT, KINT and ADC trigger timing (3 of 4)
+
+GPT Conditions:
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| GPT | Input capture pulse width | Single edge | tGTICW | 1.5 | - | - | tpDyc | Figure 2.23 |  |
+| Dual edge | 2.5 | - | - |  |  |  |  |  |  |
+| GTIOCxY output skew(x=0 to 3, Y=A or B) | Middle drive buffer | tGTISK1 | - | - | 4 | ns | Figure 2.24 |  |  |
+| High drive buffer | - | - | 4 |  |  |  |  |  |  |
+| High current output buffer | - | - | 4 |  |  |  |  |  |  |
+| Middle drive buffer | - | - | 4 |  |  |  |  |  |  |
+| GTIOCxY output skew(x=4 to 6, Y=A or B) | Middle drive buffer | - | - | 4 |  |  |  |  |  |
+| High drive buffer | - | - | 4 |  |  |  |  |  |  |
+| High current output buffer | - | - | 4 |  |  |  |  |  |  |
+| GTIOCxY output skew(x=7 to 9, Y=A or B) | Middle drive buffer | - | - | 4 |  |  |  |  |  |
+| High drive buffer | - | - | 4 |  |  |  |  |  |  |
+| High current output buffer | - | - | 4 |  |  |  |  |  |  |
+| GTIOCxY output skew(x=0 to 9, Y=A or B) | Middle drive buffer | - | - | 6 |  |  |  |  |  |
+| High drive buffer | - | - | 6 |  |  |  |  |  |  |
+| High current output buffer | - | - | 6 |  |  |  |  |  |  |
+| OPS output skew GTOUUP,GTOULO,GTOVUP,GTOVLO,GTOWUP,GTOWLO |  |  | tGTOSK | - | - | 5 | ns | Figure 2.25 |  |
+| External trigger input pulse width | Synchr onous clock | Single-edge setting | tGTEW | 1.5 | - | - | tpCyc | Figure 2.26 |  |
+| Both-edge setting | 2.5 | - | - |  |  |  |  |  |  |
+| Asynch onous clock | Single-edge setting | 2.5 | - | - |  |  |  |  |  |
+| Both-edge setting | 3.5 | - | - |  |  |  |  |  |  |
+| Timer clock pulse width | Synchr onous clock | Single-edge setting | tGTCKWH,tGTCKWL | 1.5 | - | - | tpCyc | Figure 2.27 |  |
+| Both-edge setting | 2.5 | - | - |  |  |  |  |  |  |
+| Asynch onous clock | Single-edge setting | 2.5 | - | - |  |  |  |  |  |
+| Both-edge setting | 3.5 | - | - |  |  |  |  |  |  |
+| GTIOCxY_Z skew(x=0 to 3, Y=A or B,Z=A to D) |  |  | tHRSK2 | - | - | 4.0 | ns | Figure 2.28 |  |
+| AGT | AGTIO, AGTEE input cycle |  |  | tACYC2 | 50 | - | - | ns | Figure 2.29 |
+| AGTIO, AGTEE input high width, low width |  |  | tACKWH,tACKWL | 20 | - | - | ns |  |  |
+| AGTIO, AGTO, AGTOA, AGTOB output cycle |  |  | tACYC2 | 33.3 | - | - | ns |  |  |
+| KINT |  |  | KRn(n=00 to 07) pulse width | tRp | 250 | - | - | ns | Figure 2.30 |
+
+\ |mathfrak t{\mathfrak H}{mathsf s s}^{\star2}
+
+---
+
+Table 2.20 I/O ports, POEG, GPT, AGT, KINT and ADC trigger timing (4 of 4)
+
+High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+AGT Conditions:
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ADC | ADC trigger input pulse width | tTRGW | 1.5 | - | - | tADcyc | Figure 2.31 |
+
+\mathsf{t}_{\mathsf A D c y c}
+
+Note: tIcyc: ICLK cycle, tPcyc: PCLKB cycle, tPDcyc: GTCLK cycle, tADcyc: ADCLK cycle.
+Note 1. This skew applies when the same driver I/O is used. If the I/O of the middle and high drivers is mixed, operation is not guaranteed.
+
+\mathfrak_{l c y c}.
+
+\mathsf{t}_{\mathsf{P c y c}}{
+
+\mathsf{t}_{\mathsf A D c y c.}
+
+\mathsf{t}_{\mathsf P D c y c:}
+
+Note 1. This skew applies when the same driver I/O is used. If the I/O of the middle and high drivers is mixed, operation is not guaranteed.
+Note 2. Constraints on input cycle:
+
+Note 2. Constraints on input cycle:
+When not switching the source clock: tPcyc × 2 < tACYC should be satisfied.
+
+When not switching the source clock: tPcyc × 2 < tACYC should be satisfied.
+When switching the source clock: tPcyc × 6 < tACYC should be satisfied.
+Note 3. Reference value.
+
+\mathrm{t}_{\mathsf{P c y c}}
+
+2\mathrm\text{t}_{\sf C}\mathrm{\text A C}
+
+Note 3. Reference value.
+
+\mathsf{t}_{\mathsf C C y y}\times6\ \ mathsfmathsf{A C Y C}
+
+Figure 2.16 Output Disable Time for POEG via Detection Flag in Response to the Input Level Detection of
+the GTETRGn pin
+
+---
+
+Figure 2.17 Output Disable Time for POEG in Response to Detection of the Output Stopping Signal from
+GPT
+
+Figure 2.18 Output Disable Time for POEG in Response to Edge Detection Signal from ACMPHS
+
+Figure 2.19 Output Disable Time for POEG in Response to the Register Setting
+
+---
+
+Figure 2.21 Output Disable Time for POEG in Direct Response to the Input Level Detection of the
+GTETRGn pin
+
+Figure 2.22 Output Disable Time for POEG in Response to Level Detection Signal from ACMPHS
+
+Figure 2.23 GPT input capture timing
+
+---
+
+Figure 2.25 GPT output delay skew for OPS
+
+Figure 2.26 GPT External Trigger Input Timing
+
+Figure 2.27 GPT Clock Input Timing
+
+---
+
+Figure 2.28 GPT (PDG) output delay skew
+
+Figure 2.29 AGT input/output timing
+
+---
+
+Figure 2.31 ADC trigger input timing
+
+2.3.7 PDG Timing
+
+Table 2.21 PDG timing
+
+| Parameter | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- |
+| Operation frequency | 80 | - | 200 | MHz | - |
+| Resolution | - | 156 | - | ps | GPTCLK=200 MHz |
+| DNL*1 | - | ±2.0 | - | LSB | - |
+
+Note 1. This value normalizes the differences between lines in 1-LSB resolution.
+
+Table 2.22 CAC timing
+
+| Parameter |  |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CAC | CACREF input pulse width | $t_{PBcyc}\leq t_{cac}^{*1}$ | tCACREF | $4.5\times t_{cac}+3\times t_{PBcyc}$ | — | — | ns | — |  |
+| $t_{PBcyc}>t_{cac}^{*1}$ | $5\times t_{cac}+6.5\times t_{PBcyc}$ | — | — | ns |  |  |  |  |  |
+
+44.5\times\mathfrak{t}_{c a c}+3\times\mathfrak{t}_{P B c y c}
+
+55\times t\_{c a c}+6.5\times t_{P B c y c}
+
+\mathsf{t}_{\mathsf P B B y c}
+
+Note: tPBcyc: PCLKB cycle.
+Note 1. tcac: CAC count clock source cycle.
+
+Note 1. tcac: CAC count clock source cycle.
+
+2.3.9 SCI Timing
+
+Table 2.23 SCI timing (Asynchronous mode) 
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- |
+| Input clock cycle | $t_{Scyc}$ | 4 | — | $t_{Tcyc}$ |  |
+| Input clock pulse width | $t_{SCKW}$ | 0.4 | 0.6 | $t_{Scyc}$ |  |
+| Input clock rise time | $t_{SCKr}$ | — | 5 | ns |  |
+| Input clock fall time | $t_{SCKf}$ | — | 5 | ns |  |
+| Output clock cycle | $t_{Scyc}$ | 6 | — | $t_{Tcyc}$ |  |
+| Output clock pulse width | $t_{SCKW}$ | 0.4 | 0.6 | $t_{Scyc}$ |  |
+| Output clock rise time | $t_{SCKr}$ | — | 5 | ns |  |
+| Output clock fall time | $t_{SCKf}$ | — | 5 | ns |  |
+
+Note: tTcyc: SCITCLK cycle.
+
+---
+
+Note: n = 0 to 4, 9
+
+Figure 2.32 SCK clock input/output timing
+
+Table 2.24 SCI timing (Simple SPI)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | High Speed/Default | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| SCK clock cycle output | Master |  | tSPcyc | 2 | 65536 | tTcyc |  |
+| SCK clock cycle input | Slave |  | 2 | - |  |  |  |
+| SCK clock high pulse width | Master |  | tSPCKWH | 0.4 | 0.6 | tSPcyc |  |
+| Slave |  |  |  |  |  |  |  |
+| SCK clock low pulse width | Master |  | tSPCKWL | 0.4 | 0.6 | tSPcyc |  |
+| Slave |  |  |  |  |  |  |  |
+| SCK clock rise and fall time | Output |  | tSPCKf, tSPCKf | - | 5 | ns |  |
+| Input |  | - | 1 | us |  |  |  |
+| Data input setup time | Master | High Speed1 | tSU | 1.7 | - | ns |  |
+| Default2 | 3 | - | ns |  |  |  |  |
+| Slave |  | 3.3 | - | ns |  |  |  |
+| Data input hold time | Master | High Speed1 | tH | 12 | - | ns |  |
+| Default2 | 14 | - | ns |  |  |  |  |
+| Slave |  | 3 | - | ns |  |  |  |
+| Data output delay | Master | High Speed1 | tOD | - | 5 | ns |  |
+| Default2 | - | 7.3 | ns |  |  |  |  |
+| Slave | High Speed1 | - | 15 | ns |  |  |  |
+| Default2 | - | 21 | ns |  |  |  |  |
+| Data output hold time | Master |  | tOH | 0 | - | ns |  |
+| Slave |  | 0 | - | ns |  |  |  |
+| Data rise and fall time | Output |  | tDr,tDf | - | 5 | ns |  |
+| Input |  | - | 1 | ns |  |  |  |
+| Slave access time |  |  | tSA | - | 5 | tTcyc |  |
+| Slave output release time |  |  | tREL | - | 5 | tTcyc |  |
+
+Note: tTcyc: SCITCLK cycle.
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SCI0 is instance
+
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SCI0 is instance
+_A, SCI2 and SCI3 are instance _B, SCI1 and SCI9 are instance _C, SCI4 is instance _C and RXD is only PD14.
+Note 2. All pins of group membership can be used.
+
+Table 2.25 SCI timing (Simple SPI mode) (1 of 2)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- |
+| SS input setup time | tLEAD | 1 | - | tSPcyc |  |
+
+---
+
+Table 2.25 SCI timing (Simple SPI mode) (2 of 2)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- |
+| SS input hold time | tLAG | 1 | - | tSPcyc |  |
+| SS input rise and fall time | tSSLr, tSSLf | - | 1 | us |  |
+
+Table 2.26 SCI timing (Clock synchronous mode)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | High Speed/Default | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| SCK clock cycle output | Master |  | tSPcyc | 2 | - | tTcyc |  |
+| Slave |  | 2 | - |  |  |  |  |
+| SCK clock high pulse width | Master |  | tSPCKWH | 0.4 | 0.6 | tSPcyc |  |
+| Slave |  |  |  |  |  |  |  |
+| SCK clock low pulse width | Master |  | tSPCKWL | 0.4 | 0.6 | tSPcyc |  |
+| Slave |  |  |  |  |  |  |  |
+| SCK clock rise and fall time | Output |  | tSPCKr, tSPCKf | - | 5 | ns |  |
+| Input |  |  |  |  |  |  |  |
+| Data input setup time | Master | High Speed*1 | tSU | 2.6 | - | ns |  |
+| Default*2 | 2.8 | - | ns |  |  |  |  |
+| Slave |  | 3.3 | - | ns |  |  |  |
+| Data input hold time | Master | High Speed*1 | tH | 12 | - | ns |  |
+| Default*2 | 14 | - | ns |  |  |  |  |
+| Slave |  | 3 | - | ns |  |  |  |
+| Data output delay | Master | High Speed*1 | tOD | - | 5 | ns |  |
+| Default*2 | - | 7.3 | ns |  |  |  |  |
+| Slave | High Speed*1 | - | 15 | ns |  |  |  |
+| Default*2 | - | 21 | ns |  |  |  |  |
+| Data output hold time | Master |  | tOH | 0 | - | ns |  |
+| Slave |  | 0 | - | ns |  |  |  |
+| Data rise and fall time | Output |  | tDr,tDf | - | 5 | ns |  |
+| Input |  | - | 5 | ns |  |  |  |
+
+Note: tTcyc: SCITCLK cycle.
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SCI0 is instance
+
+Note: tTcyc: SCITCLK cycle.
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SCI0 is instance
+_A, SCI2 and SCI3 are instance _B, SCI1 and SCI9 are instance _C, SCI4 is instance _C and RXD is only PD14.
+Note 2. All pins of group membership can be used.
+
+---
+
+\mathsf{V o H}=0.7\times\mathsf{V C C},\mathsf{V o L}=0.3\times\mathsf{V C C},\mathsf{V u}=0.7\times\mathsf{V C C},\mathsf{V u}=0.3\times\mathsf{V C C}
+
+Figure 2.33 SCI simple SPI mode clock timing
+
+Figure 2.34 SCI simple SPI mode timing for master when CKPH = 1
+
+---
+
+Figure 2.35 SCI simple SPI mode timing for master when CKPH = 0
+
+Figure 2.36 SCI simple SPI mode timing for slave when CKPH = 1
+
+---
+
+Figure 2.37 SCI simple SPI mode timing for slave when CKPH = 0
+
+Table 2.27 SCI timing (Simple IIC mode)
+
+Conditions: Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | Symbol | Min | Max | Unit | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| Simple IIC(Standard mode) | SCL,SDA input rise time | $t_{Sr}$ | — | 1000 | ns |  |
+| SCL,SDA input fall time | $t_{Sf}$ | — | 300 | ns |  |  |
+| SCL,SDA input spike pulse removal time | $t_{SP}$ | 0 | 4×$t_{Tcyc}$ | ns |  |  |
+| Data input setup time | $t_{SDAS}$ | 250 | — | ns |  |  |
+| Data input hold time | $t_{SDAH}$ | 0 | — | ns |  |  |
+| SCL,SDA capacitive load | $C_{b}^{*1}$ | — | 400 | pF |  |  |
+| Simple IIC(Fast mode) | SCL,SDA input rise time | $t_{Sr}$ | — | 300 | ns |  |
+| SCL,SDA input fall time | $t_{Sf}$ | — | 300 | ns |  |  |
+| SCL,SDA input spike pulse removal time | $t_{SP}$ | 0 | 4×$t_{Tcyc}$ | ns |  |  |
+| Data input setup time | $t_{SDAS}$ | 100 | — | ns |  |  |
+| Data input hold time | $t_{SDAH}$ | 0 | — | ns |  |  |
+| SCL,SDA capacitive load | $C_{b}^{*1}$ | — | 400 | pF |  |  |
+
+\ _{\mathrm{S r}}
+
+Note: tTcyc: SCITCLK cycle.
+Note 1. Cb indicates the total capacity of the bus line.
+
+{C\__{b}}^{\ star\{}_}
+
+\dagger_{\mathrm{S r}}
+
+{\sf dagger{s\sf}}_{\mathrm{S f}}
+
+\ !{\mathsf{t}}_{\mathrm{S P}}
+
+{C\__{b}}^{\star1}
+
+Note 1. Cb indicates the total capacity of the bus line.
+
+---
+
+VOL = 0.6 V, IOL = 6 mA (ICFER.FMPE = 0)
+VOL = 0.4 V, IOL = 20 mA (ICFER.FMPE = 1)
+
+VIH = VCC × 0.7, VIL = VCC × 0.3
+VOL = 0.6 V, IOL = 6 mA (ICFER.FMPE = 0)
+V = 0.4 V, I = 20 mA (ICFER.FMPE = 1)
+
+Note: n = 0 to 4, 9
+Note 1. S, P, and Sr indicate the following conditions:
+S: Start condition
+
+Figure 2.38 SCI simple IIC mode timing
+
+2.3.10 SPI Timing
+
+Table 2.28 SPI timing (1 of 2)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | High Speed/Default | Symbol | VCC=3.0 to 3.6V,C=15pF |  | VCC=2.7 to 3.6V,C=30pF |  | Unit | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Max | Min | Max |  |  |  |  |  |  |
+| RSPCK clock cycle | Master |  | tSPcyc | 2 | 4096 | 2 | 4096 | tTcyc |  |
+| Slave |  | 2 | - | 2 | - |  |  |  |  |
+| RSPCK clock high pulse width | Master |  | tSPCKWH | (tSPcyc-tSPCKr-tSPCKf)/2-3 | - | (tSPcyc-tSPCKr-tSPCKf)/2-3 | - | ns |  |
+| Slave |  | 0.4 | 0.6 | 0.4 | 0.6 | tSPcyc |  |  |  |
+| RSPCK clock low pulse width | Master |  | tSPCKWL | (tSPcyc-tSPCKr-tSPCKf)/2-3 | - | (tSPcyc-tSPCKr-tSPCKf)/2-3 | - | ns |  |
+| Slave |  | 0.4 | 0.6 | 0.4 | 0.6 | tSPcyc |  |  |  |
+| RSPCK clock rise and fall time | Output |  | tSPCKr tSPCKf | - | 5 | - | 5 | ns |  |
+| Input |  | - | 1 | - | 1 | μs |  |  |  |
+| Data input setup time | Master | High Speed*1 | tSU | 0 | - | - | - | ns |  |
+| Default*2 | - | - | 1.3 | - | ns |  |  |  |  |
+| Slave |  | 2.5 | - | 2.7 | - | ns |  |  |  |
+
+\mathtt{D e f a U t}^{\star2}
+
+---
+
+Table 2.28 SPI timing (2 of 2)
+
+Conditions: High drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | High Speed/Default | Symbol | VCC=3.0到3.6V,C=15pF |  | VCC=2.7到3.6V,C=30pF |  | Unit | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Max | Min | Max |  |  |  |  |  |  |
+| Data input hold time | Master | HighSpeed&#x27;1 | tH | 6.2 | - | - | - | ns |  |
+| Default&#x27;2 | - | - | 8 | - | ns |  |  |  |  |
+| Slave |  | 2.5 | - | 2.5 | - | ns |  |  |  |
+| SSL setup time | Master |  | tLEAD | 1 | 8 | 1 | 8 | tSPcyc |  |
+| Slave |  | 6 | - | 6 | - | tTCyc |  |  |  |
+| SSL hold time | Master |  | tLAG | 1 | 8 | 1 | 8 | tSPcyc |  |
+| Slave |  | 6 | - | 6 | - | tTCyc |  |  |  |
+| TI SSP SS input setup time | Slave |  | tTISS | 2.5 | - | 2.8 | - | ns |  |
+| TI SSP SS input hold time | Slave |  | tTISH | 2.5 | - | 2.5 | - | ns |  |
+| TI SSP next-access time | Slave |  | tTIND | 2×tTCyc+SLNDL×tTCyc | - | 2×tTCyc+SLNDL×tTCyc | - | ns |  |
+| TI SSP master SS output delay | Master |  | tTISSOD | - | 8.9 | - | 8.9 | ns |  |
+| Data output delay time | Master | HighSpeed&#x27;1 | tQD | - | 4.6 | - | - | ns |  |
+| Default&#x27;2 | - | - | - | 7 | ns |  |  |  |  |
+| Slave | HighSpeed&#x27;1 | - | 14 | - | - | ns |  |  |  |
+| Default&#x27;2 | - | - | - | 21 | ns |  |  |  |  |
+| Data output hold time | Master |  | tOH | 0 | - | 0 | - | ns |  |
+| Slave |  | 0 | - | 0 | - | ns |  |  |  |
+| Successive transmission delay time | Master |  | tTD | tSPcyc+2×tTCyc | 8×tSPcyc+2×tTCyc | tSPcyc+2×tTCyc | 8×tSPcyc+2×tTCyc | ns |  |
+| Slave |  | tTCyc | - | tTCyc | - | ns |  |  |  |
+| MOSI and MISO rise and fall time | Output |  | tDr | - | 5 | - | 5 | ns |  |
+| Input |  | tDr | - | 1 | - | 1 | μs |  |  |
+| SSL rise and fall time | Output |  | tSSLr | - | 5 | - | 5 | ns |  |
+| Input |  | tSSLf | - | 1 | - | 1 | μs |  |  |
+| Slave access time | Slave |  | tSA | - | 20 | - | 20 | ns |  |
+| Slave output release time | Slave |  | tREL | - | 20 | - | 20 | ns |  |
+
+2\times t_{T e y c}+^
+
+\tt{D e f a U t}^{\star2}
+
+Note: tTcyc: PCLKA or SCISPICLK cycle.
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SPIA is instance
+
+{\mathtt{S p e e d}}^{\star1}
+
+\tan\alpha C+2x
+
+Note 1. Must use pins that have a letter appended to their name, for instance _A, _B, _C, to indicate group membership. SPIA is instance
+_B, SPIB is instance _A.
+Note 2. All pins of group membership can be used.
+
+---
+
+\mathsf{V_{O M}}=0.7\times\mathsf{V C C},\mathsf{V_{C O}}=0.3\times\mathsf{V C C},\mathsf{V_{M}}=0.7\times\mathsf{V C C},\mathsf{V_{U}}=0.3\times\mathsf{V C C}
+
+Figure 2.39 SPI clock timing
+
+Figure 2.40 SPI timing for Motorola SPI master when CPHA = 0
+
+---
+
+Figure 2.41 SPI timing for Motorola SPI master when CPHA = 1
+
+Figure 2.42 SPI timing for TI SSP master
+
+---
+
+Figure 2.43 SPI timing for Motorola SPI slave when CPHA = 0
+
+Figure 2.44 SPI timing for Motorola SPI slave when CPHA = 1
+
+---
+
+Figure 2.45 SPI timing for TI SSP slave when transmit with delay between frames
+
+Figure 2.46 SPI timing for TI SSP slave when transmit with no delay between frames
+
+---
+
+2.3.11 IIC Timing
+
+Table 2.29 IIC timing (1)-1
+
+(1) Conditions: Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register for the following pins: SDA0_B,
+SCL0_B, SDA1_B, SCL1_B, SCL0_C, SDA0_C, SCL0_D, SDA0_D, SCL0_E, SDA0_E, SCL0_F, SDA0_F, SCL1_C, SDA1_C, SCL1_D,
+SDA1_D, SCL1_E, SDA1_E.
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+(3) Use pins that have a letter appended to their names, for instance _A or _B or _C or _D or _E or _F, to indicate group membership. For
+the IIC interface, the AC portion of the electrical characteristics is measured for each group.
+
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+(3) Use pins that have a letter appended to their names, for instance _A or _B or _C or _D or _E or _F, to indicate group membership. For
+
+| Parameter |  | Symbol | Min | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| IIC(Standard mode,SMBus)BFCTL.FMPE=0 | SCL input cycle time | tSCL | 10(18)×tIICcyc+1300 | — | ns | Figure 2.47 |
+| SCL input high pulse width | tSCLH | 5(9)×tIICcyc | — | ns |  |  |
+| SCL input low pulse width | tSCLL | 5(9)×tIICcyc | — | ns |  |  |
+| SCL, SDA rise time | tSr | — | 1000 | ns |  |  |
+| SCL, SDA fall time | tSf | — | 300 | ns |  |  |
+| SCL, SDA input spike pulse removal time | tSP | 0 | 1(4)×tIICcyc | ns |  |  |
+| SDA input bus free time | tBUF | 5(9)×tIICcyc+300 | — | ns |  |  |
+| START condition input hold time | tSTAH | tIICcyc+300 | — | ns |  |  |
+| Repeated START condition input setup time | tSTAS | 1000 | — | ns |  |  |
+| STOP condition input setup time | tSTOS | 1000 | — | ns |  |  |
+| Data input setup time | tSDAS | tIICcyc+50 | — | ns |  |  |
+| Data input hold time | tSDAH | 0 | — | ns |  |  |
+| SCL, SDA capacitive load | Cb*1 | — | 400 | pF |  |  |
+
+10(18)\times t_{11(c y c)}+1300
+
+5(9)\times t11c c y c
+
+5\left(9\right)\times t_{11C y y}+300
+
+\ 111y c y\ +300
+
+\ 1111y y c+50
+
+{C_{b}}^{\star1}
+
+Note: tIICcyc: IIC internal reference clock (IICφ) cycle.
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+Note 1. Cb indicates the total capacity of the bus line.
+
+\mathbf{C_{b}}
+
+---
+
+Table 2.30 IIC timing (1)-2
+
+(1) Conditions: Middle drive output is selected in the Port Drive Capability bit in the PmnPFS register for the following pins: SDA0_B,
+SCL0_B, SDA1_B, SCL1_B, SCL0_C, SDA0_C, SCL0_D, SDA0_D, SCL0_E, SDA0_E, SCL0_F, SDA0_F, SCL1_C, SDA1_C, SCL1_D,
+SDA1_D, SCL1_E, SDA1_E.
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+(3) Use pins that have a letter appended to their names, for instance _A or _B or _C or _D or _E or _F, to indicate group membership. For
+
+(2) The following pins do not require setting: SCL0_A, SDA0_A, SCL1_A, SDA1_A.
+(3) Use pins that have a letter appended to their names, for instance _A or _B or _C or _D or _E or _F, to indicate group membership. For
+the IIC interface, the AC portion of the electrical characteristics is measured for each group.
+
+| Parameter |  | Symbol | Min | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| IIC(Fast-mode) | SCL input cycle time | tSCL | 10(18)×tIICcyc+600 | — | ns | Figure 2.47 |
+| SCL input high pulse width | tSCLH | 5(9)×tIICcyc | — | ns |  |  |
+| SCL input low pulse width | tSCLL | 5(9)×tIICcyc | — | ns |  |  |
+| SCL,SDA rise time | tSr | 20×(external pullup voltage/5.5V)$ ^{1}$ | 300 | ns |  |  |
+| SCL,SDA fall time | tSf | 20×(external pullup voltage/5.5V)$ ^{1}$ | 300 | ns |  |  |
+| SCL,SDA input spike pulse removal time | tSP | 0 | 1(4)×tIICcyc | ns |  |  |
+| SDA input bus free time | tBUF | 5(9)×tIICcyc+300 | — | ns |  |  |
+| START condition input hold time | tSTAH | tIICcyc+300 | — | ns |  |  |
+| Repeated START condition input setup time | tSTAS | 300 | — | ns |  |  |
+| STOP condition input setup time | tSTOS | 300 | — | ns |  |  |
+| Data input setup time | tSDAS | tIICcyc+50 | — | ns |  |  |
+| Data input hold time | tSDAH | 0 | — | ns |  |  |
+| SCL,SDA capacitive load | $ C_{b}^{*2} $ | — | 400 | pF |  |  |
+
+10\,(18)\times\mathfrak{t}_{\verb I I C y c}\
+
+5.5V)^{\star1}
+
+20\times(\mathtt{e x t e r n a l}
+
+5.5V)^{\star1}
+
+5\left(9\right)\times t_{\verb I I C y y C+3300}
+
+111c c y c+300
+
+{c\__b{b}}^{*
+
+\ 111\ y c y c+50
+
+Note: tIICcyc: IIC internal reference clock (IICφ) cycle.
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+Note: Must use pins that have a letter appended to their name, for instance _A, _B, to indicate group membership. For the IIC interface,
+
+Note: Must use pins that have a letter appended to their name, for instance _A, _B, to indicate group membership. For the IIC interface,
+the AC portion of the electrical characteristics is measured for each group.
+Note 1. Only supported for SCL0_A, SDA0_A, SCL1_A, and SDA1_A. Other ports depend on DC characteristics.
+
+the AC portion of the electrical characteristics is measured for each group.
+Note 1. Only supported for SCL0_A, SDA0_A, SCL1_A, and SDA1_A. Other ports depend on DC characteristics.
+Note 2. Cb indicates the total capacity of the bus line.
+
+\mathrm{C_{b}}
+
+Note 1. Only supported for SCL0_A, SDA0_A, SCL1_A, and SDA1_A. Other ports depend on DC characteristics.
+Note 2. Cb indicates the total capacity of the bus line.
+
+---
+
+Table 2.31 IIC timing (1)-3
+
+Setting of the SCL0_A, SDA0_A pins are not required with the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  | Symbol | Min | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| IIC(Fast-mode+)BFCTL.FMPE=1 | SCL input cycle time | tSCL | 10(18)×tIICcyc+240 | - | ns | Figure 2.47 |
+| SCL input high pulse width | tSCLH | 5(9)×tIICcyc | - | ns |  |  |
+| SCL input low pulse width | tSCLL | 5(9)×tIICcyc | - | ns |  |  |
+| SCL,SDA rise time | tSr | - | 120 | ns |  |  |
+| SCL,SDA fall time | tSf | - | 120 | ns |  |  |
+| SCL,SDA input spike pulse removal time | tSP | 0 | 1(4)×tIICcyc | ns |  |  |
+| SDA input bus free time | tBUF | 5(9)×tIICcyc+120 | - | ns |  |  |
+| START condition input hold time | tSTAH | tIICcyc+120 | - | ns |  |  |
+| Repeated START condition input setup time | tSTAS | 120 | - | ns |  |  |
+| STOP condition input setup time | tSTOS | 120 | - | ns |  |  |
+| Data input setup time | tSDAS | tIICcyc+30 | - | ns |  |  |
+| Data input hold time | tSDAH | 0 | - | ns |  |  |
+| SCL,SDA capacitive load | Cb*1 | - | 550 | pF |  |  |
+
+10\,(18)\times\mathfrak{t}_{\verb I I C y y}\,+
+
+5\left(9\right)\times t_{\verb I I C y y C+120}
+
+111c c y c+120
+
+\ 111text cledtext y cled+{3}0
+
+{C_{b}}^{\star1}
+
+Note: tIICcyc: IIC internal reference clock (IICφ) cycle.
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+Note: Targets are SCL0_A and SDA0_A.
+
+Note: Targets are SCL0_A and SDA0_A.
+Note 1. Cb indicates the total capacity of the bus line.
+
+Note: Targets are SCL0_A and SDA0_A.
+Note 1. Cb indicates the total capacity of the bus line.
+
+\mathrm{C_{b}}
+
+Note 1. S, P, and Sr indicate the following conditions:
+S: Start condition
+
+S: Start condition
+P: Stop condition
+
+Figure 2.472
+I C bus interface input/output timing
+
+P: Stop condition
+Sr: Restart condition
+
+---
+
+Table 2.32 IIC timing (2)
+
+Setting of the SCL0_A, SDA0_A pins are not required with the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter |  |  |  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| IIC(Hs-mode)BFCTL.HSME=1 | SCL input cycle time |  |  | tSCL | 10(12)×tIIcyc+80 | - | - | ns | Figure 2.48 |
+| SCL input high pulse width |  |  | tSCLH | 5(6)×tIIcyc | - | - | ns |  |  |
+| SCL input low pulse width |  |  | tSCLL | 5(6)×tIIcyc | - | - | ns |  |  |
+| SCL rise time | Cb=400pF | tSrCL | - | - | 80 | ns |  |  |  |
+| Cb=100pF | - | - | 40 | ns |  |  |  |  |  |
+| SDA rise time | Cb=400pF | tSrDA | - | - | 160 | ns |  |  |  |
+| Cb=100pF | - | - | 80 | ns |  |  |  |  |  |
+| SCL fall time | Cb=400pF | tSfCL | - | - | 80 | ns |  |  |  |
+| Cb=100pF | - | - | 40 | ns |  |  |  |  |  |
+| SDA fall time | Cb=400pF | tSiDA | - | - | 160 | ns |  |  |  |
+| Cb=100pF | - | - | 80 | ns |  |  |  |  |  |
+| SCL,SDA input spike pulse removal time |  | tSP | 0 | - | 1(1)×tIIcyc | ns |  |  |  |
+| START condition input hold time |  | tSTAH | tIIcyc+40 | - | - | ns |  |  |  |
+| Repeated START condition input setup time |  | tSTAS | 40 | - | - | ns |  |  |  |
+| STOP condition input setup time |  | tSTOS | 40 | - | - | ns |  |  |  |
+| Data input setup time |  | tSDAS | 10 | - | - | ns |  |  |  |
+| Data input hold time | Cb=400pF | tSDAH | 0 | - | 150 | ns |  |  |  |
+| Cb=100pF | 0 | - | 70 | ns |  |  |  |  |  |
+| SCL,SDA capacitive load |  | C0^{+1}$ | - | - | 400 | pF |  |  |  |
+| SCL output minimum high pulse width | Cb=400pF | tSCLH | - | 120 | 225 | ns |  |  |  |
+| Cb=100pF | - | 60 | 130 |  |  |  |  |  |  |
+| SCL output minimum low pulse width | Cb=400pF | tSCLL | - | - | 320 | ns |  |  |  |
+| Cb=100pF | - | - | 160 |  |  |  |  |  |  |
+
+\box10\,(12)\times\mathfrak{t}_{\ I I C y c}+
+
+5\left(66\right)\times\mathfrak{t}_{\mathsf{I I C c y c}}
+
+C_{b}=400p F
+
+5\left(66\right)\times\mathfrak{t}_{\mathsf{I I C c y y}}
+
+C_{b}=400p F
+
+\ _{\sf{S r D A}}
+
+C_{b}=100p F
+
+C_{b}=400p F
+
+C_{b}=100p F
+
+C_{b}=400p F
+
+C_{b}=100F
+
+\ \mathsf{1}\ (1)\times\mathsf{t}_{\mathsf{I I C c y c}}
+
+t_{\ I I C y c}+40
+
+C_{b}=400p F
+
+\mathsf{C_{b}}=100\mathsf{p F}
+
+{C\__{b}}^{\star1}
+
+C_{b}=400p F
+
+C_{b}=100p F
+
+\overline{C_{b}}=100F
+
+\ _\ l l c y c.
+
+Note: tIICcyc: IIC internal reference clock (IICφ) cycle.
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+
+C_{b}=400p F
+
+Note: Values in parentheses apply when INCTL.DNFS[3:0] is set to 0011b while the digital filter is enabled with INCTL.DNFE set to 1.
+Note: Targets are SCL0_A and SDA0_A.
+Note 1. Cb indicates the total capacity of the bus line.
+
+\mathrm{C_{b}}
+
+Note 1. Cb indicates the total capacity of the bus line.
+
+---
+
+Figure 2.482
+I C bus interface input/output timing (Hs-mode)
+
+Table 2.33 CANFD interface timing
+
+2.3.12 CANFD Timing
+
+| Parameter | Symbol | CAN |  | CAN-FD |  | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Max | Min | Max |  |  |  |  |
+| Internal delay time | tnode | — | 100 | — | 75 | ns | Figure 2.49 |
+
+Figure 2.49 CANFD interface condition
+
+tnode = td(CTX) + td(CRX)
+
+---
+
+2.4 A/D Converter Characteristics
+
+Table 2.34 A/D conversion characteristics (Common)
+
+| Parameter |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| A/D conversion clock frequency(ADCLK) |  |  |  |  |
+| Successive approximation time |  |  |  |  |
+| A/D sampling time | Self-calibration |  |  |  |
+| Self-diagnosis |  |  |  |  |
+| A/D conversion | High-precision high-speed channels | Without channel-dedicated sample-and-hold circuits | (AN000 to AN005)(AN006 to AN011)(AN018 to AN019) |  |
+| With channel-dedicated sample-and-hold circuits | (AN000 to AN005)(AN006 to AN011) |  |  |  |
+| High-precision middle-speed channels | (AN012 to AN017) |  |  |  |
+| Normal-precision low-speed channels | (AN020 to AN028) |  |  |  |
+| Channel-dedicated sample-and-hold circuits | Sampling time | Self-calibration |  |  |
+| A/D conversion |  |  |  |  |
+| Hold mode switching time |  |  |  |  |
+| Hold time |  |  |  |  |
+| Operation stabilization time | A/D start-up time |  |  |  |
+| Channel-dedicated sample-and-hold circuits start-up |  |  |  |  |
+| A/D shut-down time |  |  |  |  |
+
+|  |  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  | 25 | 50 | 60 | MHz | - |
+|  |  | 100 | - | 140 | ns | - |
+| SAR mode | 1×tADcyc+40 | - | - | ns | - | - |
+| 1×tADcyc+40 | - | - | ns | - | - |  |
+| 1×tADcyc+60 | - | - | ns | - | - |  |
+| 1×tADcyc+40 | - | - | ns | - | - |  |
+| 1×tADcyc+40 | - | - | ns | - | - |  |
+| 1×tADcyc+60 | - | - | ns | - | - |  |
+| 1×tADcyc+40 | - | - | ns | - | - |  |
+| SAR mode | 1×tADcyc+40 | - | - | ns | - | - |
+| Oversampling mode | 1×tADcyc+40 | - | - | ns | - | - |
+| 1×tADcyc+40 | - | - | ns | - | - |  |
+| 1×tADcyc+60 | - | - | ns | - | - |  |
+| 1×tADcyc+160 | - | - | ns | - | - |  |
+| 1×tADcyc+160 | - | - | ns | - | - |  |
+| 1×tADcyc+160 | - | - | ns | - | - |  |
+| SAR mode | 180 | - | - | ns | - | - |
+| Hybrid mode | 180 | - | - | ns | - | - |
+| 180 | - | - | ns | - | - |  |
+| 180 | - | - | ns | - | - |  |
+| 400 | - | - | ns | - | - |  |
+| 400 | - | - | ns | - | - |  |
+| 400 | - | - | ns | - | - |  |
+|  | 1×tADcyc+400 | - | - | ns | - | - |
+| 400 | - | - | ns | - | - |  |
+| 40 | - | - | ns | - | - |  |
+| - | - | 5 | μs | - | - |  |
+| 2.0 | - | - | μs | - | - |  |
+| o time |  | 2.0 | - | - | μs | - |
+|  |  | 1.0 | - | - | μs | - |
+
+7y p
+
+1\times\mathfrak{t}_{\mathsf A D c y c}+40
+
+1\times\mathfrak{t}_{\mathsf A D C y c}+40
+
+1\times\mathfrak{t}_{\mathsf A D C y c}+40
+
+1\times\mathfrak{t}_{\mathsf D D C y C}+60
+
+1\times\mathfrak{t}_{\mathsf A D C y c}+40
+
+1\times\mathsf{t}_{\mathsf{A D c y c}}+60
+
+1\times\mathfrak{t}_{\mathsf A{A D c y c}}+40
+
+1\times\mathfrak{t}_{\mathsf{A D c y c}}+40
+
+1\times\mathfrak{t}_{\mathsf A{A D c y c}}+60
+
+1\times\mathsf{t}_{\mathsf A{A D c y}}+160
+
+1\times t_{\ C D C y C}+160
+
+1\times t_{D c c c}+400
+
+Note: tADcyc : ADCLK cycle
+
+---
+
+Table 2.35 A/D conversion characteristics (SAR mode) (1 of 2)
+
+| Parameter |  |  |  |  | Min | Typ | Max | Unit | Test conditions |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SAR mode | Analog input voltage range |  |  |  |  | VREFL0 | - | VREFH0 | V | - |
+| Resolution |  |  |  |  | - | - | 12 | bit | - |  |
+| Quantization error |  |  |  |  | - | ±0.5 | - | LSB | - |  |
+| High-precision high-speed channels(AN000 to AN005)(AN006 to AN011)(AN018 to AN019)^{3}$ | Without channel-dedicated sample-and-hold circuits$^{3}$ | Conversion time$^{1}$ | Normal conversion | 0.16 | - | - | μs | • ADCLK: 50 MHz
+• Sampling time: 3 ADCLK
+• Successive approximation time: 5 ADCLK
+• Signal source impedance: 50 Ω or less |  |  |
+| With Averaging mode(4-time conversion) | 0.64 | - | - | μs |  |  |  |  |  |  |
+| Offset error |  | - | ±1.0 | ±3.0 | LSB | - |  |  |  |  |
+| Full-scale error |  | - | ±1.5 | ±2.5 | LSB | - |  |  |  |  |
+| Absolute accuracy | Normal conversion | - | ±5.5 | ±7.0 | LSB | - |  |  |  |  |
+| With Averaging mode(4-time conversion) | - | ±4.5 | ±5.5 | LSB | - |  |  |  |  |  |
+| Total unadjusted error(TUE)$^{4}$ |  | - | ±3.5 | ±4.0 | LSB | - |  |  |  |  |
+| DNL differential nonlinearity error |  | - | -1 to +1.5 | -1 to +2.5 | LSB | - |  |  |  |  |
+| INL integral nonlinearity error |  | - | ±2.0 | ±3.0 | LSB | - |  |  |  |  |
+| With channel-dedicated sample-and-hold circuits | Conversion time$^{2}$ | Normal conversion | 0.72 | - | - | μs | • ADCLK: 50 MHz
+• Sampling time of channel-dedicated sample-and-hold circuits: 20 ADCLK
+• Hold mode switching time of channel-dedicated sample-and-hold circuits: 2 ADCLK
+• Sampling time: 9 ADCLK
+• Successive approximation time: 5 ADCLK
+• Signal source impedance: 50 Ω or less |  |  |  |
+| With Averaging mode(4-time conversion) | 2.88 | - | - | μs |  |  |  |  |  |  |
+| Offset error |  | - | ±0.5 | ±1.0 | LSB | - |  |  |  |  |
+| Full-scale error |  | - | ±1.5 | ±1.5 | LSB | - |  |  |  |  |
+| Absolute accuracy | Normal conversion | - | ±5.0 | ±7.0 | LSB | - |  |  |  |  |
+| With Averaging mode(4-time conversion) | - | ±4.0 | ±5.0 | LSB | - |  |  |  |  |  |
+| Total unadjusted error(TUE)$^{4}$ |  | - | ±3.0 | ±3.4 | LSB | - |  |  |  |  |
+| DNL differential nonlinearity error |  | - | -1 to +1.5 | -1 to +2.5 | LSB | - |  |  |  |  |
+| INL integral nonlinearity error |  | - | ±2.0 | ±3.0 | LSB | - |  |  |  |  |
+
+---
+
+Table 2.35 A/D conversion characteristics (SAR mode) (2 of 2)
+
+| Parameter |  |  |  |  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SAR mode | High-precision middle-speed channels(AN012 to AN017) | Conversion time$ ^{+1}$ | Normal conversion | 0.28 | — | — | μs | • ADCLK:50MHz
+• Sampling time:9ADCLK
+• Successive approximation time:5ADCLK
+• Signal source impedance:50Ωor less |  |
+| With Averaging mode(4-time conversion) | 1.12 | — | — | μs |  |  |  |  |  |
+| Offset error |  |  | — | ±1.0 | ±1.5 | LSB | — |  |  |
+| Full-scale error |  |  | — | ±1.0 | ±2.5 | LSB | — |  |  |
+| Absolute accuracy | Normal conversion |  | — | ±4.0 | ±7.0 | LSB | — |  |  |
+| With Averaging mode(4-time conversion) |  | — | ±3.0 | ±5.5 | LSB | — |  |  |  |
+| Total unadjusted error(TUE)$ ^{+4}$ |  |  | — | ±3.4 | ±4.4 | LSB | — |  |  |
+| DNL differential nonlinearity error |  |  | — | -1to+1.5 | -1to+2.5 | LSB | — |  |  |
+| INL integral nonlinearity error |  |  | — | ±2.0 | ±3.0 | LSB | — |  |  |
+| Normal-precision low-speed channels(AN020 to AN028) | Conversion time$ ^{+1}$ | Normal conversion | 0.50 | — | — | μs | • ADCLK:50MHz
+• Sampling time:20ADCLK
+• Successive approximation time:5ADCLK
+• Signal source impedance:50Ωor less |  |  |
+| With Averaging mode(4-time conversion) | 2.00 | — | — | μs |  |  |  |  |  |
+| Offset error |  |  | — | ±1.0 | ±2.5 | LSB | — |  |  |
+| Full-scale error |  |  | — | ±1.5 | ±2.5 | LSB | — |  |  |
+| Absolute accuracy | Normal conversion |  | — | ±5.5 | ±8.0 | LSB | — |  |  |
+| With Averaging mode(4-time conversion) |  | — | ±5.5 | ±7.0 | LSB | — |  |  |  |
+| Total unadjusted error(TUE)$ ^{+4}$ |  |  | — | ±4.2 | ±5.3 | LSB | — |  |  |
+| DNL differential nonlinearity error |  |  | — | -1to+1.5 | -1to+2.5 | LSB | — |  |  |
+| INL integral nonlinearity error |  |  | — | ±2.0 | ±4.0 | LSB | — |  |  |
+
+Note 1. Without channel-dedicated sample-and-hold circuits; The conversion time is the sum of the sampling time and the successive
+approximation time. Each of the above state is indicated for the test conditions.
+Note 2. With channel-dedicated sample-and-hold circuits; The conversion time is the sum of the sampling time of channel-dedicated
+
+Note 2. With channel-dedicated sample-and-hold circuits; The conversion time is the sum of the sampling time of channel-dedicated
+sample-and-hold circuits, the hold mode switching time, the sampling time and the successive approximation time. Each of the
+above state is indicated for the test conditions.
+Note 3. Channel-dedicated sample-and-hold circuits are not available in these channels.
+
+(\mathsf{T U E})^{\ 4}
+
+Note 3. Channel-dedicated sample-and-hold circuits are not available in these channels.
+Note 4. Excludes quantization error (±0.5 LSB).
+
+Note 3. Channel-dedicated sample-and-hold circuits are not available in these channels.
+Note 4. Excludes quantization error (±0.5 LSB).
+
+---
+
+Table 2.36 A/D conversion characteristics (Oversampling mode and Hybrid mode) (1)
+
+| Parameter |  |  |  | Min |
+| --- | --- | --- | --- | --- |
+| Oversampling mode and Hybrid mode | Analog input voltage range | Single-ended input voltage |  | VREB |
+| Differential input voltage*1 |  | -VREB |  |  |
+| Resolution |  |  | — |  |
+| Oversampling period | Oversampling mode |  | 0.16 |  |
+| Hybrid mode*3 |  | 0.18 |  |  |
+| Digital filter characteristics*2 | Sinc filter | Initial delay | — |  |
+| Group delay | — |  |  |  |
+| Normalized Cutoff Frequency | — |  |  |  |
+| Minimum phase filter | Initial delay | — |  |  |
+| Group delay | — |  |  |  |
+| Normalized Cutoff Frequency | — |  |  |  |
+| Passband ripple | — |  |  |  |
+
+|  | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- |
+| FL0 | - | VREFH0 | V | - |
+| FH0 | - | +VREFH0 | V | - |
+|  | - | 16 | bit | - |
+|  | - | - | μs | ADCLK:50MHzSampling time:3ADCLKSuccessive approximation time:5ADCLKWithout disconnection detection assist functionSignal source impedance:50Ωor less |
+|  | - | - | μs | ADCLK:50MHzSampling time:4ADCLKSuccessive approximation time:5ADCLKWithout disconnection detection assist functionSignal source impedance:50Ωor less |
+|  | 22 | - | /Fos | - |
+|  | 11 | - | - |  |
+|  | 0.033 | - | Fin/Fos | - |
+|  | 22 | - | /Fos | - |
+|  | 2 | - | - |  |
+|  | 0.116 | - | Fin/Fos | - |
+|  | &lt;±0.01 | - | dB | - |
+
+Note: Fos is oversampling frequency. When in Hybrid mode, Fos is 1/ (the sum of the oversampling periods of each analog channel
+assigned to the scan group).
+Note 1. Differential input voltage is (AINP - AINN)
+
+Note 1. Differential input voltage is (AINP - AINN)
+● AINP is input voltage of ANx, and VREFL0 ≤ AINP ≤ VREFH0.
+
+(\sf{A}_{I N P}-A_{I N N})
+
+● AINP is input voltage of ANx, and VREFL0 ≤ AINP ≤ VREFH0.
+● AINN is input voltage of ANy, and VREFL0 ≤ AINN ≤ VREFH0.
+
+● AINN is input voltage of ANy, and VREFL0 ≤ AINN ≤ VREFH0.
+(x = 2i, y = 2i +1, i = 0, 1, 2… (any integer))
+See Figure 2.50 and Figure 2.51.
+
+0\leq A_{1N N}\!\leq\!V E F F H O.
+
+Note 3. Value per channel.
+
+Note 2. See Figure 2.50 and Figure 2.51.
+Note 3. Value per channel.
+
+---
+
+X軸 Y軸
+
+0.000 0.00 RA6T2 Datasheet0.000 0.002. Electrical Characteristics
+0.001 0.00
+0.001-0.01 英⽂
+0.002-0.01
+0.002-0.02
+0.003-0.02
+100.003-0.03 0 0.004-0.04
+-100.004-0.05
+
+0.005-0.06
+-20
+
+0.005-0.08
+-30
+
+0.006-0.09
+Magnitude [dB]-50-40
+
+0.006-0.11
+-600.007-0.13 -80-70
+
+0.007-0.15
+0.008-0.17
+-90
+
+0.008-0.19
+0.009-0.21
+Normalized Frequency [Fin/Fos]
+
+0.009-0.23
+0.001 0.01 0.1 0.010-0.26
+**Figure 2.50 Digital filter characteristics (Sinc filter)**
+
+0.010-0.28
+0.011-0.31
+0.011-0.34
+0.012-0.37
+0.012-0.40
+0.013-0.44
+0.013-0.47
+0.014-0.51
+0.014-0.54
+0.015-0.58
+0.015-0.62
+0.016-0.66
+0.016-0.71
+0.017-0.75
+0.017-0.79
+0.018-0.84
+0.018-0.89
+0.019-0.94
+0.019-0.99
+0.020-1.04
+0.020-1.09
+0.021-1.15
+0.021-1.20
+0.021-1.26
+0.022-1.32
+0.022-1.38
+0.023-1.44
+0.023-1.50
+R01DS0400EJ0150 Rev.1.50 Page 65 of 101 Jul 2, 2025
+
+---
+
+Normalized Frequency [Fin/Fos]
+
+Figure 2.51 Digital filter characteristics (Minimum phase filter)
+
+---
+
+Table 2.37 A/D conversion characteristics (Oversampling mode and Hybrid mode) (2)
+
+| Parameter |  |  |  |  | Min |
+| --- | --- | --- | --- | --- | --- |
+| Oversampling mode and Hybrid mode(AN000 to AN005)(AN006 to AN011)(AN018 to AN019)(AN012 to AN017) | Sinc filter | Single-ended input | SNDR signal-to-noise and distortion ratio | - |  |
+| ENOB effective number of bits | - |  |  |  |  |
+| Differential input | SNDR signal-to-noise and distortion ratio | - |  |  |  |
+| ENOB effective number of bits | - |  |  |  |  |
+| Minimum phase filter | Single-ended input | SNDR signal-to-noise and distortion ratio | - |  |  |
+| ENOB effective number of bits | - |  |  |  |  |
+| Differential input | SNDR signal-to-noise and distortion ratio | - |  |  |  |
+| ENOB effective number of bits | - |  |  |  |  |
+
+|  | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- |
+|  | 80 | - | dB | ADCLK:50MHz
+Sampling time:
+High-precision high-speed channels(Oversampling mode):3ADCLK
+High-precision high-speed channels(Hybrid mode):4ADCLK
+High-precision middle-speed channels:9ADCLK
+Successive approximation time:5ADCLK
+Signal source impedance:50Ωor less
+Input frequency:
+Oversampling mode:10kHz
+Hybrid mode:4kHz
+Without channel-dedicated sample-and-hold circuits |
+|  | 13 | - | bit |  |
+|  | 86 | - | dB |  |
+|  | 14 | - | bit |  |
+|  | 68 | - | dB |  |
+|  | 11 | - | bit |  |
+|  | 74 | - | dB |  |
+|  | 12 | - | bit |  |
+
+Table 2.38 A/D conversion characteristics (Oversampling mode)
+
+| Parameter |  |  |  |  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Oversampling mode(AN000 to AN005)(AN006 to AN011)(AN018 to AN019)(AN012 to AN017)(AN020 to AN028) | Single-ended input | Unit0 | Offset error | - | ±8.0 | - | LSB | ADCLK:50MHzSampling time:High-precision high-speed channels:3 ADCLKHigh-precision middle-speed channels:9 ADCLKNormal-precision low-speed channels:20 ADCLKSuccessive approximation time:5 ADCLKSignal source impedance:50Ωor lessDigital filter:Sinc filterWithout channel-dedicated sample-and-hold circuits |  |
+| Gain error | - | ±32.0 | - |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{1}$ | - | ±4.0 | - |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{1}$ | - | ±8.0 | - |  |  |  |  |  |  |
+| Unit1 | Offset error | - | ±8.0 | - |  |  |  |  |  |
+| Gain error | - | ±32.0 | - |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{1}$ | - | ±4.0 | - |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{1}$ | - | ±8.0 | - |  |  |  |  |  |  |
+| Differential input | Unit0 | Offset error | - | ±4.0 | - |  |  |  |  |
+| Gain error | - | ±14.0 | - |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{1}$ | - | ±2.0 | - |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{1}$ | - | ±4.0 | - |  |  |  |  |  |  |
+| Unit1 | Offset error | - | ±4.0 | - |  |  |  |  |  |
+| Gain error | - | ±14.0 | - |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{1}$ | - | ±2.0 | - |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{1}$ | - | ±4.0 | - |  |  |  |  |  |  |
+
+---
+
+Note 1. Test conditions: 0.2% to 99.8% of the analog input voltage range.
+
+Table 2.39 A/D conversion characteristics (Hybrid mode) (1 of 2)
+
+| Parameter |  |  |  |  |  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Hybrid mode(AN000 to AN005)(AN006 to AN011)(AN018 to AN019)^{1}(AN012 to AN017)^{1}(AN020 to AN028)^{1}$ | Without channel-dedicated sample-and-hold circuits$ ^{1}$ | Single-ended input | Unit0 | Offset error | - | ±8.0 | - | LSB | • ADCLK:50MHz• Sampling time:High-precision high-speed channels:4ADCLKHigh-precision middle-speed channels:9ADCLKNormal-precision low-speed channels:20ADCLK• Successive approximation time:5ADCLK• Signal source impedance:50Ωor less• Digital filter:Sinc filter |  |
+| Gain error | - | ±40.0 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+| Unit1 | Offset error | - | ±8.0 | - |  |  |  |  |  |  |
+| Gain error | - | ±40.0 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+| Differential input | Unit0 | Offset error | - | ±4.0 | - |  |  |  |  |  |
+| Gain error | - | ±20.0 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±2.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| Unit1 | Offset error | - | ±4.0 | - |  |  |  |  |  |  |
+| Gain error | - | ±20.0 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±2.0 | - |  |  |  |  |  |  |  |
+
+---
+
+Table 2.39 A/D conversion characteristics (Hybrid mode) (2 of 2)
+
+| Parameter |  |  |  |  |  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Hybrid mode(AN000 to AN005)(AN006 to AN011)(AN018 to AN019)^{1}(AN012 to AN017)^{1}(AN020 to AN028)^{1}$ | With channel-dedicated sample-and-hold circuits | Single-ended input | Unit0 | Offset error | - | 8±72 | - | LSB | ADCLK:50MHzSampling time of channel-dedicated sample-and-hold circuits:20 ADCLKHold mode switching time of channel-dedicated sample-and-hold circuits:2 ADCLKSampling time:9ADCLKSuccessive approximation time:5ADCLKSignal source impedance:50Ωor lessDigital filter:Sinc filter |  |
+| Gain error | - | -23±72 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+| Unit1 | Offset error | - | 36±72 | - |  |  |  |  |  |  |
+| Gain error | - | -23±72 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+| Differential input | Unit0 | Offset error | - | 8±72 | - |  |  |  |  |  |
+| Gain error | - | -15±36 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+| Unit1 | Offset error | - | 36±72 | - |  |  |  |  |  |  |
+| Gain error | - | -15±36 | - |  |  |  |  |  |  |  |
+| DNL differential nonlinearity error$ ^{2}$ | - | ±4.0 | - |  |  |  |  |  |  |  |
+| INL integral nonlinearity error$ ^{2}$ | - | ±8.0 | - |  |  |  |  |  |  |  |
+
+8\pm72
+
+Note 1. Channel-dedicated sample-and-hold circuits are not available in these channels.
+Note 2. Test conditions: 0.2% to 99.8% of the analog input voltage range.
+
+Table 2.42 D/A conversion characteristics (1 of 2)
+
+| Parameter | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- |
+| Resolution | — | — | 12 | Bits | — |
+| Without output amplifier |  |  |  |  |  |
+| Absolute accuracy | — | — | ±24 | LSB | Resistive load 2 MΩ |
+| INL | — | ±2.0 | ±8.0 | LSB | Resistive load 2 MΩ |
+| DNL | — | ±1.0 | ±2.0 | LSB | — |
+| Output impedance | — | 8.5 | — | kΩ | — |
+
+2.5 DAC12 Characteristics
+
+---
+
+Table 2.42 D/A conversion characteristics (2 of 2)
+
+| Parameter | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- |
+| Conversion time | — | — | 3 | μs | Resistive load2MΩ,Capacitive load20pF |
+| Output voltage range | 0 | — | AVCC0 | V | — |
+| With output amplifier |  |  |  |  |  |
+| INL | — | ±2.0 | ±4.0 | LSB | — |
+| DNL | — | ±1.0 | ±2.0 | LSB | — |
+| Conversion time | — | — | 4.0 | μs | — |
+| Resistive load | 5 | — | — | kΩ | — |
+| Capacitive load | — | — | 50 | pF | — |
+| Output voltage range | 0.2 | — | AVCC0-0.2 | V | — |
+
+\pm1.0
+
+\Bbbk\Omega
+
+2.6 TSN Characteristics
+
+Table 2.43 TSN characteristics
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Relative accuracy | — | — | $\pm$ 1.0 | — | $^{\circ}C$ | — |
+| Temperature slope | — | — | 4.0 | — | mV/$^{\circ}C$ | — |
+| Output voltage(at25$^{\circ}C$) | — | — | 1.24 | — | V | — |
+| Temperature sensor start time | $t_{\mathrm{START}}$ | — | — | 30 | μs | — |
+| Sampling time | — | 4.15 | — | — | μs | — |
+
+\pm\ .00
+
+^{\circ}\mathbf{C}
+
+\mathsf{m V/^^{\circ}C}
+
+25\;^{\circ}\mathrm{C})
+
+2.7 ACMPHS Characteristics
+
+Table 2.44 ACMPHS characteristics
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Input offset voltage | $V_{IO}$ | — | — | 40 | mV |  |
+| Reference voltage range | $V_{REF}$ | 0 | — | AVCC0 | V |  |
+| Input voltage range | $V_{I}$ | 0 | — | AVCC0 | V |  |
+| Output delay | $t_{tot(r)}$ | — | — | 200 | ns | VOD=100mVCMPCTL.CDFS=0 |
+| $t_{tot(f)}$ | — | — | 200 | ns |  |  |
+| Waiting time for stabilization following switching of the input | $t_{cwait}$ | 300 | — | — | ns |  |
+| Operation stabilization time | $t_{cmp}$ | — | — | 1 | μs |  |
+
+\mathsf{V}_{\mathsf R E E}F
+
+\mathsf{V}_{\parallel}
+
+t_{\mathrm{t o t}(r)}
+
+\mathfrak{t}_{\mathrm{t o t(f)}}
+
+t_{\mathsf{c m p}}
+
+---
+
+Figure 2.52 Comparator Response Time
+
+Table 2.45 PGA characteristics in Single-ended input mode (1 of 2)
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Offset error | Voff | -8 | — | 8 | mV |  |
+| PGAVSS input voltage range | PGAVSS | 0 | — | 0 | V |  |
+| Single-ended input voltage range | AIN0(G=2.000) | 0.05×AVCC0 | — | 0.45×AVCC0 | V |  |
+| AIN1(G=2.500) | 0.047×AVCC0 | — | 0.36×AVCC0 | V |  |  |
+| AIN2(G=2.667) | 0.046×AVCC0 | — | 0.337×AVCC0 | V |  |  |
+| AIN3(G=2.857) | 0.046×AVCC0 | — | 0.32×AVCC0 | V |  |  |
+| AIN4(G=3.077) | 0.045×AVCC0 | — | 0.292×AVCC0 | V |  |  |
+| AIN5(G=3.333) | 0.044×AVCC0 | — | 0.265×AVCC0 | V |  |  |
+| AIN6(G=3.636) | 0.042×AVCC0 | — | 0.247×AVCC0 | V |  |  |
+| AIN7(G=4.000) | 0.04×AVCC0 | — | 0.212×AVCC0 | V |  |  |
+| AIN8(G=4.444) | 0.036×AVCC0 | — | 0.191×AVCC0 | V |  |  |
+| AIN9(G=5.000) | 0.033×AVCC0 | — | 0.17×AVCC0 | V |  |  |
+| AIN10(G=5.714) | 0.031×AVCC0 | — | 0.148×AVCC0 | V |  |  |
+| AIN11(G=6.667) | 0.029×AVCC0 | — | 0.127×AVCC0 | V |  |  |
+| AIN12(G=8.000) | 0.027×AVCC0 | — | 0.09×AVCC0 | V |  |  |
+| AIN13(G=10.000) | 0.025×AVCC0 | — | 0.08×AVCC0 | V |  |  |
+| AIN14(G=13.333) | 0.023×AVCC0 | — | 0.06×AVCC0 | V |  |  |
+| Output voltage range$^{1}$ | PGAOUT0(G=2.000) | 0.100×AVCC0 | — | 0.900×AVCC0 | V |  |
+| PGAOUT1(G=2.500) | 0.118×AVCC0 | — | 0.900×AVCC0 | V |  |  |
+| PGAOUT2(G=2.667) | 0.123×AVCC0 | — | 0.899×AVCC0 | V |  |  |
+| PGAOUT3(G=2.857) | 0.131×AVCC0 | — | 0.914×AVCC0 | V |  |  |
+| PGAOUT4(G=3.077) | 0.138×AVCC0 | — | 0.898×AVCC0 | V |  |  |
+| PGAOUT5(G=3.333) | 0.147×AVCC0 | — | 0.883×AVCC0 | V |  |  |
+| PGAOUT6(G=3.636) | 0.153×AVCC0 | — | 0.898×AVCC0 | V |  |  |
+| PGAOUT7(G=4.000) | 0.160×AVCC0 | — | 0.848×AVCC0 | V |  |  |
+| PGAOUT8(G=4.444) | 0.160×AVCC0 | — | 0.849×AVCC0 | V |  |  |
+| PGAOUT9(G=5.000) | 0.165×AVCC0 | — | 0.850×AVCC0 | V |  |  |
+| PGAOUT10(G=5.714) | 0.177×AVCC0 | — | 0.846×AVCC0 | V |  |  |
+| PGAOUT11(G=6.667) | 0.193×AVCC0 | — | 0.847×AVCC0 | V |  |  |
+| PGAOUT12(G=8.000) | 0.216×AVCC0 | — | 0.720×AVCC0 | V |  |  |
+| PGAOUT13(G=10.000) | 0.250×AVCC0 | — | 0.800×AVCC0 | V |  |  |
+| PGAOUT14(G=13.333) | 0.307×AVCC0 | — | 0.800×AVCC0 | V |  |  |
+| Gain error | Gerr0(G=2.000) | -1.0 | — | 1.0 | % |  |
+| Gerr1(G=2.500) | -1.0 | — | 1.0 | % |  |  |
+| Gerr2(G=2.667) | -1.0 | — | 1.0 | % |  |  |
+| Gerr3(G=2.857) | -1.0 | — | 1.0 | % |  |  |
+| Gerr4(G=3.007) | -1.0 | — | 1.0 | % |  |  |
+| Gerr5(G=3.333) | -1.5 | — | 1.5 | % |  |  |
+| Gerr6(G=3.636) | -1.5 | — | 1.5 | % |  |  |
+| Gerr7(G=4.000) | -1.5 | — | 1.5 | % |  |  |
+| Gerr8(G=4.444) | -2.0 | — | 2.0 | % |  |  |
+| Gerr9(G=5.000) | -2.0 | — | 2.0 | % |  |  |
+| Gerr10(G=5.714) | -2.0 | — | 2.0 | % |  |  |
+| Gerr11(G=6.667) | -2.0 | — | 2.0 | % |  |  |
+| Gerr12(G=8.000) | -2.0 | — | 2.0 | % |  |  |
+| Gerr13(G=10.000) | -2.0 | — | 2.0 | % |  |  |
+| Gerr14(G=13.333) | -2.0 | — | 2.0 | % |  |  |
+| Slew rate | SR | 10 | — | — | V/μs |  |
+| Operation stabilization time | tstart | — | — | 5 | μs |  |
+
+Table 2.45 PGA characteristics in Single-ended input mode (2 of 2)
+
+0.160\times\mathsf{A V C C0}
+
+Note 1. Calculate with the following formula. (n = 0 to 14)
+PGAOUTn = AINn × G
+
+PGAOUTn = AINn × G
+Actual output range includes gain error.
+
+Table 2.46 PGA characteristics in Pseudo-differential input mode (1 of 2)
+
+PGAOUTn = (AINn × G ) × (Gerr + 100%)
+
+PGAOUTn = AINn × G
+Actual output range includes gain error.
+PGAOUTn = (AINn × G ) × (Gerr + 100%)
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Offset error | Voff | -20 | — | 20 | mV |  |
+| PGAVSS input voltage range | PGAVSS | -0.5 | — | 0.3 | V |  |
+
+---
+
+Table 2.46 PGA characteristics in Pseudo-differential input mode (2 of 2)
+
+| Parameter |  | Symbol |
+| --- | --- | --- |
+| Differential input voltage range | G=1.500 | AIN-PGAVSS |
+| G=2.333 |  |  |
+| G=4.000 |  |  |
+| G=5.667 |  |  |
+| Output voltage range$ ^{*1}$ | G=1.500 | VOR |
+| G=2.333 |  |  |
+| G=4.000 |  |  |
+| G=5.667 |  |  |
+| Gain error | G=1.500 | Gerr |
+| G=2.333 |  |  |
+| G=4.000 |  |  |
+| G=5.667 |  |  |
+| Slew rate |  | SR |
+| Operation stabilization time |  | tstart |
+
+|  | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- |
+|  | -0.5 | — | 0.5 | V |  |
+| -0.4 | — | 0.4 | V |  |  |
+| -0.2 | — | 0.2 | V |  |  |
+| -0.15 | — | 0.15 | V |  |  |
+|  | 0.600 | — | 2.550 | V |  |
+| 0.417 | — | 2.733 | V |  |  |
+| 0.550 | — | 2.600 | V |  |  |
+| 0.500 | — | 2.650 | V |  |  |
+|  | -1.0 | — | 1.0 | % |  |
+| -1.0 | — | 1.0 | % |  |  |
+| -1.0 | — | 1.0 | % |  |  |
+| -1.0 | — | 1.0 | % |  |  |
+|  | 10 | — | — | V/μs |  |
+|  | — | — | 5 | μs |  |
+
+Gmathsf=2.333
+
+\up{/\upmu\mathbf{s}}
+
+Note 1. Calculate with the following formula.
+VOR = (AIN - PGAVSS) × G + (0.5 × AVCC0)
+
+\mathsf{V}_{\mathsf{O R}}=(\mathsf{A I N-P G A V S S})\times\mathsf{G}+(0.5\times\mathsf{A V C C0})
+
+A C l u l l O U l o u l e a n g e n c l l u l g o i n g l l o n
+
+\mathsf{V_{O R}}=(\mathsf{A I N\ P G A V S S})\times\mathsf{G}times(\mathsf{G e r r+1000})+(0.5\times\mathsf{A V C C C0})
+
+Figure 2.53 Input and Output Signal Levels with the PGA’s Pseudo-Differential Setting
+
+2.9 OSC Stop Detect Characteristics
+
+Table 2.47 Oscillation stop detection circuit characteristics
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Detection time | tdr | - | - | 1 | ms | Figure 2.54 |
+
+\ \mathsf{f}_{\mathrm{d r}}
+
+---
+
+Figure 2.54 Oscillation stop detection timing
+
+2.10 POR and LVD Characteristics
+
+Table 2.48 Power-on reset circuit and voltage detection circuit characteristics (1)
+
+| Parameter |  |  |
+| --- | --- | --- |
+| Voltage detection level | Power-on reset(POR) | DPSBYCR.DEEPCUT[1:0]01b. |
+| DPSBYCR.DEEPCUT[1:0] |  |  |
+| Voltage detection circuit(LVD0) |  |  |
+| Voltage detection circuit(LVD1) |  |  |
+| Voltage detection circuit(LVD2) |  |  |
+| Internal reset time | Power-on reset time |  |
+| LVD0 reset time |  |  |
+| LVD1 reset time |  |  |
+| LVD2 reset time |  |  |
+| Minimum VCC down time*1 |  |  |
+| Response delay |  |  |
+| LVD operation stabilization time(after LVD is enabled) |  |  |
+| Hysteresis width(LVD1 and LVD2) |  |  |
+
+|  | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| =00b or | VPOR | 2.5 | 2.6 | 2.7 | V | Figure 2.55 |
+| =11b. | 1.8 | 2.25 | 2.7 |  |  |  |
+|  | Vdet0_1 | 2.84 | 2.94 | 3.04 | Figure 2.56 |  |
+| Vdet0_2 | 2.77 | 2.87 | 2.97 |  |  |  |
+| Vdet0_3 | 2.70 | 2.80 | 2.90 |  |  |  |
+|  | Vdet1_1 | 2.89 | 2.99 | 3.09 | Figure 2.57 |  |
+| Vdet1_2 | 2.82 | 2.92 | 3.02 |  |  |  |
+| Vdet1_3 | 2.75 | 2.85 | 2.95 |  |  |  |
+|  | Vdet2_1 | 2.89 | 2.99 | 3.09 | Figure 2.58 |  |
+| Vdet2_2 | 2.82 | 2.92 | 3.02 |  |  |  |
+| Vdet2_3 | 2.75 | 2.85 | 2.95 |  |  |  |
+|  | tPOR | - | 4.5 | - | ms | Figure 2.55 |
+|  | tLVD0 | - | 0.51 | - | Figure 2.56 |  |
+|  | tLVD1 | - | 0.38 | - | Figure 2.57 |  |
+|  | tLVD2 | - | 0.38 | - | Figure 2.58 |  |
+|  | tVOFF | 200 | - | - | μs | Figure 2.55, Figure 2.56 |
+|  | tdet | - | - | 200 | μs | Figure 2.56 to Figure 2.58 |
+|  | td(E-A) | - | - | 10 | μs | Figure 2.57, Figure 2.58 |
+|  | LVVH | - | 70 | - | mV |  |
+
+7y\
+
+\mathsf{V}_{\mathrm{d e t o0_{-}}}1
+
+\mathsf{V}_{\mathsf{d e t o0\ 2}}
+
+\mathsf{V}_{\mathsf{d e t o0\ 3}}
+
+\mathsf{V}_{\mathrm{d e t1}\_1}
+
+\mathsf{V}_{\mathsf{d e t1\_2}}
+
+\mathsf{V}_{\mathsf{d e t1\_3}}
+
+\mathsf{V}_{\mathsf{d e t2\ -}1}
+
+\mathsf{V}_{\mathsf{d e t2\_2}}
+
+\mathsf{V}_{\mathsf{d e t2\_3}}
+
+\ _\it{L V D0}
+
+\mathsf{t p o R}
+
+\mathsf{t}_{\mathsf{L V D}1}
+
+Note 1. The minimum VCC down time indicates the time when VCC is below the minimum value of voltage detection levels VPOR, Vdet0,
+Vdet1, and Vdet2 for POR and LVD.
+
+\mathfrak__L\ {D2}
+
+\mathsf{V}_{\mathsf{L V H}}
+
+\mathsf{V}_{\mathrm{d e t}1}
+
+\mathsf{t}_{\mathsf{d}(\mathsf{E}A)}
+
+\mathsf{V}_{\mathrm{d e t}2}
+
+|t_{\mathsf{V o F}}|
+
+\mathfrak{t}_{\mathrm{d e f}}
+
+---
+
+Figure 2.55 Power-on reset timing
+
+Figure 2.56 Voltage detection circuit timing (Vdet0)
+
+(\mathbf{V}_{\mathbf{d e t0}})
+
+---
+
+Figure 2.57 Voltage detection circuit timing (Vdet1)
+
+(\mathbf{V}_{\mathbf{d e t1}})
+
+---
+
+Figure 2.58 Voltage detection circuit timing (Vdet2)
+
+(V_{\mathrm{d e t2}})
+
+2.11.1 Code Flash Memory Characteristics
+
+Table 2.49 Code flash memory characteristics (1 of 2)
+
+Conditions: Program or erase: FCLK = 4 to 60 MHz
+Read: FCLK ≤ 60 MHz
+
+| Parameter |  | Symbol | FCLK=4MHz |  |  | 20MHz≤FCLK≤60MHz |  |  | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Typ$ ^{6}$ | Max | Min | Typ$ ^{6}$ | Max |  |  |  |  |  |
+| Programming timeNPEC≤100 times | 128-byte | tP128 | — | 0.75 | 13.2 | — | 0.34 | 6.0 | ms |  |
+| 8-KB | tP8K | — | 49 | 176 | — | 22 | 80 | ms |  |  |
+| 32-KB | tP32K | — | 194 | 704 | — | 88 | 320 | ms |  |  |
+| Programming timeNPEC&gt;100 times | 128-byte | tP128 | — | 0.91 | 15.8 | — | 0.41 | 7.2 | ms |  |
+| 8-KB | tP8K | — | 60 | 212 | — | 27 | 96 | ms |  |  |
+| 32-KB | tP32K | — | 234 | 848 | — | 106 | 384 | ms |  |  |
+| Erasure timeNPEC≤100 times | 8-KB | tE8K | — | 78 | 216 | — | 43 | 120 | ms |  |
+| 32-KB | tE32K | — | 283 | 864 | — | 157 | 480 | ms |  |  |
+| Erasure timeNPEC&gt;100 times | 8-KB | tE8K | — | 94 | 260 | — | 52 | 144 | ms |  |
+| 32-KB | tE32K | — | 341 | 1040 | — | 189 | 576 | ms |  |  |
+| Reprogramming/erasure cycle$ ^{4}$ |  | NPEC | 10000$ ^{1}$ | — | — | 10000$ ^{1}$ | — | — | Times |  |
+
+---
+
+Table 2.49 Code flash memory characteristics (2 of 2)
+
+| Parameter | Symbol | FCLK=4MHz |  |  | 20MHz≤FCLK≤60MHz |  |  | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Typ*6 | Max | Min | Typ*6 | Max |  |  |  |  |
+| Suspend delay during programming | tSPD | - | - | 264 | - | - | 120 | μs |  |
+| Programming resume time | tPRT | - | - | 110 | - | - | 50 | μs |  |
+| First suspend delay during erasure in suspend priority mode | tSESD1 | - | - | 216 | - | - | 120 | μs |  |
+| Second suspend delay during erasure in suspend priority mode | tSESD2 | - | - | 1.7 | - | - | 1.7 | ms |  |
+| Suspend delay during erasure in erasure priority mode | tSEED | - | - | 1.7 | - | - | 1.7 | ms |  |
+| First erasing resume time during erasure in suspend priority mode*5 | tREST1 | - | - | 1.7 | - | - | 1.7 | ms |  |
+| Second erasing resume time during erasure in suspend priority mode | tREST2 | - | - | 144 | - | - | 80 | μs |  |
+| Erasing resume time during erasure in erasure priority mode | tREET | - | - | 144 | - | - | 80 | μs |  |
+| Forced stop command | tFD | - | - | 32 | - | - | 20 | μs |  |
+| Data hold time*2 | tDRP | 10*2*3 | - | - | 10*2*3 | - | - | Years |  |
+| 30*2*3 | - | - | 30*2*3 | - | - | Ta=+85℃ |  |  |  |
+
+\ {bf y p p}^{\star6}
+
+Note 1. This is the minimum number of times to guarantee all the characteristics after reprogramming. The guaranteed range is from 1 to
+the minimum value.
+Note 2. This indicates the minimum value of the characteristic when reprogramming is performed within the specified range.
+
+the minimum value.
+Note 2. This indicates the minimum value of the characteristic when reprogramming is performed within the specified range.
+Note 3. This result is obtained from reliability testing.
+Note 4. The reprogram/erase cycle is the number of erasures for each block. When the reprogram/erase cycle is n times (n = 10,000),
+
+Note 4. The reprogram/erase cycle is the number of erasures for each block. When the reprogram/erase cycle is n times (n = 10,000),
+erasing can be performed n times for each block. For example, when 128-byte programming is performed 64 times for different
+addresses in 8-KB blocks, and then the entire block is erased, the reprogram/erase cycle is counted as one. However, programming
+the same address several times as one erasure is not enabled. Overwriting is prohibited.
+Note 5. Time for resumption includes time for reapplying the erasing pulse (up to one full pulse) that was cut off at the time of suspension.
+
+Note 5. Time for resumption includes time for reapplying the erasing pulse (up to one full pulse) that was cut off at the time of suspension.
+Note 6. The reference value at VCC = 3.3V and room temperature.
+
+---
+
+Figure 2.59 Suspension and forced stop timing for flash memory programming and erasure
+
+2.11.2 Data Flash Memory Characteristics
+
+Table 2.50 Data flash memory characteristics (1 of 2)
+
+| Parameter |  | Symbol | FCLK=4MHz |  |  | 20MHz≤FCLK≤60MHz |  |  | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Typ$ ^{6}$ | Max | Min | Typ$ ^{6}$ | Max |  |  |  |  |  |
+| Programming time | 4-byte | tDP4 | - | 0.36 | 3.8 | - | 0.16 | 1.7 | ms |  |
+| 8-byte | tDP8 | - | 0.38 | 4.0 | - | 0.17 | 1.8 |  |  |  |
+| 16-byte | tDP16 | - | 0.42 | 4.5 | - | 0.19 | 2.0 |  |  |  |
+| Erasure time | 64-byte | tDE64 | - | 3.1 | 18 | - | 1.7 | 10 | ms |  |
+| 128-byte | tDE128 | - | 4.7 | 27 | - | 2.6 | 15 |  |  |  |
+| 256-byte | tDE256 | - | 8.9 | 50 | - | 4.9 | 28 |  |  |  |
+| Blank check time | 4-byte | tDBC4 | - | - | 84 | - | - | 30 | μs |  |
+| Reprogramming/erasure cycle$ ^{*1}$ |  | NDPEC | 125000$ ^{*2}$ | - | - | 125000$ ^{*2}$ | - | - | - |  |
+| Suspend delay during programming | 4-byte | tDSPD | - | - | 264 | - | - | 120 | μs |  |
+| 8-byte | - | - | 264 | - | - | 120 |  |  |  |  |
+| 16-byte | - | - | 264 | - | - | 120 |  |  |  |  |
+| Programming resume time |  | tDPRT | - | - | 110 | - | - | 50 | μs |  |
+| First suspend delay during erasure in suspend priority mode | 64-byte | tDSESD1 | - | - | 216 | - | - | 120 | μs |  |
+| 128-byte | - | - | 216 | - | - | 120 |  |  |  |  |
+| 256-byte | - | - | 216 | - | - | 120 |  |  |  |  |
+
+---
+
+Table 2.50 Data flash memory characteristics (2 of 2)
+
+Conditions: Program or erase: FCLK = 4 to 60 MHz
+Read: FCLK ≤ 60 MHz
+
+| Parameter |  | Symbol | FCLK=4MHz |  |  | 20MHz≤FCLK≤60MHz |  |  | Unit | Test conditions |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Typ$ ^{6}$ | Max | Min | Typ$ ^{6}$ | Max |  |  |  |  |  |  |
+| Second suspend delay during erasure in suspend priority mode | 64-byte | tDSESD2 | - | - | 300 | - | - | 300 | μs |  |  |
+| 128-byte | - | - | 390 | - | - | 390 |  |  |  |  |  |
+| 256-byte | - | - | 570 | - | - | 570 |  |  |  |  |  |
+| Suspend delay during erasing in erasure priority mode | 64-byte | tDSEED | - | - | 300 | - | - | 300 | μs |  |  |
+| 128-byte | - | - | 390 | - | - | 390 |  |  |  |  |  |
+| 256-byte | - | - | 570 | - | - | 570 |  |  |  |  |  |
+| First erasing resume time during erasure in suspend priority mode$ ^{5}$ |  |  | tDREST1 | - | - | 300 | - | - | 300 | μs |  |
+| Second erasing resume time during erasure in suspend priority mode |  |  | tDREST2 | - | - | 126 | - | - | 70 | μs |  |
+| Erasing resume time during erasure in erasure priority mode |  |  | tDREET | - | - | 126 | - | - | 70 | μs |  |
+| Forced stop command |  |  | tFD | - | - | 32 | - | - | 20 | μs |  |
+| Data hold time$ ^{3}$ |  |  | tDRP | 10$ ^{3}$ *4 | - | - | 10$ ^{3}$ *4 | - | - | Year |  |
+|  |  |  | 30$ ^{3}$ *4 | - | - | 30$ ^{3}$ *4 | - | - |  | Ta = +85℃ |  |
+
+Read: FCLK ≤ 60 MHz
+
+\mathbf{T y p}^{\star6}
+
+\ y y{\mathfrak p}^{\ 6}
+
+{10}^{\star3{}star}^{\star4}
+
+{30}^{\ 3}\,}^{*_{4}}
+
+{\mathsf{T a}}=+85^{\circ}{\mathsf{C}}
+
+Note 1. The reprogram/erase cycle is the number of erasures for each block. When the reprogram/erase cycle is n times (n = 125,000),
+erasing can be performed n times for each block. For example, when 4-byte programming is performed 16 times for different
+addresses in 64-byte blocks, and then the entire block is erased, the reprogram/erase cycle is counted as one. However,
+programming the same address several times as one erasure is not enabled. Overwriting is prohibited.
+Note 2. This is the minimum number of times to guarantee all the characteristics after reprogramming. The guaranteed range is from 1 to
+
+Note 2. This is the minimum number of times to guarantee all the characteristics after reprogramming. The guaranteed range is from 1 to
+the minimum value.
+Note 3. This indicates the minimum value of the characteristic when reprogramming is performed within the specified range.
+
+the minimum value.
+Note 3. This indicates the minimum value of the characteristic when reprogramming is performed within the specified range.
+Note 4. This result is obtained from reliability testing.
+
+Note 4. This result is obtained from reliability testing.
+Note 5. Time for resumption includes time for reapplying the erasing pulse (up to one full pulse) that was cut off at the time of suspension.
+
+Note 4. This result is obtained from reliability testing.
+Note 5. Time for resumption includes time for reapplying the erasing pulse (up to one full pulse) that was cut off at the time of suspension.
+Note 6. The reference value at VCC = 3.3 V and room temperature.
+
+T a=+85^{\circ}C
+
+2.11.3 Option Setting Memory Characteristics
+
+{30}^{\ {}^{2}2\ {}^{\star}{}^{3}}
+
+Table 2.51 Option setting memory characteristics
+
+{30}^{\ 2{\ }^{\ }}{}^{3
+
+Note 2. This indicates the minimum value of the characteristic when reprogramming is performed within the specified range.
+Note 3. This result is obtained from reliability testing.
+
+| Parameter | Symbol | FCLK=4MHz |  |  | 20MHz≤FCLK≤60MHz |  |  | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Min | Typ$^{4}$ | Max | Min | Typ$^{4}$ | Max |  |  |  |  |
+| Programming timeNOPC≤100 times | tOP | — | 83 | 309 | — | 45 | 162 | ms |  |
+| Programming timeNOPC＞100 times | tOP | — | 100 | 371 | — | 55 | 195 | ms |  |
+| Reprogramming cycle | NOPC | 20000$^{*1}$ | — | — | 20000$^{*1}$ | — | — | Times |  |
+| Data hold time$^{*2}$ | tDRP | $10^{*2}{}^{*3}$ | — | — | $10^{*2}{}^{*3}$ | — | — | Years |  |
+| $30^{*2}{}^{*3}$ | — | — | $30^{*2}{}^{*3}$ | — | — | Ta=+85℃ |  |  |  |
+
+Note 3. This result is obtained from reliability testing.
+Note 4. The reference value at VCC = 3.3 V and room temperature.
+
+---
+
+2.12 Boundary Scan
+
+Table 2.52 Boundary scan characteristics
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| TCK clock cycle time | tTCKcyc | 100 | — | — | ns | Figure 2.60 |
+| TCK clock high pulse width | tTCKH | 45 | — | — | ns |  |
+| TCK clock low pulse width | tTCKL | 45 | — | — | ns |  |
+| TCK clock rise time | tTCKr | — | — | 5 | ns |  |
+| TCK clock fall time | tTCKf | — | — | 5 | ns |  |
+| TMS setup time | tTMSS | 20 | — | — | ns | Figure 2.61 |
+| TMS hold time | tTMSH | 20 | — | — | ns |  |
+| TDI setup time | tTDIS | 20 | — | — | ns |  |
+| TDI hold time | tTDIH | 20 | — | — | ns |  |
+| TDO data delay | tTDOD | — | — | 40 | ns |  |
+| Boundary scan circuit startup time*1 | TBsSTUP | tRESWP | — | — | — | Figure 2.62 |
+
+Note 1. Boundary scan does not function until the power-on reset becomes negative.
+
+Figure 2.61 Boundary scan input/output timing
+
+---
+
+Figure 2.62 Boundary scan circuit startup timing
+
+2.13 Joint Test Action Group (JTAG)
+
+Table 2.53 JTAG
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| TCK clock cycle time | tTCKcyc | 40 | - | - | ns | Figure 2.63 |
+| TCK clock high pulse width | tTCKH | 15 | - | - | ns |  |
+| TCK clock low pulse width | tTCKL | 15 | - | - | ns |  |
+| TCK clock rise time | tTCKr | - | - | 5 | ns |  |
+| TCK clock fall time | tTCKf | - | - | 5 | ns |  |
+| TMS setup time | tTMSS | 8 | - | - | ns | Figure 2.64 |
+| TMS hold time | tTMSH | 8 | - | - | ns |  |
+| TDI setup time | tTDIS | 8 | - | - | ns |  |
+| TDI hold time | tTDIH | 8 | - | - | ns |  |
+| TDO data delay time | tTDOD | - | - | 20 | ns |  |
+
+Figure 2.63 JTAG TCK timing
+
+---
+
+Figure 2.64 JTAG input/output timing
+
+2.14 Serial Wire Debug (SWD)
+
+Table 2.54 SWD
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| SWCLK clock cycle time | tSWCKcyc | 40 | - | - | ns | Figure 2.65 |
+| SWCLK clock high pulse width | tSWCKH | 15 | - | - | ns |  |
+| SWCLK clock low pulse width | tSWCKL | 15 | - | - | ns |  |
+| SWCLK clock rise time | tSWCKr | - | - | 5 | ns |  |
+| SWCLK clock fall time | tSWCKf | - | - | 5 | ns |  |
+| SWDIO setup time | tSWDS | 8 | - | - | ns | Figure 2.66 |
+| SWDIO hold time | tSWDH | 8 | - | - | ns |  |
+| SWDIO data delay time | tSWDD | 2 | - | 28 | ns |  |
+
+---
+
+Figure 2.65 SWD SWCLK timing
+
+Figure 2.66 SWD input/output timing
+
+2.15 Embedded Trace Macro Interface (ETM)
+
+Conditions: High speed high drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| TCLK clock cycle time | $t_{TCLKcyc}$ | 16.7 | — | — | ns | Figure 2.67 |
+| TCLK clock high pulse width | $t_{TCLKH}$ | 7.35 | — | — | ns |  |
+| TCLK clock low pulse width | $t_{TCLKL}$ | 7.35 | — | — | ns |  |
+| TCLK clock rise time | $t_{TCLKr}$ | — | — | 1 | ns |  |
+| TCLK clock fall time | $t_{TCLKf}$ | — | — | 1 | ns |  |
+
+---
+
+Table 2.55 ETM (2 of 2)
+
+Conditions: High speed high drive output is selected in the Port Drive Capability bit in the PmnPFS register.
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Test conditions |
+| --- | --- | --- | --- | --- | --- | --- |
+| TDATA[3:0] output setup time | tTRDS | 2.5 | — | — | ns | Figure 2.68 |
+| TDATA[3:0] output hold time | tTRDH | 1.5 | — | — | ns |  |
+
+Figure 2.67 ETM TCLK timing
+
+Figure 2.68 ETM output timing
+
+---
+
+Appendix 1. Port States in Each Processing Mode
+
+| Function | Pin function | Reset | Software Standby mode | Deep Software Standby mode | After Deep Software Standby mode is canceled (return to startup mode) |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| IOKEEP=0 | IOKEEP=1*1 |  |  |  |  |  |
+| Mode | MD | Pull-up | Keep-O | Keep | Hi-Z | Keep |
+| JTAG | TCK/TMS/TDI | Pull-up | Keep-O | Keep | Hi-Z | Keep |
+| TDO | TDO output | Keep-O | Keep | TDO output | Keep |  |
+| Trace | TCLK/TDATAx | Hi-Z | Keep-O | Keep | Hi-Z | Keep |
+| IRQ | IRQx | Hi-Z | Keep-O*2 | Keep | Hi-Z | Keep |
+| IRQx-DS | Hi-Z | Keep-O*2 | Keep*3 | Hi-Z | Keep |  |
+| KINT | KRxx | Hi-Z | Keep-O*2 | Keep | Hi-Z | Keep |
+| AGT | AGTIOn | Hi-Z | Keep-O*2 | Keep | Hi-Z | Keep |
+| IIC | SCLn/SDAn | Hi-Z | Keep-O*2 | Keep | Hi-Z | Keep |
+| CLKOUT | CLKOUT | Hi-Z | [CLKOUT selected] CLKOUT output | Keep | Hi-Z | Keep |
+| ACMPHS | VCOUT, CMPOUTm, CMPOUT012 | Hi-Z | Hi-Z(Keep-O) | Hi-Z(Keep-O) | Hi-Z | Keep |
+| IVREFn | Hi-Z | Hi-Z(Keep-O) | Hi-Z(Keep-O) | Hi-Z | Hi-Z |  |
+| IVCMPmn | Hi-Z | Hi-Z(Keep-O) | Hi-Z(Keep-O) | Hi-Z | Hi-Z |  |
+| DAC12 | DAn | Hi-Z | [DAn output(DAOE=1)] D/A output retained | Keep | Hi-Z | Keep |
+| ADC | ANxxx | Hi-Z | Hi-Z | Hi-Z | Hi-Z | Hi-Z |
+| PGAINn | Hi-Z | Hi-Z | Hi-Z | Hi-Z | Hi-Z |  |
+| PGAVSSn | Pull-up*4 | Pull-up*5 / Keep | Pull-up*5 / Keep | Pull-up*5 / Keep | Pull-up*5 / Keep |  |
+| PGAOUTn | Hi-Z | Hi-Z | Hi-Z | Hi-Z | Hi-Z |  |
+| Others | - | Hi-Z | Keep-O | Keep | Hi-Z | Keep |
+
+{\sf I o K E E P}=1^{*star1}
+
+\mathsf{K e e p-0}^{\star2}
+
+\ \mathsf{K e e p0^{\star2}}
+
+\ {mathsf K e e p}^{*3}
+
+\mathsf{K e e p-0}^{\ \ 2}
+
+\mathsf{K e e p-0}^{\ \ 2}
+
+H: High-level
+L: Low-level
+Hi-Z: High-impedance
+
+Note: H: High-level
+L: Low-level
+
+L: Low-level
+Hi-Z: High-impedance
+Keep-O: Output pins retain their previous values. Input pins go to high-impedance.
+
+Hi-Z: High-impedance
+Keep-O: Output pins retain their previous values. Input pins go to high-impedance.
+Keep: Pin states are retained during periods in Software Standby mode.
+Retains the I/O port state until the DPSBYCR.IOKEEP bit is cleared to 0.
+
+Note 1. Retains the I/O port state until the DPSBYCR.IOKEEP bit is cleared to 0.
+Note 2. Input is enabled if the pin is specified as the Software Standby canceling source while it is used as an external interrupt pin.
+
+Note 1. Retains the I/O port state until the DPSBYCR.IOKEEP bit is cleared to 0.
+Note 2. Input is enabled if the pin is specified as the Software Standby canceling source while it is used as an external interrupt pin.
+Note 3. Input is enabled if the pin is specified as the Deep Software Standby canceling source.
+
+Note 3. Input is enabled if the pin is specified as the Deep Software Standby canceling source.
+Note 4. The built-in pull-up is turned on to protect the circuit from negative potential inputs.
+
+Note 4. The built-in pull-up is turned on to protect the circuit from negative potential inputs.
+Note 5. Regardless of whether the PGA is enabled or disabled, when the PGA is set to pseudo-differential mode, the built in pull-up is
+
+Note 4. The built-in pull-up is turned on to protect the circuit from negative potential inputs.
+Note 5. Regardless of whether the PGA is enabled or disabled, when the PGA is set to pseudo-differential mode, the built in pull-up is
+turned on to protect the circuit from negative potential inputs. To turn off the built-in pull-up, turn off the PGA's pseudo-differential
+mode and set it to single mode.
+
+---
+
+Appendix 2. Package Dimensions
+
+Information on the latest version of the package dimensions or mountings is displayed in Packages on the Renesas
+Electronics Corporation website.
+
+| JEITA Package Code | RENESAS Code | Previous Code | MASS (Typ)[g] |
+| --- | --- | --- | --- |
+| P-LFQFP100-14x14-0.50 | PLQP0100KB-B | — | 0.6 |
+
+Unit: mm
+
+Figure A2.1 LQFP 100-pin
+
+NOTE)
+1.  DIMENSIONS “*1” AND “*2” DO NOT INCLUDE MOLD FLASH.
+F
+
+F
+
+4. CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+© 2015 Renesas Electronics Corporation. All rights reserved.
+
+| Reference Symbol | Dimensions in millimeters |  |  |
+| --- | --- | --- | --- |
+| Min | Nom | Max |  |
+| D | 13.9 | 14.0 | 14.1 |
+| E | 13.9 | 14.0 | 14.1 |
+| A2 | - | 1.4 | - |
+| HD | 15.8 | 16.0 | 16.2 |
+| HE | 15.8 | 16.0 | 16.2 |
+| A | - | - | 1.7 |
+| A1 | 0.05 | - | 0.15 |
+| bp | 0.15 | 0.20 | 0.27 |
+| c | 0.09 | - | 0.20 |
+| θ | 0° | 3.5° | 8° |
+| e | - | 0.5 | - |
+| x | - | - | 0.08 |
+| y | - | - | 0.08 |
+| Lp | 0.45 | 0.6 | 0.75 |
+| L1 | - | 1.0 | - |
+| P-LFQFP64-10x10-0.50 | PLQP0064KB-C | — | 0.3 |
+
+Unit: mm
+
+Figure A2.2 LQFP 64-pin
+
+F
+1.  DIMENSIONS “*1” AND “*2” DO NOT INCLUDE MOLD FLASH.2.  DIMENSION “*3” DOES NOT INCLUDE TRIM OFFSET.3.  PIN 1 VISUAL INDEX FEATURE MAY VARY, BUT MUST BE     LOCATED WITHIN THE HATCHED AREA.4.  CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+NOTE)
+1.  DIMENSIONS “*1” AND “*2” DO NOT INCLUDE MOLD FLASH.2.  DIMENSION “*3” DOES NOT INCLUDE TRIM OFFSET.3.  PIN 1 VISUAL INDEX FEATURE MAY VARY, BUT MUST BE     LOCATED WITHIN THE HATCHED AREA.4.  CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+2. DIMENSION "*3" DOES NOT INCLUDE TRIM OFFSET.
+
+3. PIN 1 VISUAL INDEX FEATURE MAY VARY, BUT MUST BE LOCATED WITHIN THE HATCHED AREA.
+
+4. CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+| Reference Symbol | Dimensions in millimeters |  |  |
+| --- | --- | --- | --- |
+| Min | Nom | Max |  |
+| D | 9.9 | 10.0 | 10.1 |
+| E | 9.9 | 10.0 | 10.1 |
+| A2 | - | 1.4 | - |
+| HD | 11.8 | 12.0 | 12.2 |
+| HE | 11.8 | 12.0 | 12.2 |
+| A | - | - | 1.7 |
+| A1 | 0.05 | - | 0.15 |
+| bp | 0.15 | 0.20 | 0.27 |
+| c | 0.09 | - | 0.20 |
+| θ | 0° | 3.5° | 8° |
+| e | - | 0.5 | - |
+| x | - | - | 0.08 |
+| y | - | - | 0.08 |
+| Lp | 0.45 | 0.6 | 0.75 |
+| L1 | - | 1.0 | - |
+
+© 2015 Renesas Electronics Corporation. All rights reserved.
+
+\mathsf{A}_{1}
+
+\mathfrak{b_{p}}
+
+0^{\circ}
+
+\lfloor
+
+---
+
+| JEITA Package code |
+| --- |
+| P-HWQFN064-8x8-0.40 |
+
+| RENESAS code | MASS(TYP.)[g] |
+| --- | --- |
+| PWQN0064LB-A | 0.18 |
+
+Figure A2.3 QFN 64-pin
+
+| Reference Symbol | Dimension in Millimeters |  |  |
+| --- | --- | --- | --- |
+| Min. | Nom. | Max. |  |
+| A | - | - | 0.80 |
+| A1 | 0.00 | 0.02 | 0.05 |
+| A3 | 0.203 REF. |  |  |
+| b | 0.15 | 0.20 | 0.25 |
+| D | 8.00 BSC |  |  |
+| E | 8.00 BSC |  |  |
+| e | 0.40 BSC |  |  |
+| L | 0.35 | 0.40 | 0.45 |
+| K | 0.20 | - | - |
+| D2 | 4.15 | 4.20 | 4.25 |
+| E2 | 4.15 | 4.20 | 4.25 |
+| aaa | 0.10 |  |  |
+| bbb | 0.07 |  |  |
+| ccc | 0.10 |  |  |
+| ddd | 0.05 |  |  |
+| eee | 0.08 |  |  |
+| fff | 0.10 |  |  |
+
+\mathbb{D}_{2}
+
+---
+
+| JEITA Package Code | RENESAS Code | Previous Code | MASS (Typ)[g] |
+| --- | --- | --- | --- |
+| P-LFQFP48-7x7-0.50 | PLQP0048KB-B | — | 0.2 |
+
+Unit: mm
+
+Figure A2.4 LQFP 48-pin
+
+NOTE)
+1.  DIMENSIONS “*1” AND “*2” DO NOT INCLUDE MOLD FLASH.2.  DIMENSION “*3” DOES NOT INCLUDE TRIM OFFSET.3.  PIN 1 VISUAL INDEX FEATURE MAY VARY, BUT MUST BE     LOCATED WITHIN THE HATCHED AREA.4.  CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+F
+
+F
+
+4. CHAMFERS AT CORNERS ARE OPTIONAL, SIZE MAY VARY.
+
+| Reference Symbol | Dimensions in millimeters |  |  |
+| --- | --- | --- | --- |
+| Min | Nom | Max |  |
+| D | 6.9 | 7.0 | 7.1 |
+| E | 6.9 | 7.0 | 7.1 |
+| A2 | - | 1.4 | - |
+| HD | 8.8 | 9.0 | 9.2 |
+| HE | 8.8 | 9.0 | 9.2 |
+| A | - | - | 1.7 |
+| A1 | 0.05 | - | 0.15 |
+| bp | 0.17 | 0.20 | 0.27 |
+| c | 0.09 | - | 0.20 |
+| θ | 0° | 3.5° | 8° |
+| e | - | 0.5 | - |
+| x | - | - | 0.08 |
+| y | - | - | 0.08 |
+| Lp | 0.45 | 0.6 | 0.75 |
+| L1 | - | 1.0 | - |
+
+---
+
+| JEITA Package code |
+| --- |
+| P-HWQFN048-7x7-0.50 |
+
+| RENESAS code | MASS(TYP.)[g] |
+| --- | --- |
+| PWQN0048KC-A | 0.13 g |
+
+Figure A2.5 QFN 48-pin
+
+| Reference Symbol | Dimension in Millimeters |  |  |
+| --- | --- | --- | --- |
+| Min. | Nom. | Max. |  |
+| A | - | - | 0.80 |
+| A1 | 0.00 | 0.02 | 0.05 |
+| A3 | 0.203 REF. |  |  |
+| b | 0.20 | 0.25 | 0.30 |
+| D | 7.00 BSC |  |  |
+| E | 7.00 BSC |  |  |
+| e | 0.50 BSC |  |  |
+| L | 0.30 | 0.40 | 0.50 |
+| K | 0.20 | - | - |
+| D2 | 5.25 | 5.30 | 5.35 |
+| E2 | 5.25 | 5.30 | 5.35 |
+| aaa | 0.15 |  |  |
+| bbb | 0.10 |  |  |
+| ccc | 0.10 |  |  |
+| ddd | 0.05 |  |  |
+| eee | 0.08 |  |  |
+| fff | 0.10 |  |  |
+
+\mathbb{D}_{2}
+
+---
+
+Appendix 3. I/O Registers
+
+This appendix describes I/O register address and access cycles by function.
+
+3.1 Peripheral Base Addresses
+
+This section provides the base addresses for peripherals described in this manual. Table A3.1 shows the name, description,
+and the base address of each peripheral.
+
+Table A3.1 Peripheral base address (1 of 3)
+
+| Name | Description | Base address |
+| --- | --- | --- |
+| RMPU | Renesas Memory Protection Unit | 0x4000_0000 |
+| TZF | TrustZone Filter | 0x4000_0E00 |
+| SRAM | SRAM Control | 0x4000_2000 |
+| BUS | BUS Control | 0x4000_3000 |
+| DMAC0 | Direct memory access controller 0 | 0x4000_5000 |
+| DMAC1 | Direct memory access controller 1 | 0x4000_5040 |
+| DMAC2 | Direct memory access controller 2 | 0x4000_5080 |
+| DMAC3 | Direct memory access controller 3 | 0x4000_50C0 |
+| DMAC4 | Direct memory access controller 4 | 0x4000_5100 |
+| DMAC5 | Direct memory access controller 5 | 0x4000_5140 |
+| DMAC6 | Direct memory access controller 6 | 0x4000_5180 |
+| DMAC7 | Direct memory access controller 7 | 0x4000_51C0 |
+| DMA | DMAC Module Activation | 0x4000_5200 |
+| DTC | Data Transfer Controller | 0x4000_5400 |
+| ICU | Interrupt Controller | 0x4000_6000 |
+| CACHE | CACHE | 0x4000_7000 |
+| CPSCU | CPU System Security Control Unit | 0x4000_8000 |
+| DBG | Debug Function | 0x4001_B000 |
+| FCACHE | Flash Cache | 0x4001_C100 |
+| SYSC | System Control | 0x4001_E000 |
+| PORT0 | Port 0 Control Registers | 0x4001_F000 |
+| PORT2 | Port 2 Control Registers | 0x4001_F040 |
+| PORTA | Port A Control Registers | 0x4001_F140 |
+| PORTB | Port B Control Registers | 0x4001_F160 |
+| PORTC | Port C Control Registers | 0x4001_F180 |
+| PORTD | Port D Control Registers | 0x4001_F1A0 |
+| PORTE | Port E Control Registers | 0x4001_F1C0 |
+| PFS_B | Pmn Pin Function Control Register | 0x4001_F800 |
+| IIRFA | IIR Filter Accelerator | 0x4002_0000 |
+| TFU | Trigonometric Function Unit | 0x4002_1000 |
+| ELC_B | Event Link Controller | 0x4008_2000 |
+| IWDT | Independent Watchdog Timer | 0x4008_3200 |
+| WDT | Watchdog Timer | 0x4008_3400 |
+| CAC | Clock Frequency Accuracy Measurement Circuit | 0x4008_3600 |
+| MSTP | Module Stop Control A, B, C, D, E | 0x4008_4000 |
+
+---
+
+Table A3.1 Peripheral base address (2 of 3)
+
+| Name | Description | Base address |
+| --- | --- | --- |
+| KINT | Key Interrupt Function | 0x4008_5000 |
+| POEG | Port Output Enable for GPT | 0x4008_A000 |
+| CANFD | CANFD Module Control | 0x400B_0000 |
+| PSCU | Peripheral Security Control Unit | 0x400E_0000 |
+| AGTW_B0 | Low Power Asynchronous General purpose Timer 0 | 0x400E_8000 |
+| AGTW_B1 | Low Power Asynchronous General purpose Timer 1 | 0x400E_8100 |
+| TSN | Temperature Sensor | 0x400F_3000 |
+| ACMPHS0 | High-Speed Analog Comparator | 0x400F_4000 |
+| ACMPHS1 | High-Speed Analog Comparator | 0x400F_4100 |
+| ACMPHS2 | High-Speed Analog Comparator | 0x400F_4200 |
+| ACMPHS3 | High-Speed Analog Comparator | 0x400F_4300 |
+| CRC | Cyclic Redundancy Check | 0x4010_8000 |
+| DOC_B | Data Operation Circuit | 0x4010_9000 |
+| SCI_B0 | Serial Communication Interface 0 | 0x4011_8000 |
+| SCI_B1 | Serial Communication Interface 1 | 0x4011_8100 |
+| SCI_B2 | Serial Communication Interface 2 | 0x4011_8200 |
+| SCI_B3 | Serial Communication Interface 3 | 0x4011_8300 |
+| SCI_B4 | Serial Communication Interface 4 | 0x4011_8400 |
+| SCI_B9 | Serial Communication Interface 9 | 0x4011_8900 |
+| SPI_B0 | Serial Peripheral Interface 0 | 0x4011_A000 |
+| SPI_B1 | Serial Peripheral Interface 1 | 0x4011_A100 |
+| IIC_B0 | Inter-Integrated Circuit 0 | 0x4011_F000 |
+| IIC0WU_B | Inter-Integrated Circuit 0 Wake-up Unit | 0x4011_F098 |
+| IIC_B1 | Inter-Integrated Circuit 1 | 0x4011_F400 |
+| ECCMB | CANFD ECC Module | 0x4012_F200 |
+| SCE5_B | Secure Cryptographic Engine | 0x4016_1000 |
+| GPT320 | General PWM Timer 0 | 0x4016_9000 |
+| GPT321 | General PWM Timer 1 | 0x4016_9100 |
+| GPT322 | General PWM Timer 2 | 0x4016_9200 |
+| GPT323 | General PWM Timer 3 | 0x4016_9300 |
+| GPT324 | General PWM Timer 4 | 0x4016_9400 |
+| GPT325 | General PWM Timer 5 | 0x4016_9500 |
+| GPT326 | General PWM Timer 6 | 0x4016_9600 |
+| GPT327 | General PWM Timer 7 | 0x4016_9700 |
+| GPT328 | General PWM Timer 8 | 0x4016_9800 |
+| GPT329 | General PWM Timer 9 | 0x4016_9900 |
+| GPT_OPS | Output Phase Switching Controller | 0x4016_9400 |
+| GPT_GTCLK | General PWM Timer | 0x4016_9800 |
+| PDG | PWM Delay Generation | 0x4016_A000 |
+| ADC_B | A/D Converter | 0x4017_0000 |
+| DAC120 | 12-bit D/A converter | 0x4017_2000 |
+| DAC121 | 12-bit D/A converter | 0x4017_2100 |
+
+---
+
+Table A3.1 Peripheral base address (3 of 3)
+
+| Name | Description | Base address |
+| --- | --- | --- |
+| FLAD | Data Flash | 0x407F_C000 |
+| FACI | Flash Application Command Interface | 0x407F_E000 |
+
+Note: Name = Peripheral name
+Description = Peripheral functionality
+
+Description = Peripheral functionality
+Base address = Lowest reserved address or address used by the peripheral
+
+Base address = Lowest reserved address or address used by the peripheral
+
+3.2 Access Cycles
+
+This section provides access cycle information for the I/O registers described in this manual.
+
+● Registers are grouped by associated module.
+
+● The number of access cycles indicates the number of cycles based on the specified reference clock.
+
+● In the internal I/O area, reserved addresses that are not allocated to registers must not be accessed, otherwise operations
+cannot be guaranteed.
+
+● The number of I/O access cycles depends on bus cycles of the internal peripheral bus, divided clock synchronization
+cycles, and wait cycles of each module. Divided clock synchronization cycles differ depending on the frequency ratio
+between ICLK and PCLK.
+
+● When the frequency of ICLK is equal to that of PCLK, the number of divided clock synchronization cycles is always
+constant.
+
+● When the frequency of ICLK is greater than that of PCLK, at least 1 PCLK cycle is added to the number of divided
+clock synchronization cycles.
+
+● The number of write access cycles indicates the number of cycles obtained by non-bufferable write access.
+
+Note: This applies to the number of cycles when access from the CPU does not conflict with bus access from other bus
+masters such as DTC or DMAC.
+
+Table A3.2 Access cycles (1 of 3)
+
+| Peripherals | Number of access cycles |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Address |  | ICLK=PCLK |  | ICLK&gt;PCLK*1 |  | Cycle Unit | Related function |  |
+| From | To | Read | Write | Read | Write |  |  |  |
+| RMPU,TZF,SRAM,BUS,DMACn,DMA,DTC,ICU | 0x4000_0000 | 0x4000_6FFF | 4 | 3 | 4 | 3 | ICLK | Renesas Memory Protection Unit,TrustZone Filter,SRAM Control,BUS Control,Direct memory access controller n,DMAC Module Activation,DTC Control Register,Interrupt Controller |
+| CACHE | 0x4000_7000 | 0x4000_7FFF | 4 | 5 | 4 | 5 | ICLK | CACHE |
+| CPSCU,DBG,FCACHE | 0x4000_8000 | 0x4001_CFFF | 4 | 3 | 4 | 3 | ICLK | CPU System Security Control Unit,Debug Function,Flash Cache |
+| SYSC | 0x4001_E000 | 0x4001_E3FF | 5 | 4 | 5 | 4 | ICLK | System Control |
+| SYSC | 0x4001_E400 | 0x4001_E5FF | 9 | 8 | 5 to 8 | 5 to 8 | PCLKB | System Control |
+| PORTn | 0x4001_F000 | 0x4001_F7FF | 5 | 3 | 5 | 3 | ICLK | PORTn Control Register 1/3/4 |
+| PORTn(PCNTR2) | 0x4001_F000 | 0x4001_F7FF | 8 | 3 | 8 | 3 | ICLK | PORTn Control Register 2 |
+| PFS | 0x4001_F800 | 0x4001_FFFF | 8 | 3 | 8 | 3 | ICLK | Pmn Pin Function Control Register |
+| IIRFA | 0x4002_0000 | 0x4002_03FF | 4 | 3 | 4 | 3 | ICLK | IIR Filter Accelerator |
+| IIRFA | 0x4002_0400 | 0x4002_0FFF | 6 | 3 | 6 | 3 | ICLK | IIR Filter Accelerator |
+
+---
+
+Table A3.2 Access cycles (2 of 3)
+
+| Peripherals | Address |  | Number of access cycles |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| From | To | Read | Write | Read | Write | Cycle Unit | Related function |  |
+|  |  |  |  |  |  |  |  |  |
+| TFU | 0x4002_1000 | 0x4002_1FFF | 4 | 3 | 4 | 3 | ICLK | Trigonometric Function Unit |
+| ELC | 0x4008_2000 | 0x4008_2FFF | 5 | 4 | 3 to 5 | 2 to 4 | PCLKB | Event Link Controller |
+| IWDT, WDT, CAC | 0x4008_3000 | 0x4008_3FFF | 5 | 4 | 3 to 5 | 2 to 4 | PCLKB | Independent Watchdog Timer, Watchdog Timer, Clock Frequency Accuracy Measurement Circuit |
+| MSTP | 0x4008_4000 | 0x4008_4FFF | 5 | 4 | 2 to 4 | 2 to 4 | PCLKB | Module Stop Control |
+| KINT | 0x4008_5000 | 0x4008_5FFF | 4 | 3 | 1 to 4 | 1 to 3 | PCLKB | Key Interrupt Function |
+| POEG | 0x4008_A000 | 0x4008_AFFF | 5 | 4 | 3 to 5 | 2 to 4 | PCLKB | Port Output Enable for GPT |
+| CANFD | 0x400B_0000 | 0x400C_1FFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKB | CANFD Module |
+| PSCU | 0x400E_0000 | 0x400E_0FFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKB | Peripheral Security Control Unit |
+| AGTn | 0x400E_8000 | 0x400E_8FFF | 7 | 4 | 4 to 7 | 2 to 4 | PCLKB | Low Power Asynchronous General Purpose Timer n |
+| TSN | 0x400F_3000 | 0x400F_3FFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKB | Temperature Sensor |
+| ACMPHSn | 0x400F_4000 | 0x400F_4FFF | 4 | 3 | 1 to 3 | 1 to 3 | PCLKB | High-Speed Analog Comparator |
+| CRC, DOC | 0x4010_8000 | 0x4010_9FFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKA | Cyclic Redundancy Check, Data Operation Circuit |
+| SCIn | 0x4011_8000 | 0x4011_8FFF | 5 | 4 | 2 to 4 | 2 to 4 | PCLKA | Serial Communication Interface n |
+| SPIin | 0x4011_A000 | 0x4011_AFFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKA | Serial Peripheral Interface n |
+| IICn | 0x4011_F000 | 0x4011_FFFF | 5 | 4 | 2 to 4 | 2 to 4 | PCLKA | Inter-Integrated Circuit n |
+| CANFD ECC | 0x4012_F200 | 0x4012_FFFF | 5 | 4 | 2 to 5 | 2 to 4 | PCLKA | CANFD ECC Module |
+| SCE5 | 0x4016_1000 | 0x4016_1FFF | 6 | 4 | 3 to 6 | 2 to 4 | PCLKA | Secure Cryptographic Engine |
+| GPT32n, GPT_OPS (core clock = PCLWD) | 0x4016_9000 | 0x4016_9FFF | 8 | 5 | 5 to 8 | 3 to 5 | PCLKA | General PWM Timer n, Output Phase Switching Controller |
+| GPT32n, GPT_OPS (core clock = GPTCLK) | 0x4016_9000 | 0x4016_9FFF | 10 | 7 | 7 to 10 | 5 to 7 | PCLKA | General PWM Timer n, Output Phase Switching Controller |
+| GPT (GTCKCR) | 0x4016_9B00 | 0x4016_9B00 | 5 | 4 | 2 to 4 | 2 to 4 | PCLKA | GPT Clock Control Register |
+
+---
+
+Table A3.2 Access cycles (3 of 3)
+
+| Peripherals | Address |  | Number of access cycles |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ICLK=FCLK |  | ICLK&gt;FCLK*1 |  | Cycle Unit | Related function |  |  |  |
+| From | To | Read | Write | Read | Write |  |  |  |
+| FLAD,FACI | 0x407F_C000 | 0x407F_EFFF | 5 | 4 | 2 to 5 | 2 to 4 | FCLK | Data Flash,Flash Application Command Interface |
+
+Note 1. If the number of PCLK or FCLK cycles is non-integer (for example 1.5), the minimum value is without the decimal point, and the
+maximum value is rounded up to the decimal point. For example, 1.5 to 2. 5 is 1 to 3.
+
+---
+
+Appendix 4. Peripheral Variant
+
+Table A4.1 shows the correspondence between the module name used in this manual and the Peripheral Variant.
+
+Table A4.1 Module name vs Peripheral Variant
+
+| Module name | Peripheral Variant |
+| --- | --- |
+| ELC | ELC_B |
+| AGTW | AGTW_B |
+| SCI | SCI_B |
+| IIC | IIC_B |
+| CANFD | CANFD |
+| SPI | SPI_B |
+| SCE5 | SCE5_B |
+| ADC | ADC_B |
+| DOC | DOC_B |
+
+---
+
+Appendix 5. Related Documents
+
+| Component | Document Type | Description |
+| --- | --- | --- |
+| Microcontrollers | Data sheet | Features, overview,and electrical characteristics of the MCU |
+| User&#x27;s Manual:Hardware | MCU specifications such as pin assignments,memory maps,peripheral functions,electrical characteristics,timing diagrams,and operation descriptions |  |
+| Application Notes | Technical notes,board design guidelines,and software migration information |  |
+| Technical Update(TU) | Preliminary reports on product specifications such as restriction and errata |  |
+| Software | User&#x27;s Manual:Software | Command set,API reference and programming information |
+| Application Notes | Project files,guidelines for software programming,and application examples to develop embedded software applications |  |
+| Tools&amp;Kits,Solutions | User&#x27;s Manual:Development Tools | User&#x27;s manuals and quick start guides for developing embedded software applications with Software Packages,Development Kits,Starter Kits,Promotion Kits,Product Examples,and Application Examples |
+| Quick Start Guide |  |  |
+| Application Notes | Project files,guidelines for software programming,and application examples to develop embedded software applications |  |
+
+---
+
+## RA6T2 Datasheet Revision History
+
+# Revision History
+
+**Revision 1.10 — Dec 9, 2021**
+
+First edition, issued
+
+**Revision 1.20 — Mar 31, 2022**
+
+**1. Overview:**
+- Changed Package code in Table 1.11.
+- Changed number of ACMPHS in Table 1.12.
+- Changed description of KINT in Table 1.13.
+**2. Electrical Characteristics:**
+- Removed DAC12 from Reference power supply current in Table 2.7.
+- Changed Package code in Table 2.11.
+- Added parameter in Table 2.35.
+- Changed full-scale error value in Table 2.35.
+- Removed pseudo from DNL error in Table 2.35. **Appendix 2. Package Dimensions:**
+- Changed image in Figure 2.3 and Figure 2.5. **Appendix 3. I/O Registers:**
+- Changed Base address of IIC0WU_B.
+- Changed module name of GPT320 to GPT329. **Revision 1.30 — Aug 05, 2022** **Features:**
+- Updated Features.
+**1. Overview:**
+- Updated Table 1.3 System.
+- Updated Table 1.8 Analog.
+- Updated Table 1.10 Data processing accelerator.
+**2. Electrical Characteristics:**
+- Updated Note. 1 in Table 2.1 Absolute maximum ratings.
+- Updated Table 2.7 Operating and standby current.
+- Updated 2.4 A/D Converter Characteristics.
+- Updated Table 2.45 PGA characteristics in Single-ended input mode.
+- Updated Table 2.46 PGA characteristics in Pseudo-differential input mode. **Revision 1.40 — May 31, 2024**
+**1. Overview:**
+- Updated Figure 1.2 Part numbering scheme.
+**2. Electrical Characteristics:**
+- Updated Table 2.32 IIC timing (2).
+- Updated Table 2.36 A/D conversion characteristics (Oversampling mode and Hybrid mode) (1).
+- Updated Figure 2.51 Digital filter characteristics (Minimum phase filter). **Appendix 3. I/O Registers:**
+- Changed CANFD_B to CANFD in Table 3.1 Peripheral base address. **Appendix 4. Peripheral Variant:**
+- Changed CANFD_B to CANFD in Table 4.1 Module name vs Peripheral Variant. **Revision 1.50 — Jul 2, 2025**
+**2. Electrical Characteristics:**
+- Updated Table 2.33 CANFD interface timing
+R01DS0400EJ0150 Rev.1.50 Page 99 of 101 Jul 2, 2025
+
+---
+
+General Precautions in the Handling of Microprocessing
+
+The following usage notes are applicable to all Microprocessing unit and Microcontroller unit products from Renesas. For deta
+products covered by this document, refer to the relevant sections o
+
+1. Precaution against Electrostatic Discharge (ESD)
+
+A strong electrical field, when exposed to a CMOS device, can cause destruction of the gate oxide and ultimately degrade the device operation. Steps must be taken to stop the generation of static electricity as much as possible, and quickly dissipate it when it occurs. Environmental control must be adequate. When it is dry, a humidifier should be used. This is recommended to avoid using insulators that can easily build up static electricity Semiconductor devices must be stored and transported in an anti-static container, static shielding bag or conductive material. All test and measurement tools including work benches and floors must be grounded. The operator must also be grounded using a wrist strap. Semiconductor devices must not be touched with bare hands. Similar precautions must be taken for printed circuit boards with mounted semiconductor devices.
+
+2. Processing at power-on
+
+The state of the product is undefined at the time when power is supplied. The states of internal circuits in the LSI are indeterminate and the states of register settings and pins are undefined at the time when power is supplied. In a finished product where the reset signal is applied to the external reset pin, the states of pins are not guaranteed from the time when power is supplied until the reset process is completed. In a similar way, the states of pins in a product that is reset by an on-chip power-on reset function are not guaranteed from the time when power is supplied until the power reaches the level at which resetting is specified.
+
+3. Input of signal during power-off state
+
+Do not input signals or an I/O pull-up power supply while the device is powered off. The current injection that results from input of such a signal or I/O pull-up power supply may cause malfunction and the abnormal current that passes in the device at this time may cause degradation of internal elements. Follow the guideline for input signal during power-off state as described in your product documentation.
+
+4. Handling of unused pins
+
+Handle unused pins in accordance with the directions given under handling of unused pins in the manual. The input pins of CMOS products are generally in the high-impedance state. In operation with an unused pin in the open-circuit state, extra electromagnetic noise is induced in the vicinity of the LSI, an associated shoot-through current flows internally, and malfunctions occur due to the false recognition of the pin state as an input signal become possible.
+
+5. Clock signals
+
+After applying a reset, only release the reset line after the operating clock signal becomes stable. When switching the clock signal during program execution, wait until the target clock signal is stabilized. When the clock signal is generated with an external resonator or from an external oscillator during a reset, ensure that the reset line is only released after full stabilization of the clock signal. Additionally, when switching to a clock signal produced with an external resonator or by an external oscillator while program execution is in progress, wait until the target clock signal is stable.
+
+6. Voltage application waveform at input pin
+
+IL
+(Max.) and VIH (Min.) due to noise, for example, the device may malfunction. Take care to prevent chattering noise from entering the device whe
+IL (Max.) and VIH (Min.). input level is fixed, and also in the transition period when the input level passes through the area between V
+7. Prohibition of access to reserved addresses
+
+7. Prohibition of access to reserved addresses
+
+Access to reserved addresses is prohibited. The reserved addresses are provided for possible future expansion of functions. Do not access these addresses as the correct operation of the LSI is not guaranteed.
+
+8. Differences between products
+
+Before changing from one product to another, for example to a product with a different part number, confirm that the change will not lead to problems. The characteristics of a microprocessing unit or microcontroller unit products in the same group but having a different part number might differ in terms of internal memory capacity, layout pattern, and other factors, which can affect the ranges of electrical characteristics, such as characteristic values, operating margins, immunity to noise, and amount of radiated noise. When changing to a product with a different part number, implement a system-evaluation test for the given product.
+
+---
+
+Notice
+
+1. Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of semiconductor products
+
+2. Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other claims involving patents, copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical information described in this document, including but not limited to, the product data, drawings, charts, programs, algorithms, and application examples.
+
+3. No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas Electronics or others.
+
+4. You shall be responsible for determining what licenses are required from any third parties, and obtaining such licenses for the lawful import, export manufacture, sales, utilization, distribution or other disposal of any products incorporating Renesas Electronics products, if required.
+
+5. You shall not alter, modify, copy, or reverse engineer any Renesas Electronics product, whether in whole or in part. Renesas Electronics disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, modification, copying or reverse engineering.
+
+6. Renesas Electronics products are classified according to the following two quality grades: "Standard" and "High Quality". The intended applications for each Renesas Electronics product depends on the product's quality grade, as indicated below.
+
+"Standard": Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; home electronic appliances; machine tools; personal electronic equipment; industrial robots; etc.
+
+"High Quality": Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication equipment; key financial terminal systems; safety control equipment; etc.
+
+Unless expressly designated as a high reliability product or a product for harsh environments in a Renesas Electronics data sheet or other Renesas Electronics document, Renesas Electronics products are not intended or authorized for use in products or systems that may pose a direct threat to human life or bodily injury (artificial life support devices or systems; surgical implantations; etc.), or may cause serious property damage (space system; undersea repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics disclaims any and all liability for any damages or losses incurred by you or any third parties arising from the use of any Renesas Electronics product that is inconsistent with any Renesas Electronics data sheet, user's manual or other Renesas Electronics document.
+
+7. No semiconductor product is absolutely secure. Notwithstanding any security measures or features that may be implemented in Renesas Electronics hardware or software products, Renesas Electronics shall have absolutely no liability arising out of any vulnerability or security breach, including but not limited to any unauthorized access to or use of a Renesas Electronics product or a system that uses a Renesas Electronics product. RENESAS ELECTRONICS DOES NOT WARRANT OR GUARANTEE THAT RENESAS ELECTRONICS PRODUCTS, OR ANY SYSTEMS CREATED USING RENESAS ELECTRONICS PRODUCTS WILL BE INVULNERABLE OR FREE FROM CORRUPTION, ATTACK, VIRUSES, INTERFERENCE, HACKING, DATA LOSS OR THEFT, OR OTHER SECURITY INTRUSION ("Vulnerability Issues"). RENESAS ELECTRONICS DISCLAIMS ANY AND ALL RESPONSIBILITY OR LIABILITY ARISING FROM OR RELATED TO ANY VULNERABILITY ISSUES. FURTHERMORE, TO THE EXTENT PERMITTED BY APPL
+
+8. When using Renesas Electronics products, refer to the latest product information (data sheets, user's manuals, application notes, "General Notes for Handling and Using Semiconductor Devices" in the reliability handbook, etc.), and ensure that usage conditions are within the ranges specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat dissipation characteristics, installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions, failure or accident arising out of the use of Renesas Electronics products outside of such specified ranges.
+
+9. Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have specific characteristics, such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Unless designated as a high reliability product or a product for harsh environments in a Renesas Electronics data sheet or other Renesas Electronics document, Renesas Electronics products are not subject to radiation resistance design. You are responsible for implementing safety measures to guard against the possibility of bodily injury, injury or damage caused by fire, and/or danger to the public in the event of a failure or malfunction of Renesas Electronics products, such as safety design for hardware and software, including but not limited to redundancy, fire control and malfunction prevention, appropriate treatment for aging degradation or any other appropriate measures. Because the evaluation of microcomputer software alone is very difficult and impractical, you are responsible for evaluating the safety of the final products or systems manufactured by you.
+
+Corporate Headquarters
+TOYOSU FORESIA, 3-2-
+
+10. Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each Renesas Electronics product. You are responsible for carefully and sufficiently investigating applicable laws and regulations that regulate the inclusion or use of controlled substances, including without limitation, the EU RoHS Directive, and using Renesas Electronics products in compliance with all these applicable laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your noncompliance with applicable laws and regulations.
+
+11. Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or regulations. You shall comply with any applicable export control laws and regulations promulgated and administered by the governments of any countries asserting jurisdiction over the parties or transactions.
+
+Koto-ku, Tokyo 135-0061, Japan
+
+www.renesas.com
+
+(Note1) "Renesas Electronics" as used in this document means Renesas Electronics Corporation and also includes its directly or indirectly controlled subsidiaries.
+
+(Note2) "Renesas Electronics product(s)" means any product developed or manufactured by or for Renesas Electronics.
+
+12. It is the responsibility of the buyer or distributor of Renesas Electronics products, or any other party who distributes, disposes of, or otherwise sells or transfers the product to a third party, to notify such third party in advance of the contents and conditions set forth in this document.
+
+13. This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas Electronics.
+14. Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas Electronics products.
+
+Contact information
+
+For further information on a product, technology, the most up-
+0061, Japan

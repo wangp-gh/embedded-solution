@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When an ST part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/st/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -35,16 +35,16 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32WB55** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html | `<cwd>/embedded_dev/st/datasheet/STM32WB55_datasheet.pdf` |
-| **STM32WL55** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wl-series.html | `<cwd>/embedded_dev/st/datasheet/STM32WL55_datasheet.pdf` |
+| **STM32WB55** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html | product page → Documents & Downloads |
+| **STM32WL55** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wl-series.html | product page → Documents & Downloads |
 
 ## STM32 Ultra-Low-Power (Cortex-M33)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32U575** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | `<cwd>/embedded_dev/st/datasheet/STM32U5_datasheet.pdf` |
-| **STM32U585** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | `<cwd>/embedded_dev/st/datasheet/STM32U585_datasheet.pdf` |
-| **STM32U5** *(family alias)* | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | `<cwd>/embedded_dev/st/datasheet/STM32U5_datasheet.pdf` |
+| **STM32U575** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | product page → Documents & Downloads |
+| **STM32U585** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | product page → Documents & Downloads |
+| **STM32U5** *(family alias)* | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32u5-series.html | product page → Documents & Downloads |
 
 > **ST does not publish separate U575 / U585 product pages on st.com** — both
 > share the same family landing page. The datasheet document ID is the only
@@ -56,13 +56,13 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32H7** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series.html | `<cwd>/embedded_dev/st/datasheet/STM32H7_datasheet.pdf` |
+| **STM32H7** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series.html | product page → Documents & Downloads |
 
 ## STM32 MPU (Cortex-A7 + Cortex-M4 heterogeneous)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32MP157** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32mp1-series.html | `<cwd>/embedded_dev/st/datasheet/STM32MP157_datasheet.pdf` |
+| **STM32MP157** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32mp1-series.html | product page → Documents & Downloads |
 
 ---
 
@@ -106,14 +106,14 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32G0** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32g0-series.html | `<cwd>/embedded_dev/st/datasheet/STM32G0_datasheet.pdf` |
+| **STM32G0** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32g0-series.html | product page → Documents & Downloads |
 
 
 ## STM32WBA Series — BLE 5.3 + 802.15.4 single-chip with secure element
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **STM32WBA** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wba-series.html | `<cwd>/embedded_dev/st/datasheet/STM32WBA_datasheet.pdf` |
+| **STM32WBA** | ✅ | https://www.st.com/en/microcontrollers-microprocessors/stm32wba-series.html | product page → Documents & Downloads |
 
 > **2026-06-29 update (v0.4.0 firecrawl pass)**: st.com WBA series page is now reachable
 > via Firecrawl scrape (HTTP 200, 28 KB markdown). Family-level summary (Cortex-M33,

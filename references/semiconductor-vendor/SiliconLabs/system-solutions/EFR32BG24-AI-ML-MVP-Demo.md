@@ -19,7 +19,7 @@ Common application: typical Silicon Labs reference design example using the EFR3
 ## Reference Design
 
 - **Product page:** See `references/semiconductor-vendor/Silicon Labs/product_families.md#efr32bg24`
-- **Datasheet:** `embedded_dev/silabs/datasheet/EFR32BG24_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/SiliconLabs/EFR32BG24.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Silicon Labs/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Silicon Labs only)
@@ -50,6 +50,5 @@ External to Silicon Labs (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The EFR32BG24 spec values
 > live in the maintainer's private spec database (`specs/SiliconLabs/EFR32BG24.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/silabs/datasheet/`. Public-release users should
-> verify against the Silicon Labs product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/Silicon Labs/product_families.md#efr32bg24`.

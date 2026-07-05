@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a SG Micro part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/sgmicro/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -55,13 +55,13 @@ SG Micro Corp (圣邦微电子, stock code 300661) is a leading Chinese fabless 
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SGM3157** | ✅ | https://www.sg-micro.com/product/sgm3157 | `<cwd>/embedded_dev/sgmicro/datasheet/SGM3157_datasheet.pdf` |
+| **SGM3157** | ✅ | https://www.sg-micro.com/product/sgm3157 | product page → Documents & Downloads |
 
 ### SGM6601 (high-side load switch)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SGM6601** | ✅ | https://www.sg-micro.com/product/sgm6601 | `<cwd>/embedded_dev/sgmicro/datasheet/SGM6601_datasheet.pdf` |
+| **SGM6601** | ✅ | https://www.sg-micro.com/product/sgm6601 | product page → Documents & Downloads |
 
 ---
 
@@ -71,13 +71,13 @@ SG Micro Corp (圣邦微电子, stock code 300661) is a leading Chinese fabless 
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SGM8903** | ✅ | https://www.sg-micro.com/product/sgm8903 | `<cwd>/embedded_dev/sgmicro/datasheet/SGM8903_datasheet.pdf` |
+| **SGM8903** | ✅ | https://www.sg-micro.com/product/sgm8903 | product page → Documents & Downloads |
 
 ### SGM8902 (Class-AB headphone amplifier)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SGM8902** | ✅ | https://www.sg-micro.com/product/sgm8902 | `<cwd>/embedded_dev/sgmicro/datasheet/SGM8902_datasheet.pdf` |
+| **SGM8902** | ✅ | https://www.sg-micro.com/product/sgm8902 | product page → Documents & Downloads |
 
 ---
 
@@ -87,7 +87,7 @@ SG Micro Corp (圣邦微电子, stock code 300661) is a leading Chinese fabless 
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SGM358** | ✅ | https://www.sg-micro.com/product/sgm358 | `<cwd>/embedded_dev/sgmicro/datasheet/SGM358_datasheet.pdf` |
+| **SGM358** | ✅ | https://www.sg-micro.com/product/sgm358 | product page → Documents & Downloads |
 
 ---
 

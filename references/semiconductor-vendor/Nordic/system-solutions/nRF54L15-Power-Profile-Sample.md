@@ -19,7 +19,7 @@ sensor / beacon nodes.
 ## Reference Design
 
 - **Product page:** https://www.nordicsemi.com/Products/Development-hardware/nRF54L15-DK (verification pending)
-- **Datasheet:** `embedded_dev/nordic/datasheet/nRF54L15_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Nordic/nRF54L15.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Nordic/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Nordic only)
@@ -37,7 +37,7 @@ External to Nordic (out of BOM scope for this single-vendor solution):
 
 - [ ] Original Nordic product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/nordic/datasheet/nRF54L15_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] nRF54L15 is a recent (2024-2025 era) part; verify the SDK
       release tag matches the cited sample path.
 - [ ] Distinguish **datasheet typical** vs **measured on the DK**
@@ -49,7 +49,7 @@ External to Nordic (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The nRF54L15 spec values
 > live in the maintainer's private spec database (`specs/Nordic/nRF54L15.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/nordic/datasheet/nRF54L15_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

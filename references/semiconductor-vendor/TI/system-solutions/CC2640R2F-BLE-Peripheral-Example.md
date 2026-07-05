@@ -20,7 +20,7 @@ using the LAUNCHXL-CC2640R2 LaunchPad.
 ## Reference Design
 
 - **Product page:** https://www.ti.com/tool/LAUNCHXL-CC2640R2 (verification pending)
-- **Datasheet:** _not yet downloaded — see `embedded_dev/ti/datasheet/` (no PDFs downloaded yet for this vendor)_
+- **Datasheet:** _not yet downloaded — fetch from vendor product page (see Main Page column above)_
 - **YAML:** `specs/TI/CC2640R2F.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/TI/product_families.md` and the datasheet)*
 
 ## BOM Candidates (TI only)

@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a Nordic part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/nordic/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -35,26 +35,26 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **nRF52832** | ⏳ | https://www.nordicsemi.com/Products/nRF52832 | `<cwd>/embedded_dev/nordic/datasheet/nRF52832_datasheet.pdf` |
-| **nRF52840** | ⏳ | https://www.nordicsemi.com/Products/nRF52840 | `<cwd>/embedded_dev/nordic/datasheet/nRF52840_datasheet.pdf` |
+| **nRF52832** | ⏳ | https://www.nordicsemi.com/Products/nRF52832 | product page → Documents & Downloads |
+| **nRF52840** | ⏳ | https://www.nordicsemi.com/Products/nRF52840 | product page → Documents & Downloads |
 
 ## nRF53 Series (BLE SoC, dual-core Cortex-M33)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **nRF5340** | ⏳ | https://www.nordicsemi.com/Products/nRF5340 | `<cwd>/embedded_dev/nordic/datasheet/nRF5340_datasheet.pdf` |
+| **nRF5340** | ⏳ | https://www.nordicsemi.com/Products/nRF5340 | product page → Documents & Downloads |
 
 ## nRF54L Series (BLE SoC, ultra-low power)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **nRF54L15** | ⏳ | https://www.nordicsemi.com/Products/nRF54L15 | `<cwd>/embedded_dev/nordic/datasheet/nRF54L15_datasheet.pdf` |
+| **nRF54L15** | ⏳ | https://www.nordicsemi.com/Products/nRF54L15 | [product docs](https://docs.nordicsemi.com/bundle/ps_nrf54L15) (PDF gated by Cloudflare) |
 
 ## nRF91 Series (Cellular IoT SiP)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **nRF9160** | ⏳ | https://www.nordicsemi.com/Products/nRF9160 | `<cwd>/embedded_dev/nordic/datasheet/nRF9160_datasheet.pdf` |
+| **nRF9160** | ⏳ | https://www.nordicsemi.com/Products/nRF9160 | product page → Documents & Downloads |
 
 ---
 
@@ -100,4 +100,4 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **nRF7002** | ✅ | https://www.nordicsemi.com/Products/nRF7002 | `<cwd>/embedded_dev/nordic/datasheet/nRF7002_datasheet.pdf` |
+| **nRF7002** | ✅ | https://www.nordicsemi.com/Products/nRF7002 | product page → Documents & Downloads |

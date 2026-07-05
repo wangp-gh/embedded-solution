@@ -21,7 +21,7 @@ core (Cortex-M0+) running the BLE controller.
 ## Reference Design
 
 - **Product page:** https://www.nordicsemi.com/Products/Development-hardware/nRF5340-Audio-DK (verification pending; Cloudflare-class risk noted)
-- **Datasheet:** `embedded_dev/nordic/datasheet/nRF5340_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Nordic/nRF5340.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Nordic/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Nordic only)
@@ -40,7 +40,7 @@ External to Nordic (out of BOM scope for this single-vendor solution):
       Cloudflare-protected; same indirect-link risk as the nRF52 DK
       entry.
 - [x] Datasheet already present at
-      `embedded_dev/nordic/datasheet/nRF5340_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] Pin the exact SDK example path (`samples/bluetooth/auracast/`
       vs the legacy `samples/bluetooth/le_audio_*` paths — Nordic
       renamed the example during 2024 SDK releases).
@@ -52,7 +52,7 @@ External to Nordic (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The nRF5340 spec values
 > live in the maintainer's private spec database (`specs/Nordic/nRF5340.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/nordic/datasheet/nRF5340_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

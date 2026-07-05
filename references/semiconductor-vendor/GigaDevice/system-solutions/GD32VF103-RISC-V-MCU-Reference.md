@@ -19,7 +19,7 @@ Common application: typical GigaDevice reference design example using the GD32VF
 ## Reference Design
 
 - **Product page:** See `references/semiconductor-vendor/GigaDevice/product_families.md#gd32vf103`
-- **Datasheet:** `embedded_dev/gigadevice/datasheet/GD32VF103_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/GigaDevice/GD32VF103.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/GigaDevice/product_families.md` and the datasheet)*
 
 ## BOM Candidates (GigaDevice only)
@@ -50,6 +50,5 @@ External to GigaDevice (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The GD32VF103 spec values
 > live in the maintainer's private spec database (`specs/GigaDevice/GD32VF103.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/gigadevice/datasheet/`. Public-release users should
-> verify against the GigaDevice product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/GigaDevice/product_families.md#gd32vf103`.

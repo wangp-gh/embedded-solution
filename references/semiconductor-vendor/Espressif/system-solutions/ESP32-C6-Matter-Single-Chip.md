@@ -19,7 +19,7 @@ Common application: typical Espressif reference design example using the ESP32-C
 ## Reference Design
 
 - **Product page:** See `references/semiconductor-vendor/Espressif/product_families.md#esp32-c6`
-- **Datasheet:** `embedded_dev/espressif/datasheet/ESP32-C6_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Espressif/ESP32-C6.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Espressif/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Espressif only)
@@ -50,6 +50,5 @@ External to Espressif (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The ESP32-C6 spec values
 > live in the maintainer's private spec database (`specs/Espressif/ESP32-C6.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/espressif/datasheet/`. Public-release users should
-> verify against the Espressif product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/Espressif/product_families.md#esp32-c6`.

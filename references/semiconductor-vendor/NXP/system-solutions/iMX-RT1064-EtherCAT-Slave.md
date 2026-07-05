@@ -90,7 +90,7 @@ performance / BOM ratio in the i.MX RT family.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/nxp/datasheet/iMX-RT1064_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - NXP product page: https://www.nxp.com/products/i.MX-RT1064
 - MCUXpresso SDK: https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-:MCUXPRESSO
 - Zephyr port: https://www.nxp.com/design/design-center/software/embedded-software/zephyr-os-for-edge-connected-devices:ZEPHYR-OS-EDGE

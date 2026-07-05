@@ -18,7 +18,7 @@ automotive-grade wireless MCU.
 ## Reference Design
 
 - **Product page:** https://www.nxp.com/design/development-boards/frdm-kw45 (verification pending)
-- **Datasheet:** _not yet downloaded — see `embedded_dev/nxp/datasheet/` (no PDFs downloaded yet for this vendor)_
+- **Datasheet:** _not yet downloaded — fetch from vendor product page (see Main Page column above)_
 - **YAML:** `specs/NXP/KW45.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/NXP/product_families.md` and the datasheet)*
 
 ## BOM Candidates (NXP only)

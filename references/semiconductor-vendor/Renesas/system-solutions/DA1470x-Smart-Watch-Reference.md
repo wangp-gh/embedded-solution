@@ -85,7 +85,7 @@ wearable designs, reducing BOM cost and PCB area.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/renesas/datasheet/DA1470x_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - Renesas product page: https://www.renesas.com/da1470x
 - DA1470x SmartBond SDK: https://www.renesas.com/products/da1470x
 - PMIC integration note: see Renesas application note library

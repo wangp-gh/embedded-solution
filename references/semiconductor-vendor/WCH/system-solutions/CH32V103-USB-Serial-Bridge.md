@@ -24,7 +24,7 @@ FT232) in designs where the host MCU already includes USB device.
 - **Product page:** https://www.wch-ic.com/products/CH32V103.html (verification pending)
 - **Dev kit (where reference design is implemented):**
   CH32V103R8T6 EVT board — WCH official evaluation kit. See product page for kit contents.
-- **Datasheet:** `embedded_dev/wch/datasheet/CH32V103_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/WCH/CH32V103R8T6.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/WCH/product_families.md` and the datasheet)*
 
 ## BOM Candidates (WCH only)
@@ -62,8 +62,7 @@ External to WCH (out of BOM scope for this single-vendor solution):
 > (clock, RAM, flash, current consumption) live in the maintainer's
 > private spec database (`specs/WCH/CH32V103R8T6.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/wch/datasheet/`. Public-release users should
-> verify against the WCH product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/WCH/product_families.md#ch32v103r8t6`.
 
 ## Source Discipline

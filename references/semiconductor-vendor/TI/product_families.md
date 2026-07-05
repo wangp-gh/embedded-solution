@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a TI part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/ti/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -35,16 +35,16 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CC2640R2F** | ⏳ | https://www.ti.com/product/CC2640R2F | `<cwd>/embedded_dev/ti/datasheet/CC2640R2F_datasheet.pdf` |
-| **CC2652R** | ⏳ | https://www.ti.com/product/CC2652R | `<cwd>/embedded_dev/ti/datasheet/CC2652R_datasheet.pdf` |
-| **CC1310** | ⏳ | https://www.ti.com/product/CC1310 | `<cwd>/embedded_dev/ti/datasheet/CC1310_datasheet.pdf` |
-| **CC2340R5** | ⏳ | https://www.ti.com/product/CC2340R5 | `<cwd>/embedded_dev/ti/datasheet/CC2340R5_datasheet.pdf` |
+| **CC2640R2F** | ⏳ | https://www.ti.com/product/CC2640R2F | product page → Documents & Downloads |
+| **CC2652R** | ⏳ | https://www.ti.com/product/CC2652R | product page → Documents & Downloads |
+| **CC1310** | ⏳ | https://www.ti.com/product/CC1310 | product page → Documents & Downloads |
+| **CC2340R5** | ⏳ | https://www.ti.com/product/CC2340R5 | product page → Documents & Downloads |
 
 ## MSP General Purpose MCU (Cortex-M0+)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **MSPM0G3507** | ⏳ | https://www.ti.com/product/MSPM0G3507 | `<cwd>/embedded_dev/ti/datasheet/MSPM0G3507_datasheet.pdf` |
+| **MSPM0G3507** | ⏳ | https://www.ti.com/product/MSPM0G3507 | product page → Documents & Downloads |
 
 ---
 
@@ -86,4 +86,4 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CC3300** | ✅ | https://www.ti.com/product/CC3300 | `<cwd>/embedded_dev/ti/datasheet/CC3300_datasheet.pdf` |
+| **CC3300** | ✅ | https://www.ti.com/product/CC3300 | product page → Documents & Downloads |

@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a WCH part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/wch/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -54,21 +54,21 @@ WCH is a Chinese fabless MCU + interface IC vendor, known for low-cost USB contr
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH32V003** | ✅ | https://www.wch-ic.com/products/CH32V003.html | `<cwd>/embedded_dev/wch/datasheet/CH32V003_datasheet.pdf` |
+| **CH32V003** | ✅ | https://www.wch-ic.com/products/CH32V003.html | product page → Documents & Downloads |
 
 ### CH32V103 / CH32V203 / CH32V303 (general-purpose RISC-V)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH32V103R8T6** | ✅ | https://www.wch-ic.com/products/CH32V103.html | `<cwd>/embedded_dev/wch/datasheet/CH32V103_datasheet.pdf` |
-| **CH32V203F6P6** | ✅ | https://www.wch-ic.com/products/CH32V203.html | `<cwd>/embedded_dev/wch/datasheet/CH32V203_datasheet.pdf` |
-| **CH32V303RCT6** | ✅ | https://www.wch-ic.com/products/CH32V303.html | `<cwd>/embedded_dev/wch/datasheet/CH32V303_datasheet.pdf` |
+| **CH32V103R8T6** | ✅ | https://www.wch-ic.com/products/CH32V103.html | product page → Documents & Downloads |
+| **CH32V203F6P6** | ✅ | https://www.wch-ic.com/products/CH32V203.html | product page → Documents & Downloads |
+| **CH32V303RCT6** | ✅ | https://www.wch-ic.com/products/CH32V303.html | product page → Documents & Downloads |
 
 ### CH32V307 (high-performance RISC-V with Ethernet)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH32V307VCT6** | ✅ | https://www.wch-ic.com/products/CH32V307.html | `<cwd>/embedded_dev/wch/datasheet/CH32V307_datasheet.pdf` |
+| **CH32V307VCT6** | ✅ | https://www.wch-ic.com/products/CH32V307.html | product page → Documents & Downloads |
 
 ---
 
@@ -78,13 +78,13 @@ WCH is a Chinese fabless MCU + interface IC vendor, known for low-cost USB contr
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH32F103C8T6** | ✅ | https://www.wch-ic.com/products/CH32F103.html | `<cwd>/embedded_dev/wch/datasheet/CH32F103_datasheet.pdf` |
+| **CH32F103C8T6** | ✅ | https://www.wch-ic.com/products/CH32F103.html | product page → Documents & Downloads |
 
 ### CH32V208 (BLE 5.3 + RISC-V)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH32V208** | ✅ | https://www.wch-ic.com/products/CH32V208.html | `<cwd>/embedded_dev/wch/datasheet/CH32V208_datasheet.pdf` |
+| **CH32V208** | ✅ | https://www.wch-ic.com/products/CH32V208.html | product page → Documents & Downloads |
 
 ---
 
@@ -94,14 +94,14 @@ WCH is a Chinese fabless MCU + interface IC vendor, known for low-cost USB contr
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH340C** | ✅ | https://www.wch-ic.com/products/CH340.html | `<cwd>/embedded_dev/wch/datasheet/CH340_datasheet.pdf` |
-| **CH340N** | ✅ | https://www.wch-ic.com/products/CH340.html | `<cwd>/embedded_dev/wch/datasheet/CH340_datasheet.pdf` |
+| **CH340C** | ✅ | https://www.wch-ic.com/products/CH340.html | product page → Documents & Downloads |
+| **CH340N** | ✅ | https://www.wch-ic.com/products/CH340.html | product page → Documents & Downloads |
 
 ### CH343 (USB to serial, higher baud rate)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **CH343P** | ✅ | https://www.wch-ic.com/products/CH343.html | `<cwd>/embedded_dev/wch/datasheet/CH343_datasheet.pdf` |
+| **CH343P** | ✅ | https://www.wch-ic.com/products/CH343.html | product page → Documents & Downloads |
 
 ---
 

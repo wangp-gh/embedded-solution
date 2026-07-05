@@ -81,6 +81,6 @@ popular Cortex-M4 choices in the cost-sensitive segment.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/gigadevice/datasheet/GD32F303xx_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - GigaDevice product page: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series
 - GD32 firmware library: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series

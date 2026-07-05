@@ -20,7 +20,7 @@ find-my-device applications.
 ## Reference Design
 
 - **Product page:** https://www.espressif.com/en/products/socs/esp32-c3 (verification pending; site Cloudflare-gated)
-- **Datasheet:** `embedded_dev/espressif/datasheet/ESP32-C3_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Espressif/ESP32-C3.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Espressif/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Espressif only)
@@ -40,7 +40,7 @@ External to Espressif (out of BOM scope for this single-vendor solution):
 
 - [ ] Original Espressif product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/espressif/datasheet/ESP32-C3_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] Pin ESP32-C3 variant (ESP32-C3-MINI-1 module on DevKitM-1;
       ESP32-C3-WROOM-02 on DevKitC-02). Both work but have different
       antenna / size tradeoffs.
@@ -53,7 +53,7 @@ External to Espressif (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The ESP32-C3 spec values
 > (clock, BLE TX power, sleep current, etc.) live in
 > `specs/Espressif/ESP32-C3.yaml` (maintainer's private spec database, not shipped in public release) and are cited to the datasheet PDF
-> under `embedded_dev/espressif/datasheet/ESP32-C3_datasheet.pdf`.
+> under product page → Documents & Downloads.
 
 ## Source Discipline
 

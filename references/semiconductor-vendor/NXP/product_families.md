@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When an NXP part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/nxp/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -35,26 +35,26 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **i.MX RT1064** | ✅ | https://www.nxp.com/products/i.MX-RT1064 | `<cwd>/embedded_dev/nxp/datasheet/iMX-RT1064_datasheet.pdf` |
-| **i.MX RT1170** | ✅ | https://www.nxp.com/products/i.MX-RT1170 | `<cwd>/embedded_dev/nxp/datasheet/iMX-RT1170_datasheet.pdf` |
+| **i.MX RT1064** | ✅ | https://www.nxp.com/products/i.MX-RT1064 | product page → Documents & Downloads |
+| **i.MX RT1170** | ✅ | https://www.nxp.com/products/i.MX-RT1170 | product page → Documents & Downloads |
 
 ## Kinetis MCU (Arm Cortex-M4)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **K66** | ✅ | https://www.nxp.com/products/K66_180 | `<cwd>/embedded_dev/nxp/datasheet/K66_datasheet.pdf` |
+| **K66** | ✅ | https://www.nxp.com/products/K66_180 | product page → Documents & Downloads |
 
 ## KW Family (Automotive BLE MCU)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **KW45** | ✅ | https://www.nxp.com/products/KW45 | `<cwd>/embedded_dev/nxp/datasheet/KW45_datasheet.pdf` |
+| **KW45** | ✅ | https://www.nxp.com/products/KW45 | product page → Documents & Downloads |
 
 ## LPC MCU (Arm Cortex-M33)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **LPC55S69** | ✅ | https://www.nxp.com/products/LPC55S6x | `<cwd>/embedded_dev/nxp/datasheet/LPC55S69_datasheet.pdf` |
+| **LPC55S69** | ✅ | https://www.nxp.com/products/LPC55S6x | product page → Documents & Downloads |
 
 ---
 

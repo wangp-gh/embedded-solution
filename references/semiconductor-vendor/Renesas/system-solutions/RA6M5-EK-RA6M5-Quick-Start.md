@@ -20,7 +20,7 @@ creation, peripheral bring-up, and FreeRTOS / Azure RTOS support.
 ## Reference Design
 
 - **Product page:** https://www.renesas.com/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ek-ra6m5-evaluation-kit-ra6m5-mcu-group (verification pending)
-- **Datasheet:** `embedded_dev/renesas/datasheet/RA6M5_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Renesas/RA6M5.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Renesas/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Renesas only)
@@ -37,7 +37,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 
 - [ ] Original Renesas product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/renesas/datasheet/RA6M5_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] Confirm FSP version pinned in the cited example (Renesas ships
       FSP releases quarterly; example paths drift across versions).
 - [ ] Pin the exact RA6M5 part number — the family includes R7FA6M5
@@ -48,7 +48,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The RA6M5 spec values
 > live in the maintainer's private spec database (`specs/Renesas/RA6M5.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/renesas/datasheet/RA6M5_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

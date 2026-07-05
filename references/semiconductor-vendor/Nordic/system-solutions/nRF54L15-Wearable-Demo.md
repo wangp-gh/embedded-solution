@@ -82,7 +82,7 @@ reference design in the industry.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/nordic/datasheet/nRF54L15_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - Nordic product page: https://www.nordicsemi.com/Products/nRF54L15
 - nRF Connect SDK: https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk
 - nPM1300 PMIC: https://www.nordicsemi.com/Products/nPM1300

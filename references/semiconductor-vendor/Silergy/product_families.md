@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a Silergy part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/silergy/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -54,20 +54,20 @@ Silergy Corp is a Chinese fabless analog IC vendor focused on power management (
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SY8089** | ✅ | https://www.silergy.com/product/sy8089 | `<cwd>/embedded_dev/silergy/datasheet/SY8089_datasheet.pdf` |
-| **SY8090** | ✅ | https://www.silergy.com/product/sy8090 | `<cwd>/embedded_dev/silergy/datasheet/SY8090_datasheet.pdf` |
+| **SY8089** | ✅ | https://www.silergy.com/product/sy8089 | product page → Documents & Downloads |
+| **SY8090** | ✅ | https://www.silergy.com/product/sy8090 | product page → Documents & Downloads |
 
 ### SY8120i (3A synchronous buck)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SY8120i** | ✅ | https://www.silergy.com/product/sy8120i | `<cwd>/embedded_dev/silergy/datasheet/SY8120i_datasheet.pdf` |
+| **SY8120i** | ✅ | https://www.silergy.com/product/sy8120i | product page → Documents & Downloads |
 
 ### SY8032 (3A synchronous buck, wide Vin)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SY8032ABC** | ✅ | https://www.silergy.com/product/sy8032 | `<cwd>/embedded_dev/silergy/datasheet/SY8032_datasheet.pdf` |
+| **SY8032ABC** | ✅ | https://www.silergy.com/product/sy8032 | product page → Documents & Downloads |
 
 ---
 
@@ -79,7 +79,7 @@ Silergy Corp is a Chinese fabless analog IC vendor focused on power management (
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SY6280** | ✅ | https://www.silergy.com/product/sy6280 | `<cwd>/embedded_dev/silergy/datasheet/SY6280_datasheet.pdf` |
+| **SY6280** | ✅ | https://www.silergy.com/product/sy6280 | product page → Documents & Downloads |
 
 ---
 
@@ -89,7 +89,7 @@ Silergy Corp is a Chinese fabless analog IC vendor focused on power management (
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **SY6970** | ✅ | https://www.silergy.com/product/sy6970 | `<cwd>/embedded_dev/silergy/datasheet/SY6970_datasheet.pdf` |
+| **SY6970** | ✅ | https://www.silergy.com/product/sy6970 | product page → Documents & Downloads |
 
 ---
 

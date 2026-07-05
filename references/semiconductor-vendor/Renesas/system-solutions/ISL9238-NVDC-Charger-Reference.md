@@ -19,7 +19,7 @@ programming.
 ## Reference Design
 
 - **Product page:** https://www.renesas.com/en/products/power-management/battery-management/battery-charger-ics/isl9238 (verification pending)
-- **Datasheet:** `embedded_dev/renesas/datasheet/ISL9238_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Renesas/ISL9238.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Renesas/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Renesas only)
@@ -38,7 +38,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 
 - [ ] Original Renesas product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/renesas/datasheet/ISL9238_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] Confirm ISL9238 variant (A / B / C) cited — each variant adds
       features and changes pinout in subtle ways.
 - [ ] Confirm exact companion USB-PD controller — the ISL9238 design
@@ -53,7 +53,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The ISL9238 spec values
 > live in the maintainer's private spec database (`specs/Renesas/ISL9238.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/renesas/datasheet/ISL9238_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

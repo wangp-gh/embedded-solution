@@ -20,7 +20,7 @@ USB-to-serial bridge or virtual COM port design based on GD32.
 ## Reference Design
 
 - **Product page:** https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series (verification pending; site reachable via browser, datasheet PDF on gd32mcu.com)
-- **Datasheet:** `embedded_dev/gigadevice/datasheet/GD32F303xx_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/GigaDevice/GD32F303xx.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/GigaDevice/product_families.md` and the datasheet)*
 
 ## BOM Candidates (GigaDevice only)
@@ -39,7 +39,7 @@ External to GigaDevice (out of BOM scope for this single-vendor solution):
 
 - [ ] Original GigaDevice product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/gigadevice/datasheet/GD32F303xx_datasheet.pdf` (Rev 1.9).
+      product page → Documents & Downloads (Rev 1.9).
 - [ ] Pin the exact GD32F303 part number (GD32F303RCT6 vs other
       package / flash combinations on the R-START board).
 - [ ] Confirm firmware library version (GD32F30x Firmware Library
@@ -51,7 +51,7 @@ External to GigaDevice (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The GD32F303 spec values
 > (clock, flash, SRAM, supply voltage) live in
 > `specs/GigaDevice/GD32F303xx.yaml` (maintainer's private spec database, not shipped in public release) and are cited to the datasheet
-> PDF under `embedded_dev/gigadevice/datasheet/GD32F303xx_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 
 ## Source Discipline
 

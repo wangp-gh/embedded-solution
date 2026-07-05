@@ -22,7 +22,7 @@ broadcast. Built on the official `esp-idf` examples.
 ## Reference Design
 
 - **Product page:** https://www.espressif.com/en/products/socs/esp32 (verification pending; site Cloudflare-gated for direct curl, but the documentation subdomain serves the datasheet directly)
-- **Datasheet:** `embedded_dev/espressif/datasheet/ESP32_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Espressif/ESP32.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Espressif/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Espressif only)
@@ -43,7 +43,7 @@ External to Espressif (out of BOM scope for this single-vendor solution):
       The documentation subdomain serves the datasheet directly; the
       main site is Cloudflare-gated but reachable via the browser.
 - [x] Datasheet already present at
-      `embedded_dev/espressif/datasheet/ESP32_datasheet.pdf` (v5.2).
+      product page → Documents & Downloads (v5.2).
 - [ ] Pin the exact ESP32 variant used (ESP32-WROOM-32 vs ESP32-WROVER
       vs ESP32-SOLO-1). WROOM is the DevKitC default.
 - [ ] Confirm ESP-IDF release tag (different tags use slightly
@@ -55,7 +55,7 @@ External to Espressif (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The ESP32 spec values
 > (clock, CoreMark score, BLE sensitivity, etc.) live in
 > `specs/Espressif/ESP32.yaml` (maintainer's private spec database, not shipped in public release) and are cited to the datasheet PDF
-> under `embedded_dev/espressif/datasheet/ESP32_datasheet.pdf`.
+> under product page → Documents & Downloads.
 
 ## Source Discipline
 

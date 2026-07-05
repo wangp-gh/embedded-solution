@@ -22,7 +22,7 @@ inverter board and Renesas Motor Workbench.
 ## Reference Design
 
 - **Product page:** https://www.renesas.com/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx72n-microcontrollers (verification pending)
-- **Datasheet:** `embedded_dev/renesas/datasheet/RX72N_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Renesas/RX72N.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Renesas/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Renesas only)
@@ -39,7 +39,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 
 - [ ] Original Renesas product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/renesas/datasheet/RX72N_datasheet.pdf`.
+      product page → Documents & Downloads.
 - [ ] Confirm the exact RX72N SKU (R5F572N / R5F572M — these differ
       on flash, RAM, and crypto accelerators).
 - [ ] Confirm whether the cited design uses **RX72N** as standalone
@@ -53,7 +53,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The RX72N spec values
 > live in the maintainer's private spec database (`specs/Renesas/RX72N.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/renesas/datasheet/RX72N_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

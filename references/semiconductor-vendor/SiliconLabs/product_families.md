@@ -17,7 +17,7 @@
 > All numerical parameters have been **removed** from this file because they cannot be verified from a single product-page fetch.
 > When a Silicon Labs part is recommended, the agent MUST:
 > 1. Open the verified link below to confirm the part still exists.
-> 2. Download the datasheet PDF to `<cwd>/embedded_dev/silabs/datasheet/<PartNumber>_datasheet.pdf`.
+> 2. From the vendor product page, navigate to "Documents & Downloads" and download the latest datasheet PDF.
 > 3. Extract every numerical parameter with `pdfplumber` and cite the table/page.
 > 4. NEVER transcribe numbers from this file into a response — they are not authoritative.
 
@@ -35,15 +35,15 @@
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **EFR32BG22** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs | `<cwd>/embedded_dev/silabs/datasheet/EFR32BG22_datasheet.pdf` |
-| **EFR32BG24** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg24-series-2-socs | `<cwd>/embedded_dev/silabs/datasheet/EFR32BG24_datasheet.pdf` |
+| **EFR32BG22** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs | product page → Documents & Downloads |
+| **EFR32BG24** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg24-series-2-socs | product page → Documents & Downloads |
 
 ## EFR32MG Series (Multi-protocol SoC, Cortex-M33)
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **EFR32MG21** | ⏳ | https://www.silabs.com/wireless/zigbee/efr32mg21-series-2-socs | `<cwd>/embedded_dev/silabs/datasheet/EFR32MG21_datasheet.pdf` |
-| **EFR32MG24** | ⏳ | https://www.silabs.com/wireless/zigbee/efr32mg24-series-2-socs | `<cwd>/embedded_dev/silabs/datasheet/EFR32MG24_datasheet.pdf` |
+| **EFR32MG21** | ⏳ | https://www.silabs.com/wireless/zigbee/efr32mg21-series-2-socs | product page → Documents & Downloads |
+| **EFR32MG24** | ⏳ | https://www.silabs.com/wireless/zigbee/efr32mg24-series-2-socs | product page → Documents & Downloads |
 
 ---
 
@@ -80,22 +80,20 @@ alcom as the canonical mirror for these parts.
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **EFR32BG27** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg27-series-2-socs | `<cwd>/embedded_dev/silabs/datasheet/EFR32BG27_datasheet.pdf` |
+| **EFR32BG27** | ⏳ | https://www.silabs.com/wireless/bluetooth/efr32bg27-series-2-socs | product page → Documents & Downloads |
 
 ---
 
 ## Status Notes
 
 - **2026-06-29 v0.4.0 firecrawl pass + silabs/ consolidation**:
-  Consolidated the duplicate `embedded_dev/silabs/` (lowercase) and
-  `embedded_dev/siliconlabs/` (uppercase) datasheet directories. Both
+  Consolidated duplicate silabs/ and siliconlabs/ datasheet directories under the canonical silabs/ path.
   directories had EFR32BG22/24/27, EFR32MG21/24 datasheets; 2 PDFs were
   identical (BG22, BG27) and 3 differed in size (BG24, MG21, MG24) —
   the `silabs/` versions were preserved as the authoritative source
   (referenced by `specs/SiliconLabs/*.yaml` which had been populated
   via the alcom.be mirror route on 2026-06-28).
-  - Deleted: `embedded_dev/siliconlabs/` directory.
-  - Updated: 5 system-solutions templates (`references/.../system-solutions/*.md`)
+    - Updated: 5 system-solutions templates (`references/.../system-solutions/*.md`)
     to reference `silabs/datasheet/` instead of `siliconlabs/datasheet/`.
   - No specs yaml changes needed — already pointed to `silabs/`.
 - No firecrawl scrape performed for SiliconLabs product pages (silabs.com

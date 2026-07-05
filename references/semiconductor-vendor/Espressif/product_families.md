@@ -10,9 +10,9 @@ status, and the main product page.
 
 | Part | Family | Status | Datasheet | Link |
 |------|--------|--------|-----------|------|
-| **ESP32** | Xtensa LX6 dual-core Wi-Fi+BT SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32) | [datasheet](../../embedded_dev/espressif/datasheet/ESP32_datasheet.pdf) |
-| **ESP32-S3** | Xtensa LX7 dual-core Wi-Fi+BLE 5 SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32-s3) | [datasheet](../../embedded_dev/espressif/datasheet/ESP32-S3_datasheet.pdf) |
-| **ESP32-C3** | RISC-V single-core Wi-Fi+BLE 5 SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32-c3) | [datasheet](../../embedded_dev/espressif/datasheet/ESP32-C3_datasheet.pdf) |
+| **ESP32** | Xtensa LX6 dual-core Wi-Fi+BT SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32) | [datasheet](product page → Documents & Downloads) |
+| **ESP32-S3** | Xtensa LX7 dual-core Wi-Fi+BLE 5 SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32-s3) | [datasheet](product page → Documents & Downloads) |
+| **ESP32-C3** | RISC-V single-core Wi-Fi+BLE 5 SoC | ✅ | [link](https://www.espressif.com/en/products/socs/esp32-c3) | [datasheet](product page → Documents & Downloads) |
 
 ## Status Legend
 
@@ -33,8 +33,8 @@ explicitly.
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **ESP32-C6** | ✅ | https://www.espressif.com/en/products/socs/esp32-c6 | `<cwd>/embedded_dev/espressif/datasheet/ESP32-C6_datasheet.pdf` |
-| **ESP32-H2** | ✅ | https://www.espressif.com/en/products/socs/esp32-h2 | `<cwd>/embedded_dev/espressif/datasheet/ESP32-H2_datasheet.pdf` |
+| **ESP32-C6** | ✅ | https://www.espressif.com/en/products/socs/esp32-c6 | [datasheet PDF](https://www.espressif.com/sites/default/files/documentation/esp32-c6_datasheet_en.pdf) |
+| **ESP32-H2** | ✅ | https://www.espressif.com/en/products/socs/esp32-h2 | product page → Documents & Downloads |
 
 ---
 

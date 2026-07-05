@@ -21,7 +21,7 @@ as the dev platform.
 ## Reference Design
 
 - **Product page:** https://www.st.com/en/evaluation-tools/nucleo-wb55rg.html (verification pending)
-- **Datasheet:** _not yet downloaded — see `embedded_dev/st/datasheet/` (no PDFs downloaded yet for this vendor)_
+- **Datasheet:** _not yet downloaded — fetch from vendor product page (see Main Page column above)_
 - **YAML:** `specs/ST/STM32WB55.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/ST/product_families.md` and the datasheet)*
 
 ## BOM Candidates (ST only)

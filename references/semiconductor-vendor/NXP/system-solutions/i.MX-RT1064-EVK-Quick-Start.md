@@ -18,7 +18,7 @@ button use, and the MCUXpresso IDE / SDK debug flow.
 ## Reference Design
 
 - **Product page:** https://www.nxp.com/design/development-boards/i-mx-rt1064-evk (verification pending — link_status not yet verified)
-- **Datasheet:** _not yet downloaded — see `embedded_dev/nxp/datasheet/` (no PDFs downloaded yet for this vendor)_
+- **Datasheet:** _not yet downloaded — fetch from vendor product page (see Main Page column above)_
 - **YAML:** `specs/NXP/i.MX_RT1064.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/NXP/product_families.md` and the datasheet)*
 
 ## BOM Candidates (NXP only)
@@ -51,7 +51,7 @@ External to NXP (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The i.MX RT1064 spec values
 > (clock, RAM, peripherals) live in the maintainer's private spec database (`specs/NXP/i.MX_RT1064.yaml`, if installed). A
 > datasheet PDF is **not yet downloaded** — once present under
-> `embedded_dev/nxp/datasheet/`, the YAML should cite it explicitly.
+> `vendor product page`, the YAML should cite it explicitly.
 
 ## Source Discipline
 

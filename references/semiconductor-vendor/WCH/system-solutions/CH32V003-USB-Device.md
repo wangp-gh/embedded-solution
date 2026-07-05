@@ -79,7 +79,7 @@ serial bridges, USB-to-I2C/SPI adapters, USB LED controllers.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/wch/datasheet/CH32V003_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - WCH product page: https://www.wch-ic.com/products/CH32V003.html
 - MounRiver Studio IDE: https://www.wch-ic.com/downloads/MounRiver_Studio.html
 - WCH-Link programmer: https://www.wch-ic.com/products/WCH-Link.html

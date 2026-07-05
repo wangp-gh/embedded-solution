@@ -78,7 +78,7 @@ beacons, simple sensor nodes), CC2640R2F is TI's go-to choice.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/ti/datasheet/CC2640R2F_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - TI product page: https://www.ti.com/product/CC2640R2F
 - BLE5-Stack SDK: https://www.ti.com/tool/BLE-STACK
 - TI Reference Designs: search "CC2640R2F reference design" on ti.com

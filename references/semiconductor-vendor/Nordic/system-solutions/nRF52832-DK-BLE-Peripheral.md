@@ -60,7 +60,7 @@ External to Nordic (out of BOM scope for this single-vendor solution):
 > Per the skill's no-fabrication policy, **no numerical parameters are
 > written into this system-solution file**. The nRF52832 spec values
 > live in the maintainer's private spec database (`specs/Nordic/nRF52832.yaml`, if installed) and are cited to the datasheet
-> PDF under `embedded_dev/nordic/datasheet/nRF52832_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 > See that YAML for verified values.
 
 ## Source Discipline

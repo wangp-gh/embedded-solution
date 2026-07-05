@@ -19,7 +19,7 @@ Common application: typical ST reference design example using the STM32G0.
 ## Reference Design
 
 - **Product page:** See `references/semiconductor-vendor/ST/product_families.md#stm32g0`
-- **Datasheet:** `embedded_dev/st/datasheet/STM32G0_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/ST/STM32G0.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/ST/product_families.md` and the datasheet)*
 
 ## BOM Candidates (ST only)
@@ -50,6 +50,5 @@ External to ST (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The STM32G0 spec values
 > live in the maintainer's private spec database (`specs/ST/STM32G0.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/st/datasheet/`. Public-release users should
-> verify against the ST product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/ST/product_families.md#stm32g0`.

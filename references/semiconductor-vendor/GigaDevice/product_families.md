@@ -10,9 +10,9 @@ specs/GigaDevice/*.yaml files.
 
 | Part | Family | Status | Datasheet | Link |
 |------|--------|--------|-----------|------|
-| **GD32F303xx** | ARM Cortex-M4 mainstream MCU | ✅ | [link](https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series) | [datasheet](../../embedded_dev/gigadevice/datasheet/GD32F303xx_datasheet.pdf) |
-| **GD32F450xx** | ARM Cortex-M4 high-performance MCU | ✅ | [link](https://www.gigadevice.com/product/mcu/high-performance-mcus/gd32f4xx-series) | [datasheet](../../embedded_dev/gigadevice/datasheet/GD32F450xx_datasheet.pdf) |
-| **GD32E230xx** | ARM Cortex-M23 low-power MCU | ⚠️ product page removed (404 on gigadevice.com) | [link](https://www.gigadevice.com/product/mcu/entry-level-mcus) | [datasheet](../../embedded_dev/gigadevice/datasheet/GD32E230xx_datasheet.pdf) |
+| **GD32F303xx** | ARM Cortex-M4 mainstream MCU | ✅ | [link](https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series) | [datasheet](product page → Documents & Downloads) |
+| **GD32F450xx** | ARM Cortex-M4 high-performance MCU | ✅ | [link](https://www.gigadevice.com/product/mcu/high-performance-mcus/gd32f4xx-series) | [datasheet](product page → Documents & Downloads) |
+| **GD32E230xx** | ARM Cortex-M23 low-power MCU | ⚠️ product page removed (404 on gigadevice.com) | [link](https://www.gigadevice.com/product/mcu/entry-level-mcus) | [datasheet](product page → Documents & Downloads) |
 
 ## Status Legend
 
@@ -33,7 +33,7 @@ Cortex-M23 (compete with STM32L0).
 
 | Part | Link Status | Main Page | Datasheet Path |
 |------|-------------|-----------|----------------|
-| **GD32VF103** | ⚠️ product page removed (404 on gigadevice.com) | https://www.gigadevice.com/product/mcu/low-power-mcus/gd32vf103-series | `<cwd>/embedded_dev/gigadevice/datasheet/GD32VF103_datasheet.pdf` |
+| **GD32VF103** | ⚠️ product page removed (404 on gigadevice.com) | https://www.gigadevice.com/product/mcu/low-power-mcus/gd32vf103-series | product page → Documents & Downloads |
 
 ---
 

@@ -26,7 +26,7 @@ find-my-device applications.
   DA14531MOD-00DEVKT-P — SmartBond TINY Development Kit Pro (includes
   motherboard + daughterboard + cables for the DA14531 module).
   See product page for kit contents.
-- **Datasheet:** `embedded_dev/renesas/datasheet/DA14531_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Renesas/DA14531.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Renesas/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Renesas only)
@@ -62,7 +62,7 @@ External to Renesas (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The DA14531 spec values
 > (BLE version, RAM, flash, current consumption) live in
 > `specs/Renesas/DA14531.yaml` (maintainer's private spec database, not shipped in public release) and are cited to the datasheet PDF under
-> `embedded_dev/renesas/datasheet/`. See that YAML for verified values.
+> `vendor product page`. See that YAML for verified values.
 
 ## Source Discipline
 

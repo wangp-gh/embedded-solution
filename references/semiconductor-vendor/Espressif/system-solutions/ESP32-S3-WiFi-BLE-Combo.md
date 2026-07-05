@@ -77,7 +77,7 @@ widely-adopted IoT platform for makers and small-to-medium OEMs.
 
 ## Source documents
 
-- Datasheet: `<cwd>/embedded_dev/espressif/datasheet/ESP32-S3_datasheet.pdf`
+- Datasheet: product page → Documents & Downloads
 - Espressif product page: https://www.espressif.com/en/products/socs/esp32-s3
 - ESP-IDF documentation: https://docs.espressif.com/projects/esp-idf/
 - ESP-Matter: https://github.com/espressif/esp-matter

@@ -22,7 +22,7 @@ hubs, USB-C powered accessories).
 ## Reference Design
 
 - **Product page:** https://www.silergy.com/product/sy8089 (verification pending)
-- **Datasheet:** `embedded_dev/silergy/datasheet/SY8089_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/Silergy/SY8089.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/Silergy/product_families.md` and the datasheet)*
 
 ## BOM Candidates (Silergy only)
@@ -60,8 +60,7 @@ External to Silergy (out of BOM scope for this single-vendor solution):
 > (Vin / Vout / current / efficiency) live in the maintainer's
 > private spec database (`specs/Silergy/SY8089.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/silergy/datasheet/`. Public-release users should
-> verify against the Silergy product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/Silergy/product_families.md#sy8089`.
 
 ## Source Discipline

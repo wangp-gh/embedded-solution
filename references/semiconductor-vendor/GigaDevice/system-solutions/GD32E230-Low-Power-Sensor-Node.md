@@ -21,7 +21,7 @@ automation, and metering.
 ## Reference Design
 
 - **Product page:** https://www.gigadevice.com/product/mcu/low-power-mcus/gd32e230xx-series (verification pending)
-- **Datasheet:** `embedded_dev/gigadevice/datasheet/GD32E230xx_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/GigaDevice/GD32E230xx.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/GigaDevice/product_families.md` and the datasheet)*
 
 ## BOM Candidates (GigaDevice only)
@@ -40,7 +40,7 @@ External to GigaDevice (out of BOM scope for this single-vendor solution):
 
 - [ ] Original GigaDevice product page URL HTTP 200 — verification pending.
 - [x] Datasheet already present at
-      `embedded_dev/gigadevice/datasheet/GD32E230xx_datasheet.pdf` (Rev 1.4).
+      product page → Documents & Downloads (Rev 1.4).
 - [ ] Pin the exact GD32E230 part number (GD32E230C8T6 for 64 KB /
       LQFP48, GD32E230K8T6 for 64 KB / LQFP32).
 - [ ] Document the cited deep-sleep current value (typically
@@ -52,7 +52,7 @@ External to GigaDevice (out of BOM scope for this single-vendor solution):
 > written into this system-solution file**. The GD32E230 spec values
 > (clock, flash, SRAM, supply voltage) live in
 > `specs/GigaDevice/GD32E230xx.yaml` (maintainer's private spec database, not shipped in public release) and are cited to the datasheet
-> PDF under `embedded_dev/gigadevice/datasheet/GD32E230xx_datasheet.pdf`.
+> PDF under product page → Documents & Downloads.
 
 ## Source Discipline
 

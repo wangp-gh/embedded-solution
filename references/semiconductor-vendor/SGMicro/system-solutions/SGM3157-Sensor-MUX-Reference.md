@@ -20,7 +20,7 @@ battery monitors (cell 1 vs cell 2), or audio signal routing.
 ## Reference Design
 
 - **Product page:** https://www.sg-micro.com/product/sgm3157 (verification pending)
-- **Datasheet:** `embedded_dev/sgmicro/datasheet/SGM3157_datasheet.pdf`
+- **Datasheet:** product page → Documents & Downloads
 - **YAML:** `specs/SGMicro/SGM3157.yaml` *(maintainer-only — not shipped in the public release; for verification use `references/semiconductor-vendor/SGMicro/product_families.md` and the datasheet)*
 
 ## BOM Candidates (SG Micro only)
@@ -53,8 +53,7 @@ External to SG Micro (out of BOM scope for this single-vendor solution):
 > (Ron / bandwidth / on-resistance flatness) live in the maintainer's
 > private spec database (`specs/SGMicro/SGM3157.yaml`, if installed)
 > and are cross-checked against the official vendor datasheet PDF
-> under `embedded_dev/sgmicro/datasheet/`. Public-release users should
-> verify against the SG Micro product page and datasheet directly; see
+> Public-release users should download the datasheet directly from the vendor product page (see Main Page column above); the embedded_dev/ path is for development cloning with the datasheets plug-in.
 > `references/semiconductor-vendor/SGMicro/product_families.md#sgm3157`.
 
 ## Source Discipline
