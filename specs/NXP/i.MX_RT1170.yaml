@@ -1,4 +1,4 @@
-part: i.MX RT1170
+part: i.MX_RT1170
 link_status: verified_2026-07-02 (datasheet-pdf-extracted)
 expected_family: i.MX RT Crossover MCU (dual-core M7 + M4 heterogeneous)
 main_page: https://www.nxp.com/products/i.MX-RT1170

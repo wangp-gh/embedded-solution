@@ -869,6 +869,9 @@ def _extract_da_ble(extracted: dict, text: str) -> dict:
     if flash_m and not s.get("flash"):
         s["flash"] = flash_m.group(1)
     # Packages
+    # Dedupe on (type, pin_count) — the full PDF text often repeats the
+    # package list across multiple sections.
+    seen_pkgs = set()
     for pkg_m in re.finditer(
         r"(WLCSP[^\n,]+?balls?,\s*[\d.]+\s*[×x]\s*[\d.]+,?\s*[\d.]*\s*mm(?:\s*pitch)?)"
         r"|(FC?GQFN[^\n,]+?pins?,\s*[\d.]+\s*[×x]\s*[\d.]+,?\s*[\d.]*\s*mm)",
@@ -879,6 +882,10 @@ def _extract_da_ble(extracted: dict, text: str) -> dict:
         size_m = re.search(r"([\d.]+)\s*[×x]\s*([\d.]+)", pkg_text)
         type_m = re.search(r"(WLCSP|FC?GQFN|QFN|LQFP)", pkg_text)
         if pin_m and type_m:
+            key = (type_m.group(1), int(pin_m.group(1)))
+            if key in seen_pkgs:
+                continue
+            seen_pkgs.add(key)
             s.setdefault("packages", []).append({
                 "type": type_m.group(1),
                 "pin_count": int(pin_m.group(1)),
@@ -908,7 +915,16 @@ def _extract_ra(extracted: dict, text: str) -> dict:
     if ram_m and not s.get("ram"):
         s["ram"] = f"{ram_m.group(1)} {ram_m.group(2)} SRAM"
     # Packages
+    # Dedupe on (type, pin_count) — the full PDF text often repeats the
+    # package list across multiple sections (overview table, ordering
+    # information, package code list). With MAX_FULL_TEXT_PAGES = 0 the
+    # same package can show up 5-20 times.
+    seen_pkgs = set()
     for pkg_m in re.finditer(r"(\d+)-pin\s+(LQFP|QFN|BGA|TFLGA|TQFN|WLCSP)", text):
+        key = (pkg_m.group(2), int(pkg_m.group(1)))
+        if key in seen_pkgs:
+            continue
+        seen_pkgs.add(key)
         s.setdefault("packages", []).append({"type": pkg_m.group(2), "pin_count": int(pkg_m.group(1))})
     return extracted
 
@@ -3236,24 +3252,29 @@ def extract_specs_from_pdf(pdf_path: Path, family: Optional[str] = None) -> dict
                 extracted["specs"]["operating_voltage_v"] = f"{vcc_m.group(1)} to {vcc_m.group(2)}"
 
     # Family-specific layering
-    # Read full PDF text (not just first 2 pages) so extractors can
-    # search the 'General description' / 'Key features' / cover-page
-    # sections that some vendors place on later pages (GigaDevice, NXP,
-    # etc.). Cheap to do — pdfplumber just reads the text layer.
-    # CAP at MAX_FULL_TEXT_PAGES so a 800-page Nordic PS doesn't take
-    # 5 minutes for a 5-keyword regex. The key 'Key features' / 'General
-    # description' / 'Absolute maximum ratings' sections all live in the
-    # first 50-100 pages of any datasheet; deeper tables are intentionally
-    # not covered by these extractors (we cite page numbers for those).
-    MAX_FULL_TEXT_PAGES = 100
+    # Read full PDF text so extractors can search any page that contains
+    # the relevant bullet / table / parameter list. As of the 2026-07-05
+    # factory-error fix-up we don't cap page coverage — different
+    # vendors place 'Key features' / 'General description' /
+    # 'Absolute maximum ratings' sections at wildly different page
+    # offsets (GigaDevice: page 4, NXP: page 8-12, Nordic PS: page 30,
+    # Renesas group datasheets: page 18-25). A 800-page Nordic PS
+    # takes ~6 s to text-extract once; a 200-page TI datasheet takes
+    # ~1.5 s. Capping at MAX_FULL_TEXT_PAGES = 0 means "no cap"
+    # (read every page). Set to a finite integer to cap for speed on
+    # genuinely huge docs (e.g. ST RM0444-style reference manuals at
+    # 1500+ pages).
+    MAX_FULL_TEXT_PAGES = 0  # 0 = unlimited
     full_text = ""
     with pdfplumber.open(pdf_path) as pdf:
         page_count = len(pdf.pages)
-        cap = min(page_count, MAX_FULL_TEXT_PAGES)
+        cap = page_count if MAX_FULL_TEXT_PAGES == 0 else min(page_count, MAX_FULL_TEXT_PAGES)
         for pn in range(cap):
             full_text += "\n" + (pdf.pages[pn].extract_text() or "")
         # Track which pages contributed, but keep the original
         # extracted_from_pages [1, 2] for the generic-pass provenance.
+        # When MAX_FULL_TEXT_PAGES = 0 we cite every page so an external
+        # verifier can reproduce the extraction by re-running pdfplumber.
         extracted["extracted_from_pages"] = list(range(1, min(page_count, 12) + 1))
 
     # Dispatch to the family-specific extractor declared in PARTS.
@@ -3269,6 +3290,130 @@ def extract_specs_from_pdf(pdf_path: Path, family: Optional[str] = None) -> dict
                 f"No family-specific extractor registered for family={family!r}; "
                 f"generic pdfplumber pass only."
             )
+
+    # Vendor-agnostic supplementary pass.
+    # Run AFTER the family extractor so the family regexes can win the
+    # fill-first race. This pass is intentionally narrow: only captures
+    # fields that are common across vendors AND that have a distinctive
+    # page-1 bullet format that doesn't false-positive on later-page
+    # figure captions / table noise.
+    #
+    # We pass page1_text (first 3 pages only) NOT full_text. Bullet
+    # lists on page 1-3 are vendor-curated 'Key features' summaries
+    # and yield clean signals; later pages contain parameter tables
+    # whose numeric cells (e.g. 'cycle time × 50 ns', '0x4009_0000
+    # SDHI0') match the same regexes as bullets and pollute the output.
+    page1_text = ""
+    for pn in range(min(3, page_count)):
+        page1_text += "\n" + (pdf.pages[pn].extract_text() or "")
+    extracted = _extract_page1_bullets(extracted, page1_text)
+
+    return extracted
+
+
+def _extract_page1_bullets(extracted: dict, text: str) -> dict:
+    """Vendor-agnostic supplementary extractor for page-1 bullet formats.
+
+    Only fills fields that the family extractor did NOT fill. Targets
+    the most common page-1 'Operating Temperature / Packages / Peripherals'
+    bullet styles across Renesas, NXP, ST, Nordic, TI, etc.
+
+    Pass `text` should be page-1-only text (caller's responsibility).
+    Do not pass the full PDF text here — figure captions / parameter
+    tables on later pages match the same regexes with noise like
+    'AGT (6ch)*4 50' (where 4 is cycles, 50 is ns).
+    """
+    s = extracted.setdefault("specs", {})
+
+    # --- Operating temperature: 'Ta = -40℃ to +105℃' / 'Tstg = -55°C to +150°C'
+    if not s.get("operating_temperature_c"):
+        # Anchored on 'Ta' (operating) or 'Tj' (junction) — these are
+        # the conventional symbols used by all major MCU vendors on
+        # page 1 / package information. Avoid bare '-40°C to +85°C'
+        # because that captures storage temp too.
+        m = re.search(
+            r"(?:Ta|Tj|TAMB)\s*=\s*[-]?(\d+)\s*°?C?\s*(?:to|~|…|\u2013|-)\s*\+?(\d+)\s*°?C",
+            text,
+        )
+        if m:
+            s["operating_temperature_c"] = f"{m.group(1)} to +{m.group(2)}"
+
+    # --- Packages: '<N>-pin <TYPE> (WxH mm, P mm pitch)' dedup
+    if not s.get("packages"):
+        seen_pkgs = set()
+        for pkg_m in re.finditer(
+            r"(\d+)-pin\s+(LQFP|QFN|BGA|TFLGA|TQFN|WLCSP|HWQFN|LQFP-?EP)",
+            text,
+        ):
+            key = (pkg_m.group(2), int(pkg_m.group(1)))
+            if key in seen_pkgs:
+                continue
+            seen_pkgs.add(key)
+            s.setdefault("packages", []).append({
+                "type": pkg_m.group(2),
+                "pin_count": int(pkg_m.group(1)),
+            })
+
+    # --- Connectivity / peripheral counts: '<PERIPHERAL NAME> × N'
+    # Captures the 'SCI × 10' / 'GPT32 × 4' / 'ADC × 2' style used on
+    # all Renesas / ST / NXP page-1 bullet lists.
+    #
+    # Tightness constraints (otherwise we pollute the count dict with
+    # noise from '12-bit ADC' text, 'GPT32 bit-width=32', etc.):
+    #   * Symbol MUST be followed by ' × ' or ' x ' (literal Unicode '×'
+    #     or ASCII 'x' surrounded by spaces) — a numeric quantity of
+    #     peripheral instances, not a bit width or address
+    #   * Count must be 2..32 (n=1 is usually a footnote, n>32 is
+    #     usually bits/bytes/cycles from a table)
+    #   * Symbol list is sorted longest-first so 'USBHS' wins over 'USB'
+    PERIPHERAL_SYMBOLS = [
+        # Renesas (longest first)
+        "ADC12", "DAC12", "GPT32", "GPT16", "USBFS", "USBHS", "CANFD",
+        "ETHERC", "EDMAC", "SDHI", "SSIE", "OSPI", "QSPI", "DMAC", "CTSU",
+        "TSN", "IWDT", "SCI", "IIC", "SPI", "USB", "CAN", "AGT", "WDT",
+        "DTC", "LVD", "CAC", "ICU", "CEC",
+        # ST
+        "FDCAN", "USART", "SDMMC", "OTG_FS", "OTG_HS", "UART", "I2C",
+        "ADC", "DAC", "TIM", "RTC", "ETH", "CRC", "RNG", "DMA", "GPIO",
+        # NXP
+        "FlexIO", "LPUART", "LPSPI", "LPI2C", "eMIOS", "DSPI", "FlexCAN",
+        "ENET", "TSC", "PDB", "SAI", "I2S", "PWM", "eDMA",
+    ]
+    if not s.get("peripheral_counts"):
+        peripheral_counts = {}
+        symbol_alt = "|".join(re.escape(s) for s in sorted(PERIPHERAL_SYMBOLS, key=len, reverse=True))
+        # Required literal '× ' (Unicode U+00D7) or ' x ' or '×N' (no space)
+        # — the symbol must be IMMEDIATELY followed by the multiplication
+        # mark. We allow one optional space on each side.
+        for peri_m in re.finditer(
+            r"(?<![\w])(" + symbol_alt + r")\s*[×x]\s*(\d{1,2})(?![\w])",
+            text,
+        ):
+            symbol = peri_m.group(1)
+            n = int(peri_m.group(2))
+            if n < 2 or n > 32:
+                continue
+            if symbol in peripheral_counts:
+                continue
+            peripheral_counts[symbol] = n
+        if peripheral_counts:
+            s["peripheral_counts"] = peripheral_counts
+
+    # --- Security / encryption: 'AES / RSA / ECC / SHA / TrustZone'
+    if not s.get("security_features"):
+        sec_bits = []
+        for sec_m in re.finditer(
+            r"\b(AES(?:-128|-256|-192)?|RSA|ECC(?:(?:\s+(?:P-?\d+|secp\d+r?\d*))?)|"
+            r"SHA(?:-?\d{3,4})?(?:,?\s*SHA(?:-?\d{3,4}))*|TrustZone(?:[\s®]+(?:enabled|secure))?|"
+            r"secure\s*boot|HASH|GHASH|HMAC|DSA|ECDSA|TRNG|PUF|secure\s*debug|"
+            r"DICE|silent\s*CAN|life\s*cycle\s*management|tamper\s*detection)\b",
+            text, re.IGNORECASE,
+        ):
+            token = sec_m.group(0).strip()
+            if token and token not in sec_bits:
+                sec_bits.append(token)
+        if sec_bits:
+            s["security_features"] = sec_bits[:20]  # cap to avoid noise
 
     return extracted
 
@@ -3325,6 +3470,88 @@ def merge_yaml(existing: dict, fresh: dict) -> dict:
                     f"verified_{dt.datetime.now().strftime('%Y-%m-%d')}"
                     f" (extractor-match)"
                 )
+
+    # Auto-remove the 2026-07-05 phase1-recovery factory-error note
+    # when the new spec dict no longer matches the RX72N template that
+    # produced the pollution. This is the data-loss fix-up:
+    #   * Before the factory error: spec contents were the RX72N
+    #     template (RX family flagship 32-bit MCU, 1396 CoreMark, etc.)
+    #   * After re-extract with the correct datasheet PDF: spec contents
+    #     are part-specific (e.g. 'RA Cortex-M33 @ 200 MHz', etc.)
+    # The phase1-recovery note is no longer needed once the spec dict
+    # stops resembling RX72N.
+    #
+    # Two clean-up actions:
+    #   1. Drop any existing spec key whose value still contains an
+    #      RX72N marker (the fresh extract didn't provide a new value
+    #      for that key, so we should drop the stale RX72N data rather
+    #      than keep it alongside the new part-specific data).
+    #   2. If after step 1 the spec dict is fully part-specific, remove
+    #      the phase1-recovery note and promote link_status.
+    if extracted_keys:
+        existing_specs = (existing or {}).get("specs") or {}
+        rx72n_markers = ("RX family", "RXv3", "1396 CoreMark", "RX72N")
+        old_was_rx72n = any(
+            isinstance(existing_specs.get(k), str)
+            and any(m in existing_specs.get(k, "") for m in rx72n_markers)
+            for k in existing_specs
+        )
+        if old_was_rx72n:
+            # Step 1: drop stale RX72N-templated keys
+            new_specs = merged.get("specs") or {}
+            keys_with_rx72n_marker = [
+                k for k in list(new_specs.keys())
+                if isinstance(new_specs.get(k), str)
+                and any(m in new_specs.get(k, "") for m in rx72n_markers)
+            ]
+            for k in keys_with_rx72n_marker:
+                del new_specs[k]
+            merged["specs"] = new_specs
+
+            # Step 2: also drop deeply-nested RX72N pollution (e.g.
+            # peripherals.ethernet_mac text that came from the RX72N
+            # datasheet and was preserved under peripherals.*).
+            # We only do this for shallow scalars; complex nested dicts
+            # are left alone to avoid accidental data loss.
+            for k, v in list(new_specs.items()):
+                if isinstance(v, str) and any(m in v for m in rx72n_markers):
+                    del new_specs[k]
+
+            # Step 3: decide whether to clear phase1-recovery note
+            new_is_not_rx72n = all(
+                not (
+                    isinstance(new_specs.get(k), str)
+                    and any(m in new_specs.get(k, "") for m in rx72n_markers)
+                )
+                for k in new_specs
+            )
+            # also check for list values (security_features can contain
+            # RX72N tokens in some pathological cases)
+            if new_is_not_rx72n:
+                for v in new_specs.values():
+                    if isinstance(v, list):
+                        if any(
+                            isinstance(item, str)
+                            and any(m in item for m in rx72n_markers)
+                            for item in v
+                        ):
+                            new_is_not_rx72n = False
+                            break
+
+            if new_is_not_rx72n:
+                merged["notes"] = [
+                    n for n in (merged.get("notes") or [])
+                    if "phase1-recovery" not in str(n)
+                    and "needs-re-extraction-factory-error" not in str(n)
+                ]
+                # Promote link_status — the re-extraction is verified
+                # by the fact that the new spec dict contains part-
+                # specific data with no RX72N markers left.
+                if merged.get("link_status", "").startswith("needs-re-extraction"):
+                    merged["link_status"] = (
+                        f"verified_{dt.datetime.now().strftime('%Y-%m-%d')}"
+                        f" (datasheet-pdf-extracted, phase1-recovery cleared)"
+                    )
 
     return merged
 

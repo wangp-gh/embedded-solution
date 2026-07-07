@@ -1,4 +1,4 @@
-part: i.MX RT1064
+part: i.MX_RT1064
 link_status: verified_2026-07-02 (datasheet-html-mirror-extracted)
 expected_family: i.MX RT Crossover MCU (Arm Cortex-M7 @ 600 MHz)
 main_page: https://www.nxp.com/products/i.MX-RT1064

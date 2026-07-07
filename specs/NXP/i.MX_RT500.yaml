@@ -1,4 +1,4 @@
-part: i.MX RT500
+part: i.MX_RT500
 link_status: verified_2026-07-01 (datasheet-pdf-mirror-extracted)
 expected_family: "i.MX RT500 \u2014 Cortex-M33 + Fusion F1 DSP Crossover MCU"
 main_page: https://www.nxp.com/products/i.MX-RT500

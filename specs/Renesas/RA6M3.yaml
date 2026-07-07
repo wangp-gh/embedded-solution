@@ -1,4 +1,4 @@
-part: RX72N
+part: RA6M3
 aliases:
 - R5F572N
 source_pdf: ../../embedded_dev/renesas/datasheet/RX72N_datasheet.pdf
@@ -137,4 +137,7 @@ notes:
 - '2026-07-01 search via Tavily: no accessible datasheet PDF found for RA6M3 (renesas.com myPortal login required for vendor-direct;
   no public mirror found in Tavily web search). Legacy partial_verified_2026-06-28 status preserved. Re-verify when datasheet
   PDF becomes publicly accessible.'
-link_status: partial_verified_2026-06-28 (extractor-frontpage-only, deeper-section fields unverified)
+link_status: needs-re-extraction-factory-error-2026-07-05
+
+notes:
+  - '2026-07-05 phase1-recovery: part field was RX72N (mislabeled); now corrected to RA6M3 but spec contents are still RX72N data. Full re-extraction from the correct datasheet (embedded_dev/renesas/datasheet/RA6M3_datasheet.pdf) is required.'

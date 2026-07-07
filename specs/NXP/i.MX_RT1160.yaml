@@ -1,4 +1,4 @@
-part: i.MX RT1160
+part: i.MX_RT1160
 link_status: verified_2026-07-01 (datasheet-html-extracted)
 expected_family: "i.MX RT1160 \u2014 Crossover MCU Dual-Core Arm Cortex-M7 + Cortex-M4"
 main_page: https://www.nxp.com/products/i.MX-RT1160

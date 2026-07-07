@@ -1,4 +1,4 @@
-part: i.MX RT700
+part: i.MX_RT700
 link_status: verified_2026-07-01 (datasheet-pdf-mirror-extracted)
 expected_family: "i.MX RT700 \u2014 Crossover MCU with M33 + HiFi 4 DSP + eIQ Neutron NPU"
 main_page: https://www.nxp.com/products/i.MX-RT700
