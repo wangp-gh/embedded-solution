@@ -12,3 +12,10 @@ aiohttp>=3.8
 httpx>=0.24
 python-dotenv>=1.0
 websockets>=10.0
+
+# PDF + YAML I/O used by update_specs.py / upgrade_yaml_to_verified.py /
+# verify_yaml_vs_datasheet.py / reextract_da_ble.py. Imported lazily with
+# a friendly ImportError message in some scripts, but the user gets a
+# clearer experience if these are installed up front.
+pdfplumber>=0.10
+PyYAML>=6.0
