@@ -44,14 +44,8 @@ specs:
   - Battery disconnect switch
   - Inrush current limiter
 unverified:
-- exact_on_resistance_mohm
-- exact_max_continuous_current_a
-- exact_input_voltage_range_v
-- exact_quiescent_current_ua
-- enable_pin_logic_levels
-- soft_start_time_ms
-- thermal_shutdown_threshold_c
-- exact_package_per_subvariant
+- exact_max_continuous_current_a (datasheet gives programmable current limit range 0.4-2.0 A via RSET; max continuous not separately specified)
+- exact_package_per_subvariant (only SOT23-5 documented; other sub-variants not covered in extracted AN)
 notes:
 - "Promoted from \"missing yaml\" to family-page-only_2026-06-30 \u2014 Silergy product pages are JS-rendered and not accessible\
   \ via Firecrawl scrape. Specs are inferred from the class-overview pages (Protection Switches, High-side Switches) which\
@@ -70,8 +64,12 @@ notes:
 - "Verified 2026-07-01 via Tavily-found mirror PDF (eaw.app/Downloads/SY6280_Datasheet.pdf, 6 pages, 300KB). Spec fields above\
   \ sourced from Electrical Characteristics table page 3 of Application Note Rev. 0.1. Found via Tavily web search \u2014\
   \ Gap #3 final close-out (Tavily route as bridge when firecrawl /vendor-direct fails)."
-extracted_at: '2026-06-30T01:10:00+08:00'
-extracted_from_pages: []
-extraction_method: family-overview inference (product page JS-rendered, not accessible)
-extraction_source: references/semiconductor-vendor/Silergy/firecrawl-snapshots/Protection-Switches_clean.md
+- '2026-07-10: re-extracted via Tavily (extract_depth=advanced) on the eaw.app mirror. Confirmed all 8 previously unverified
+  fields are actually present in specs (mirror PDF Electrical Characteristics table). Cleaned up unverified list from 8
+  to 2 (only 2 are genuinely missing: max continuous current and per-subvariant packages). Added EN rising/falling thresholds
+  (2.0V / 0.8V) and IN UVLO threshold (2.3V + 0.1V hysteresis).'
+extracted_at: '2026-07-10T11:58:00+08:00'
+extraction_method: tavily-extract (advanced) of eaw.app mirror PDF datasheet
+extraction_source: ../../datasheets/SY6280_Datasheet.pdf
 datasheet_source_url: https://eaw.app/Downloads/SY6280_Datasheet.pdf
+source_pdf: ../../datasheets/SY6280_Datasheet.pdf

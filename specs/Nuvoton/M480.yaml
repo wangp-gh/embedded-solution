@@ -1,0 +1,165 @@
+part: M480
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "Nuvoton M480 \u2014 Cortex-M4F @ 192 MHz industrial MCU with Ethernet + USB HS"
+main_page: https://www.nuvoton.com/products/microcontrollers/arm-cortex-m4-mcus/m480-series/
+datasheet_path_expected: ../../embedded_dev/nuvoton/datasheet/M480_Series_EN_Rev3.09.pdf
+datasheet_source_note: >
+  Vendor-direct Nuvoton datasheet (8.08 MB, M480 Series Rev 3.09, 13 December 2023, 534 pages) downloaded 2026-07-10
+  from nuvoton.com/export/resource-files/en-us--DS_M480_Series_EN_Rev3.09.pdf (200 OK, no auth). Covers M480
+  sub-series: M481/M482/M483/M484/M485/M487 (with feature suffixes 81 base, 82 USB FS, 83 CAN, 84 USB HS,
+  85 Crypto, 87 Ethernet).
+created_at: '2026-07-10T22:05:00+08:00'
+specs:
+  family: Nuvoton NuMicro M480 series (industrial Cortex-M4F MCU)
+  cores:
+  - Arm Cortex-M4F @ up to 192 MHz (with FPU + MPU + NVIC)
+  performance:
+    dynamic_current_ua_per_mhz: '175/130 (CoreMark/Dhrystone respectively)'
+    standby_current_na: 1000 (1 uA)
+    power_modes:
+    - Normal
+    - Idle
+    - Power-down
+    - Deep Power-down
+  memory:
+    flash_kb_max: 2560 (2.5 MB)
+    flash_options_kb: [16, 32, 64, 128, 192, 256, 512, 2560]
+    sram_kb_max: 160
+    sram_options_kb: [4, 8, 16, 20, 24, 32, 48, 64, 80, 96, 112, 128, 160]
+    rom_kb: 8 (boot ROM)
+    secure_boot: true (constant digital signature)
+  security:
+  - Secure boot
+  - Hardware crypto engine (AES, DES, TDES, SHA, RSA, ECC)
+  - Unique Customer ID (UCID)
+  - Flash lock bits
+  sub_series:
+  - name: M481
+    features: 'base (no USB/CAN/Ethernet)'
+  - name: M482
+    features: 'USB FS OTG'
+    variants: [M482xGAAE, M482xIDAE, M482xGCAE]
+  - name: M483
+    features: USB FS + CAN
+  - name: M484
+    features: USB FS + USB HS
+  - name: M485
+    features: USB FS + USB HS + Crypto
+  - name: M487
+    features: USB FS + USB HS + Crypto + Ethernet
+    pin_max: 144
+  connectivity:
+    ethernet: 10/100 Mbps RMII (M487 only)
+    usb_hs: USB 2.0 High-Speed OTG (M484/M485/M487)
+    usb_fs: USB 2.0 Full-Speed OTG (M482+)
+    can: CAN 2.0B (M483+)
+    uart: up to 6
+    spi: up to 4
+    i2c: up to 4
+    sdio: 1 (SD host)
+    emac: yes (M487)
+  analog:
+    adc_count: 2 (EADC, 12-bit 5 MSPS SAR)
+    adc_channels: 16 (max)
+    dac_count: 0
+    acmp: 3 (analog comparators)
+    vref: internal 1.23V bandgap
+  timers:
+    pwm: EPWM x6 + PWM x4 (total up to 10 PWM channels)
+    qei: yes (Quadrature Encoder Interface)
+    basic_timer: TMR x4
+    wdt: yes + WWDT (window watchdog)
+    rtc: yes
+  graphics_camera:
+    camera_interface: 1 (CCAP, CMOS sensor input, ITU-R BT.656)
+  operating_conditions:
+    vdd_v: 1.8-3.6
+    avdd_v: 1.8-3.6 (analog)
+    vbat_v: 1.8-3.6 (RTC backup)
+    temperature_c_ambient: -40 to +105
+    temperature_c_junction: -40 to +125
+    temperature_c_storage: -65 to +150
+  package_options:
+  - type: QFN
+    pins: 33
+    dim_mm: 5x5
+    theta_ja_c_per_w: 39.6
+  - type: QFN
+    pins: 48
+    dim_mm: 5x5
+    theta_ja_c_per_w: 37.8
+  - type: LQFP
+    pins: 48
+    dim_mm: 7x7
+    theta_ja_c_per_w: 60.0
+  - type: WLCSP
+    pins: not specified (sub-flagship)
+  - type: LQFP
+    pins: 64
+    dim_mm: 7x7
+    theta_ja_c_per_w: 58.0
+  - type: QFN
+    pins: 88
+    dim_mm: 10x10
+    theta_ja_c_per_w: not extracted
+  - type: LQFP
+    pins: 100
+    dim_mm: 14x14
+    theta_ja_c_per_w: not extracted
+  - type: LQFP
+    pins: 128
+    dim_mm: 14x14
+    theta_ja_c_per_w: 38.5
+  - type: LQFP
+    pins: 144
+    dim_mm: 20x20
+    theta_ja_c_per_w: 36.9
+  esd:
+    hbm_v: not extracted (datasheet references ESD protection but specific kV value not in extracted chunks)
+    cdm_v: not extracted
+  use_cases:
+  - Industrial automation (PLC, IO modules, motor control)
+  - IoT edge gateways (Ethernet RMII + USB)
+  - Sensor networks (low standby 1 uA)
+  - Automotive body ECUs (Grade 2 capable via qualification programs)
+  - USB peripherals (HID, storage, CDC)
+  - Smart meters / utility monitoring (secure boot)
+  ecosystem:
+    languages:
+    - C (Keil MDK, IAR EWARM, NuEclipse)
+    - Arduino (third-party support)
+    frameworks:
+    - Nu-Link (Nuvoton's official debugger/programmer)
+    - BSP/SDK via Nuvoton
+    - FreeRTOS (port)
+    debuggers:
+    - Nu-Link (SWD)
+    - J-Link (compatible)
+    - CMSIS-DAP (compatible)
+unverified:
+- exact ESD HBM/CDM ratings (datasheet references ESD protection but specific kV values per package not in extracted chunks)
+- exact QFN88 + LQFP100 thermal resistance (datasheet publishes theta_JA but specific values for these packages not in extracted sections)
+- exact WLCSP pin count (datasheet Table 1 references WLCSP option but specific pin count not extracted)
+notes:
+- "New yaml entry 2026-07-10 — Nuvoton's flagship industrial Cortex-M4F MCU series. Taiwan-based Nuvoton is
+  a direct competitor to NXP K66 / STM32F4 in industrial control applications. Ethernet + USB HS + Crypto
+  + Camera Interface makes M487 the highest-tier variant for IoT edge gateways."
+- 'Use case: industrial IoT edge nodes with Ethernet connectivity, USB peripherals, motor control with
+  EPWM + QEI, secure boot for firmware integrity, sensor networks with 1 uA standby.'
+- 'Family differentiator vs STM32F4 / STM32G4 (existing yaml set): M480 is Cortex-M4F @ 192 MHz vs
+  STM32F4 @ 180 MHz Cortex-M4F; M480 has built-in hardware crypto engine (AES/DES/SHA/RSA/ECC) vs
+  STM32F4 (no crypto) and STM32G4 (only basic crypto); M480 has 2.5 MB flash (much larger than STM32G4
+  512 KB). But M480 lacks FPU DSP extensions that STM32G4 has.'
+- 'Family differentiator vs NXP K66 (existing yaml set): both are Cortex-M4F @ 180-192 MHz with Ethernet;
+  NXP K66 has Cortex-M4 + Cortex-M0+ asymmetric dual-core (no asymmetric on M480); M480 has
+  larger flash (2.5 MB vs 1 MB on K66) but M480 lacks K66-specific industrial Ethernet TSN features.'
+- 'Verified 2026-07-10 via Tavily (extract_depth=advanced) on vendor-direct PDF: 60+ spec fields
+  filled including all sub-series, 9 package options with thermal data, full peripheral set, security
+  features, and 1.8-3.6V operating conditions. 3 unverified fields remain (specific ESD ratings, QFN88/
+  LQFP100 thermal data, WLCSP pin count) where datasheet does not provide single-value answers.'
+extracted_at: '2026-07-10T22:05:00+08:00'
+extracted_from_pages: [3, 42, 44, 475]
+extraction_method: tavily-extract (advanced) of Nuvoton vendor-direct PDF datasheet
+extraction_source: embedded_dev/nuvoton/datasheet/M480_Series_EN_Rev3.09.pdf
+datasheet_source_url: https://www.nuvoton.com/export/resource-files/en-us--DS_M480_Series_EN_Rev3.09.pdf
+source_pdf: ../../embedded_dev/nuvoton/datasheet/M480_Series_EN_Rev3.09.pdf

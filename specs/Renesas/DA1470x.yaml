@@ -4,7 +4,7 @@ aliases:
 source_pdf: ../../embedded_dev/renesas/datasheet/DA1470x_datasheet.pdf
 datasheet_revision: 3.2 (10-Nov-2022) — Rev line on page 61/63
 datasheet_doc_id: CFR0011-120-00
-extracted_at: '2026-06-25T21:13:11+08:00'
+extracted_at: '2026-07-07T11:15:20+08:00'
 extracted_from_pages:
 - 1
 - 2

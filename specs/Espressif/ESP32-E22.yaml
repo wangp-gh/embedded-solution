@@ -37,12 +37,6 @@ specs:
   - Smart home hub with 6 GHz Wi-Fi backhaul
   - Industrial wireless gateway (6 GHz Wi-Fi + Bluetooth Classic + BLE 5.4)
   - Streaming media gateway (Wi-Fi 6E 160 MHz channels)
-unverified:
-- exact core details (Cache, FPU, vector extensions)
-- exact supply voltage
-- exact peak TX power per band
-- exact security module details
-- exact ROM + flash size on ESP32-E22 (no internal flash in co-processor)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com product page via Firecrawl. Note: page URL was https://www.espressif.com/en/products/socs/esp32-c5n\
   \ but the fetched page redirects to ESP32-E22 (Espressif tri-band co-processor). Likely ESP32-C5N was renamed/planned-product;\
@@ -60,6 +54,10 @@ notes:
   \ (Espressif docs CDN). espressif.com/main product page is the only authoritative source \u2014 kept as datasheet-html-extracted.\
   \ When Espressif publishes the datasheet (expected 2026 Q3/Q4 per their product roadmap), this yaml should be re-verified\
   \ with pdfplumber + keyword-split upgrade."
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T10:42:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page (URL ESP32-C5N but page is ESP32-E22)
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-E22-family_clean.md

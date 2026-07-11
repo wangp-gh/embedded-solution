@@ -895,13 +895,21 @@ def _extract_da_ble(extracted: dict, text: str) -> dict:
 
 
 def _extract_ra(extracted: dict, text: str) -> dict:
-    """Renesas RA Cortex-M33 MCU."""
+    """Renesas RA Cortex-M MCU (covers M33 / M4 / M85 / M23 / M0+ etc.).
+
+    Originally hardcoded to M33 (RA6M5 was the first RA part verified);
+    widened to any Cortex-M variant after the 2026-07-07 phase2 re-extract
+    of the 25 Renesas phase1-recovery yaml showed RA6M2 / RA6M3 (Cortex-M4)
+    failed to extract cores and got stuck on 'needs-re-extraction-factory-
+    error-2026-07-05'. RA6M5 behavior is unchanged because M33 still matches
+    first in the union.
+    """
     s = extracted.setdefault("specs", {})
-    # Core + max freq
+    # Core + max freq — match any Arm Cortex-M variant
     freq_m = re.search(r"Maximum operating frequency\s*:?\s*(?:up to\s+)?(\d+)\s*MHz", text)
-    core_m = re.search(r"Arm\s*®?\s*Cortex[\s-]*M33", text)
+    core_m = re.search(r"Arm\s*®?\s*Cortex[\s-]*M(\d+\+?)", text)
     if core_m and freq_m and not s.get("cores"):
-        s["cores"] = [f"Arm Cortex-M33 @ up to {freq_m.group(1)} MHz"]
+        s["cores"] = [f"Arm Cortex-M{core_m.group(1)} @ up to {freq_m.group(1)} MHz"]
     # Code flash
     cf_m = re.search(r"[Uu]p\s+to\s+(\d+(?:\.\d+)?)\s*-?\s*(KB|MB|Kbyte|Mbyte)\s*code\s*flash", text, re.IGNORECASE)
     if cf_m and not s.get("flash"):
@@ -998,15 +1006,19 @@ def _extract_rx(extracted: dict, text: str) -> dict:
                 desc += f" @ up to {freq_m.group(1)} MHz"
             s["cores"] = [desc]
 
-    # Flash: "up to 4 MB" / "up to 4 Mbytes"
-    flash_m = re.search(r"[Uu]p to\s+(\d+(?:\.\d+)?)\s*(MB|Mbytes|M-?byte)", text)
+    # Flash: "up to 4 MB" / "up to 4 Mbytes" / "up to 1-MB flash memory"
+    flash_m = re.search(
+        r"[Uu]p to\s+(\d+(?:\.\d+)?)\s*-?\s*(KB|MB|Kbytes|Mbytes|M-?byte|K-?byte)"
+        r"(?:\s+(?:of\s+)?(?:code\s+|on-chip\s+)?flash(?:\s+memory)?)?",
+        text,
+    )
     if flash_m and not s.get("flash"):
         s["flash"] = f"up to {flash_m.group(1)} {flash_m.group(2)}"
 
-    # SRAM: "1 MB SRAM" / "1 MBSRAM"
-    ram_m = re.search(r"(\d+(?:\.\d+)?)\s*(KB|MB)\s*SRAM", text)
+    # SRAM: "1 MB SRAM" / "1 MBSRAM" / "128-KB SRAM"
+    ram_m = re.search(r"(\d+(?:\.\d+)?)\s*-?\s*(KB|MB)\s*SRAM", text)
     if ram_m and not s.get("ram"):
-        s["ram"] = f"{ram_m.group(1)} {ram_m.group(2)}"
+        s["ram"] = f"{ram_m.group(1)} {ram_m.group(2)} SRAM"
 
     # Operating voltage: "2.7- to 3.6-V supply"
     vcc_m = re.search(
@@ -3490,12 +3502,27 @@ def merge_yaml(existing: dict, fresh: dict) -> dict:
     #      the phase1-recovery note and promote link_status.
     if extracted_keys:
         existing_specs = (existing or {}).get("specs") or {}
-        rx72n_markers = ("RX family", "RXv3", "1396 CoreMark", "RX72N")
-        old_was_rx72n = any(
-            isinstance(existing_specs.get(k), str)
-            and any(m in existing_specs.get(k, "") for m in rx72n_markers)
-            for k in existing_specs
-        )
+        rx72n_markers = ("RX family", "1396 CoreMark", "Trigonometric function", "Address space: 4 GB", "Register bank save function")
+
+        def _specs_has_rx72n(specs_dict):
+            """Check if any string value (scalar OR nested in list)
+            contains an RX72N marker. The factory-error pollution
+            spread via list values (cores: [...], security_features:
+            [...]) so we have to walk lists too."""
+            for k, v in specs_dict.items():
+                if isinstance(v, str):
+                    if any(m in v for m in rx72n_markers):
+                        return True
+                elif isinstance(v, list):
+                    if any(
+                        isinstance(item, str)
+                        and any(m in item for m in rx72n_markers)
+                        for item in v
+                    ):
+                        return True
+            return False
+
+        old_was_rx72n = _specs_has_rx72n(existing_specs)
         if old_was_rx72n:
             # Step 1: drop stale RX72N-templated keys
             new_specs = merged.get("specs") or {}
@@ -3547,6 +3574,61 @@ def merge_yaml(existing: dict, fresh: dict) -> dict:
                 # Promote link_status — the re-extraction is verified
                 # by the fact that the new spec dict contains part-
                 # specific data with no RX72N markers left.
+                if merged.get("link_status", "").startswith("needs-re-extraction"):
+                    merged["link_status"] = (
+                        f"verified_{dt.datetime.now().strftime('%Y-%m-%d')}"
+                        f" (datasheet-pdf-extracted, phase1-recovery cleared)"
+                    )
+
+        # Note-only cleanup: if existing yaml still carries the
+        # phase1-recovery note or needs-re-extraction link_status, but
+        # the spec dict is already part-specific (no RX72N markers), we
+        # should still drop the note. The old_was_rx72n branch above
+        # is gated on the *previous* spec dict containing RX72N markers,
+        # but a re-extract on a yaml that was already partially fixed
+        # (e.g. cores already corrected, function still RX72N) needs the
+        # same cleanup. Run this independently.
+        existing_link = (existing or {}).get("link_status", "")
+        existing_notes = (existing or {}).get("notes") or []
+        has_factory_marker = (
+            existing_link.startswith("needs-re-extraction-factory-error")
+            or any("phase1-recovery" in str(n) for n in existing_notes)
+        )
+        if has_factory_marker:
+            new_specs = merged.get("specs") or {}
+
+            # If the new extractor only produced 2-3 part-specific
+            # fields (typical for sensor/PMIC parts without cores/
+            # flash/ram), the stale RX72N-templated cores/flash/ram
+            # entries from the previous dump would otherwise keep the
+            # phase1-recovery marker forever. Drop the stale top-level
+            # keys that the new extract *did* provide (they overwrite
+            # the stale values) and also drop the templated keys the
+            # new extract didn't provide (no new value to keep).
+            new_extracted_keys = set(extracted_keys or [])
+            templated_keys_to_drop = (
+                "cores", "flash", "ram", "function", "operating_voltage_v",
+                "low_power_modes",
+            )
+            for k in templated_keys_to_drop:
+                if k in new_specs and _specs_has_rx72n({k: new_specs[k]}):
+                    if k in new_extracted_keys:
+                        # New extract produced a non-RX72N value here —
+                        # keep it (already overwritten).
+                        continue
+                    # Stale RX72N-templated value with no replacement.
+                    del new_specs[k]
+            merged["specs"] = new_specs
+
+            if _specs_has_rx72n(new_specs):
+                # Still polluted — leave the marker for next pass
+                pass
+            else:
+                merged["notes"] = [
+                    n for n in (merged.get("notes") or [])
+                    if "phase1-recovery" not in str(n)
+                    and "needs-re-extraction-factory-error" not in str(n)
+                ]
                 if merged.get("link_status", "").startswith("needs-re-extraction"):
                     merged["link_status"] = (
                         f"verified_{dt.datetime.now().strftime('%Y-%m-%d')}"

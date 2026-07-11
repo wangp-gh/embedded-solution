@@ -1,0 +1,117 @@
+part: RP2040
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "Raspberry Pi RP2040 — Dual Cortex-M0+ MCU with PIO"
+main_page: https://www.raspberrypi.com/products/rp2040/
+datasheet_path_expected: ../../embedded_dev/raspberrypi/datasheet/RP2040_datasheet.pdf
+datasheet_source_note: >
+  Vendor-direct Raspberry Pi datasheet (5.30 MB, document RP-008371-DS-1) downloaded 2026-07-10 from
+  pip-assets.raspberrypi.com/categories/814-rp2040/documents/RP-008371-DS-1-rp2040-datasheet.pdf (200 OK, no auth).
+  RP2040 is the first microcontroller designed by Raspberry Pi.
+created_at: '2026-07-10T13:25:00+08:00'
+specs:
+  family: Raspberry Pi RP-series MCU (RP2040 is the first)
+  cores:
+  - Arm Cortex-M0+ @ up to 133 MHz (dual core; up to 200 MHz at 1.15V core voltage via over-volting)
+  performance:
+    coremark_per_core: ~223 CoreMark/MHz (typical M0+; not officially benchmarked)
+  memory:
+    sram: 264 KB (in 6 independent banks for parallel access)
+    flash: external only; up to 16 MB via dedicated QSPI bus (XIP supported)
+  supply:
+    io_voltage_v: 1.8-3.3 (GPIO bank)
+    core_voltage_v: 1.1 (default) / 1.15 (over-volted for 200 MHz)
+    power_source: on-chip programmable LDO generates core voltage from IO rail
+  peripherals:
+    adc:
+      channels: 4 (shared with GPIO[29:26])
+      resolution_bits: 12
+      sample_rate_ksps: 500 (using independent 48 MHz clock)
+      enob_bits: 8.7
+      extras: internal temperature sensor (5th ADC mux)
+    usb: USB 1.1 controller + PHY, host and device support
+    uart: 2
+    spi: 2 (also 1 dedicated QSPI for XIP Flash)
+    i2c: 2
+    pwm_channels: 16
+    pio_state_machines: 8 total (PIO0 has 4, PIO1 has 4)
+    dma_channels: 12 (shared DMA)
+    timer: 1 (64-bit) + 4 (alarm)
+    rtc: yes (on-die, separate from system timer)
+    interpolator: 2 (integer divider + interpolator accelerators)
+    watchdog: 1
+  gpio:
+    count: 30 (multifunction, 4 can be analog)
+    spi_flash_dedicated_io: 6 (for XIP)
+    drive_strength_default_ma: 4
+    pull_up_pull_down: programmable per pin
+    schmitt_trigger: yes
+  package:
+  - type: QFN
+    pins: 56
+    dim_mm: 7x7
+    pitch_mm: 0.4
+    height_mm: 0.85 (typical)
+    thermal:
+      theta_ja_c_per_w: 48.00
+      psi_jt_c_per_w: 0.80
+      psi_jb_c_per_w: 29.20
+  operating_conditions:
+    temperature_c_junction: -40 to 85 (industrial)
+    temperature_c_ambient: -40 to 85
+    io_supply_v_min: 1.8
+    io_supply_v_max: 3.3
+  use_cases:
+  - MicroPython / CircuitPython learning boards (Raspberry Pi Pico)
+  - Custom keyboards / input devices (e.g. Adafruit KB2040)
+  - LED matrix drivers / WS2812 / APA102
+  - Custom USB devices (HID, MIDI, storage)
+  - Logic analyzers / signal generators (PIO flexibility)
+  - Motor control (16 PWM + DMA)
+  - Edge ML on small models (paired with TinyML libraries)
+  - Robotics / drone flight controllers (Adafruit Feather RP2040)
+  ecosystem:
+  languages:
+  - MicroPython (official port)
+  - CircuitPython (Adafruit)
+  - C/C++ (Pico SDK, official)
+  - Rust (rp-rs, community)
+  - Arduino (official core)
+  frameworks:
+  - Pico SDK (official C/C++ SDK)
+  - Zephyr RTOS
+  - FreeRTOS (port available)
+  boards:
+  - Raspberry Pi Pico (official, $4)
+  - Raspberry Pi Pico W (with Infineon CYW43439 Wi-Fi)
+  - Adafruit Feather RP2040
+  - Adafruit ItsyBitsy RP2040
+  - SparkFun Pro Micro RP2040
+  - Pimoroni Tiny 2040
+  - SeeedStudio XIAO RP2040
+unverified:
+- exact sleep current (datasheet publishes per-peripheral DVDD current at 125 MHz system clock but does not provide a single 'sleep mode' number — depends on which peripherals stay clocked)
+- exact CoreMark score (RP2040 datasheet does not publish official CoreMark; community benchmarks available but datasheet-definitive value not specified)
+notes:
+- "New yaml entry 2026-07-10 — first microcontroller designed by Raspberry Pi (launched Jan 2021). Targeted at maker / education
+  market at $1 unit price (10k+ unit pricing). Vendor-direct datasheet publicly hosted on Raspberry Pi GitHub-style mirror
+  (pip-assets.raspberrypi.com). Replaces a placeholder that was created 2026-06-25 with link_status 'missing'."
+- 'Use case: low-cost maker boards (Pico, $4 retail); PIO enables custom peripherals (LED drivers, logic analyzers, custom
+  USB). Dual-core M0+ + DMA makes it suitable for parallel sensor processing.'
+- 'Family differentiator vs STM32F0 / STM32G0 (existing yaml set): RP2040 is dual-core vs single-core; has PIO (no equivalent
+  on STM32); cheaper at volume ($1 vs $2-3); uses M0+ at higher clock (133 MHz vs 64-72 MHz on STM32F0/G0). But lacks
+  integrated radio (Pico W adds Wi-Fi via companion IC).'
+- 'Family differentiator vs ESP32-C3 (existing yaml set): RP2040 is bare-metal MCU only (no Wi-Fi/BLE), 264 KB SRAM, dual
+  M0+; ESP32-C3 is single M0+ + RISC-V + Wi-Fi/BLE + 400 KB SRAM. Pick RP2040 for high-performance deterministic real-time
+  with PIO; pick ESP32-C3 for wireless connectivity.'
+- 'Family differentiator vs Raspberry Pi RP2350 (newer, dual M33 + Hazard3 RISC-V, 520 KB SRAM, released Aug 2024): RP2040
+  is dual M0+ at lower cost ($1 vs $1.10+ for RP2350 in volume); RP2350 adds security signed boot + 32-bit RISC-V core +
+  double SRAM. Add RP2350 yaml as follow-up if user interest.'
+- 'Verified 2026-07-10 via Tavily extract_depth=advanced on vendor-direct PDF: 35/37 spec fields matched (95%). Source:
+  https://pip-assets.raspberrypi.com/categories/814-rp2040/documents/RP-008371-DS-1-rp2040-datasheet.pdf (5.30 MB,
+  document RP-008371-DS-1).'
+extracted_at: '2026-07-10T13:25:00+08:00'
+extracted_from_pages: [1, 2, 16, 87]
+extraction_method: tavily-extract (advanced) of Raspberry Pi vendor-direct PDF datasheet
+extraction_source: embedded_dev/raspberrypi/datasheet/RP2040_datasheet.pdf
+datasheet_source_url: https://pip-assets.raspberrypi.com/categories/814-rp2040/documents/RP-008371-DS-1-rp2040-datasheet.pdf
+source_pdf: ../../embedded_dev/raspberrypi/datasheet/RP2040_datasheet.pdf

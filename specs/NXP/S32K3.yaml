@@ -1,28 +1,155 @@
 part: S32K3
-link_status: verified_2026-07-01 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "NXP S32K3 \u2014 Automotive Arm Cortex-M7 MCU (ASIL-D capable)"
 main_page: https://www.nxp.com/products/S32K3
-datasheet_path_expected: ../../datasheets/s32k3xx.pdf
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/S32K3xx.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (2.55 MB, S32K3xx Rev. 5, 03/2023) downloaded 2026-07-10 from nxp.com/docs/en/data-sheet/S32K3xx.pdf
+  (200 OK). Replaces the 2026-07-01 Farnell mirror (PDF-extracted label) after nxp.com /docs/ URL became accessible again. Covers
+  16 sub-series (S32K310/311/312/322/341/342/314/324/344/328/338/348/356/358/388/389).
 created_at: '2026-06-30T18:42:00+08:00'
 specs:
-  family: S32K3 (Automotive General-Purpose MCUs)
+  family: "S32K3 (Automotive General-Purpose MCUs; Arm Cortex-M7; 16 sub-series)"
   cores:
   - Arm Cortex-M7 (32-bit)
+  core_count_options: [1, 2, 3]
+  core_count_notes: 'single / dual / 1x lockstep + 3x cores for K389'
+  core_frequency_options_mhz: [80, 120, 160, 240, 320]
+  memory:
+    flash_kb_options: [512, 1024, 2048, 4096, 6144, 8192, 12288]
+    data_flash_kb_options: [64, 128, 256]
+    total_ram_kb_options: [112, 128, 192, 256, 512, 1152, 2304]
+    tcm_kb_options: [96, 192, 384]
+    standby_ram_kb_options: [16, 32, 64]
   sub_series:
-  - name: S32K3
-    focus: general-purpose
-    applications: body/chassis/ADAS
-  - name: S32K39/37/36
-    focus: electrification
-    applications: BMS
-    motor control: null
-    OBC: null
+  - name: S32K310
+    flash_kb: 512
+    data_flash_kb: 64
+    total_ram_kb: 112
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K311
+    flash_kb: 1024
+    data_flash_kb: 64
+    total_ram_kb: 128
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K312
+    flash_kb: 2048
+    data_flash_kb: 128
+    total_ram_kb: 128
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K314
+    flash_kb: 2048
+    data_flash_kb: 128
+    total_ram_kb: 192
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K322
+    flash_kb: 2048
+    data_flash_kb: 128
+    total_ram_kb: 128
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K324
+    flash_kb: 4096
+    data_flash_kb: 256
+    total_ram_kb: 192
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K328
+    flash_kb: 6144
+    data_flash_kb: 256
+    total_ram_kb: 512
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K338
+    flash_kb: 8192
+    data_flash_kb: 256
+    total_ram_kb: 512
+    cores: 1x M7
+    safety: ASIL-B
+  - name: S32K341
+    flash_kb: 1024
+    data_flash_kb: 64
+    total_ram_kb: 112
+    cores: 1x M7 LS (lockstep)
+    safety: ASIL-D
+  - name: S32K342
+    flash_kb: 2048
+    data_flash_kb: 128
+    total_ram_kb: 128
+    cores: 1x M7 LS (lockstep)
+    safety: ASIL-D
+  - name: S32K344
+    flash_kb: 4096
+    data_flash_kb: 256
+    total_ram_kb: 256
+    cores: 1x M7 LS (lockstep)
+    safety: ASIL-D
+  - name: S32K348
+    flash_kb: 8192
+    data_flash_kb: 256
+    total_ram_kb: 1152
+    cores: 2x M7
+    safety: ASIL-B
+  - name: S32K356
+    flash_kb: 8192
+    data_flash_kb: 256
+    total_ram_kb: 1152
+    cores: 2x M7
+    safety: ASIL-B
+  - name: S32K358
+    flash_kb: 8192
+    data_flash_kb: 256
+    total_ram_kb: 1152
+    cores: 2x M7
+    safety: ASIL-B
+  - name: S32K388
+    flash_kb: 12288
+    data_flash_kb: 256
+    total_ram_kb: 2304
+    cores: 2x M7
+    safety: ASIL-B
+  - name: S32K389
+    flash_kb: 12288
+    data_flash_kb: 256
+    total_ram_kb: 2304
+    cores: 1x M7 LS + 3x M7 (lockstep + 3 cores, total 4 cores)
+    safety: ASIL-D
+  focus:
+    general_purpose: [K310, K311, K312, K314, K322, K324, K328, K338, K348, K356, K358, K388]
+    electrification: [K341, K342, K344, K389]
+    applications:
+      general_purpose:
+      - body/chassis ECUs
+      - ADAS domain controllers (subordinate)
+      electrification:
+      - BMS (battery management)
+      - motor control
+      - OBC (on-board charger)
   package_options:
   - HDQFP
   - LFBGA
+  - MAXQFP
   safety:
+    asil: "up to ASIL-D (K341/K342/K344/K389 use 1x M7 lockstep; K389 has 1x LS + 3x cores)"
+    asil_b_capable: true
     asil_d_capable: true
-  automotive_qualified: yes (AEC-Q100 implied)
+    features:
+    - lockstep core (select variants)
+    - ECC on Flash + SRAM
+    - watchdog
+    - clock/power/temp monitors
+  security:
+    hse_b: HSE_B (Hardware Security Engine Basic) on all variants
+    hse_b_with_aes_accel: on K388/K389 (HSE B + AES_ACCEL)
+  operating_conditions:
+    temperature_c_min: -40
+    temperature_c_max_options: [85, 105, 125]
+    automotive_qualified: AEC-Q100
+  product_longevity_years: 15
   use_cases:
   - High-compute automotive body & chassis ECUs
   - Battery Management System (BMS)
@@ -30,12 +157,9 @@ specs:
   - On-board charger (OBC)
   - ADAS domain controllers (subordinate ECUs)
 unverified:
-- exact core count (single / dual)
-- exact flash range
-- exact safety level per sub-series
-- exact operating temperature range
-- exact peripheral count per sub-series
-- exact product longevity commitment
+- exact peripheral count per sub-series (CAN FD, SPI, LIN, Ethernet module count varies; PDF has the per-variant breakdown)
+- exact ADC channel count per sub-series
+- exact FlexTimer / eMIOS module count per sub-series
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com S32K3 family page via Firecrawl (193,622 bytes raw)."
 - 'Family differentiator vs S32K1 (existing yaml): S32K3 is Cortex-M7 (vs M0+/M4F on S32K1). S32K3 is higher-tier safety (ASIL-D
@@ -45,9 +169,15 @@ notes:
 - 'Verified 2026-07-01 via firecrawl-html-extract against s32k3.html: 8/16 spec fields matched (50%). Source: https://www.nxp.com/products/S32K3
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/s32k3xx.pdf): 9/16 spec fields matched (56%). Source: https://www.farnell.com/datasheets/4146071.pdf.'
-extracted_at: '2026-06-30T18:42:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/S32K3-series_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/S32K3-series_raw.md
-extraction_credits_used: 1
-datasheet_source_url: https://www.farnell.com/datasheets/4146071.pdf
+- '2026-07-10: source_pdf upgraded to vendor-direct NXP nxp.com/docs/en/data-sheet/S32K3xx.pdf (2.55 MB, Rev. 5, 03/2023,
+  200 OK). Re-extracted via Tavily (extract_depth=advanced): expanded sub_series from 2 entries to 16 (S32K310/311/312/314/322/324/328/338/341/342/344/348/356/358/388/389) with per-variant flash/data-flash/RAM/TCM/standby-RAM/cores/safety; added core_count_options
+  [1/2/3], core_frequency_options_mhz [80/120/160/240/320], flash_kb_options [512..12288], total_ram_kb_options [112..2304];
+  differentiated ASIL-B vs ASIL-D per sub-series (K341/K342/K344/K389 are lockstep/D); expanded package_options with MAXQFP;
+  HSE_B + AES_ACCEL security per variant; operating temperature -40 to +125C; product_longevity 15 years. Removed 5 of 6
+  unverified fields now resolved.'
+extracted_at: '2026-07-10T11:45:00+08:00'
+extracted_from_pages: [3, 6, 12, 24]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/S32K3xx.pdf
+datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/S32K3xx.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/S32K3xx.pdf

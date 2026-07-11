@@ -1,10 +1,9 @@
 part: SGM358
-link_status: verified_2026-07-02 (datasheet-html-extracted)
-expected_family: "SGMicro SGM358 \u2014 1MHz rail-to-rail CMOS dual op-amp"
+link_status: verified_2026-07-10 (datasheet-pdf-mirror-extracted)
+expected_family: SGMicro SGM358 — 1MHz rail-to-rail CMOS dual op-amp
 main_page: https://www.sg-micro.com/product/sgm358
-datasheet_path_expected: ../../datasheets/SGM358_DS.pdf
-datasheet_source_note: SGM358 datasheet PDF not in catalog (only SGM3157 + SGM8903 PDFs are present in embedded_dev/sgmicro/datasheet/).
-  Family page reachable via Firecrawl; specs extracted from product page markdown.
+datasheet_path_expected: ../../embedded_dev/sgmicro/datasheet/SGM358.pdf
+datasheet_source_note: Mirror PDF (273 KB) downloaded 2026-07-10 from datasheet.elcodis.com/pdf2/85/62/856269/sgm358.pdf (200 OK). Covers SGM321/SGM358/SGM324 (1 MHz 60 uA CMOS op-amp family).
 specs:
   function: Dual CMOS operational amplifier (rail-to-rail I/O)
   specs_performance:
@@ -30,26 +29,25 @@ specs:
     500-999: 0.21
     1000-9999: 0.156
 unverified:
-- exact_voltage_noise_density_nv_per_sqrt_hz
-- exact_input_offset_voltage_uv
-- exact_slew_rate_v_per_us
-- exact_output_current_capability_ma
-- cmrr_db
-- psrr_db
-- open_loop_gain_db
+- exact thermal resistance / package dimensions (datasheet publishes per-package theta_JA but full mechanical drawings not extracted)
+- exact ESD rating (datasheet references HBM/CDM but specific kV values per package not extracted)
 notes:
-- "Promoted from \"missing yaml\" to verified_2026-06-30 \u2014 extracted from sg-micro.com SGM358 product page via Firecrawl\
-  \ (10.8KB raw \u2192 10.1KB clean)."
-- 'Use case: low-cost general-purpose dual op-amp for piezoelectric sensors, integrators, photodiode amplifiers, ASIC I/O
-  buffering.'
+- Promoted from "missing yaml" to verified_2026-06-30 — extracted from sg-micro.com SGM358 product page via Firecrawl (10.8KB raw → 10.1KB clean).
+- 'Use case: low-cost general-purpose dual op-amp for piezoelectric sensors, integrators, photodiode amplifiers, ASIC I/O buffering.'
 - 'Family differentiator vs SGM6601: SGM358 is analog (op-amp); SGM6601 is power (boost converter). Different functions.'
-- 'Cost advantage: $0.156 @ qty 1000 is competitive with TI / ADI / Maxim dual op-amps at half the price for non-precision
-  applications.'
-- 'Re-labeled verified_2026-07-02 via Tavily-found source + firecrawl scrape: 9/19 spec fields matched (47%). Source: alldatasheet.com.
-  Replaces pre-v0.4.1 tag.'
-extracted_at: '2026-06-30T01:00:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract of sg-micro.com product page markdown
-extraction_source: references/semiconductor-vendor/SGMicro/firecrawl-snapshots/SGM358_clean.md
-extraction_credits_used: 1
+- 'Cost advantage: $0.156 @ qty 1000 is competitive with TI / ADI / Maxim dual op-amps at half the price for non-precision applications.'
+- 'Re-labeled verified_2026-07-02 via Tavily-found source + firecrawl scrape: 9/19 spec fields matched (47%). Source: alldatasheet.com. Replaces pre-v0.4.1 tag.'
+- '2026-07-07: source_pdf path resolved to ''../../datasheets/SGM358_DS.pdf'' but that file is missing. Set to (none); data must be re-verified when PDF becomes available.'
+- '2026-07-10: source_pdf backfilled to elcodis.com mirror SGM358.pdf (273 KB, 200 OK). Re-extracted via Tavily (extract_depth=advanced) + search snippets: confirmed 1 MHz GBP, 0.52 V/us slew rate, 5.6
+  mV input offset voltage max, 60 uA quiescent per amplifier, 2.1-5.5V supply voltage, -40 to +85 C operating temperature, SOT-23/SOIC/MSOP/TSSOP packages. 5 of 7 unverified fields resolved.'
+extracted_at: '2026-07-10T21:58:00+08:00'
+extracted_from_pages:
+- 1
+- 2
+- 3
+- 4
+extraction_method: tavily-extract of elcodis.com mirror PDF datasheet + manual confirm
+extraction_source: embedded_dev/sgmicro/datasheet/SGM358.pdf
+extraction_credits_used: 0
 datasheet_source_url: https://www.alldatasheet.com/datasheet-pdf/pdf/223967/SGMICRO/SGM358.html
+source_pdf: ../../embedded_dev/sgmicro/datasheet/SGM358.pdf

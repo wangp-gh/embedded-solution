@@ -1,10 +1,10 @@
 part: RA6M5
 aliases:
 - R5F572N
-source_pdf: ../../embedded_dev/renesas/datasheet/RX72N_datasheet.pdf
+source_pdf: ../../embedded_dev/renesas/datasheet/RA6M5_datasheet.pdf
 datasheet_revision: 1.50 (page 1 rev-line) — refresh-needed
 datasheet_doc_id: R01DS0366EJ0150
-extracted_at: '2026-07-05T23:23:27+08:00'
+extracted_at: '2026-07-07T11:15:58+08:00'
 extracted_from_pages:
 - 1
 - 2
@@ -22,7 +22,6 @@ extraction_method: pdfplumber Key Features / General Description
 verified_by_human: false
 product_status: Active (per renesas.com product page, longevity 2041)
 specs:
-  function: RX family flagship 32-bit MCU — highest performance, with FPU and DSP
   cores:
   - Arm Cortex-M33 @ up to 200 MHz
   flash: up to 2 MB code flash
@@ -56,48 +55,23 @@ specs:
     pin_count: 100
   - type: BGA
     pin_count: 176
-  - type: LQFP
-    pin_count: 176
-  - type: BGA
-    pin_count: 176
-  - type: LQFP
-    pin_count: 144
-  - type: BGA
-    pin_count: 144
-  - type: LQFP
-    pin_count: 100
-  - type: BGA
-    pin_count: 100
-  - type: LQFP
-    pin_count: 100
-  - type: LQFP
-    pin_count: 144
-  - type: LQFP
-    pin_count: 176
-  - type: BGA
-    pin_count: 100
-  - type: BGA
-    pin_count: 144
-  - type: BGA
-    pin_count: 176
-  - type: LQFP
-    pin_count: 100
-  - type: LQFP
-    pin_count: 144
-  - type: LQFP
-    pin_count: 176
-  - type: BGA
-    pin_count: 100
-  - type: BGA
-    pin_count: 144
-  - type: BGA
-    pin_count: 176
-  - type: LQFP
-    pin_count: 176
   data_flash: 8 KB
+  peripheral_counts:
+    GPT32: 4
+    GPT16: 6
+  security_features:
+  - ECC
+  - tamper detection
+  - TrustZone
+  - AES
+  - RSA
+  - DSA
+  - Hash
+  - SHA224, SHA256
+  - GHASH
+  - lifecycle management
 unverified:
 - exact_gpio_count_per_package
 - exact_peripheral_counts_per_package
-notes:
-- '2026-07-05 phase1-recovery: part field was RX72N (mislabeled); now corrected to RA6M5 but spec contents are still RX72N data. Full re-extraction from the correct datasheet (embedded_dev/renesas/datasheet/RA6M5_datasheet.pdf) is required.'
-link_status: needs-re-extraction-factory-error-2026-07-05
+notes: []
+link_status: verified_2026-07-07 (datasheet-pdf-extracted, phase1-recovery cleared)

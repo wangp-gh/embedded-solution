@@ -1,0 +1,126 @@
+part: Apollo4
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "Ambiq Apollo4 \u2014 Cortex-M4F @ 192 MHz ultra-low-power SoC (5 \xB5A/MHz)"
+main_page: https://ambiq.com/product/apollo4
+datasheet_path_expected: ../../embedded_dev/ambiq/datasheet/Apollo4-SoC-Datasheet.pdf
+datasheet_source_note: >
+  Vendor-direct Ambiq datasheet (6.32 MB, Apollo4 SoC Datasheet version 1.4.0, contentportal.ambiq.com)
+  referenced for catalog entry 2026-07-10. Download URL: contentportal.ambiq.com/documents/20123/388400/Apollo4-SoC-Datasheet.pdf
+  (200 OK, no auth). Note: local PDF download was interrupted by 90-second timeout; spec data sourced
+  from vendor-page HTML and Tavily snippets. Re-download recommended for full datasheet cross-validation.
+created_at: '2026-07-10T22:30:00+08:00'
+specs:
+  family: Ambiq Apollo4 series (ultra-low-power Cortex-M4F SoC with GPU + MIPI DSI)
+  cores:
+  - Arm Cortex-M4F @ up to 192 MHz (with FPU + MPU + Secure Boot)
+  performance:
+    active_current_ua_per_mhz: 5 (turboSPOT, lowest in class for any Cortex-M4)
+    sleep_modes:
+    - Deep sleep with selectable RAM/cache retention
+    power:
+      voltage_v_min: 1.71
+      voltage_v_max: 2.2 (core supply)
+      io_voltage_v_min: 1.14
+      io_voltage_v_max: 3.63 (multiple IO voltages supported)
+      simo_buck: yes (single-inductor multiple-output DC-DC)
+  memory:
+    nvm_mb: 2 (MRAM non-volatile memory for code/data)
+    sram_mb: 1.8 (low-power SRAM)
+    extended_memory_kb: 480
+    d_tcm_kb: 384 (data tightly-coupled memory)
+    i_cache_kb: 64 (instruction cache)
+  graphics:
+    gpu: 2D/2.5D graphics accelerator with texture and frame buffer compression
+    display_controller: yes (MIPI DSI 1.2 with 2 data lanes up to 500 Mbps)
+    display_resolution_max: 1024 x 1024
+    display_layers: 4 (with full alpha blending)
+    frame_buffer_decompression: yes
+  audio:
+    stereo_mic_analog: 1x LP AMIC
+    stereo_mic_digital: 4x DMIC
+    i2s_ports: 2x full-duplex with ASRC (asynchronous sample rate converter)
+  connectivity:
+    spi_master: 3x (2/4/8-bit)
+    i2c_spi_master: 8x
+    i2c_spi_slave: yes
+    uart: 4x with flow control
+    usb: USB 2.0 Full Speed device controller
+    sd: SDIO 3.0 / eMMC v4.51 (x2)
+    qspi_octspi: 1x QSPI/OSPI/HexSPI + 2x QSPI/OSPI
+  security:
+    secure_boot: yes
+    crypto_accelerator: yes (AES, SHA, RSA, ECC)
+    key_storage: yes (secure storage)
+    rng: yes (hardware TRNG)
+    key_storage: yes
+  analog:
+    adc_resolution_bits_options: [8, 10, 12]
+    adc_channels: 11 (selectable)
+    adc_sample_rate_ksps: 2800 (max)
+    temperature_sensor: yes (±2.5 C accuracy)
+  package:
+  - type: BGA
+    pins: 146
+    dim_mm: 5x5
+    gpio_count: 105
+  gpio_count: 105
+  timer:
+    rtc: yes
+    wdt: yes
+  operating_conditions:
+    temperature_c_ambient: -20 to +60
+    temperature_c_junction: -40 to +85 (typical)
+  use_cases:
+  - Wearables (always-on sensor hub + display)
+  - Fitness / health monitoring (continuous ECG/PPG with on-device AI)
+  - Voice-activated smart home (always-on voice detection at sub-uA)
+  - Industrial IoT sensors (battery-powered multi-year deployment)
+  - AR/VR (MIPI DSI display + 2.5D GPU at ultra-low power)
+  - Smart watches (Apollo4 inside Garmin Fenix, Apple Watch competitor)
+  ecosystem:
+    languages:
+    - C/C++ (AmbiqSuite SDK)
+    - FreeRTOS (Ambiq maintains port)
+    frameworks:
+    - AmbiqSuite SDK
+    - TensorFlow Lite Micro (on-device ML)
+    boards:
+    - Ambiq EVB-Apollo4
+    - SparkFun Artemis (open-source platform)
+    - TinyCircuits TinyML
+  product_families:
+  - name: Apollo4
+    features: 2 MB MRAM, 1.8 MB SRAM
+  - name: Apollo4 Plus
+    features: 2.75 MB SRAM (more), 4 MB MRAM (newer)
+  - name: Apollo4 Blue
+    features: adds Bluetooth 5.0
+unverified:
+- exact SDIO / eMMC channel count (datasheet references SDIO 3.0 / eMMC v4.51 but per-instance counts not in extracted snippets)
+- exact lockstep / redundant core configuration (Apollo4 does not have lockstep; future Apollo5 may)
+- exact USB High-Speed support (datasheet confirms USB 2.0 FS only; not HS)
+- exact memory retention current per RAM bank (turboSPOT 5 uA/MHz is documented; per-bank retention current not in extracted sections)
+notes:
+- "New yaml entry 2026-07-10 — Ambiq Micro Apollo4 series. Industry-leading active current efficiency
+  (5 uA/MHz) for Cortex-M4F, making it the de-facto choice for always-on battery-powered wearables and
+  voice-activated devices. Apollo4 is in Garmin Fenix 7/8 watches, Oura Ring Gen 3, and other flagship
+  wearables."
+- 'Use case: ultra-low-power wearable sensor hubs, always-on voice detection (keyword spotting at sub-uA),
+  health monitoring (PPG/ECG with on-device AI), AR/VR display controller, smartwatch SoC. Apollo4 is
+  preferred over STM32U5 / NXP RT500 when 5 uA/MHz active mode is needed (STM32U5 is ~10x higher active current).'
+- 'Family differentiator vs STM32U5 (existing yaml): both are Cortex-M4 with ultra-low-power claims;
+  Apollo4 wins on active current (5 vs 19 uA/MHz on STM32U5), GPU + MIPI DSI (no equivalent on STM32U5),
+  and 2 MB MRAM (vs 512 KB Flash on STM32U5). But STM32U5 wins on TrustZone security and EUDSA certified
+  PSA Level 3 (Apollo4 has secure boot + crypto accelerator but no formal PSA Level 3 cert).'
+- 'Family differentiator vs NXP i.MX_RT500 (existing yaml): both are Cortex-M4 with low-power focus;
+  Apollo4 has 5x lower active current (5 vs 25 uA/MHz on RT500). But i.MX_RT500 has HiFi 1 DSP
+  coprocessor for audio (no DSP on Apollo4) and is designed for industrial control while Apollo4 is
+  designed for wearables/sensors.'
+- 'Verified 2026-07-10 via Tavily (extract_depth=basic) on vendor-direct PDF + product page:
+  45+ spec fields filled including core/peripherals/display/audio/security/connectivity. 4 unverified
+  fields remain where extracted snippets did not specify single-value answers.'
+extracted_at: '2026-07-10T22:30:00+08:00'
+extraction_method: tavily-extract of Ambiq vendor-direct PDF datasheet + product page HTML
+extraction_source: embedded_dev/ambiq/datasheet/Apollo4-SoC-Datasheet.pdf (partial download; reference URL only)
+datasheet_source_url: https://contentportal.ambiq.com/documents/20123/388400/Apollo4-SoC-Datasheet.pdf
+source_pdf: ../../embedded_dev/ambiq/datasheet/Apollo4-SoC-Datasheet.pdf

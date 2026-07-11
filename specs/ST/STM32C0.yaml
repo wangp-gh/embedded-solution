@@ -1,8 +1,8 @@
 part: STM32C0
-link_status: verified_2026-07-01 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "ST STM32C0 \u2014 Cortex-M0+ @ 48 MHz (cheapest STM32 from $0.21)"
 main_page: https://www.st.com/en/microcontrollers-microprocessors/stm32c0-series.html
-datasheet_path_expected: ../../datasheets/stm32c011d6.pdf
+datasheet_path_expected: ../../embedded_dev/st/datasheet/stm32c011d6.pdf
 created_at: '2026-06-30T10:24:00+08:00'
 specs:
   family: STM32C0 (entry-tier 32-bit MCU, replaces 8-bit)
@@ -129,10 +129,7 @@ specs:
   - LED lighting drivers
   - Vending machines
 unverified:
-- exact ADC sample rate
-- exact supply voltage range
-- exact peripheral count per sub-series
-- "exact operating temperature range (only +125\xB0C max listed)"
+- exact peripheral count per sub-series (datasheet Table 1 device summary lists per-package options but full per-pin remap not in extracted sections)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from st.com STM32C0 series page via Firecrawl (57,442 bytes raw)."
 - 'Family differentiator vs STM32G0 (existing yaml): G0 is general-purpose Cortex-M0+ @ 64 MHz with more peripherals; C0 is
@@ -141,11 +138,17 @@ notes:
   Cortex-M0+ basic cost-tier.'
 - "Use case: pin-compatible migration STM32C0xxx \u2192 STM32G0xxx for applications needing more horsepower later in product\
   \ lifecycle."
-extracted_at: '2026-06-30T10:24:00+08:00'
-extraction_method: firecrawl-extract (keyed) of st.com product page + manual enrich
+- '2026-07-10: source_pdf backfilled to vendor-direct stm32c011d6.pdf (2.05 MB, DS14483 Rev 6, 200 OK). Re-extracted via
+  Tavily (extract_depth=advanced): confirmed ADC 12-bit 2.5 MSPS up to 15 channels, supply voltage 2.0-3.6 V, ambient
+  temperature -40 to +125 C, packages 8-20 pins. 3 of 4 unverified fields resolved.'
+extracted_at: '2026-07-10T14:30:00+08:00'
+extraction_method: tavily-extract (advanced) of ST vendor-direct PDF datasheet
 extraction_source: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32C0-family_clean.md
 extraction_source_raw: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32C0-family_raw.md
 extraction_credits_used: 1
+extracted_from_pages: [3, 56]
+extraction_source: embedded_dev/st/datasheet/stm32c011d6.pdf
+source_pdf: ../../embedded_dev/st/datasheet/stm32c011d6.pdf
 datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32c011d6.pdf
 datasheet_source_note: STM32C011D6 datasheet (PDF, 2.0MB, family-page covering STM32C0 series). Used as canonical reference
   for STM32C0 family spec values (Cortex-M0+ 48 MHz, 16-256 KB flash, 1.7x1.4 mm WLCSP, $0.21 price point).

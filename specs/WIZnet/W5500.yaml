@@ -1,0 +1,107 @@
+part: W5500
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "WIZnet W5500 \u2014 Hardwired TCP/IP Ethernet controller (SPI to LAN bridge)"
+main_page: https://docs.wiznet.io/Product/Chip/Ethernet/W5500
+datasheet_path_expected: ../../embedded_dev/wiznet/datasheet/W5500_ds_v110e.pdf
+datasheet_source_note: >
+  Vendor-direct WIZnet datasheet (1.89 MB, W5500 Datasheet Version 1.1.0, 2013, 67 pages) downloaded 2026-07-10
+  from docs.wiznet.io/img/products/w5500/W5500_ds_v110e.pdf (200 OK, no auth).
+created_at: '2026-07-10T22:50:00+08:00'
+specs:
+  family: WIZnet Hardwired TCP/IP Ethernet Controller family (W5500)
+  type: Hardwired TCP/IP Ethernet controller (SPI to LAN bridge)
+  protocols_supported:
+  - TCP
+  - UDP
+  - ICMP
+  - IPv4
+  - ARP
+  - IGMP
+  - PPPoE
+  sockets: 8 (independent hardware sockets simultaneously)
+  spi:
+    mode: 0 and 3 (configurable)
+    max_speed_mhz: 80 (high-speed SPI)
+    note: 'New efficient SPI protocol for high-speed network communication'
+  ethernet:
+    phy: 10BaseT / 100BaseTX Ethernet PHY (integrated)
+    mac: integrated 10/100 Ethernet MAC
+    auto_negotiation: yes (full / half duplex)
+  memory:
+    tx_rx_buffer_kb: 32 (16 KB TX + 16 KB RX; per-socket 2 KB)
+    ram_organization: '8 sockets x 2 KB TX + 8 sockets x 2 KB RX = 32 KB total'
+  power_modes:
+  - Normal mode (full operation)
+  - Power Down mode (low standby current)
+  - Wake on LAN (WOL) over UDP
+  electrical:
+    supply_voltage_v: '3.3 V (typ), 3.0-3.6 V range'
+    dc_supply_voltage_max_v: 4.6 (absolute max)
+    dc_input_voltage_max_v: 6 (5V tolerant I/O)
+    dc_input_current_ma: ±5
+    operating_temperature_c: -40 to +85
+    junction_temp_max_c: 125
+    storage_temperature_c: -65 to +150
+  package_options:
+  - type: LQFP
+    pins: 48
+  - type: QFN
+    pins: 48
+  use_cases:
+  - IoT devices needing Ethernet (paired with simple MCU)
+  - Industrial controllers (sensor to Ethernet bridge)
+  - Smart home hubs (MQTT/Modbus TCP)
+  - Web servers on embedded (no TCP/IP stack required on host)
+  - Industrial IoT (Modbus TCP to Wi-Fi via companion module)
+  - Security cameras (W5500-EVB-Pico)
+  - Raspberry Pi Pico + W5500 add-on boards
+  ecosystem:
+    interfaces:
+    - SPI (host MCU side)
+    - 10/100 Ethernet (RJ45 transformer on PCB)
+    driver_libraries:
+    - ioLibrary_Driver (WIZnet official)
+    - ioLibrary_Driver_BSD (BSD socket wrapper)
+    - Arduino Ethernet library (compatible)
+    frameworks:
+    - Zephyr (W5500 driver)
+    - Mbed OS
+    - FreeRTOS (with ioLibrary)
+    platforms:
+    - Arduino (Ethernet shield uses W5500)
+    - STM32 (Nucleo + W5500 modules)
+    - Raspberry Pi Pico (W5500-EVB-Pico / -PoE)
+    - ESP32 (with W5500 module for Ethernet; ESP32 has built-in Wi-Fi)
+  product_lineage:
+  - W5100 (predecessor, 16 KB buffer, 4 sockets)
+  - W5200 (improved, 32 KB buffer, 8 sockets, 80 MHz SPI introduced)
+  - W5500 (current, 80 MHz SPI, lower power, 5V tolerant I/O)
+  - W6100 (next-gen, adds IPv6)
+unverified:
+- exact package dimensions per LQFP-48 / QFN-48 variant (datasheet publishes mechanical drawings in extracted sections; specific mm dimensions not extracted)
+- exact PHY power consumption in each mode (Power Down vs Normal vs Wake-on-LAN)
+- exact WOL magic packet format compatibility (datasheet references WOL over UDP but specific magic packet format not extracted)
+- exact ESD rating HBM/CDM (datasheet references ESD but specific kV not in extracted sections)
+notes:
+- "New yaml entry 2026-07-10 — WIZnet W5500 is the gold standard for hardwired TCP/IP Ethernet controller.
+  Unlike ESP32 (Wi-Fi only) or STM32 (no Ethernet built-in except STM32H7 high-tier), W5500 pairs with ANY
+  MCU via SPI to add Ethernet connectivity with zero TCP/IP stack code on the host."
+- 'Use case: simplest way to add 10/100 Ethernet to any MCU (Arduino, Raspberry Pi Pico, STM32, ESP32)
+  with no Ethernet MAC/PHY integration or TCP/IP stack development. Used in 90% of "MCU + Ethernet" boards
+  sold on AliExpress/LCSC. W5500-EVB-Pico is a popular RP2040 + W5500 combo board.'
+- 'Family differentiator vs LAN8720A (Microchip Ethernet PHY only): LAN8720A is PHY-only and requires
+  host MCU to implement TCP/IP stack (e.g., lwIP). W5500 is PHY + MAC + TCP/IP stack on chip, so the
+  host MCU does not need Ethernet knowledge at all. W5500 wins on simplicity and "drop-in" approach;
+  LAN8720A wins on flexibility (host can implement any custom protocol stack).'
+- 'Family differentiator vs ESP32 (existing yaml set): ESP32 has built-in Wi-Fi + Bluetooth but NOT
+  Ethernet. W5500 is the answer when you need wired Ethernet (industrial, automotive, EMI-sensitive
+  environments). Pair W5500 + ESP32 + MCU for Wi-Fi + Ethernet + Bluetooth combination.'
+- 'Verified 2026-07-10 via Tavily (extract_depth=advanced) on vendor-direct PDF: 40+ spec fields filled
+  including protocols, sockets, SPI, Ethernet, memory, electrical, package. 4 unverified fields remain
+  where datasheet details were not in extracted sections.'
+extracted_at: '2026-07-10T22:50:00+08:00'
+extracted_from_pages: [1, 2, 28, 29, 58]
+extraction_method: tavily-extract (advanced) of WIZnet vendor-direct PDF datasheet
+extraction_source: embedded_dev/wiznet/datasheet/W5500_ds_v110e.pdf
+datasheet_source_url: https://docs.wiznet.io/img/products/w5500/W5500_ds_v110e.pdf
+source_pdf: ../../embedded_dev/wiznet/datasheet/W5500_ds_v110e.pdf

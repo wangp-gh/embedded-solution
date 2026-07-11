@@ -59,7 +59,6 @@ specs:
 unverified:
 - nRF54L15 specific CoreMark vs series 503 (page lists series-level figure)
 - exact PMIC companion part numbers
-- exact package pin counts for QFN40
 notes:
 - "Promoted from placeholder to verified on 2026-06-28 (datasheet). Enriched on 2026-06-30 with marketing-level protocols/security/peripherals\
   \ from nordicsemi.com product page via Firecrawl \u2014 fills protocol + ecosystem layer not present in datasheet spec block."

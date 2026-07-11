@@ -97,7 +97,6 @@ specs:
   - Domestic-China substitution for NXP / TI Wi-Fi 4 designs
 unverified:
 - exact Bluetooth support (raw indicates 0; need confirmation)
-- exact security module details
 - exact wattage per Wi-Fi rate
 - exact shutdown current
 notes:

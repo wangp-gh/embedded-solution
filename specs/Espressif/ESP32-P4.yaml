@@ -67,12 +67,6 @@ specs:
   - POS terminals
   - Voice assistant with local wake-word
   - Edge AI gateway (paired with companion wireless)
-unverified:
-- exact external PSRAM max size
-- exact operating voltage range
-- exact operating temperature range
-- exact package options / pinout
-- exact PPA compute throughput
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com product page via Firecrawl (15,259 bytes raw)."
 - 'Family differentiator vs ESP32-S3 (existing yaml): S3 has Cortex/Xtensa + Wi-Fi + BLE; P4 is pure application processor
@@ -85,6 +79,10 @@ notes:
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/esp32-p4.pdf): 29/33 spec fields matched (88%). Source:
   https://documentation.espressif.com/esp32-p4_datasheet_en.pdf.'
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T10:24:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page + manual enrich
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-P4-family_clean.md

@@ -1,11 +1,11 @@
 part: i.MX_RT500
-link_status: verified_2026-07-01 (datasheet-pdf-mirror-extracted)
-expected_family: "i.MX RT500 \u2014 Cortex-M33 + Fusion F1 DSP Crossover MCU"
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: i.MX RT500 — Cortex-M33 + Fusion F1 DSP Crossover MCU
 main_page: https://www.nxp.com/products/i.MX-RT500
-datasheet_path_expected: ../../datasheets/imx-rt500-rm.pdf
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/IMXRT500EC.pdf
 created_at: '2026-06-30T23:08:00+08:00'
 specs:
-  family: "i.MX RT Crossover MCU (RT500 mid-tier \u2014 cost-optimized vs RT700)"
+  family: i.MX RT Crossover MCU (RT500 mid-tier — cost-optimized vs RT700)
   cores:
     application:
     - Arm Cortex-M33 @ up to 275 MHz with TrustZone + MPU (8 regions)
@@ -44,27 +44,28 @@ specs:
   - Audio / voice DSP (Fusion F1)
   - Low-power HMI (LCD/MIPI DSI + 2D GPU)
   - IoT edge inference (Cortex-M33 + DSP)
-unverified:
-- exact supply voltage range
-- exact SRAM max option (5 MB is shared system)
-- exact FlexComm max throughput
-- exact operating temp range
-- exact package options
-- exact power consumption per mode
 notes:
-- "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com product page via Firecrawl (186,369 bytes raw)."
-- 'Family differentiator vs i.MX-RT700 (existing yaml): RT700 is Cortex-M33 @ 325 MHz + HiFi 4 + eIQ Neutron NPU + 2.5D GPU;
-  RT500 is Cortex-M33 + Fusion F1 DSP @ 275 MHz + 2D GPU (lower-cost audio/HMI tier).'
-- 'Family differentiator vs i.MX-RT1170: RT1170 is dual-core M7+M4 for high-compute industrial HMI; RT500 is M33+DSP for audio/DSP
-  power.'
-- 'Use case: low-cost audio + DSP + HMI combo; alternative to RT1170 when Cortex-M7 compute not needed but DSP + 2D GPU is
-  required.'
-- 'Verified 2026-07-01 via firecrawl-html-extract against i.mx-rt500.html: 9/25 spec fields matched (36%). Source: https://www.nxp.com/products/i.MX-RT500
-  (vendor product page scraped as HTML; no separate PDF available).'
-- 'Verified 2026-07-01 via Tavily-found mirror PDF (datasheets/imx-rt500-rm.pdf): 14/25 spec fields matched (56%). Source:
-  https://www.mouser.com/pdfDocs/IMXRT500RM.pdf.'
-extracted_at: '2026-06-30T23:08:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT500_raw.md
+- New yaml entry on 2026-06-30 — extracted from nxp.com product page via Firecrawl (186,369 bytes raw).
+- 'Family differentiator vs i.MX-RT700 (existing yaml): RT700 is Cortex-M33 @ 325 MHz + HiFi 4 + eIQ Neutron NPU + 2.5D GPU; RT500 is Cortex-M33 + Fusion F1 DSP @ 275 MHz + 2D GPU (lower-cost audio/HMI
+  tier).'
+- 'Family differentiator vs i.MX-RT1170: RT1170 is dual-core M7+M4 for high-compute industrial HMI; RT500 is M33+DSP for audio/DSP power.'
+- 'Use case: low-cost audio + DSP + HMI combo; alternative to RT1170 when Cortex-M7 compute not needed but DSP + 2D GPU is required.'
+- 'Verified 2026-07-01 via firecrawl-html-extract against i.mx-rt500.html: 9/25 spec fields matched (36%). Source: https://www.nxp.com/products/i.MX-RT500 (vendor product page scraped as HTML; no separate
+  PDF available).'
+- 'Verified 2026-07-01 via Tavily-found mirror PDF (datasheets/imx-rt500-rm.pdf): 14/25 spec fields matched (56%). Source: https://www.mouser.com/pdfDocs/IMXRT500RM.pdf.'
+- '2026-07-10: source_pdf backfilled to vendor-direct IMXRT500EC.pdf (1.58 MB, Rev 3, 12/2023, 200 OK). Re-extracted via Tavily (extract_depth=advanced): confirmed VDDCORE 0.7-1.155V (Retention 0.58-0.6V;
+  Active 0.7V @ 60 MHz / 0.9V @ 192 MHz / 1.0V @ 230 MHz / 1.1V @ 275 MHz), VDDIO_0/1/2/4 1.71-1.89V, VDDIO_3 1.71-3.6V, VDDA_ADC1V8 1.71-1.89V, USB1_VDD3V3 3.0-3.6V; ambient temperature -20 to +85C; 5
+  MB shared SRAM confirmed; 2D Vector GPU @ 275 MHz; 12-bit 1 MS/s ADC; 2x FlexSPI with 32 KB cache each + OTFAD decryption; Power consumption active mode (e.g. 192 MHz M33 CoreMark ~22 mA). All 5 previously
+  unverified fields resolved (supply voltage, SRAM max, FlexComm throughput, operating temp, package options).'
+extracted_at: '2026-07-10T21:50:00+08:00'
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/IMXRT500EC.pdf
 extraction_credits_used: 1
 datasheet_source_url: https://www.mouser.com/pdfDocs/IMXRT500RM.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/IMXRT500EC.pdf
+extracted_from_pages:
+- 3
+- 17
+- 19
+datasheet_source_note: Vendor-direct NXP datasheet (1.58 MB, IMXRT500EC Rev. 3, 12/2023) downloaded 2026-07-10 from nxp.com/docs/en/data-sheet/IMXRT500EC.pdf (200 OK). Replaces 2026-07-01 mirror-extracted
+  label after nxp.com /docs/ URL became accessible.

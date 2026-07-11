@@ -74,7 +74,6 @@ specs:
   - ARIB STD-T66 (Japan)
 unverified:
 - exact supply voltage range
-- exact flash endurance / retention
 - AES accelerator API/surface
 notes:
 - "Promoted on 2026-06-30 from previously-empty region in TI yaml set \u2014 extracted from ti.com/product/CC2340R5 product\

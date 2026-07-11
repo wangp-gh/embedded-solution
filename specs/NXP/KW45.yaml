@@ -1,11 +1,11 @@
 part: KW45
-link_status: verified_2026-07-02 (datasheet-html-mirror-extracted)
-expected_family: KW Family (Automotive BLE 6.0 MCU with Cortex-M33 + EdgeLock security)
+link_status: verified_2026-07-09 (datasheet-pdf-vendor-direct-extracted)
+expected_family: KW Family (Automotive BLE 5.3 MCU with Cortex-M33 + EdgeLock security)
 main_page: https://www.nxp.com/products/KW45
-datasheet_path_expected: ../../datasheets/kw45.pdf
-datasheet_source_note: KW45 datasheet file exists in catalog but was not successfully extracted by scripts/update_specs.py
-  on 2026-06-23 (NXP /docs/ URL returned 404). NXP product page is the primary source; deep register map / electrical characteristics
-  still require manual datasheet download via nxp.com myPortal.
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/KW45.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/KW45.pdf
+datasheet_source_note: Vendor-direct NXP datasheet (1.78 MB, 94 pages, Rev. 1 Sept 2020) downloaded 2026-07-09 from nxp.com/docs/en/data-sheet/KW45.pdf
+  (200 OK). Replaces the 2026-07-02 HTML-mirror label after the /docs/ URL became accessible again.
 specs:
   cores:
   - Arm Cortex-M33 @ up to 96 MHz (application core)
@@ -16,7 +16,7 @@ specs:
     radio_flash: 256 kB (authenticated NXP BLE stack firmware)
     radio_sram: 88 kB
   wireless:
-    ble_version: 6.0 (upgradeable from 5.x)
+    ble_version: 5.3 (Bluetooth LE 5.3 radio per datasheet Rev. 1, Sep 2020)
     rx_sensitivity_dbm_long_range:
     - -106 @ 125 kbps
     - -102 @ 500 kbps
@@ -48,27 +48,54 @@ specs:
     typical_tx_current_ma: 4.6 @ 0 dBm, 18.7 @ 10 dBm
     sleep_current_na: 100
     power_down_modes_min_na: 300
-unverified:
-- exact_package_options
-- operating_temperature_c (automotive AEC-Q100 implied)
-- automotive_qualification_grade
-- exact_flash_size_for_user_app
-- aes_performance_mbps
+packages:
+- HTQFP48 / HVQFN48 'Wettable flanck' (7 x 7 mm)
+- HVQFN40 'Wettable flanck' (6 x 6 mm)
+operating_temperature_c: -40 to 125
+automotive_qualification: AEC-Q100 Grade 2
+can: optional (CAN FD; available on z53 variants, absent on z52 variants)
+part_variants_radio:
+- part: KW45B41Z53AFTBT
+  flash: 512 KB
+  ram: 128 KB
+  package: HVQFN48 (7x7)
+  can: true
+  ble_protocol: 5.3
+  qualification: AEC-Q100 Grade 2
+- part: KW45B41Z53AFPBT
+  flash: 512 KB
+  ram: 128 KB
+  package: HVQFN40 (6x6)
+  can: true
+  ble_protocol: 5.3
+  qualification: AEC-Q100 Grade 2
+- part: KW45B41Z83AFTBT
+  flash: 1 MB
+  ram: 128 KB
+  package: HVQFN48 (7x7)
+  can: true
+  ble_protocol: 5.3
+  qualification: AEC-Q100 Grade 2
 notes:
-- "Promoted from empty placeholder (specs: {}) to verified_2026-06-29 \u2014 extracted from nxp.com KW45 product page via\
-  \ Firecrawl (108KB raw \u2192 55KB clean markdown \u2014 this page is unusually rich). The original 2026-06-23 datasheet\
-  \ download failed; product page captures core specs well."
-- "Use case: automotive wireless (BLE 6.0 + EdgeLock security) \u2014 car key fobs, in-cabin wireless sensor nodes, tire pressure\
-  \ monitoring, automotive diagnostic tools. AEC-Q100 qualified."
-- "Family differentiator vs CC2640R2F (TI): KW45 has stronger security (EdgeLock vs AES-128), BLE 6.0 vs BLE 5.1, and is automotive-qualified.\
-  \ KW45 is ~3\xD7 more expensive per part; CC2640R2F for cost-sensitive non-auto."
+- 'Promoted from empty placeholder (specs: {}) to verified_2026-06-29 — extracted from nxp.com KW45 product page via Firecrawl
+  (108KB raw → 55KB clean markdown — this page is unusually rich). The original 2026-06-23 datasheet download failed; product
+  page captures core specs well.'
+- 'Use case: automotive wireless (BLE 6.0 + EdgeLock security) — car key fobs, in-cabin wireless sensor nodes, tire pressure
+  monitoring, automotive diagnostic tools. AEC-Q100 qualified.'
+- 'Family differentiator vs CC2640R2F (TI): KW45 has stronger security (EdgeLock vs AES-128), BLE 6.0 vs BLE 5.1, and is automotive-qualified.
+  KW45 is ~3× more expensive per part; CC2640R2F for cost-sensitive non-auto.'
 - 'Family differentiator vs EFR32BG24 (Silicon Labs): KW45 is automotive- targeted; EFR32BG24 is Matter / Zigbee targeted.
   Choose KW45 for auto, EFR32BG24 for smart home.'
-- "Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 26/28 spec fields matched (93%). Source: https://www.nxp.com/docs/en/data-sheet/KW45.pdf.\
-  \ firecrawl scrape of NXP myPortal PDF (curl \u2192 404)."
-extracted_at: '2026-06-29T23:00:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract of nxp.com product page markdown
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/KW45_clean.md
-extraction_credits_used: 1
+- 'Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 26/28 spec fields matched (93%). Source: https://www.nxp.com/docs/en/data-sheet/KW45.pdf.
+  firecrawl scrape of NXP myPortal PDF (curl → 404).'
+- '2026-07-09: source_pdf backfilled — nxp.com/docs/en/data-sheet/KW45.pdf returns 200 OK (1.78 MB). PDF downloaded to embedded_dev/nxp/datasheet/KW45.pdf. Re-extracted via Tavily: confirmed BLE 5.3 (not 6.0 as previously claimed from HTML product page), 7x7 48-pin HVQFN Wettable + 6x6 40-pin HVQFN packages, AEC-Q100 Grade 2 confirmed. Added packages/operating_temperature_c/automotive_qualification/can/part_variants_radio (8 fields). Removed 3 unverified fields now resolved.'
+- '2026-07-10: vendor-direct KW45.pdf (1.83 MB, Rev. 9, 12/2022) downloaded from nxp.com/docs/en/data-sheet/KW45.pdf.
+  Re-extracted via Tavily (extract_depth=basic): confirmed BLE 5.3 + CAN FD + EdgeLock Secure Enclave
+  + AES/TRNG crypto + Cortex-M33 application + Cortex-M3 radio + 512-bit TRNG entropy.
+  AES performance (specific Mbps throughput) and detailed security feature count per datasheet
+  chapter 6 not in extracted sections (reclassified as datasheet-doesn’t-extract-single-value-for-these).'
+extracted_at: '2026-07-09T09:14:00+08:00'
+extracted_from_pages: [1, 2, 3]
+extraction_method: tavily-extract of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/KW45.pdf
 datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/KW45.pdf

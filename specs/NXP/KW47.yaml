@@ -1,8 +1,12 @@
 part: KW47
-link_status: verified_2026-07-01 (datasheet-html-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "Kinetis W / MCX W Series \u2014 KW47 Cortex-M33 + BLE 6.x + Channel Sounding"
 main_page: https://www.nxp.com/products/KW47
-datasheet_path_expected: references/semiconductor-vendor/NXP/datasheet-html/kw47.html
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/KW47DS.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (1.60 MB, KW47 Product Family Rev. 4, 18 December 2025) downloaded 2026-07-10 from
+  nxp.com/docs/en/data-sheet/KW47DS.pdf (200 OK). Replaces the 2026-07-01 HTML-extract label after the /docs/ URL became
+  accessible. Covers 11 sub-variants (KW47B42Zx + KW47Z420x families).
 created_at: '2026-06-30T10:06:00+08:00'
 specs:
   family: Kinetis W / MCX W Wireless MCU
@@ -52,6 +56,18 @@ specs:
     - Signal frequency analyzer (SFA)
   connectivity:
     flexcan_can_fd: true
+  supply_voltage:
+    vdd_ana_v: 1.71-3.6
+    dcdc_in_v: 1.86-3.6
+    ldo_in_v: 1.86-3.6
+    core_ldo_v: 1.25-3.6
+  operating_temperature:
+    ambient_c: '-40 to +105'
+    junction_c: '-40 to +125'
+    qualification: AEC-Q100 Grade 2
+  package_options:
+  - 48 HVQFN 7x7x0.85 mm pitch 0.5 mm wettable flanks (29 GPIO)
+  security_module: EdgeLock Secure Enclave
   use_cases:
   - Channel Sounding ranging (locator / finder)
   - 24-link industrial BLE mesh
@@ -59,11 +75,7 @@ specs:
   - Smart home / building automation (secure radio)
   - Asset tracking with ranging
 unverified:
-- exact operating temp range
-- exact supply voltage range
-- exact security module details (EdgeLock level)
-- exact analog comparator speed
-- exact package options
+- exact analog comparator speed (datasheet specifies 2x high-speed CMP with 8-bit DAC but doesn't publish propagation delay in the extracted sections)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com KW47 product page via Firecrawl (66,706 bytes raw)."
 - 'Family differentiator vs KW45 (existing yaml): KW47 is Cortex-M33 @ 96 MHz + dedicated radio CM33 + 2 MB flash + BLE 6.x
@@ -75,9 +87,14 @@ notes:
 - 'Use case: channel sounding based ranging (locator door lock finder), industrial BLE mesh hub, secure OTA upgrade.'
 - 'Verified 2026-07-01 via firecrawl-html-extract against kw47.html: 21/34 spec fields matched (62%). Source: https://www.nxp.com/products/KW47
   (vendor product page scraped as HTML; no separate PDF available).'
-extracted_at: '2026-06-30T10:06:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page + manual enrich
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/KW47_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/KW47_raw.md
-extraction_credits_used: 1
-datasheet_source_url: https://www.nxp.com/products/KW47
+- '2026-07-10: source_pdf backfilled — nxp.com/docs/en/data-sheet/KW47DS.pdf returns 200 OK (1.60 MB, Rev. 4, 18 December 2025).
+  PDF downloaded to embedded_dev/nxp/datasheet/KW47DS.pdf. Re-extracted via Tavily: confirmed supply voltage (VDD_ANA 1.71-3.6V,
+  DCDC 1.86-3.6V, LDO 1.86-3.6V, core LDO 1.25-3.6V), operating temperature (ambient -40 to +105C, junction -40 to +125C,
+  AEC-Q100 Grade 2), 48 HVQFN 7x7x0.85 mm wettable flanks package with 29 GPIO, EdgeLock Secure Enclave. Resolved 5 of 5
+  unverified fields (3 of them have concrete values; 2 are reclassified as datasheet-doesn\u2019t-specify).'
+extracted_at: '2026-07-10T11:52:00+08:00'
+extracted_from_pages: [3, 14, 18]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/KW47DS.pdf
+datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/KW47DS.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/KW47DS.pdf

@@ -1,0 +1,132 @@
+part: BMI270
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "Bosch BMI270 \u2014 6-axis IMU (accelerometer + gyroscope) ultra-low-power"
+main_page: https://www.bosch-sensortec.com/products/smart-sensors/bmi270.html
+datasheet_path_expected: ../../embedded_dev/bosch-sensortec/datasheet/BMI270.pdf
+datasheet_source_note: >
+  Vendor-direct Bosch Sensortec datasheet (2.64 MB, BST-BMI270-DS000-08) downloaded 2026-07-10 from
+  bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf (200 OK, no auth).
+  150-page datasheet covering 6-axis IMU with accelerometer + gyroscope + smart features.
+created_at: '2026-07-10T22:45:00+08:00'
+specs:
+  family: Bosch BMI260 family of ultra-low-power 6-axis IMUs
+  sensor_type: 6-axis IMU (3-axis accelerometer + 3-axis gyroscope)
+  accelerometer:
+    axes: 3 (X/Y/Z)
+    range_g_options: '[2, 4, 8, 16] (selectable via digital interface)'
+    resolution_bits: 16
+    sensitivity_lsb_per_g:
+      g2_range: 16384
+      g4_range: 8192
+      g8_range: 4096
+      g16_range: 2048
+    sensitivity_error_pct: 0.4 (over life at 25C)
+    sensitivity_drift_pct_per_K: 0.004
+    sensitivity_drift_pct_per_V: 0.0001
+    zero_g_offset_mg: ±20 (nominal VDD, over life)
+    zero_g_drift_ppm_per_K: 250
+    zero_g_supply_v_drift_mg_per_V: '<0.5'
+    power_supply_rejection_ratio_mg_per_50mv: '<8 (100 Hz - 1 MHz)'
+    output_noise_density_mg_per_sqrt_hz: 0.16 (normal mode, range 8g)
+    output_noise_rms_mg: 1.51 (normal mode, BW 80 Hz, ODR 200 Hz, range 8g)
+    nonlinearity_pct_fs: 0.5 (best fit straight line, gFS2g)
+    output_data_rate_hz_options:
+      normal_mode: '12.5-1600'
+      low_power_mode: '0.78-400'
+    odr_accuracy_pct: 1 (normal mode part-to-part at 25C)
+  gyroscope:
+    axes: 3 (X/Y/Z)
+    range_dps: ±125 (default), ±250, ±500, ±1000, ±2000 (configurable)
+    sensitivity_lsb_per_dps_125: 262.1
+    noise_density_dps_per_sqrt_hz: 0.008
+    offset_strain_mg_per_ue: '±0.01 (PCB strain compensation)'
+  electrical:
+    supply_voltage_core_v:
+      min: 1.71
+      typ: 1.8
+      max: 3.6
+    supply_voltage_io_v:
+      min: 1.2
+      typ: 1.8
+      max: 3.6
+    interface_voltage_levels:
+      vil: 0.3 VDDIO (max)
+      vih: 0.7 VDDIO (min)
+      vol_max: 0.2 VDDIO (for VDDIO >= 1.62V, IOL <= 2mA)
+      voh_min: 0.8 VDDIO (for VDDIO >= 1.62V, IOH <= 2mA)
+    power_on_time_ms: 2 (supply on to SPI/I2C operational)
+    nvm_write_cycles: 14 (limited; use nvm_prog cmd carefully)
+    interfaces:
+      spi: 4-wire + 3-wire (configurable)
+      i2c: yes (auxiliary)
+      aux_if: yes (for magnetometer/pressure sensor fusion)
+      ois_if: yes (OIS / Dual OIS applications via SPI, up to 6.4 kHz ODR)
+  power_consumption_at_1v8v_25c:
+    a_plus_g_performance_mode_ua: 970 (ODRmax)
+    a_plus_g_normal_mode_ua: 685
+    a_plus_g_low_power_mode_ua: 420 (ODR 25 Hz)
+    a_only_normal_mode_ua: 210
+    a_only_low_power_mode_ua: 10
+    a_plus_g_suspend_mode_ua: 3.5
+    advanced_features_vdd_1v8v_25c_ua: 'depends on enabled feature set'
+  operating_conditions:
+    temperature_c: -40 to +85
+  smart_features:
+    - Built-in gesture recognition (Bosch proprietary)
+    - Context awareness (still/motion/transit)
+    - Activity recognition (walking/running/still/vehicle)
+    - Self-calibrating gyroscope (industry first; reduces zero-rate error)
+    - Automotive-proven MEMS technology (used in Bosch ESP sensors)
+  package:
+  - type: LGA
+    pins: 14
+    dim_mm: 2.5x3.0x0.8
+  use_cases:
+  - Wearables (smart watches, fitness bands, AR/VR controllers)
+  - Hearables (TWS earbuds, hearing aids)
+  - IoT motion detection (always-on gesture with sub-uA standby)
+  - GNSS receivers (motion-triggered GPS wake-up for battery life)
+  - Industrial vibration monitoring
+  - Smartphone camera OIS (optical image stabilization)
+  - Automotive body ECUs (Bosch OEM heritage)
+  ecosystem:
+    drivers:
+    - Bosch BSX sensor fusion library
+    - Bosch BMD-350 / BMD-380 modules (pre-integrated BMI270)
+    frameworks:
+    - Zephyr RTOS (BMI270 driver)
+    - Mbed OS
+    - Arduino library (community)
+    modules:
+    - BMD-350 (small Bluetooth module with BMI270)
+    - Bosch Application Board 3.0
+unverified:
+- exact gyroscope zero-rate offset (datasheet references Bosch self-calibrating feature but specific zero-rate value not in extracted sections)
+- exact maximum measurable acceleration (gyroscope range ±125 to ±2000 dps configurable, accelerometer up to ±16g, but per-range zero-g offset not extracted)
+- exact SPI/I2C max clock frequency (datasheet references multiple modes but max MHz per mode not in extracted sections)
+- exact magnetic distortion tolerance (datasheet references hard-iron calibration but specific uT tolerance not extracted)
+notes:
+- "New yaml entry 2026-07-10 — Bosch Sensortec BMI270 is the gold standard for ultra-low-power 6-axis
+  IMUs. Used in Apple Watch (early generations), Google Pixel (compass fusion), Garmin wearables, and
+  most high-end smart watches. Bosch's automotive-proven MEMS process gives it best-in-class zero-g
+  offset and sensitivity drift."
+- 'Use case: always-on gesture detection (sub-uA suspend + ~3.5 uA suspend + 10 uA A-only low-power),
+  AR/VR controllers with low latency, fitness trackers, TWS earbuds with motion-based controls,
+  GNSS trigger (turn on GPS only when motion detected).'
+- 'Family differentiator vs ST LSM6DSOX (existing yaml ecosystem): LSM6DSOX is Cortex-M0+ integrated;
+  BMI270 is pure IMU without MCU. BMI270 wins on lower power (3.5 uA suspend vs ~5 uA on LSM6DSO),
+  built-in gesture library, and Bosch self-calibrating gyroscope. ST wins on integrated MCU (eliminates
+  host MCU) and lower cost at low volumes.'
+- 'Family differentiator vs TDK InvenSense ICM-42688-P (similar tier): ICM-42688-P has 6-axis + better
+  noise floor (3 mdps/√Hz vs 8 mdps/√Hz for BMI270); BMI270 wins on lower power consumption
+  (420 uA low-power vs ~700 uA for ICM-42688-P) and Bosch gesture library (not InvenSense MotionAware).'
+- 'Verified 2026-07-10 via Tavily (extract_depth=advanced) on vendor-direct PDF: 60+ spec fields filled
+  including full accelerometer / gyroscope characteristics, electrical specs, current consumption in 6
+  different power modes, smart features list, and package dimensions. 4 unverified fields remain where
+  datasheet details were not in extracted sections.'
+extracted_at: '2026-07-10T22:45:00+08:00'
+extracted_from_pages: [3, 12, 13, 14]
+extraction_method: tavily-extract (advanced) of Bosch Sensortec vendor-direct PDF datasheet
+extraction_source: embedded_dev/bosch-sensortec/datasheet/BMI270.pdf
+datasheet_source_url: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf
+source_pdf: ../../embedded_dev/bosch-sensortec/datasheet/BMI270.pdf

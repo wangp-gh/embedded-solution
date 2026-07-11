@@ -2,13 +2,11 @@ part: CH32F103C8T6
 link_status: product-page-removed_2026-06-30 (no-datasheet, no-product-page)
 expected_family: WCH CH32F103 — STM32F103-compatible ARM Cortex-M3 MCU
 main_page: https://www.wch-ic.com/products/CH32F103.html
-datasheet_path_expected: ../../embedded_dev/wch/datasheet/CH32F103_datasheet.pdf
-datasheet_source_note: 'CH32F103 product page returned 404 on 2026-06-30
-  (wch-ic.com has removed the page). Datasheet PDF is also not in catalog
-  (only CH32V003/CH32V103/CH32V307 PDFs are present in embedded_dev/wch/
-  datasheet/). No public mirror confirmed yet. Specs below are from WCH
-  general documentation and the CH32F103 product registration in the
-  catalog state table.'
+datasheet_path_expected: (unavailable)
+datasheet_source_note: CH32F103 product page returned 404 on 2026-06-30 (wch-ic.com has removed the page). Datasheet PDF is
+  also not in catalog (only CH32V003/CH32V103/CH32V307 PDFs are present in embedded_dev/wch/ datasheet/). No public mirror
+  confirmed yet. Specs below are from WCH general documentation and the CH32F103 product registration in the catalog state
+  table.
 specs:
   cores:
   - Arm Cortex-M3 @ up to 72 MHz
@@ -35,18 +33,18 @@ unverified:
 - usb_fs_or_hs
 - exact_memory_size_per_variant
 notes:
-- 'Placeholder yaml created on 2026-06-30 — wch-ic.com has removed both
-  the product page (404) and the datasheet is not in our catalog. Specs
-  above are from the product registration in the catalog state table
-  and WCH general documentation, not from datasheet extraction.'
-- 'Use case: STM32F103 drop-in replacement (pin-to-pin compatible) at
-  lower cost. WCH positioning vs STM32F103: 5-10× cheaper at qty 1000.'
-- 'Open gap: needs manual datasheet download from wch-ic.com once the
-  product page is restored, or from alibaba/LCSC distributors that
-  bundle datasheet with their product listings.'
-- 'Family differentiator vs CH32V003: F103 is ARM Cortex-M3, V003 is
-  RISC-V. Pin-compatible layout but different ISA + toolchain.'
+- Placeholder yaml created on 2026-06-30 — wch-ic.com has removed both the product page (404) and the datasheet is not in
+  our catalog. Specs above are from the product registration in the catalog state table and WCH general documentation, not
+  from datasheet extraction.
+- 'Use case: STM32F103 drop-in replacement (pin-to-pin compatible) at lower cost. WCH positioning vs STM32F103: 5-10× cheaper
+  at qty 1000.'
+- 'Open gap: needs manual datasheet download from wch-ic.com once the product page is restored, or from alibaba/LCSC distributors
+  that bundle datasheet with their product listings.'
+- 'Family differentiator vs CH32V003: F103 is ARM Cortex-M3, V003 is RISC-V. Pin-compatible layout but different ISA + toolchain.'
+- '2026-07-07: source_pdf path resolved to ''../../embedded_dev/wch/datasheet/CH32F103_datasheet.pdf'' but that file is missing.
+  Set to (none); data must be re-verified when PDF becomes available.'
 extracted_at: '2026-06-30T00:55:00+08:00'
 extracted_from_pages: []
 extraction_method: catalog-registration (no datasheet / no product page)
 extraction_source: None (placeholder, awaiting datasheet re-acquisition)
+source_pdf: (none -- PDF unavailable, no validation possible)

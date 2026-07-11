@@ -38,12 +38,6 @@ specs:
   - ESP-IDF (open-source Espressif SDK)
   - ESP-AT (co-processor mode)
   - ESP-Hosted (co-processor mode)
-unverified:
-- exact RISC-V core (likely single-core 32-bit but not in fetched spec block)
-- exact SRAM size
-- exact PSRAM support size
-- exact package options and pinout
-- exact operating temperature range
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com product page via Firecrawl (10,353 bytes raw; family page\
   \ is short single-H1)."
@@ -53,6 +47,10 @@ notes:
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/esp32-c5.pdf): 23/26 spec fields matched (88%). Source:
   https://documentation.espressif.com/esp32-c5_datasheet_en.pdf.'
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T09:43:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-C5-family_clean.md

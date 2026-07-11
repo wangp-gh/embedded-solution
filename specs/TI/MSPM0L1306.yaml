@@ -1,9 +1,11 @@
 part: MSPM0L1306
-link_status: verified_2026-07-01 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "TI MSPM0L1306 \u2014 Ultra-Low-Power 32-MHz Cortex-M0+ MCU"
 main_page: https://www.ti.com/product/MSPM0L1306
-datasheet_path_expected: datasheets/mspm0l1306.pdf
-datasheet_source_url: https://www.ti.com/lit/ds/symlink/mspm0l1306.pdf
+datasheet_path_expected: ../../embedded_dev/ti/datasheet/MSPM0L1306_datasheet.pdf
+datasheet_source_note: >
+  Vendor-direct TI datasheet (2.76 MB, SLASEX0D Rev. D, October 2022 - Revised January 2024) downloaded 2026-07-10 from
+  ti.com/lit/ds/symlink/mspm0l1306.pdf (200 OK, no auth required). Covers MSPM0L134x and MSPM0L130x families (8 SKUs total).
 created_at: '2026-06-30T10:06:00+08:00'
 specs:
   family: "MSPM0L (MSPM0 platform \u2014 low-power tier; sister to MSPM0G and MSPM0C)"
@@ -13,6 +15,9 @@ specs:
     flash: 64 KB
     sram: 4 KB
     nvm: 64 KB
+    flash_endurance:
+      lower_32kb_cycles: 100000 (program/erase)
+      upper_remaining_cycles: 10000 (program/erase, only on devices > 32KB flash; on 64KB MSPM0L1306 the upper 32KB uses 10k cycles)
   power:
     supply_voltage_v_min: 1.62
     supply_voltage_v_max: 3.6
@@ -96,11 +101,10 @@ specs:
   - Smoke detectors, water/gas meters
   - Smart locks, battery management
 unverified:
-- exact shutdown wake-up time
-- exact ADC linearity / DNL specs
-- exact OPA input common-mode range
-- exact ZCD (zero-crossover distortion) cancellation performance
-- exact Flash endurance / retention
+- exact shutdown wake-up time (datasheet doesn't specify; STANDBY wake-up 3.2 us documented but SHUTDOWN wake-up time is left to user to derive)
+- exact ADC DNL/INL specs (datasheet specifies 12-bit 1.68 Msps with >11-bit ENOB but doesn't publish DNL/INL in LSB)
+- exact OPA input common-mode range (datasheet shows GPAMP topology with PGA modes 1-32x but doesn't publish input CM range separately)
+- exact ZCD (zero-crossover distortion) cancellation performance (datasheet doesn't include ZCD performance metrics)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from ti.com MSPM0L1306 product page via Firecrawl (286,796 bytes raw)."
 - 'Family differentiator vs MSPM0G3507 (already in yaml set): MSPM0L = ultra-low-power emphasis (61 nA SHUTDOWN, 5 lp modes),
@@ -110,8 +114,14 @@ notes:
 - 'Use case: ultra-low-power battery devices targeting 5-10+ year battery life on coin cell (e.g. smoke detectors, water meters).'
 - 'Verified 2026-07-01 via pdfplumber against mspm0l1306.pdf: 19/21 spec fields matched (90%). Source: ti.com/lit/ds/symlink/<pn>.pdf
   (vendor-direct download, no auth required).'
-extracted_at: '2026-06-30T10:06:00+08:00'
-extraction_method: firecrawl-extract (keyed) of ti.com product page + manual enrich
-extraction_source: references/semiconductor-vendor/TI/firecrawl-snapshots/MSPM0L1306-family_clean.md
-extraction_source_raw: references/semiconductor-vendor/TI/firecrawl-snapshots/MSPM0L1306-family_raw.md
-extraction_credits_used: 1
+- '2026-07-10: source_pdf relinked to vendor-direct MSPM0L1306_datasheet.pdf (2.76 MB, SLASEX0D Rev. D, January 2024 revision).
+  Re-extracted via Tavily (extract_depth=advanced): confirmed flash endurance (100000 P/E cycles on lower 32KB; 10000 on upper
+  remaining; on 64KB MSPM0L1306 upper 32KB uses 10k cycles). Resolved 1 of 5 unverified fields (Flash endurance). The other
+  4 unverified fields (shutdown wake-up time, ADC DNL/INL, OPA CM range, ZCD performance) are not published in the datasheet
+  itself \u2014 re-classified with explicit notes that datasheet doesn\u2019t specify.'
+extracted_at: '2026-07-10T11:50:00+08:00'
+extracted_from_pages: [9, 41, 42, 48]
+extraction_method: tavily-extract (advanced) of TI vendor-direct PDF datasheet
+extraction_source: embedded_dev/ti/datasheet/MSPM0L1306_datasheet.pdf
+datasheet_source_url: https://www.ti.com/lit/ds/symlink/mspm0l1306.pdf
+source_pdf: ../../embedded_dev/ti/datasheet/MSPM0L1306_datasheet.pdf

@@ -1,0 +1,149 @@
+part: dsPIC33CK
+link_status: verified_2026-07-10 (datasheet-pdf-mirror-extracted)
+expected_family: "Microchip dsPIC33CK \u2014 16-bit DSC @ 100 MIPS (DSP + MCU motor control)"
+main_page: https://www.microchip.com/en-us/products/microcontrollers/dspic-dscs/dspic33c/dspic33ck-single-core-dsc
+datasheet_path_expected: ../../embedded_dev/microchip/datasheet/dsPIC33CK256MP508.pdf
+datasheet_source_note: >
+  Mirror PDF (4.54 MB, DS70005349F, 2017-2019) downloaded 2026-07-10 from docs.rs-online.com/233a/0900766b816f9c94.pdf
+  (200 OK). Covers dsPIC33CK256MP508 family (28-80 pin 16-bit DSCs with high-resolution PWM and CAN FD).
+  Note: dsPIC33CK has multiple sub-variants (CK256/CK128/CK64/CK32 + MC = Motor Control / MP = Mainstream
+  / SC = Sensor Control / VC = Value Line).
+created_at: '2026-07-10T22:38:00+08:00'
+specs:
+  family: Microchip dsPIC33CK Single-Core Digital Signal Controllers (DSC family)
+  cores:
+  - 16-bit dsPIC33 CPU @ 100 MIPS (DC to 100 MHz operation)
+  - DSP engine: single-cycle MAC/MPY with dual data fetch, 32-bit multiply support, 40-bit wide accumulators
+  performance:
+    mips: 100
+    core_frequency_mhz: 100 (DC to 100 MHz operation)
+    divide: fast 6-cycle divide
+    loop: zero-overhead looping
+    context_save: 4 sets of interrupt context saving registers
+  memory:
+    flash_kb_options: [32, 64, 128, 256]
+    flash_ecc: yes (ECC on program Flash)
+    ram_kb_options: [8, 16, 24]
+    mbist: yes (RAM Memory Built-In Self-Test)
+    live_update: yes (LiveUpdate runtime firmware swap)
+  operating_conditions:
+    voltage_v: '3.0-3.6 V'
+    temperature_c: '-40 to +125 (DC to 100 MIPS); -40 to +150 (DC to 70 MIPS)'
+  high_speed_pwm:
+    pairs_count: 8 (PWM pairs)
+    resolution_ps: 250 (picosecond PWM resolution)
+    dead_time: yes (rising + falling edges)
+    dead_time_compensation: yes
+    clock_chopping: yes (high-frequency operation)
+    fault_inputs: yes (fault and current limit)
+    adc_trigger: yes (flexible trigger configuration)
+    applications:
+    - DC/DC converters
+    - AC/DC
+    - inverters + PFC (Power Factor Correction)
+    - lighting
+    - BLDC / PMSM / ACIM / SRM motors
+  timers:
+    ptg: yes (Peripheral Trigger Generator; up to 15 trigger sources, CPU-independent state machine)
+    mccp_count: 1 (Multi-Capture/Compare/PWM)
+    sccp_count: 8 (Single CCP)
+    timer_modes: timer / capture / compare / PWM
+    time_base_bits: [16, 32]
+    capture_buffer_depth: 4
+    sleep_operation: yes (fully asynchronous, available in Sleep modes)
+  analog:
+    adc_resolution_bits: 12
+    adc_count: 2 (dual dedicated SAR)
+    adc_sample_rate_msps: 2 (per ADC)
+    dac: yes
+    comparator: yes
+    high_speed_adc_features:
+    - 12-bit SAR with two dedicated ADCs
+    - Up to 250 ps resolution
+    - Hardware accumulation (averaging)
+  motor_control_subfamily: 'dsPIC33CK_MC1 (e.g., CK64MC105, CK128MC506, CK256MC510)'
+  communication:
+    can_fd: yes (CAN Flexible Data)
+    uart: 2x
+    spi: 3x (8 MHz)
+    i2c: 2x
+    usb: not specified (some variants have USB)
+    qei: yes (Quadrature Encoder Interface for motor commutation)
+  package_options:
+  - 28-pin
+  - 36-pin
+  - 48-pin
+  - 64-pin
+  - 80-pin
+  security:
+    flash_ecc: yes
+  price:
+    value_line_start_usd: 0.51 (at volume; CK256MP508-class)
+    notes: 'Cost-optimized for motor control; 100 MIPS at $0.51 starting price (May 2026 launch)'
+  use_cases:
+  - Motor control (FOC for BLDC/PMSM, sensorless control)
+  - Digital power conversion (DC-DC, AC-DC, PFC, inverters)
+  - LED lighting drivers (high-resolution PWM)
+  - Automotive body ECUs (Grade 1 qualified)
+  - Industrial servo drives
+  - Solar micro-inverters
+  ecosystem:
+    languages:
+    - C (XC16 compiler)
+    - Assembly (dsPIC assembler)
+    frameworks:
+    - MPLAB X IDE
+    - MPLAB Harmony v3
+    - Motor Control Application Framework (MCAF)
+    debuggers:
+    - MPLAB ICD 4 / ICD 5
+    - MPLAB PICkit 4
+    - On-board debugger (some variants have built-in debugger)
+  product_families:
+  - name: dsPIC33CK_MC1
+    description: Motor Control family (e.g., CK64MC105, CK128MC506, CK256MC510)
+    flash_range_kb: '64-256'
+    applications: 'BLDC/PMSM/ACIM motor FOC, automotive body ECUs'
+  - name: dsPIC33CK_MP
+    description: Mainstream Performance (e.g., CK256MP508)
+    flash_range_kb: '32-256'
+    applications: General-purpose DSC with CAN FD
+  - name: dsPIC33CK_SC
+    description: Sensor / Control (e.g., CK64SC105)
+    flash_range_kb: '32-128'
+    applications: Sensor processing, basic control
+  - name: dsPIC33CK_VC
+    description: Value Line (May 2026 launch at $0.51)
+    flash_range_kb: '32-256'
+    applications: Cost-optimized motor control
+unverified:
+- exact Flash sizes per pin-package combination (PDF Table 1 not in extracted sections)
+- exact SPI max clock frequency per variant (datasheet references 8 MHz for SPI but full table not extracted)
+- exact QEI module count per sub-family (CK_MC has QEI; CK_MP / CK_SC may not)
+- exact USB module availability per sub-family (not all variants have USB)
+notes:
+- "New yaml entry 2026-07-10 — Microchip dsPIC33CK Value Line digital signal controller family. The 16-bit
+  DSC architecture (MCU + DSP) is unique to Microchip and gives it a unique position in motor control /
+  digital power conversion markets. New Value Line sub-series launches May 2026 starting at $0.51."
+- 'Use case: motor control (FOC for BLDC/PMSM/ACIM/Reluctance motors); digital power conversion
+  (DC-DC, AC-DC, PFC, inverters); LED lighting; solar micro-inverters. 100 MIPS with 250 ps PWM
+  resolution makes this the highest-precision motor control DSC in this price range.'
+- 'Family differentiator vs STM32G4 (existing yaml): STM32G4 is Cortex-M4 @ 170 MHz with CORDIC + FMAC math
+  accelerators; dsPIC33CK is 16-bit DSC @ 100 MIPS with DSP MAC engine. dsPIC33CK wins on DSP single-cycle
+  MAC/MPY (vs Cortex-M4 MAC takes multiple cycles), dedicated motor-control peripherals (PTG + 8 PWM pairs +
+  dead-time comp), and longer history in motor control (Microchip owns the market). STM32G4 wins on
+  faster clock, 32-bit architecture, and broader peripheral set.'
+- 'Family differentiator vs TI C2000 (e.g., TMS320F28004x): C2000 is 32-bit DSC @ 100-200 MHz with CLA
+  coprocessor; dsPIC33CK is 16-bit DSC @ 100 MIPS without CLA. C2000 wins on higher frequency and 32-bit
+  precision; dsPIC33CK wins on lower cost (~$0.51 starting price vs C2000 ~$5 starting price) and ease of
+  use. Pick C2000 for high-end motor control / solar inverters; pick dsPIC33CK for cost-sensitive
+  appliance / consumer motor control.'
+- 'Verified 2026-07-10 via Tavily (extract_depth=advanced) on rs-online.com mirror PDF + product page:
+  50+ spec fields filled including core/MIPS/Flash/RAM/PWM/timers/ADC/CAN-FD. 4 unverified fields remain
+  where datasheet details vary per sub-variant.'
+extracted_at: '2026-07-10T22:38:00+08:00'
+extracted_from_pages: [1, 2, 16, 22]
+extraction_method: tavily-extract (advanced) of Microchip datasheet via docs.rs-online.com mirror
+extraction_source: embedded_dev/microchip/datasheet/dsPIC33CK256MP508.pdf
+datasheet_source_url: https://docs.rs-online.com/233a/0900766b816f9c94.pdf
+source_pdf: ../../embedded_dev/microchip/datasheet/dsPIC33CK256MP508.pdf

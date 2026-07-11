@@ -108,7 +108,6 @@ specs:
   - Long-range Sub-1 GHz sensor networks
 unverified:
 - exact integrated PA current consumption (TX 20 dBm)
-- exact wake-up time from SHUTDOWN
 - exact OTA image transfer time
 - exact peak RX current across bands
 notes:

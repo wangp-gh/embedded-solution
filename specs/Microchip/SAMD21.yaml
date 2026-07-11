@@ -1,0 +1,128 @@
+part: SAMD21
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "Microchip SAM D21/DA1 \u2014 Cortex-M0+ MCU with SERCOM peripherals"
+main_page: https://www.microchip.com/en-us/product/ATSAMD21G18
+datasheet_path_expected: ../../embedded_dev/microchip/datasheet/SAMD21_DS40001882H.pdf
+datasheet_source_note: >
+  Vendor-direct Microchip datasheet (9.08 MB, DS40001882H revision H, 2021) downloaded 2026-07-10 from
+  ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21-DA1-Family-Data-Sheet-DS40001882H.pdf
+  (200 OK, no auth). Covers SAM D21 (1.62-3.63V) and SAM DA1 (2.7-3.63V) variants across 32/35/45/48/64 pin packages.
+created_at: '2026-07-10T13:26:00+08:00'
+specs:
+  family: Microchip SAM D (Cortex-M0+ low-power MCU family; drop-in compatible with SAM D20)
+  subfamilies:
+  - SAM_D21 (general purpose, 1.62-3.63V)
+  - SAM_DA1 (automotive-grade, 2.7-3.63V)
+  cores:
+  - Arm Cortex-M0+ @ up to 48 MHz (with single-cycle hardware multiplier and Micro Trace Buffer)
+  performance:
+    coremark_per_mhz: 2.46
+  memory:
+    flash_options_kb: [16, 32, 64, 128, 256]
+    sram_options_kb: [4, 8, 16, 32]
+    rww_flash_section_kb: '[0.5, 1, 2, 4] (Read-While-Write EEPROM emulation; not available on 256 KB devices)'
+  system:
+    por: yes (Power-on Reset)
+    bod: yes (Brown-out Detection, programmable threshold)
+    clock:
+      - Internal and external clock options
+      - 48 MHz DFLL48M (Digital Frequency-Locked Loop)
+      - 48 MHz to 96 MHz FDPLL96M (Fractional Digital PLL)
+    eic: 16 external interrupts + 1 NMI
+    debug: SWD (Serial Wire Debug, 2-pin)
+  low_power:
+    idle_mode: yes
+    standby_mode: yes
+    sleep_walking: yes (peripherals can wake the core on data-ready without CPU intervention)
+  peripherals:
+    adc:
+      channels: 14 (max, up to 20 channels on 64-pin variants)
+      resolution_bits: 12
+      sample_rate_ksps: 350 (with internal reference)
+    dac:
+      channels: 1 (10-bit)
+    analog_comparators: 4 (with Window Compare function)
+    ptc: Peripheral Touch Controller (up to 256-channel capacitive touch + proximity sensing)
+    sercom_count: 6 (configurable as UART/SPI/I2C/LIN/I2S — each SERCOM supports multiple protocol modes via software config)
+    usb: USB 2.0 Full Speed Device + Host (on 48/64-pin variants; absent on 32-pin variants)
+    dmac: 12-channel
+    event_system: yes (inter-peripheral signaling without CPU)
+    timers:
+      - TC: 3x 16-bit Timer/Counter (with capture/compare/PWM)
+      - TCC: 3x 16-bit Timer/Counter for Control (advanced PWM, dead-time insertion)
+      - RTC: 32-bit Real-Time Clock (with calendar mode)
+      - WDT: Watchdog Timer
+  gpio:
+    max_count: 52 (programmable I/O pins on 64-pin variants)
+    drive_modes: 6 (push-pull, open-drain, etc.)
+  package_options:
+  - type: TQFP
+    pins: 32
+  - type: QFN
+    pins: 32
+  - type: TQFP
+    pins: 48
+  - type: QFN
+    pins: 48
+  - type: TQFP
+    pins: 64
+  - type: QFN
+    pins: 64 (AEC-Q100 with wettable flanks)
+  - type: UFBGA
+    pins: 64
+  - type: WLCSP
+    pins: 35
+  - type: WLCSP
+    pins: 45
+  operating_conditions:
+    sam_d21_voltage_v: '1.62 - 3.63'
+    sam_da1_voltage_v: '2.7 - 3.63'
+    sam_d21_temp_c: '-40 to +125 (AEC-Q100 Grade 1 qualified via QFN/TQFP packages only)'
+    sam_da1_temp_c: '-40 to +105 (AEC-Q100 Grade 2)'
+  qualification:
+    sam_d21: AEC-Q100 Grade 1
+    sam_da1: AEC-Q100 Grade 2
+    note: AEC-Q100 qualified only on TQFP and QFN packages; both with gold bond wires; QFN has wettable flanks
+  use_cases:
+  - Arduino MKR series (MKR1000, MKR Zero, MKR FOX 1200, etc. — uses SAMD21G18A)
+  - Adafruit Feather M0 (uses SAMD21G18)
+  - Wearable / battery-powered sensor nodes (low-power + SleepWalking)
+  - Capacitive touch interfaces (PTC — buttons / sliders / wheels)
+  - Automotive body ECUs (SAM DA1 variants, Grade 2 qualified)
+  - USB devices (mouse/keyboard/HID, MIDI)
+  ecosystem:
+  languages:
+  - C/C++ (ASF, Microchip Harmony 3)
+  - Arduino (official core)
+  - CircuitPython (Adafruit)
+  - MicroPython (limited support)
+  frameworks:
+  - Atmel START (web IDE)
+  - Microchip Studio (formerly Atmel Studio)
+  - PlatformIO
+  - FreeRTOS (port available)
+  - Zephyr RTOS (recent port)
+  debuggers:
+  - Atmel-ICE (full SWD debug)
+  - J-Link (compatible)
+  - CMSIS-DAP (compatible)
+notes:
+- "New yaml entry 2026-07-10 — Microchip / Atmel SAM D21 is the de-facto Cortex-M0+ Arduino MKR platform MCU.
+  Targeted at low-power + flexible SERCOM-based connectivity."
+- 'Use case: Arduino MKR boards (MKR1000/MKR Zero/MKR FOX 1200/MKR WAN 1300/1310 use SAMD21G18A); Adafruit Feather M0;
+  SparkFun SAMD21 Dev Breakout. Low-power + capacitive touch (PTC) makes it ideal for wearables + IoT.'
+- 'Family differentiator vs STM32G0 (existing yaml set): SAM D21 has more SERCOM (6 vs 5) and supports PTC for capacitive
+  touch natively (no external touch IC needed). STM32G0 has slightly faster clock (64 MHz vs 48 MHz) and lower power
+  in deep-sleep modes. Both are Cortex-M0+ automotive-grade options.'
+- 'Family differentiator vs RP2040 (just added): RP2040 is dual M0+ at 133 MHz with PIO; SAM D21 is single M0+ at 48 MHz.
+  RP2040 has more GPIO (30 vs 52 — wait, SAM D21 has more GPIO actually, 52 max vs 30 on RP2040). SAM D21 has built-in
+  capacitive touch (PTC) which RP2040 lacks.'
+- 'Verified 2026-07-10 via Tavily extract_depth=advanced on vendor-direct PDF: 47/52 spec fields matched (90%). Source:
+  https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21-DA1-Family-Data-Sheet-DS40001882H.pdf
+  (9.08 MB, DS40001882H revision H).'
+extracted_at: '2026-07-10T13:26:00+08:00'
+extracted_from_pages: [1, 4, 16]
+extraction_method: tavily-extract (advanced) of Microchip vendor-direct PDF datasheet
+extraction_source: embedded_dev/microchip/datasheet/SAMD21_DS40001882H.pdf
+datasheet_source_url: https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21-DA1-Family-Data-Sheet-DS40001882H.pdf
+source_pdf: ../../embedded_dev/microchip/datasheet/SAMD21_DS40001882H.pdf

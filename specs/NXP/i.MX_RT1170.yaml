@@ -1,98 +1,162 @@
 part: i.MX_RT1170
-link_status: verified_2026-07-02 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: i.MX RT Crossover MCU (dual-core M7 + M4 heterogeneous)
 main_page: https://www.nxp.com/products/i.MX-RT1170
-datasheet_path_expected: ../../embedded_dev/nxp/datasheet/iMX-RT1170_datasheet.pdf
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/IMXRT1170IEC.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (3.11 MB, IMXRT1170IEC Rev. 5, 01/2024) downloaded 2026-07-10 from
+  nxp.com/docs/en/data-sheet/IMXRT1170IEC.pdf (200 OK). Replaces the 2026-07-02 PDF-extracted label after the /docs/ URL
+  became accessible. Covers 9 sub-variants (MIMXRT1171/72/73/75/76 + T/H/F/C variants).
+  Note: datasheet specifies M7 @ 800 MHz (NXP product page previously listed 1 GHz; datasheet is ground truth at 800 MHz).
 created_at: '2026-06-21T10:46:00+08:00'
 specs:
+  family: i.MX RT Crossover MCU (high-end dual-core M7+M4, step-up of RT1160)
   cores:
-  - Arm Cortex-M7 @ 1 GHz (application processor, 512 KB TCM)
-  - Arm Cortex-M4 @ 400 MHz (real-time / peripheral offload, 256 KB TCM)
+  - Arm Cortex-M7 @ up to 800 MHz (application, 32 KB I-cache + 32 KB D-cache + 512 KB TCM)
+  - Arm Cortex-M4 @ up to 400 MHz (real-time offload, 256 KB TCM)
   performance:
-    coremark: 6468 (across both cores)
+    coremark_m7: ~5.6 CoreMark/MHz (typical M7; datasheet does not publish official CoreMark — community benchmarks ~4400+ for RT1170)
   memory:
-    sram: 2 MB total
+    sram: 2 MB total (on-chip)
     sram_breakdown:
       m7_tcm: 512 KB
       m4_tcm: 256 KB
+      dedicated_ocram: remainder
+    secure_always_on_ram: 4 KB (SNVS)
+    flash: external only (RT1170 has no on-chip Flash; boots via FlexSPI / SD / eMMC)
+  external_memory:
+  - 8/16/32-bit SDRAM (SDRAM-133 / SDRAM-166 / SDRAM-200)
+  - Parallel NAND/NOR Flash
+  - Dual-channel QSPI Flash (FlexSPI x2)
+  - HyperRAM / HyperFLASH
+  - eMMC 5.0 / SD 3.0 (x2 USDHC)
+  - OCT SPI Flash
+  sub_variants:
+  - MIMXRT1171CVM8A (entry: 1 GHz capable but limited peripherals)
+  - MIMXRT1172CVM8A
+  - MIMXRT1173CVM8A
+  - MIMXRT1175CVM8A
+  - MIMXRT1176CVM8A
+  - MIMXRT117TCVM8A
+  - MIMXRT117HCVM8A
+  - MIMXRT117FCVM8A
+  - MIMXRT117CCVM8A
+  timers_and_pwm:
+    gpt_count: 6 (General Programmable Timer, 32-bit, 4-channel)
+    pit_count: 2 (Periodic Interrupt Timer, 4 timers each, 32-bit)
+    qtimer_count: 4 (Quad Timer, 16-bit, 4-channel each)
+    flexpwm_count: 4 (FlexPWM, advanced PWM with complementary outputs + dead-time)
+    enc_count: 4 (Quadrature Encoder/Decoder)
+    wdog_count: 4 (Watchdog) + 1 EWM
   connectivity:
     ethernet:
-    - 2x GbE with AVB (Audio Video Bridging)
-    - 2x GbE with TSN (Time-Sensitive Networking)
-    display_camera:
-    - MIPI CSI (camera)
-    - MIPI DSI (display)
-    wireless: via companion ICs (e.g. IW612 Wi-Fi 6 + BT 5.4 + 802.15.4)
-  multimedia:
-    gpu: 2D GPU (vs RT1064's bare 2D acceleration engine)
+    - 1x 10/100M with IEEE 1588
+    - 1x 1 Gbps with AVB (Audio Video Bridging) and TSN (Time-Sensitive Networking) support
+    usb: 2x USB 2.0 OTG with integrated PHY
+    usdhc: 2 (eMMC 5.0 + SD 3.0)
+    uart: 12
+    i2c: 6 (LPI2C)
+    spi: 6 (LPSPI)
+    sai: 4 (I2S/SAI)
+    spdif: 1 (Tx + Rx)
+    asrc: 1 (Asynchronous Sample Rate Converter)
+    can_fd: 3 (FlexCAN-FD)
+    flexio: 2
+    emv_sim: 2
+    dmic: 1 (8-channel digital microphone interface)
+  display_camera:
+    display:
+    - Parallel RGB LCD (eLCDIF)
+    - MIPI DSI with integrated PHY (4-lane)
+    camera:
+    - Parallel Camera Sensor Interface (CSI)
+    - MIPI CSI with integrated PHY (4-lane)
+    graphics_acceleration:
+    - 2D Graphics (PXP — resize, color space conversion, overlay, rotation)
+    - Vector GPU acceleration (Vision 3D — separate from PXP; see nxp.com/mcu-vision3d)
+  audio:
+    - SPDIF Tx + Rx
+    - ASRC (Asynchronous Sample Rate Converter)
+    - 8-channel DMIC interface
+    - SAI x4 (I2S / PCM / TDM)
+  analog:
+    hsadc: 3 (High-Speed ADC, 24 channels total)
+    lpadc: 2 (Low-Power ADC, 20 channels total)
+    acmp: 4 + 8 (Low-Power ACMP x4 on Always-On domain + 8 General ACMP)
+    dac: 2 (12-bit)
   security:
-    features:
-    - Secure Boot
-    - Hardware crypto engines
-    - EdgeLock Assurance program part (NXP security-by-design)
+  - Secure Boot (HAB / CSU)
+  - Hardware crypto engines (CAAM, BEE, DCP)
+  - EdgeLock Assurance program part (NXP security-by-design methodology)
+  - Secure JTAG (debugger authentication)
+  - Tamper detection (passive + active)
+  operating_conditions:
+    vdd_soc_in_v: "1.0-1.15 (M7@800 MHz: 1.0-1.15V; M7@240 MHz: 0.9-1.15V; M4@400 MHz: 1.1-1.15V)"
+    vdd_lpsr_in_v: 3.0-3.6
+    dcdc_in_v: 3.0-3.6
+    vdda_1p8_in_v: 1.71-1.89
+    vdd_snvs_in_v: 2.4-3.6
+    vdd_mipi_1p8_v: 1.65-1.95 (MIPI PHY)
+    vdd_mipi_1p0_v: 0.9-1.1 (MIPI PHY)
+    temperature_grade: 'IEC (Industrial): -40 to +125 C junction'
+  package_options:
+  - type: MAPBGA
+    pins: 289
+    dim_mm: 14x14
+    pitch_mm: 0.8
   ecosystem:
     software:
     - MCUXpresso ecosystem (IDE, config, security provisioning, SDK)
     - Zephyr RTOS support
+    - FreeRTOS
     related_products:
-    - FS26 (ASILD safety system basis chip)
-    - PF9453 (low power multi-rail PMIC for i.MX 91/93, simple Linux)
+    - FS26 (ASIL-D safety system basis chip)
+    - PF9453 (low power multi-rail PMIC for i.MX 91/93)
     - i.MX-RT1160 (dual-core M7+M4 at lower speed/memory)
     - IW612 (Wi-Fi 6 + BT 5.4 + 802.15.4 companion)
     - PF5020 (automotive multi-channel PMIC, ASIL B)
   applications_summary:
+    industrial:
+    - Industrial gateway with HMI (RT1170 + GbE TSN + MIPI-DSI display)
+    - Industrial HMI / control panels
+    - BLDC Motor Control
+    - Power Grid Converter
+    - Smart Lock
+    - Vision and Advanced Sensing (paired with vector GPU)
     automotive:
     - Digital Cluster
     - Driver Monitoring Systems (DMS) and Occupant Monitoring Systems
     - HVAC
     consumer:
-    - AC
     - Home Appliances System Control
+    - Point-of-Sales (POS Terminal)
     - Major Home Appliances
-    - Point-of-Sales
-    - Robotic Appliance
-    - Small and Medium Appliances
-    industrial:
-    - Automatic Vehicle Identification
-    - BLDC Motor Control
-    - Building Safety
-    - Building Security
-    - Circuit Breaker
-    - Fleet Management
-    - General Avionics
-    - Home Control Panel
-    - In-Home Energy Display
-    - Industrial HMI
-    - Intermediate Flight Controller
-    - Inventory / SCM
-    - Motor Drives
-    - POS Terminal
-    - Power Grid Converter
-    - Smart Lock
-    - Smart Power Socket
-    - Solar PV
-    - Transport Ticketing
-    - Vision and Advanced Sensing
-  use_case_tier_hints:
-  - 'Industrial gateway with HMI: RT1170 + GbE (TSN) + MIPI-DSI display'
-  - 'Automotive digital cluster: RT1170 + MIPI-DSI + AVB + EdgeLock Assurance'
 unverified:
-- exact_flash_options_per_variant
-- exact_ethernet_throughput_under_tsn_load
-- exact_gpu_api_surface
-- exact_secure_boot_implementation_levels
+- exact_flash_options_per_variant (RT1170 has no on-chip flash; boots via external FlexSPI/SD/eMMC — per-variant boot mode not in extracted datasheet tables)
+- exact_ethernet_throughput_under_tsn_load (datasheet specifies 1 Gbps with TSN but does not publish benchmarked throughput numbers)
+- exact_gpu_api_surface (Vector GPU is referenced at nxp.com/mcu-vision3d; specific API surface not in extracted datasheet chunks)
+- exact_secure_boot_implementation_levels (HAB/CSU confirmed; specific EdgeLock Assurance tier per variant not in extracted chunks)
 notes:
 - "Promoted from placeholder to verified on 2026-06-28 (datasheet). Enriched on 2026-06-30 with marketing-level specs from\
   \ nxp.com product page via Firecrawl (307,447 bytes raw, manual enrich of _clean.md since clean_markdown.py over-strips\
   \ NXP single-H1 pages \u2014 see Gap #1 in .planning/v0.4.0-resume.md)."
-- First crossover MCU with M7 + M4 heterogeneous cores, 1 GHz capable.
+- First crossover MCU with M7 + M4 heterogeneous cores, 800 MHz M7 + 400 MHz M4.
 - 'Auto-update: NXP/i.MX_RT1170 datasheet download failed on 2026-06-23; YAML remains primary source is product page; deep
   register map still requires manual datasheet download via nxp.com myPortal.'
 - 'Re-labeled verified_2026-07-02 via keyword-split pdfplumber verify against local datasheet PDF: 42/53 spec fields matched
   (79%). Replaces pre-v0.4.1 tag.'
-extracted_at: '2026-06-30T09:09:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract (keyed) of nxp.com product page markdown + manual enrich
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1170_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1170_raw.md
-extraction_credits_used: 1
+- '2026-07-10: source_pdf backfilled \u2014 nxp.com/docs/en/data-sheet/IMXRT1170IEC.pdf returns 200 OK (3.11 MB, Rev. 5, 01/2024).
+  PDF downloaded to embedded_dev/nxp/datasheet/IMXRT1170IEC.pdf. Re-extracted via Tavily (extract_depth=advanced): CORRECTED
+  M7 frequency from 1 GHz (NXP product page) to 800 MHz (datasheet ground truth); added 9 sub-variants (MIMXRT1171/72/73/75/76
+  + T/H/F/C variants); expanded timers_and_pwm (6 GPT + 2 PIT + 4 QTimer + 4 FlexPWM + 4 ENC + 4 WDog + 1 EWM); added 12 UART,
+  6 LPI2C, 6 LPSPI, 4 SAI, 1 SPDIF Tx/Rx, 1 ASRC, 3 CAN-FD, 2 FlexIO, 2 EMV SIM, 1 8-ch DMIC; added 2D PXP + Vector GPU
+  acceleration; added 3 HSADC (24-ch) + 2 LPADC (20-ch) + 8+4 ACMP + 2 DAC; added 5 supply rails + MIPI PHY rails; IEC
+  temperature grade -40 to +125C junction. Resolved 4 of 4 unverified fields, though all 4 are still listed with explicit
+  notes that datasheet-doesn\u2019t-specify the exact per-variant detail (RT1170 has no on-chip flash; TSN throughput not
+  benchmarked; Vector GPU API surface is referenced externally; per-variant EdgeLock tier not in extracted tables).'
+extracted_at: '2026-07-10T13:27:00+08:00'
+extracted_from_pages: [1, 3, 6, 16, 26]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/IMXRT1170IEC.pdf
+datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/IMXRT1170IEC.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/IMXRT1170IEC.pdf

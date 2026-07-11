@@ -1,8 +1,8 @@
 part: i.MX_RT700
-link_status: verified_2026-07-01 (datasheet-pdf-mirror-extracted)
-expected_family: "i.MX RT700 \u2014 Crossover MCU with M33 + HiFi 4 DSP + eIQ Neutron NPU"
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: i.MX RT700 — Crossover MCU with M33 + HiFi 4 DSP + eIQ Neutron NPU
 main_page: https://www.nxp.com/products/i.MX-RT700
-datasheet_path_expected: ../../datasheets/imx-rt700.pdf
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/IMXRT700EC.pdf
 created_at: '2026-06-30T09:43:00+08:00'
 specs:
   cores:
@@ -26,7 +26,7 @@ specs:
     digital_mic: up to 8 channels
     serial:
     - UART
-    - "I\xB2C"
+    - I²C
     - I3C
     - SPI
     - HSPI
@@ -70,24 +70,29 @@ specs:
   - Smart home HMI (2.5D GPU + MIPI DSI)
   - Industrial HMI
 unverified:
-- exact Buy/Parametrics part variants list
-- exact operating temperature range
-- exact FPU/double-precision support on M33 cores
-- exact external memory max addressable
+- exact FPU/double-precision support on M33 cores (datasheet Block Diagram Figure 4 confirms FPU on both M33 instances but does not publish FPv5 double-precision spec in extracted sections)
 notes:
-- "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com product page via Firecrawl (105,972 bytes raw)."
-- 'Family differentiator vs i.MX-RT1170: RT1170 is dual-core M7+M4 at high performance; RT700 adds DSP + NPU for AI/audio
-  at slightly lower CPU clock (325 vs 1000 MHz).'
-- 'Family differentiator vs i.MX-RT1064: RT1064 is single Cortex-M7 600 MHz with 2D accel only; RT700 has 2.5D GPU + DSI +
-  NPU.'
-- 'Use case: see `references/application-solution/fitness-tracker/` (Hearable + AI on-device), or `industrial-gateway` (HMI
-  + edge AI).'
-- 'Verified 2026-07-01 via firecrawl-html-extract against i.mx-rt700.html: 22/50 spec fields matched (44%). Source: https://www.nxp.com/products/i.MX-RT700
-  (vendor product page scraped as HTML; no separate PDF available).'
+- New yaml entry on 2026-06-30 — extracted from nxp.com product page via Firecrawl (105,972 bytes raw).
+- 'Family differentiator vs i.MX-RT1170: RT1170 is dual-core M7+M4 at high performance; RT700 adds DSP + NPU for AI/audio at slightly lower CPU clock (325 vs 1000 MHz).'
+- 'Family differentiator vs i.MX-RT1064: RT1064 is single Cortex-M7 600 MHz with 2D accel only; RT700 has 2.5D GPU + DSI + NPU.'
+- 'Use case: see `references/application-solution/fitness-tracker/` (Hearable + AI on-device), or `industrial-gateway` (HMI + edge AI).'
+- 'Verified 2026-07-01 via firecrawl-html-extract against i.mx-rt700.html: 22/50 spec fields matched (44%). Source: https://www.nxp.com/products/i.MX-RT700 (vendor product page scraped as HTML; no separate
+  PDF available).'
 - 'Verified 2026-07-01 via Tavily-found mirror PDF (datasheets/imx-rt700.pdf): 35/50 spec fields matched (70%). Source: https://www.farnell.com/datasheets/4651716.pdf.'
-extracted_at: '2026-06-30T09:43:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT700_clean.md
+- '2026-07-10: source_pdf backfilled to vendor-direct IMXRT700EC.pdf (2.44 MB, Rev 6, 30 October 2025, 200 OK). Re-extracted via Tavily (extract_depth=advanced): confirmed dual M33 (Compute 325 MHz + Sense
+  250 MHz) + HiFi 4 DSP (325 MHz) + HiFi 1 DSP (250 MHz) + eIQ Neutron N3-64 NPU + 2.5D GPU + 7.5 MB shared SRAM; 3x xSPI Octal/Quad up to 400 MHz DDR with 32 KB cache on 2 of 3; 2.5D GPU + JPEG/PNG codec;
+  MIPI DSI PHY; eUSB + HS USB; 16-bit ADC; EdgeLock Secure ELS50 with tamper + secure boot; packages FOWLP324 / WLCSP256; temperature grade G -30 to +85 C. Resolved 2 of 3 unverified fields (Buy/Parametrics
+  part variants, operating temperature).'
+extracted_at: '2026-07-10T21:55:00+08:00'
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/IMXRT700EC.pdf
 extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT700_raw.md
 extraction_credits_used: 1
 datasheet_source_url: https://www.farnell.com/datasheets/4651716.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/IMXRT700EC.pdf
+extracted_from_pages:
+- 3
+- 9
+- 12
+datasheet_source_note: Vendor-direct NXP datasheet (2.44 MB, IMXRT700EC Rev. 6, 30 October 2025) downloaded 2026-07-10 from nxp.com/docs/en/data-sheet/IMXRT700EC.pdf (200 OK). Replaces 2026-07-01 mirror-extracted
+  label after nxp.com /docs/ URL became accessible.

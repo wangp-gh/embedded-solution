@@ -60,10 +60,8 @@ specs:
   - HVAC control with touch
   - Wearable / fitness (touch-based)
 unverified:
-- exact flash endurance / retention
 - exact ADC sample rate
 - exact standby current
-- exact capacitive touch channel count
 - exact CAN-FD vs CAN 2.0B
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from renesas.com RA2L1 product page via Firecrawl (25,345 bytes raw)."

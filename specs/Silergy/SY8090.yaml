@@ -18,15 +18,15 @@ specs:
   related_silergy_subcategory: dc-dc-converters (synchronous buck)
   part_number_patterns: SY8090xxx (typical)
 unverified:
-- exact_input_voltage_range_v
-- exact_max_output_current_a
-- exact_switching_frequency_mhz
-- exact_feedback_voltage_v
-- exact_efficiency_at_load
-- exact_quiescent_current_ua
-- exact_output_voltage_options
-- thermal_shutdown_threshold_c
-- exact_package_dimensions
+- exact_input_voltage_range_v (no datasheet PDF accessible; silergy.com returns "file has not been uploaded" for SY8090; part appears archived)
+- exact_max_output_current_a (no datasheet PDF accessible; Tavily search 2026-07-10 found no public mirror for SY8090)
+- exact_switching_frequency_mhz (no datasheet PDF accessible)
+- exact_feedback_voltage_v (no datasheet PDF accessible)
+- exact_efficiency_at_load (no datasheet PDF accessible)
+- exact_quiescent_current_ua (no datasheet PDF accessible)
+- exact_output_voltage_options (no datasheet PDF accessible; ABC suffix variants not documented in extracted sources)
+- thermal_shutdown_threshold_c (no datasheet PDF accessible)
+- exact_package_dimensions (no datasheet PDF accessible)
 notes:
 - "Promoted from \"missing yaml\" to family-page-only_2026-06-30 \u2014 Silergy product pages are JS-rendered and not accessible\
   \ via Firecrawl scrape."
@@ -38,13 +38,16 @@ notes:
   \ available from public distributors. Status: pending-datasheet-2026-07-01 \u2014 no public mirror found; requires vendor-direct\
   \ download from silergy.com (logged-in). Roadmap: v0.4.1."
 - "Verified 2026-07-01 via LCSC distributor listing page (https://www.lcsc.com/search?q=SY8090). LCSC page confirms part exists\
-  \ in catalog (vendor-direct datasheet not available \u2014 Silergy requires logged-in download from silergy.com). Spec values\
+  in catalog (vendor-direct datasheet not available \u2014 Silergy requires logged-in download from silergy.com). Spec values\
   \ remain from family-overview inference (verified-via-distributor confirms part exists, not deep spec)."
 - 'Verified 2026-07-01 via firecrawl /v2/crawl (silergy.com/list/Buck + classOverview/dc-dc) + LCSC + Tavily. Result: SY8090
   is archived at silergy.com (not in active Buck listing). Distributor 0 results. Spec values remain family-overview inference.
   See Gap #3 in VERIFICATION.md for full closure path.'
-extracted_at: '2026-06-30T01:10:00+08:00'
-extracted_from_pages: []
-extraction_method: family-overview inference (product page JS-rendered, not accessible)
+- '2026-07-10: Tavily search re-confirmed no public datasheet PDF mirror for SY8090 (vendor-direct silergy.com download link
+  returns "file has not been uploaded" message; alldatasheet.com has SY8008A family parts but not SY8090 directly). All 9
+  unverified fields re-classified as "no datasheet PDF accessible". Status remains family-overview-via-crawl (Silergy vendor-direct
+  404 \u2014 confirmed by Gap #3 close-out notes).'
+extracted_at: '2026-07-10T12:02:00+08:00'
+extraction_method: family-overview inference (no PDF access — silergy.com returns 404 for SY8090 datasheet)
 extraction_source: references/semiconductor-vendor/Silergy/firecrawl-snapshots/DC-DC_clean.md
 datasheet_source_url: https://www.lcsc.com/search?q=SY8090

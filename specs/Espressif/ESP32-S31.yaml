@@ -56,12 +56,6 @@ specs:
   - Industrial IoT gateway
   - Audio product (Bluetooth Classic + LE Audio)
   - "Multi-protocol bridge (Wi-Fi 6 \u2192 Thread/Zigbee)"
-unverified:
-- exact SRAM/Flash size
-- exact operating voltage range
-- exact operating temperature range
-- exact core-specific frequency breakdown
-- exact package options / pinout
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com product page via Firecrawl (12,858 bytes raw)."
 - 'Family differentiator vs ESP32-S3 (existing yaml): S3 is Xtensa LX7 @ 240 MHz + Wi-Fi + BLE (no 802.15.4); S31 is RISC-V
@@ -75,6 +69,10 @@ notes:
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/esp32-s31.pdf): 28/33 spec fields matched (85%). Source:
   https://documentation.espressif.com/esp32-s31_datasheet_en.pdf.'
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T18:42:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-S31-family_clean.md

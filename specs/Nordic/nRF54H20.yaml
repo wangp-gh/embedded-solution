@@ -1,67 +1,73 @@
 part: nRF54H20
-link_status: verified_2026-07-02 (datasheet-html-extracted)
-expected_family: "Nordic nRF54H20 \u2014 flagship ultra-low-power multi-core SoC (BLE 6.0 + Matter + Thread)"
+link_status: verified_2026-07-10 (datasheet-html-extracted)
+expected_family: Nordic nRF54H20 — flagship ultra-low-power multi-core SoC (BLE 6.0 + Matter + Thread)
 main_page: https://www.nordicsemi.com/Products/nRF54H20
-datasheet_path_expected: ../../datasheets/nrf54h20.pdf
-datasheet_source_note: nRF54H20 datasheet PDF not in catalog (was not in 2026-06-21 catalog state). Family page reachable
-  via Firecrawl; deep specs extracted from product page markdown.
+datasheet_path_expected: (unavailable — Nordic product spec PDF is gated behind Nordic Developer Zone login; DigiKey PDF mirror returns 403)
+datasheet_source_note: nRF54H20 datasheet PDF not in catalog. Nordic product page is the only publicly accessible source.
+  Firecrawl HTML extract (5.6 KB clean markdown) plus Tavily re-extraction on 2026-07-10 added structured spec details.
 specs:
   cores:
-  - Multiple Arm Cortex-M33 @ up to 320 MHz (application + radio)
-  - Multiple RISC-V coprocessors
+  - Multiple Arm Cortex-M33 @ up to 320 MHz (application + radio + security domains; documented as 'multiple' in Nordic product page)
+  - Multiple RISC-V coprocessors (documented as 'multiple'; specific count not published on public product page)
   performance:
-    coremark_efficiency: 515 CoreMark @ ULPMark-CM 170
-    coremark_performance: 1290 CoreMark @ ULPMark-CM 132
+    coremark_efficiency: 515 CoreMark @ ULPMark-CM 170 (configured for maximum processing efficiency)
+    coremark_performance: 1290 CoreMark @ ULPMark-CM 132 (configured for maximum processing performance)
+    processing_power_vs_nrf5340: doubled (vs previous flagship nRF5340)
   memory:
-    nvm: 2 MB
-    ram: 1 MB
+    nvm: 2 MB (non-volatile)
+    ram: 1 MB (on-chip)
   wireless:
     ble_version: '6.0'
     protocols:
-    - Bluetooth LE
+    - Bluetooth LE (LE Audio, LE Coded, Mesh, Direction Finding)
     - Thread
     - Matter
-    - 2.4 GHz proprietary
+    - 2.4 GHz proprietary (up to 4 Mbps)
+    radio: 4th generation multiprotocol 2.4 GHz radio
     rx_sensitivity_dbm:
       ble_1m: -99
-      ieee_802_15_4: -104
+      ieee_802_15_4_250kbps: -104
     tx_power_dbm_max: 10
     throughput_max_mbps: 4
-    rx_current_ma: 1.7 (3V, DC/DC, lowest in class)
+    rx_current_ma: 1.7 (3V, DC/DC; class-leading for receive-dominant apps)
   security:
-    certification: PSA Certified Level 3 (highest)
+    certification: PSA Certified Level 3 (highest in PSA Certified IoT security standard)
     features:
     - Secure Boot
     - Secure Firmware Update
     - Secure Storage
-    - Cryptographic accelerators hardened against side-channel attacks
-    - Tamper sensors (detect attack in progress)
+    - Cryptographic accelerators (side-channel attack hardened)
+    - Tamper sensors (detect attack in progress, can take protective action)
     - Isolated, physically protected security domain
-  integration_benefit: Replaces external flash + MCU + wireless SoC with single chip; smaller PCB and battery possible
+  integration_benefit: Replaces external flash + application MCU + wireless SoC with single chip; smaller PCB and battery possible
 unverified:
-- exact_cortex_m33_core_count
-- exact_risc_v_core_count
-- exact_cache_size_per_core
-- exact_active_mode_current_per_mhz
-- exact_sleep_current_ua
-- exact_flash_partition_options
-- exact_security_module_details
+- exact_cortex_m33_core_count (Nordic product page says 'multiple Cortex-M33 processors'; exact count not publicly disclosed)
+- exact_risc_v_core_count (Nordic product page says 'multiple RISC-V coprocessors'; exact count not publicly disclosed)
+- exact_cache_size_per_core (not on public product page; would require NDZ login for full product spec)
+- exact_active_mode_current_per_mhz (Nordic publishes ULPMark-CM scores but not per-MHz current; would require NDZ product spec)
+- exact_sleep_current_ua (not on public product page; would require NDZ product spec)
+- exact_flash_partition_options (NVM is 2 MB; partition layout not published)
+- exact_security_module_details (PSA L3 confirmed; specific crypto module names not on public page)
 notes:
-- "Promoted from \"missing yaml\" to verified_2026-06-30 \u2014 extracted from nordicsemi.com nRF54H20 product page via Firecrawl\
-  \ (8.9KB raw \u2192 5.6KB clean). Captured rich marketing-level data including ULPMark-CM scores, RX/TX sensitivity, throughput,\
-  \ PSA Level 3 certification."
+- Promoted from "missing yaml" to verified_2026-06-30 — extracted from nordicsemi.com nRF54H20 product page via Firecrawl
+  (8.9KB raw → 5.6KB clean). Captured rich marketing-level data including ULPMark-CM scores, RX/TX sensitivity, throughput,
+  PSA Level 3 certification.
 - 'Use case: premium IoT SoC for smart home, Matter devices, earbuds, wearables, edge ML inference. Single-chip replacement
   for 3-chip designs (application MCU + external flash + wireless SoC).'
 - 'Family differentiator vs nRF54L15: H20 is flagship (320 MHz multi-core, 2 MB NVM, 1 MB RAM, BLE 6.0, PSA Level 3); L15
   is mainstream (128 MHz, 1.5 MB NVM, 256 KB RAM, BLE 5.4, no formal certification).'
-- "Family differentiator vs nRF5340: H20 doubles processing power and adds RISC-V coprocessors + 4\xD7 RAM; H20 supports Matter\
-  \ + 4 Mbps proprietary."
-- "Cost note: H20 is significantly more expensive than L15 \u2014 use only when Matter + edge ML + premium security are required."
-- "Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 22/23 spec fields matched (96%). Source: https://www.nordicsemi.com/products/nRF54H20.\
-  \ firecrawl scrape of product page (DigiKey PDF \u2192 403)."
-extracted_at: '2026-06-30T01:15:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract of nordicsemi.com product page markdown
+- 'Family differentiator vs nRF5340: H20 doubles processing power and adds RISC-V coprocessors + 4× RAM; H20 supports Matter
+  + 4 Mbps proprietary.'
+- 'Cost note: H20 is significantly more expensive than L15 — use only when Matter + edge ML + premium security are required.'
+- 'Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 22/23 spec fields matched (96%). Source: https://www.nordicsemi.com/products/nRF54H20.
+  firecrawl scrape of product page (DigiKey PDF → 403).'
+- '2026-07-07: source_pdf path resolved to ''../../datasheets/nrf54h20.pdf'' but that file is missing. Set to (none); data
+  must be re-verified when PDF becomes available.'
+- "2026-07-10: vendor-direct PDF (Nordic NDZ) still gated. DigiKey PDF mirror still 403. Re-extracted via Tavily on public
+  product page to expand memory and wireless spec detail. Re-classified 5 of 7 unverified fields as 'datasheet doesn\u2019t specify
+  publicly' (would require NDZ login for full product spec). Link status remains datasheet-html-extracted (no PDF access)."
+extracted_at: '2026-07-10T11:55:00+08:00'
+extraction_method: tavily-extract of nordicsemi.com product page (no PDF access)
 extraction_source: references/semiconductor-vendor/Nordic/firecrawl-snapshots/nRF54H20_clean.md
-extraction_credits_used: 0 (cache hit from 2026-06-29 run)
 datasheet_source_url: https://www.nordicsemi.com/products/nRF54H20
+source_pdf: (none -- PDF unavailable, no validation possible)

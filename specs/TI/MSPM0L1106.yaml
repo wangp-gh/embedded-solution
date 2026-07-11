@@ -84,7 +84,6 @@ specs:
   - Smoke detectors, water/gas meters, smart locks
   - Cost-optimized replacement for MSPM0L1306 when OPA + extended temp not needed
 unverified:
-- exact flash endurance / retention
 - exact GPAMP bandwidth / slew rate
 - exact peak currents per mode across temperature
 - exact SPI max clock on each package variant

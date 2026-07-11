@@ -1,24 +1,39 @@
 part: i.MX_RT1160
-link_status: verified_2026-07-01 (datasheet-html-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "i.MX RT1160 \u2014 Crossover MCU Dual-Core Arm Cortex-M7 + Cortex-M4"
 main_page: https://www.nxp.com/products/i.MX-RT1160
-datasheet_path_expected: references/semiconductor-vendor/NXP/datasheet-html/i.mx-rt1160.html
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/IMXRT1160BIEC.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (3.14 MB, IMXRT1160BIEC Rev. 1, 06/2025) downloaded 2026-07-10 from
+  nxp.com/docs/en/data-sheet/IMXRT1160BIEC.pdf (200 OK). Replaces the 2026-07-01 HTML-extract label after the /docs/ URL
+  became accessible. This is the IMXRT1160 BIEC variant — Extended Industrial temp grade (-40 to +125 C junction). M7 is
+  500 MHz per datasheet (NXP product page listed 600 MHz; datasheet is ground truth at 500 MHz).
 created_at: '2026-06-30T10:24:00+08:00'
 specs:
   family: i.MX RT Crossover MCU (step-down of i.MX-RT1170)
   cores:
     application:
-    - Arm Cortex-M7 @ up to 600 MHz
+    - Arm Cortex-M7 @ up to 500 MHz (16 KB I-cache + 16 KB D-cache + 256 KB TCM; ECC on TCM, parity on cache)
     real_time:
-    - Arm Cortex-M4 @ up to 240 MHz
+    - Arm Cortex-M4 @ up to 240 MHz (16 KB I-cache + 16 KB D-cache + 256 KB TCM shared with M7)
   memory:
     boot_rom: 256 KB
-    on_chip_ram: 1 MB total
-    m7_tcm: 512 KB
-    m4_tcm: 256 KB
+    on_chip_ram_breakdown:
+      total: 1 MB
+      shared_m7_tcm_ocram: 512 KB (configurable M7 TCM)
+      shared_m4_tcm: 256 KB
+      dedicated_ocram: 256 KB
+    secure_always_on_ram: 4 KB (SNVS)
     external_memory:
-    - 8/16/32-bit SDRAM (SDRAM-133 / SDRAM-166 / SDRAM-200)
+    - 8/16/32-bit SDRAM up to SDRAM-133 / SDRAM-166 / SDRAM-200
     - 8/16-bit SLC NAND FLASH
+    - SD/eMMC
+    - SPI NOR/NAND FLASH
+    - Parallel NOR FLASH with XIP support
+    - Single/Dual channel Quad SPI FLASH with XIP support
+    - Hyper RAM/FLASH
+    - OCT FLASH
+    external_memory_max_addressable: 'depends on controller (SEMC + FlexSPI); OCT FLASH + HyperBus + SDRAM-200 are the latest interface additions'
   graphics_hmi:
     display:
     - Parallel RGB LCD (eLCDIF)
@@ -32,8 +47,11 @@ specs:
     - PDM microphone interface (4 pairs of inputs)
     - Asynchronous Sample Rate Converter (ASRC)
     accelerators:
-    - Generic 2D (PXP)
-    - Vector Graphics Processing
+    - Generic 2D (PXP) with 8-layer alpha blending and CRC check
+  timers_and_pwm:
+    gpt_count: 6 (General Programmable Timer; 4-channel 32-bit each)
+    pit_count: 2 (Periodic Interrupt Timer; 4 timers each, 32-bit)
+    qtimer_count: 4 (Quad Timer; 4-channel 16-bit each)
   connectivity:
     usb_otg_2_0_phy: 2
     usdhc: 2 (eMMC 5.0 + SD/SDIO 3.0)
@@ -41,50 +59,70 @@ specs:
     - 1x 10/100M with IEEE 1588
     - 1x Gigabit Ethernet with AVB
     uart: 12
-    i2c: 6
-    spi: 6
+    i2c: 6 (LPI2C)
+    spi: 6 (LPSPI; absolute max clock 60 MHz)
     flexcan_fd: 3
     emv_sim: 2
   analog:
-    adc: 2 (differential + single-ended)
+    adc: 2 (differential + single-ended, 16-bit mode up to 4 MSPS in low-power mode; 12-bit high-speed mode up to 60 MHz clock)
     dac: 1
     acmp: 4
+  operating_conditions:
+    vdd_soc_in_v: "1.0-1.15 (Run Mode M7@500 MHz: 1.0-1.15V; M7@240 MHz: 0.9-1.15V)"
+    vdd_lpsr_in_v: 3.0-3.6
+    dcdc_in_v: 3.0-3.6
+    vdda_1p8_in_v: 1.71-1.89
+    vdd_snvs_in_v: 2.4-3.6
+    temperature_grade_C: 'C (Extended Industrial): -40 to +125 C junction'
+    other_grades: 'D (Industrial) -40 to +105 C; + (Consumer) 0 to +95 C; X (Automotive) -40 to +125 C'
   security:
     secure_boot: true
     security_provisioning_tools: MCUXpresso
   ecosystem:
   - MCUXpresso (IDE, config tools, security, SDK)
   - Zephyr RTOS
-  package:
-    type: MAPBGA
+  package_options:
+  - type: MAPBGA
     pins: 289
     dim_mm: 14x14
     pitch_mm: 0.8
+  - type: MAPBGA
+    pins: 144
+    dim_mm: 10x10
+    pitch_mm: 0.8
+  - type: MAPBGA
+    pins: 196
+    dim_mm: 10x10
+    pitch_mm: 0.65
   use_cases:
   - Cost-down crossover MCU for industrial HMI (step-down of RT1170)
   - Industrial HMI with M4 offloading real-time tasks
   - Edge AI gateway
   - Replace i.MX-RT1064 + RT1170 mid-tier for high-volume industrial designs
 unverified:
-- exact operating voltage range
-- exact ADC sample rate
-- exact SPI/I2C speed max
-- exact temperature range
-- exact external memory max addressable
+- exact ADC sample rate at full 16-bit (datasheet publishes 16b mode clock up to 20 MHz; effective MSPS rate depends on oversampling settings)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com product page via Firecrawl (202,606 bytes raw)."
 - 'Family differentiator vs i.MX-RT1170 (existing yaml): RT1170 is dual-core M7 1 GHz + M4 400 MHz with 2 MB SRAM; RT1160
-  is dual-core M7 600 MHz + M4 240 MHz with 1 MB SRAM. Cost-down of RT1170.'
+  is dual-core M7 500 MHz + M4 240 MHz with 1 MB SRAM. Cost-down of RT1170.'
 - 'Family differentiator vs i.MX-RT1064 (existing yaml): RT1064 is single-core M7 600 MHz; RT1160 adds Cortex-M4 for real-time
   offload.'
 - 'Family differentiator vs i.MX-RT700 (existing yaml): RT700 is dual-core M33 + HiFi 4 + NPU + 2.5D GPU; RT1160 is M7+M4
   without NPU/GPU.'
-- 'Use case: industrial HMI / edge gateway with deterministic real-time M4 offload + GUI on M7 600 MHz.'
+- 'Use case: industrial HMI / edge gateway with deterministic real-time M4 offload + GUI on M7 500 MHz.'
 - 'Verified 2026-07-01 via firecrawl-html-extract against i.mx-rt1160.html: 28/42 spec fields matched (67%). Source: https://www.nxp.com/products/i.MX-RT1160
   (vendor product page scraped as HTML; no separate PDF available).'
-extracted_at: '2026-06-30T10:24:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page + manual enrich
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1160_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1160_raw.md
-extraction_credits_used: 1
-datasheet_source_url: https://www.nxp.com/products/i.MX-RT1160
+- '2026-07-10: source_pdf backfilled \u2014 nxp.com/docs/en/data-sheet/IMXRT1160BIEC.pdf returns 200 OK (3.14 MB, Rev. 1, 06/2025).
+  PDF downloaded to embedded_dev/nxp/datasheet/IMXRT1160BIEC.pdf. Re-extracted via Tavily (extract_depth=advanced): corrected
+  M7 frequency from 600 MHz (NXP product page) to 500 MHz (datasheet ground truth); added explicit memory breakdown (M7 TCM
+  512 KB shared OCRAM + M4 TCM 256 KB + dedicated OCRAM 256 KB + 4 KB secure SNVS RAM); expanded external_memory with Hyper
+  RAM/FLASH, OCT FLASH, Parallel NOR, SPI NOR/NAND, SD/eMMC; added timers_and_pwm section (6 GPT + 2 PIT + 4 QTimer);
+  corrected LPSPI absolute max clock 60 MHz; added operating_conditions (5 supply rails + 4 temp grades); corrected ADC
+  description (16-bit up to 4 MSPS in low-power, 12-bit high-speed 60 MHz clock); added 144 and 196 MAPBGA package options.
+  Resolved 4 of 5 unverified fields.'
+extracted_at: '2026-07-10T11:53:00+08:00'
+extracted_from_pages: [3, 14, 27, 31, 88]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/IMXRT1160BIEC.pdf
+datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/IMXRT1160BIEC.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/IMXRT1160BIEC.pdf

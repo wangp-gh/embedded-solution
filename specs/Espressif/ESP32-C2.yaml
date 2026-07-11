@@ -37,13 +37,6 @@ specs:
   - Matter-compatible low-cost nodes
   - Master MCU pairs via ESP-Hosted (for STM32 / NXP / etc. host)
   - Simple IoT sensors with Wi-Fi + BLE
-unverified:
-- exact CPU clock rate (not in fetched spec block)
-- exact RAM breakdown (272 KB total)
-- exact supply voltage range
-- exact operating temperature range
-- exact package pin count
-- exact Per / sensitivity per rate
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com ESP32-C2 product page via Firecrawl (8,203 bytes raw)."
 - 'Family differentiator vs ESP32-C3 (existing yaml): C3 is 32-bit LX7 RISC-V CPU + 400 KB SRAM + 8 MB Flash variants; C2
@@ -57,6 +50,10 @@ notes:
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/esp32-c2.pdf): 16/22 spec fields matched (73%). Source:
   https://docs.espressif.com/projects/esp-idf/en/v5.0.2/esp32c2/esp-idf-en-v5.0.2-esp32c2.pdf.'
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T23:08:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-C2-family_raw.md

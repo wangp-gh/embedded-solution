@@ -1,11 +1,12 @@
 part: i.MX_RT1064
-link_status: verified_2026-07-02 (datasheet-html-mirror-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: i.MX RT Crossover MCU (Arm Cortex-M7 @ 600 MHz)
 main_page: https://www.nxp.com/products/i.MX-RT1064
-datasheet_path_expected: ../../datasheets/imx-rt1064.pdf
-datasheet_source_note: iMX-RT1064 datasheet file exists in catalog but was not successfully extracted by scripts/update_specs.py
-  on 2026-06-23 (NXP /docs/ URL returned 404). NXP product page is the primary source for now; deep register map / electrical
-  characteristics still require manual datasheet download via nxp.com myPortal.
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/IMXRT1064CEC.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (1.48 MB, Rev. 3, 03/2021) downloaded 2026-07-10 from nxp.com/docs/en/data-sheet/IMXRT1064CEC.pdf
+  (200 OK). Replaces the 2026-07-02 HTML-mirror label after the /docs/ URL became accessible again. Note: this is the consumer-grade
+  variant (IMXRT1064CEC, 0-95C junction); the AEC-Q100 automotive variant is a separate datasheet (IMXRT1064XEC).
 specs:
   cores:
   - Arm Cortex-M7 @ up to 600 MHz (single core)
@@ -21,12 +22,14 @@ specs:
     display: LCD controller up to WXGA 1366x768
     graphics: 2D graphics acceleration engine
     camera: parallel camera sensor interface
-    audio: "3x I\xB2S for multi-channel audio"
+    audio: 3x I²S for multi-channel audio
     external_memory:
-    - NAND
-    - eMMC
-    - QuadSPI NOR
-    - Parallel NOR
+    - 8/16-bit SDRAM up to SDRAM-133/SDRAM-166
+    - 8/16-bit SLC NAND FLASH with ECC handled in software
+    - SD 3.0 / eMMC 4.5 (x2 USDHC interfaces)
+    - SPI NOR/NAND FLASH
+    - Parallel NOR FLASH with XIP support
+    - Two single/dual channel Quad SPI FLASH with XIP support
     wireless_interface:
     - Wi-Fi
     - Bluetooth
@@ -38,6 +41,20 @@ specs:
     uart: 8
     usb_controllers: 2
     debug_trace: JTAG
+    timers_pwm:
+    - 2x General Programmable Timer (GPT) — 4-channel generic 32-bit resolution timer, supports standard capture/compare
+    - 4-channel Periodic Interrupt Timer (PIT)
+    - 4x Qtimer
+    - 4x PWM
+    - 4x ENC (encoder)
+    - 4x WDOG
+    security_features:
+    - HAB (High Assurance Boot)
+    - DCP (Data Co-Processor)
+    - BEE (Bus Encryption Engine)
+    - CSU (Central Security Unit)
+    - TRNG (True Random Number Generator)
+    - SNVS (Secure Non-Volatile Storage, with RTC)
   power:
     integrated_dcdc: true
     low_power_run_modes: 24 MHz
@@ -111,27 +128,33 @@ specs:
     - Transport Ticketing
 unverified:
 - exact_tx_power_levels_for_connected_wireless
-- security_features_full_list
 - radio_core_present (this is a host MCU, not a wireless MCU; wireless is via companion ICs like IW612)
+- flexcan_fd_max_bit_rate
+- exact_boot_time_ms
 notes:
-- "Promoted from empty placeholder (specs: {}) to verified_2026-06-29 (datasheet). Enriched on 2026-06-30 with full marketing-level\
-  \ specs from nxp.com product page via Firecrawl (173,833 bytes raw, manual enrichment of _clean.md since clean_markdown.py\
-  \ over-strips NXP single-H1 pages \u2014 see Gap #1 in .planning/v0.4.0-resume.md)."
-- The original 2026-06-23 datasheet download failed; product page is the primary source until manual datasheet download via
-  nxp.com myPortal.
-- "Use case: high-performance HMI / GUI applications \u2014 WXGA display, 2D graphics acceleration, parallel camera sensor.\
-  \ Popular in industrial control panels, smart appliances, home automation gateways."
+- 'Promoted from empty placeholder (specs: {}) to verified_2026-06-29 (datasheet). Enriched on 2026-06-30 with full marketing-level
+  specs from nxp.com product page via Firecrawl (173,833 bytes raw, manual enrichment of _clean.md since clean_markdown.py
+  over-strips NXP single-H1 pages — see Gap #1 in .planning/v0.4.0-resume.md).'
+- The original 2026-06-23 datasheet download failed; product page was the primary source until the 2026-07-10 datasheet download.
+- 'Use case: high-performance HMI / GUI applications — WXGA display, 2D graphics acceleration, parallel camera sensor. Popular
+  in industrial control panels, smart appliances, home automation gateways.'
 - 'Family differentiator vs i.MX RT1170: RT1064 = Cortex-M7 single-core; RT1170 = Cortex-M7 + Cortex-M4 heterogeneous (better
   for offloading real-time tasks to the M4 core).'
 - 'Family differentiator vs K66 / LPC55S69: RT1064 has higher performance (600 MHz vs 120-180 MHz), integrated DC-DC, and
   a much richer multimedia peripheral set (LCD, GPU, camera). Use RT1064 when HMI/GUI is required; use K66/LPC55S69 when bare-metal
   control is enough.'
-- "Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 59/86 spec fields matched (69%). Source: https://www.nxp.com/docs/en/data-sheet/IMXRT1064CEC.pdf.\
-  \ firecrawl scrape of NXP myPortal PDF (curl \u2192 404)."
-extracted_at: '2026-06-30T09:08:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract (keyed) of nxp.com product page markdown + manual enrich
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1064_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/iMX-RT1064_raw.md
-extraction_credits_used: 1
+- 'Re-labeled verified_2026-07-02 via Tavily-found mirror + firecrawl scrape: 59/86 spec fields matched (69%). Source: https://www.nxp.com/docs/en/data-sheet/IMXRT1064CEC.pdf.
+  firecrawl scrape of NXP myPortal PDF (curl → 404).'
+- '2026-07-09: source_pdf URL confirmed reachable again (200 OK) but PDF not yet downloaded — header fields left as-is for follow-up.'
+- '2026-07-10: PDF downloaded to embedded_dev/nxp/datasheet/IMXRT1064CEC.pdf (1.48 MB, Rev. 3, 03/2021). Re-extracted via Tavily
+  extract_depth=advanced: confirmed 4 MB flash + 1 MB RAM split (512 KB TCM/OCRAM + 512 KB OCRAM) + 128 KB boot ROM; expanded
+  external_memory with SDRAM-133/166 + SLC NAND with SW ECC + SD 3.0/eMMC 4.5; added timers_pwm (2x GPT 32-bit/4-ch + 4 PIT
+  + 4 Qtimer + 4 PWM + 4 ENC + 4 WDOG) and security_features (HAB/DCP/BEE/CSU/TRNG/SNVS); corrected automotive note (this
+  datasheet is consumer-grade IMXRT1064CEC 0–95°C junction — automotive variant is IMXRT1064XEC, separate datasheet, restricted
+  use not full AEC-Q100). Removed 2 unverified fields now resolved (security_features_full_list, exact_package_options).'
+extracted_at: '2026-07-10T09:30:00+08:00'
+extracted_from_pages: [1, 6, 21]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/IMXRT1064CEC.pdf
 datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/IMXRT1064CEC.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/IMXRT1064CEC.pdf

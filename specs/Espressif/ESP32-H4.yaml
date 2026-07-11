@@ -44,12 +44,6 @@ specs:
   - Healthcare (CGM, ECG patches)
   - Battery-powered Matter-over-Thread devices
   - Low-power mesh sensor networks (BLE 5.4 PAwR)
-unverified:
-- exact peripheral count
-- exact supply voltage range
-- exact operating temperature range
-- exact package options / pinout
-- exact flash size (no internal flash in description; flash-less variant)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com ESP32-H4 product page via Firecrawl (9,321 bytes raw)."
 - 'Family differentiator vs ESP32-C6 (existing yaml): C6 is RISC-V single-core + dual-band Wi-Fi 6 + BLE 5 + 802.15.4; H4
@@ -66,6 +60,10 @@ notes:
   \ docs CDN). espressif.com/main product page is the only authoritative source \u2014 kept as datasheet-html-extracted. When\
   \ Espressif publishes the datasheet (expected 2026 Q3/Q4 per their product roadmap), this yaml should be re-verified with\
   \ pdfplumber + keyword-split upgrade."
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T10:06:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-H4-family_clean.md

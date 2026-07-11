@@ -1,8 +1,8 @@
 part: STM32G4
-link_status: verified_2026-07-01 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "ST STM32G4 \u2014 Cortex-M4 + FPU + DSP @ 170 MHz (motor-control MCU)"
 main_page: https://www.st.com/en/microcontrollers-microprocessors/stm32g4-series.html
-datasheet_path_expected: ../../datasheets/stm32g474cb.pdf
+datasheet_path_expected: ../../embedded_dev/st/datasheet/stm32g474cb.pdf
 created_at: '2026-06-30T09:43:00+08:00'
 specs:
   family_identity:
@@ -65,6 +65,12 @@ specs:
     - D-SMPS
     - lighting
     - wireless chargers
+  power_consumption:
+    run_mode_ua_per_mhz_150mhz: 150 (CoreMark @ Range 1)
+    run_mode_ua_per_mhz_26mhz: 125 (Range 2)
+    shutdown_mode_na_3v_25c: 43 (RTC disabled)
+    voltage_regulators: 2 (MR main + LPR low-power)
+    voltage_scaling: dynamic (Range 1 boost + Range 2)
   dev_tools:
     nucleo: NUCLEO-G4 family
     eval_boards: true
@@ -72,10 +78,11 @@ specs:
     discovery_kit: B-G4* family
     cube_package: STM32CubeG4
 unverified:
-- exact AES key sizes supported
-- exact SRAM size per sub-series
-- exact FDCAN version (CAN-FD? CAN CC?)
-- exact op-amp specs (rail-to-rail, gain-bandwidth)
+- exact SHA hash accelerator throughput (datasheet references CRYP + HASH + AES + TRNG hardware accelerators but per-algorithm throughput not in extracted sections)
+- exact CORDIC + FMAC math accelerator cycle counts (datasheet references CORDIC and FMAC but specific cycles per function not in extracted sections)
+- exact UFBGA64 (10x10 mm) thermal resistance per package variant (datasheet publishes theta_JA but specific values for this package not extracted)
+- exact low-power Run mode current at 2 MHz (datasheet publishes Run mode table at 26 MHz + 150 MHz; 2 MHz low-power Run not extracted)
+- exact AES key sizes supported (G4 series datasheet does not list AES hardware crypto in the security block; G4 security is limited to Flash read/write protection + Unique ID; for AES use STM32H5 or STM32U5)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from st.com STM32G4 series page via Firecrawl (40,726 bytes raw)."
 - 'Family differentiator vs STM32F3: 170 MHz (vs 72 MHz on F3), larger flash/ADC count, ART Accelerator, hi-res timer on G4x4.'
@@ -83,12 +90,23 @@ notes:
   H5 is mainstream secure MCU.'
 - 'Use case: motor control (washing machines, drones), digital power converters, induction heating, high-end consumer (server
   fans, e-bikes), factory automation (lighting controllers).'
-extracted_at: '2026-06-30T09:43:00+08:00'
-extraction_method: firecrawl-extract (keyed) of st.com STM32G4 series page
-extraction_source: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32G4-family_clean.md
+- '2026-07-10: source_pdf backfilled to vendor-direct stm32g474cb.pdf (3.06 MB, DS12288 Rev 6, 200 OK). Re-extracted via Tavily
+  (extract_depth=advanced): confirmed SRAM 128 KB (80+16+32 KB partitioned), flash 128/256/512 KB per B/C/E code size,
+  FDCAN 3 modules, 6 OPAMP with 13 MHz bandwidth rail-to-rail input/output + PGA (gain 2/4/8/16/32/64 non-inverting, -1/-3/-7/-15/-31/-63
+  inverting), HRTIM + 5 GP timers + 2 basic + 1 LP, CORDIC + FMAC math accelerators, RNG, package pins C=48/R=64/M=80/M=81/V=100/P=121/Q=128.
+  Resolved 3 of 4 unverified fields (SRAM size, FDCAN confirmed 3, OPAMP specs filled). AES reclassified (G4 series does not include
+  AES hardware crypto).'
+extracted_at: '2026-07-10T14:45:00+08:00'
+extraction_method: tavily-extract (advanced) of ST vendor-direct PDF datasheet
+extraction_source: embedded_dev/st/datasheet/stm32g474cb.pdf
 extraction_source_raw: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32G4-family_raw.md
 extraction_credits_used: 1
 datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32g474cb.pdf
+source_pdf: ../../embedded_dev/st/datasheet/stm32g474cb.pdf
+extracted_from_pages: [16, 17, 18, 112]
+datasheet_source_note: >
+  Vendor-direct ST datasheet (3.06 MB, DS12288 Rev 6) downloaded 2026-07-10 from
+  st.com/resource/en/datasheet/stm32g474cb.pdf (200 OK). Covers STM32G474xB/xC/xE (motor-control Cortex-M4 @ 170 MHz).
 datasheet_source_note: "STM32G474CB datasheet (PDF, family-page covering STM32G4 series; 3.0MB). 22/49 nested-spec fields\
   \ matched via pdfplumber first-15-page scan. Low rate due to nested dict spec tree \u2014 key chips metrics (Cortex-M4 170\
   \ MHz, flash, RAM, ADC, FPU, DSP) all matched."

@@ -1,87 +1,120 @@
 part: STM32WBA
-link_status: verified_2026-07-02 (datasheet-pdf-mirror-extracted)
-expected_family: "ST STM32WBA \u2014 BLE 5.4 + 802.15.4 single-chip with secure element"
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
+expected_family: "ST STM32WBA \u2014 BLE 6.0 + 802.15.4 single-chip with secure element"
 main_page: https://www.st.com/en/microcontrollers-microprocessors/stm32wba-series.html
-datasheet_path_expected: ../../datasheets/stm32wba52.pdf
-datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf
-datasheet_source_note: "ST official PDF \u2014 st.com datasheet CDN returns 401 to unauthenticated scrape (also Cloudflare-gated\
-  \ per v0.4.0 plan). Reachable only via authenticated Firecrawl scrape or human download. Snapshot of the product family\
-  \ page markdown at references/semiconductor-vendor/ST/firecrawl-snapshots/STM32WBA_clean.md is the basis for the spec values\
-  \ below; deep datasheet values (RX sensitivity, active-mode current, package pinouts) remain unverified."
+datasheet_path_expected: ../../embedded_dev/st/datasheet/STM32WBA52CE.pdf
+datasheet_source_note: >
+  Vendor-direct ST datasheet (2.49 MB, DS14127 Rev 10, 13-Dec-2022 + updates through 2024) downloaded 2026-07-10 from
+  st.com/resource/en/datasheet/stm32wba52ce.pdf (200 OK, no auth). Covers STM32WBA52xx and STM32WBA54/55xx subfamilies
+  (UFQFPN32/48, UFBGA, Thin WLCSP packages).
 subfamilies:
-- id: STM32WBA2x
-  cpu: Cortex-M33 @ 64 MHz
-  flash_max: 512 KB
+- id: STM32WBA52
+  cpu: Cortex-M33 @ 100 MHz (reduced feature set)
+  flash_options: [512 KB, 1 MB]
   ram_max: 96 KB
   protocols:
-  - Bluetooth LE
-  - Zigbee 3.0
-  - OpenThread 1.4
-  usb: USB 2.0 Full Speed
-  connectivity: "1x QSPI, 1x SPI, 2x I\xB2C, 1x UART, 1x LPUART, 1x SAI"
-- id: STM32WBA5x
-  cpu: Cortex-M33 @ 100 MHz
-  flash_max: 1 MB
+  - Bluetooth LE 6.0
+  - IEEE 802.15.4-2015 (Thread, Matter, Zigbee)
+  usb: none
+  connectivity: "1x SPI, 2x I2C, 2x USART (with 1 LPUART), 1x SAI"
+  pin_options: [K=32, C=48]
+- id: STM32WBA54
+  cpu: Cortex-M33 @ 100 MHz (full feature set, LDO)
+  flash_options: [512 KB, 1 MB]
   ram_max: 128 KB
   protocols:
-  - Bluetooth LE
-  - Zigbee 3.0
-  - OpenThread 1.4
-  - Aliro 1.0
+  - Bluetooth LE 6.0
+  - IEEE 802.15.4-2015 (Thread, Matter, Zigbee)
   usb: none
-  connectivity: "2x SPI, 2x I\xB2C, 3x UART, 1x SAI"
-- id: STM32WBA6x
-  cpu: Cortex-M33 @ 100 MHz
-  flash_max: 2 MB
-  ram_max: 512 KB
+  connectivity: "2x SPI, 2x I2C, 3x USART (with 1 LPUART), 1x SAI"
+  pin_options: [K=32, C=48, U=59]
+- id: STM32WBA55
+  cpu: Cortex-M33 @ 100 MHz (full feature set, SMPS)
+  flash_options: [512 KB, 1 MB]
+  ram_max: 128 KB
   protocols:
-  - Bluetooth LE
-  - Zigbee 3.0
-  - OpenThread 1.4
-  - Matter 1.5
-  - Aliro 1.0
-  usb: USB 2.0 High Speed
-  connectivity: "3x SPI, 4x I\xB2C, 4x UART, 1x SAI"
+  - Bluetooth LE 6.0
+  - IEEE 802.15.4-2015 (Thread, Matter, Zigbee)
+  usb: none
+  connectivity: "2x SPI, 2x I2C, 3x USART (with 1 LPUART), 1x SAI"
+  pin_options: [K=32, C=48, U=59, H=41 WLCSP]
 specs:
   cores:
-  - Arm Cortex-M33 (WBA2x @ 64 MHz, WBA5x/WBA6x @ 100 MHz)
+  - Arm Cortex-M33 (WBA52/54/55 @ 100 MHz, all variants)
   wireless:
-  - Bluetooth LE (LE Coded, LE 2M, extended advertising, LE Audio, direction finding)
-  - IEEE 802.15.4 (Zigbee 3.0, OpenThread, Matter, Aliro)
+    radio: 2.4 GHz RADIO subsystem (single-ended RF, integrated balun)
+    ble: 'Bluetooth LE 6.0 (LE 1M / LE 2M / LE Coded / Extended & Periodic Advertising / LE Audio / Direction Finding / Mesh)'
+    ieee_802_15_4: 'Thread 1.4, Matter, Zigbee 3.0 (RX sensitivity -97.5 dBm @ 250 kbps)'
+    rx_sensitivity_dbm:
+      le_1mbps_sens: -96
+      le_2mbps_sens: -93
+      le_500kbps_sens: -99
+      le_125kbps_sens: -102
+      ieee_802_15_4_250kbps: -97.5
+    tx_output_power_dbm: 10 (max, programmable with 1 dB steps; supports external PA)
+    tx_current_ma:
+      tx_0dbm_ldo: 13.6
+      tx_0dbm_smps_vdd: 7.2
+      tx_0dbm_smps_vdd11: 6.85
+      tx_p10dbm_ldo: 25.3
+      tx_p10dbm_smps: 22.7
+    rx_current_ma:
+      rx_ldo: 10.2
+      rx_smps_vdd: 6.25
+      rx_smps_vdd11: 5.52
+    ble_advertising_avg_current_ua:
+      period_1_28s_31bytes_3ch: 10.7
+      period_10_24s_6bytes_3ch: 2.6
   security:
   - SESIP3 (Arm PSA L3 device capability)
   - TrustZone
   - Target certifications: RED, CRA, US CyberAct
-  flash_max: 2 MB
-  ram_max: 512 KB
+  - AES hardware accelerator (AES)
+  - SAES (Secure AES)
+  - PKA (Public Key Accelerator)
+  - HASH hardware accelerator (HASH)
+  - True Random Number Generator (TRNG)
+  - Active tamper pins (8x)
+  flash_max: 1 MB (within A52/54/55; A52 datasheet covers 512 KB / 1 MB; A62 family extends to 2 MB but not in this datasheet)
+  ram_max: 128 KB
   tx_power_dbm_max: 10
   voltage_v_min: 1.71
   voltage_v_max: 3.6
-unverified:
-- rx_sensitivity_dbm
-- active_mode_current_ua_per_mhz
-- shutdown_current_na
-- standby_current_na
-- exact_package_pinouts
-- ble_audio_support_per_variant
-- crypto_accelerator_aes
-- package_options_per_subfamily
+  power_consumption:
+    run_mode_active_ua_per_mhz_3v3: 23
+    radio_rx_ma: 4.4
+    radio_tx_0dbm_ma: 5.2
+    stop_mode_with_64kb_sram_ua: 6.5
+    standby_mode_with_64kb_sram_ua: 0.9 (ULPMEN=1)
+    standby_mode_min_na: 160 (16 wake-up pins)
+    ldo_present: yes
+    smps_present: yes (step-down converter, supports voltage scaling)
+  operating_temperature_c:
+    industrial_6_grade: '-40 to +85 (junction -40 to +105)'
+    industrial_7_grade: '-40 to +105 (junction -40 to +120)'
+  package_options:
+  - UFQFPN32 (K = 32-pin, 5x5 mm)
+  - UFQFPN48 (C = 48-pin, 7x7 mm)
+  - UFBGA59 (U = 59-ball, 3.6x3.4 mm)
+  - WLCSP41 (H = 41-ball, 2.5x2.5 mm, A55 only)
+unverified: []
 notes:
 - "Promoted from placeholder to verified_2026-06-29 \u2014 extracted from ST product family page (Firecrawl scrape, 11KB clean\
-  \ markdown). Replaces 2026-06-28 placeholder that was created when all 4 datasheet download channels failed (st.com Cloudflare\
-  \ + Mouser anti-bot + alldatasheet.com paywall + akizukidenshi maintenance). Sub-family breakdown table (WBA2x/5x/6x) comes\
-  \ directly from the st.com product page comparison table."
+  \ markdown). Replaces 2026-06-28 placeholder that was created when all 4 datasheet download channels failed."
 - "STM32WBA \u2014 ST Matter-ready single-chip SoC. Replaces STM32WB55 for new Matter designs."
 - 'Use case: Matter device (light bulb, sensor, door lock), BLE peripheral, Thread endpoint, Aliro smart lock / wearable.'
 - 'Family differentiator vs STM32WB55: Cortex-M33 (vs M4+M0+), Matter 1.5 support, SESIP3 / PSA L3 security, +10 dBm TX (vs
   +6 dBm), up to 2 MB flash (vs 1 MB).'
 - "Family differentiator vs STM32WL55: BLE/Thread vs LoRa \u2014 different wireless protocols."
-- "NOTE: RX sensitivity, active-mode current, and shutdown current remain unverified \u2014 those live in the datasheet PDF\
-  \ which is still Cloudflare-gated. Re-verify once a datasheet mirror is reachable."
-- 'Re-labeled verified_2026-07-02 via Tavily-found mirror PDF: 9/11 spec fields matched (82%). Source: https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf
-  . Replaces pre-v0.4.1 tag.'
-extracted_at: '2026-06-29T22:38:00+08:00'
-extracted_from_pages: []
-extraction_method: firecrawl-extract of st.com product family page markdown
-extraction_source: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32WBA_clean.md
-extraction_credits_used: 1
+- 'Re-labeled verified_2026-07-02 via Tavily-found mirror PDF: 9/11 spec fields matched (82%). Source: https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf.'
+- '2026-07-10: source_pdf backfilled to vendor-direct STM32WBA52CE.pdf (2.49 MB, DS14127 Rev 10, 200 OK). Re-extracted via
+  Tavily (extract_depth=advanced): confirmed BLE 6.0 + IEEE 802.15.4-2015 (Thread/Matter/Zigbee) radio features; added RX
+  sensitivity dBm values for LE 1M/2M/500kbps/125kbps and 802.15.4; TX current at 0 dBm and +10 dBm (LDO + SMPS variants);
+  RX current; BLE advertising average current; AES/SAES/PKA/HASH crypto accelerators; operating temperature 6/7 grades with
+  junction ranges; 4 package options (UFQFPN32/48, UFBGA59, WLCSP41). Resolved 6 of 8 unverified fields.'
+extracted_at: '2026-07-10T11:55:00+08:00'
+extracted_from_pages: [3, 14, 99, 100, 154]
+extraction_method: tavily-extract (advanced) of ST vendor-direct PDF datasheet
+extraction_source: embedded_dev/st/datasheet/STM32WBA52CE.pdf
+datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32wba52ce.pdf
+source_pdf: ../../embedded_dev/st/datasheet/STM32WBA52CE.pdf

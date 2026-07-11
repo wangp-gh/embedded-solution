@@ -1,5 +1,5 @@
 part: RA4M1
-link_status: verified_2026-06-27
+link_status: pending-datasheet_2026-07-08 (no-pdf-accessible, family-placeholder, re-verify when Renesas publishes accessible datasheet)
 expected_family: "Renesas RA4M1 \u2014 ultra-low-power Cortex-M23 MCU"
 main_page: https://www.renesas.com/ra/ra4m1
 datasheet_path_expected: ../../embedded_dev/renesas/datasheet/RA4M1_datasheet.pdf

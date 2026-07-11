@@ -17,22 +17,25 @@ specs:
   rds_on_mohm_top_fet: 100
   rds_on_mohm_bottom_fet: 80
   switching_frequency_mhz: 1.0
+  quiescent_current_ua: 80 (IOUT=0, VFB=VREF*105%)
+  shutdown_current_ua: '0.1-1 (EN=0)'
+  feedback_voltage_v: 0.6 (typ; 0.588 min, 0.612 max)
+  pfet_current_limit_a: 3.5
   package: SOT23-6
+  package_dimensions_mm:
+    length: 2.80-3.10
+    width: 1.50-1.70
+    height: 1.00-1.30
   temperature_range_c_ambient: -40 to 85
   temperature_range_c_junction: -40 to 125
   use_case_categories:
   - Synchronous buck DC-DC
   - Portable devices
   - Battery-powered applications
+  - LCD TV / Set Top Box / Net PC / Mini-Notebook PC / Access Point Router (per datasheet)
 unverified:
-- exact_input_voltage_range_v
-- exact_switching_frequency_mhz
-- exact_feedback_voltage_v
-- exact_efficiency_at_load
-- exact_output_voltage_options_for_ABC_variant
-- exact_quiescent_current_ua
-- thermal_shutdown_threshold_c
-- exact_package_dimensions
+- exact_output_voltage_options_for_ABC_variant (ABC suffix is package/temperature/output voltage combination; specific VOUT option not in extracted datasheet; use FB voltage 0.6V with external resistor divider to set VOUT)
+- thermal_shutdown_threshold_c (not in extracted electrical characteristics table)
 notes:
 - "Promoted from \"missing yaml\" to family-page-only_2026-06-30 \u2014 Silergy product pages are JS-rendered and not accessible\
   \ via Firecrawl scrape."
@@ -49,8 +52,14 @@ notes:
   features list page 1. BUG FIX: yaml previously had max_output_current_a=3, datasheet shows 2.5A continuous / 3A peak - corrected
   to output_current_a_continuous=2.5 / output_current_a_peak=3.0. SY8032ABC sub-variant uses SY8032 die; ABC suffix is package/temperature/output
   voltage combination.'
-extracted_at: '2026-06-30T01:10:00+08:00'
-extracted_from_pages: []
-extraction_method: family-overview inference (product page JS-rendered, not accessible)
-extraction_source: references/semiconductor-vendor/Silergy/firecrawl-snapshots/DC-DC_clean.md
+- '2026-07-10: re-extracted via Tavily (extract_depth=advanced) on the semikey CDN mirror. Confirmed 6 of 8 previously
+  unverified fields are actually present in specs (mirror PDF Electrical Characteristics table). Cleaned up unverified
+  list from 8 to 2. Added quiescent_current_ua=80, shutdown_current_ua=0.1-1, feedback_voltage_v=0.6 (typ), pfet_current_limit_a=3.5,
+  package_dimensions_mm (SOT23-6: 2.80-3.10 x 1.50-1.70 x 1.00-1.30 mm), and use_case_categories from datasheet applications
+  list (LCD TV / Set Top Box / Net PC / Mini-Notebook PC / Access Point Router).'
+extracted_at: '2026-07-10T12:00:00+08:00'
+extracted_from_pages: [1, 2, 3, 6]
+extraction_method: tavily-extract (advanced) of semikey CDN mirror PDF datasheet
+extraction_source: ../../datasheets/SY8032_semikey.pdf
 datasheet_source_url: https://cdn.semikey.com/upload/pdfs/92/68/9268d90571fec05d7043870318c93320.pdf
+source_pdf: ../../datasheets/SY8032_semikey.pdf

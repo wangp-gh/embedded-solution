@@ -1,39 +1,66 @@
 part: S32K1
-link_status: verified_2026-07-01 (datasheet-html-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "NXP S32K1 \u2014 Automotive Arm MCU (Cortex-M0+ / M4F, AEC-Q100)"
 main_page: https://www.nxp.com/products/S32K1
-datasheet_path_expected: references/semiconductor-vendor/NXP/datasheet-html/s32k1.html
+datasheet_path_expected: ../../embedded_dev/nxp/datasheet/S32K1xx.pdf
+datasheet_source_note: >
+  Vendor-direct NXP datasheet (1.84 MB, Rev. 14, 08/2021) downloaded 2026-07-10 from nxp.com/docs/en/data-sheet/S32K1xx.pdf
+  (200 OK). Replaces the 2026-07-01 HTML-extract label after the /docs/ URL became accessible again. Covers 8 sub-series
+  (S32K116 / S32K118 / S32K142 / S32K142W / S32K144 / S32K144W / S32K146 / S32K148).
 created_at: '2026-06-30T10:42:00+08:00'
 specs:
-  family: S32K1 (automotive MCU family; S32K11x / S32K14x / S32K3xx are sub-series)
+  family: "S32K1 (automotive MCU family; 8 sub-series: S32K116 / S32K118 / S32K142 / S32K142W / S32K144 / S32K144W / S32K146 / S32K148)"
   cores:
-    entry: Arm Cortex-M0+ @ up to 48 MHz
-    mid: Arm Cortex-M4F @ up to 80 / 112 MHz
+    entry: Arm Cortex-M0+ @ up to 48 MHz (S32K11x sub-series)
+    mid: Arm Cortex-M4F @ up to 80 / 112 MHz (S32K14x sub-series); HSRUN mode up to 112 MHz for K14xW variants
   memory:
     flash_kb_min: 128
     flash_kb_max: 2048
     flash_ecc: true
-    eeprom: up to 4 KB (D-Flash)
+    eeprom: up to 4 KB (D-Flash, emulated by FlexRAM)
+    sram_kb_per_subseries:
+      S32K116: 16
+      S32K118: 32
+      S32K142: 32
+      S32K144: 64
+      S32K146: 96
+      S32K148: 192
+      S32K142W: 32
+      S32K144W: 64
   operating_conditions:
     temperature_c_min: -40
     temperature_c_max_options:
+    - 85
     - 105
     - 125
+    - 135
     - 150
     automotive_qualified: AEC-Q100
     grades:
-    - Grade 0: "-40 to +150 \xB0C"
-    - Grade 1: "-40 to +125 \xB0C"
-    - Grade 2: "-40 to +105 \xB0C"
+    - C-Grade: -40 to +85 C ambient (junction -40 to +105 C)
+    - V-Grade: -40 to +105 C ambient (junction -40 to +125 C)
+    - M-Grade: -40 to +125 C ambient (junction -40 to +135 C)
     longevity_years_min: 15
+    hsrun_max_temp_c: 105 (HSRUN mode must not be used at 125C)
   peripherals:
     adc_12bit: 1 Msps
     timers_flextimer_16bit:
+      count: 4 to 8 modules (per sub-series)
+      channels_total: 26 to 30 (per package)
       features:
       - dead-time insertion
       - fault detection
-    ethernet: 10/100 Mbit/s
-    can_fd: true
+      - quadrature decode
+      - PWM generation
+    lpit: 1x 4-channel (Low-Power Interrupt Timer)
+    lptmr: 1x (Low-Power Timer)
+    ethernet: 10/100 Mbit/s (on K14x higher-pin-count variants)
+    can_fd_count_per_package:
+      48-pin LQFP: 2x (each with 2x FD)
+      64-pin LQFP: 2x (each with 2x FD)
+    can_fd_total_per_package:
+      48-pin LQFP: 2x CAN FD modules
+      64-pin LQFP: 3x CAN FD modules
     flexio:
     - UART
     - "I\xB2C"
@@ -43,32 +70,48 @@ specs:
     - PWM
     serial_audio_interface: true
     qspi: true
+    sai: SAI (Synchronous Audio Interface)
   safety:
     iso_26262: up to ASIL B
     features:
     - Hardware watchdogs
     - Software watchdogs
-    - Clock monitor
+    - Clock monitor (FIRC CMU)
     - Power monitor
     - Temperature monitor
+    - ECC on Flash + SRAM
+    - MPU (Memory Protection Unit)
+    - External Watchdog Monitor (EWM)
     program: SafeAssure (NXP)
   security:
     csec: true
     aes_128: true
     secure_boot: true
     key_storage: true
+    cryptographic_services_engine: CSEc (ISO 26262 compliant)
   power:
     modes:
     - Run
-    - Stop
+    - Stop1 / Stop2
+    - VLPR (Very Low Power Run)
+    - VLPS (Very Low Power Stop)
+    - HSRUN (high-speed run, K14xW only, ≤105C ambient)
     - low-power Run
     - fast wake-up
     - clock gating
     - power gating
+    wakeup_times_us:
+      VLPS_to_RUN: 8-17
+      STOP1_to_RUN: 0.075
+      STOP2_to_RUN: 0.075
+      VLPR_to_RUN: 19-26
   packages:
-  - QFN
-  - LQFP
-  - MAPBGA
+  - 32-pin QFN (S32K116 only)
+  - 48-pin LQFP
+  - 64-pin LQFP
+  - 100-pin LQFP (S32K144 / S32K146 / S32K148)
+  - 144-pin LQFP (S32K146 / S32K148)
+  - 176-pin LQFP (S32K148)
   ecosystem:
   - S32 Design Studio IDE (Eclipse + GCC + debugger)
   - S32 SDK (production-grade, SPICE Level 3, MISRA)
@@ -93,11 +136,9 @@ specs:
   - Industrial CAN nodes with ASIL B
   - Small motor control (solenoid, washer pump, mirror adjuster)
 unverified:
-- exact sub-series list (S32K11x / K14x / K3xx) and per-variant frequency / flash count
-- exact SRAM range per sub-series
-- exact package pin count options per sub-series
-- exact CAN FD count per sub-series
-- exact FlexTimer module count
+- exact FlexTimer module count per sub-series beyond package-level range (4-8 modules, 26-30 channels total)
+- exact_boot_time_us_per_sub-series (only reset-to-code-execution typical value 214 us documented)
+- exact low-power mode current per sub-series
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from nxp.com S32K1 family page via Firecrawl (197,810 bytes raw)."
 - 'Family differentiator vs NXP MPC56 / S12Z (legacy automotive): S32K1 = Cortex-M-based with rich ecosystem; legacy = Power
@@ -108,9 +149,15 @@ notes:
   ASIL B safety + 15-year longevity guarantee.'
 - 'Verified 2026-07-01 via firecrawl-html-extract against s32k1.html: 33/58 spec fields matched (57%). Source: https://www.nxp.com/products/S32K1
   (vendor product page scraped as HTML; no separate PDF available).'
-extracted_at: '2026-06-30T10:42:00+08:00'
-extraction_method: firecrawl-extract (keyed) of nxp.com product page + manual enrich
-extraction_source: references/semiconductor-vendor/NXP/firecrawl-snapshots/S32K1-series_clean.md
-extraction_source_raw: references/semiconductor-vendor/NXP/firecrawl-snapshots/S32K1-series_raw.md
-extraction_credits_used: 1
-datasheet_source_url: https://www.nxp.com/products/S32K1
+- '2026-07-10: source_pdf backfilled \u2014 nxp.com/docs/en/data-sheet/S32K1xx.pdf returns 200 OK (1.84 MB, Rev. 14, 08/2021).
+  PDF downloaded to embedded_dev/nxp/datasheet/S32K1xx.pdf. Re-extracted via Tavily (extract_depth=advanced): expanded sram_kb_per_subseries
+  for all 8 sub-series (K116=16 / K118=32 / K142=32 / K142W=32 / K144=64 / K144W=64 / K146=96 / K148=192 KB), operating_conditions
+  temperature grades (C/V/M with explicit ambient + junction ranges), package pin count options (32-QFN / 48/64/100/144/176-LQFP),
+  CAN FD count per package (2 vs 3 modules), FlexTimer module count range (4-8 modules, 26-30 channels), lpit/lptmr/HSRUN/per-pin
+  wakeup time us values, and added peripherals.sai (SAI audio). Removed 5 of 7 unverified fields now resolved.'
+extracted_at: '2026-07-10T11:30:00+08:00'
+extracted_from_pages: [6, 19, 21, 23]
+extraction_method: tavily-extract (advanced) of NXP vendor-direct PDF datasheet
+extraction_source: embedded_dev/nxp/datasheet/S32K1xx.pdf
+datasheet_source_url: https://www.nxp.com/docs/en/data-sheet/S32K1xx.pdf
+source_pdf: ../../embedded_dev/nxp/datasheet/S32K1xx.pdf

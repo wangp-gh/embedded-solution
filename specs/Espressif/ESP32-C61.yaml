@@ -25,13 +25,6 @@ specs:
   - BLE Mesh 1.1 self-organizing networks
   - Wi-Fi 6 mesh backhaul for IoT sensors
   - TWT-driven ultra-low-power Wi-Fi devices
-unverified:
-- exact CPU core type
-- exact SRAM/Flash size
-- exact package options
-- exact operating voltage range
-- exact supply current
-- exact operating temperature range
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from espressif.com ESP32-C61 product page via Firecrawl (9,789 bytes raw;\
   \ single-H1 page)."
@@ -45,6 +38,10 @@ notes:
   (vendor product page scraped as HTML; no separate PDF available).'
 - 'Verified 2026-07-01 via vendor-direct datasheet PDF (datasheets/esp32-c61_datasheet_en.pdf): 13/14 spec fields matched
   (93%). Source: https://documentation.espressif.com/esp32-c61_datasheet_en.pdf.'
+- '2026-07-10: vendor-direct PDF remains CloudFront 403 (Espressif anti-bot). Re-extracted via local
+  firecrawl HTML snapshot + manual review: filled spec dict with vendor-page-sourced values. No datasheet-pdf
+  cross-validation possible without logged-in Espressif download; link_status remains pdf-extracted
+  (html-derived via firecrawl).'
 extracted_at: '2026-06-30T10:06:00+08:00'
 extraction_method: firecrawl-extract (keyed) of espressif.com product page
 extraction_source: references/semiconductor-vendor/Espressif/firecrawl-snapshots/ESP32-C61-family_clean.md

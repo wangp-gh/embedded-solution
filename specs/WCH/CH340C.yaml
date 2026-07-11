@@ -2,12 +2,10 @@ part: CH340C
 link_status: product-page-removed_2026-06-30 (no-datasheet, no-product-page)
 expected_family: WCH CH340 — USB-to-UART bridge IC
 main_page: https://www.wch-ic.com/products/CH340.html
-datasheet_path_expected: ../../embedded_dev/wch/datasheet/CH340C_datasheet.pdf
-datasheet_source_note: 'CH340 product page returned 404 on 2026-06-30.
-  Datasheet PDF is not in catalog (only CH32V003/CH32V103/CH32V307 PDFs).
-  Specs below are from WCH general documentation and the CH340 product
-  registration in the catalog state table. CH340 is widely cloned; many
-  "CH340" chips on market are clones with buggy firmware.'
+datasheet_path_expected: (unavailable)
+datasheet_source_note: CH340 product page returned 404 on 2026-06-30. Datasheet PDF is not in catalog (only CH32V003/CH32V103/CH32V307
+  PDFs). Specs below are from WCH general documentation and the CH340 product registration in the catalog state table. CH340
+  is widely cloned; many "CH340" chips on market are clones with buggy firmware.
 specs:
   function: USB-to-UART (and USB-to-Printer / USB-to-SPI / USB-to-I2C) bridge
   usb:
@@ -32,18 +30,17 @@ unverified:
 - exact_package_dimensions
 - exact_max_current_consumption
 notes:
-- 'Placeholder yaml created on 2026-06-30 — wch-ic.com has removed both
-  the product page (404) and the datasheet is not in our catalog.'
-- 'Use case: cheapest USB-UART bridge ($0.10 in qty 100). Default for
-  low-cost hobby / dev boards. WIDELY CLONED — buy from reputable
-  sources (LCSC, WCH direct, Adafruit) to avoid buggy clones that fail
-  on Windows drivers.'
-- 'Driver notes: macOS / Linux use built-in cdc_acm driver; Windows
-  needs vendor driver (downloadable from wch-ic.com). Some clones have
-  buggy USB descriptors that crash on Windows 10/11.'
-- 'Open gap: datasheet needs to be downloaded from wch-ic.com or a
-  reputable distributor. Until then, spec fields are placeholders.'
+- Placeholder yaml created on 2026-06-30 — wch-ic.com has removed both the product page (404) and the datasheet is not in
+  our catalog.
+- 'Use case: cheapest USB-UART bridge ($0.10 in qty 100). Default for low-cost hobby / dev boards. WIDELY CLONED — buy from
+  reputable sources (LCSC, WCH direct, Adafruit) to avoid buggy clones that fail on Windows drivers.'
+- 'Driver notes: macOS / Linux use built-in cdc_acm driver; Windows needs vendor driver (downloadable from wch-ic.com). Some
+  clones have buggy USB descriptors that crash on Windows 10/11.'
+- 'Open gap: datasheet needs to be downloaded from wch-ic.com or a reputable distributor. Until then, spec fields are placeholders.'
+- '2026-07-07: source_pdf path resolved to ''../../embedded_dev/wch/datasheet/CH340C_datasheet.pdf'' but that file is missing.
+  Set to (none); data must be re-verified when PDF becomes available.'
 extracted_at: '2026-06-30T00:55:00+08:00'
 extracted_from_pages: []
 extraction_method: catalog-registration (no datasheet / no product page)
 extraction_source: None (placeholder, awaiting datasheet re-acquisition)
+source_pdf: (none -- PDF unavailable, no validation possible)

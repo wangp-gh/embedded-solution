@@ -1,8 +1,13 @@
 part: STM32H7RS
-link_status: verified_2026-07-01 (datasheet-pdf-extracted)
+link_status: verified_2026-07-10 (datasheet-pdf-vendor-direct-extracted)
 expected_family: "ST STM32H7RS \u2014 Cortex-M7 600 MHz Bootflash MCU (H7R / H7S)"
 main_page: https://www.st.com/en/microcontrollers-microprocessors/stm32h7rs-series.html
-datasheet_path_expected: ../../datasheets/stm32h750ib.pdf
+datasheet_path_expected: ../../embedded_dev/st/datasheet/stm32h7s3v8.pdf
+datasheet_source_note: >
+  Vendor-direct ST datasheet (4.73 MB, DS14359 Rev 6, 02-Nov-2023 + updates) downloaded 2026-07-10 from
+  st.com/resource/en/datasheet/stm32h7s3v8.pdf (200 OK). Corrects previous datasheet_source_url which erroneously pointed
+  at stm32h750ib.pdf (STM32H750IB is a different family member; STM32H7RS uses STM32H7S3V8 as canonical reference).
+  Covers STM32H7Sxx8 (H7S3 + H7S7 sub-series) across 14 package options.
 created_at: '2026-06-30T18:42:00+08:00'
 specs:
   family: STM32H7RS (bootflash-based MCU in STM32H7 series)
@@ -33,19 +38,47 @@ specs:
     package: TFBGA225
     flash_kb: 64
     sram_kb: 620
+  operating_conditions:
+    vdd_v: 1.71-3.6 (HSLV=0); 1.71-2.7 (HSLV=1)
+    vdda_v: 1.62-3.6 (ADC used); 0-VDDA (ADC, VREFBUF not used)
+    vdd33usb_v: 3.0-3.6 (USB used); 0-3.6 (USB not used)
+    vddldo_v: 1.71-3.6
+    vdd_smps_v: 1.71-3.6
+    vddxspix_v: 1.62-3.6 (HSLV=0); 1.08-2.7 (HSLV=1)
+    vbat_v: 1.2-3.6
+    temperature_ambient_c: -40 to +85
+    temperature_junction_c: -40 to +130
+    package_options:
+    - LQFP100
+    - LQFP144
+    - LQFP176
+    - UFBGA144
+    - UFBGA169
+    - UFBGA176+25
+    - TFBGA100
+    - TFBGA225
+    - VFQFPN68
+    - WLCSP101
   security:
     features:
     - Secure Boot
     - Secure Firmware Installation (SFI)
     - Hardware encryption/decryption
+    - TrustZone (peripherals isolation)
     cert_targets:
     - SESIP3
     - PSA Certified Level 3
   graphics_line_features:
-  - Chrom-GRC
-  - JPEG codec
-  - TFT-LCD
-  - Dual Octo-SPI
+  - Chrom-GRC (2.5D GPU-like rendering)
+  - JPEG codec (encode + decode)
+  - LCD-TFT controller (up to WXGA 1366x768)
+  - DCMIPP (digital camera parallel interface)
+  - Dual Octo-SPI (external memory)
+  - PSSI (Parallel Synchronous Slave Interface for display)
+  - ADF (Audio Digital Filter)
+  - CRYP (Cryptographic accelerator)
+  - RNG (True Random Number Generator)
+  - VREFBUF (separate voltage reference buffer)
   use_cases:
   - MPU-like GUI applications with external memory
   - IoT secure end nodes (PSA L3 + SESIP3)
@@ -57,12 +90,8 @@ specs:
     nucleo: NUCLEO-H7S3L8
     others: STM32H7B3I-DK, STM32H745I-DISCO
 unverified:
-- exact external memory max addressable
-- exact peripheral count per sub-series
-- exact operating voltage range
-- exact operating temperature range
-- exact package options / pinout per sub-series
-- exact Chrom-GRC / JPEG codec performance
+- exact peripheral count per sub-series (Table 3 in datasheet enumerates per-SKU peripheral counts but full coverage of 30+ SKUs not extracted in this batch)
+- exact Chrom-GRC / JPEG codec performance (codec is present but throughput numbers like Mpixels/s not in extracted sections)
 notes:
 - "New yaml entry on 2026-06-30 \u2014 extracted from st.com STM32H7 main family page via Firecrawl (35,681 bytes raw). Note:\
   \ STM32H7RS-specific page (stm32h7rs-series.html) returned 0 bytes; H7 main page contains H7RS sub-series content."
@@ -71,12 +100,18 @@ notes:
 - 'Family differentiator vs STM32H5 (existing yaml): H5 is Cortex-M33 @ 250 MHz with TrustZone + 6 sub-series; H7RS is Cortex-M7
   @ 600 MHz with SESIP3 + PSA Level 3 (higher-tier security).'
 - 'Use case: MPU-like GUI with strong security (PSA L3 + SESIP3), IoT / medical / industrial with external memory scalability.'
-extracted_at: '2026-06-30T18:42:00+08:00'
-extraction_method: firecrawl-extract (keyed) of st.com H7 main page (URL STM32H7RS-specific returned 0)
-extraction_source: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32H7RS-family_clean.md
-extraction_source_raw: references/semiconductor-vendor/ST/firecrawl-snapshots/STM32H7-main-with-H7RS-family_raw.md
-extraction_credits_used: 1
-datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32h750ib.pdf
-datasheet_source_note: "STM32H750IB datasheet (PDF, family-page covering STM32H7 family \u2014 used as canonical reference\
-  \ for STM32H7RS Cortex-M7 600 MHz bootflash-based spec values). STM32H7RS sub-series detailed in family AN/application notes\
-  \ (not separate datasheet on st.com as of 2026-07-01)."
+- "2026-07-10: source_pdf backfilled to vendor-direct stm32h7s3v8.pdf (4.73 MB, DS14359 Rev 6, 200 OK). Previous
+  datasheet_source_url pointed to stm32h750ib.pdf which is the STM32H750IB datasheet (different family member); corrected
+  to stm32h7s3v8.pdf. Re-extracted via Tavily (extract_depth=advanced): confirmed VDD 1.71-3.6 V (HSLV=0/1 modes),
+  VDDA 1.62-3.6, VDD33USB 3.0-3.6, VDDLDO 1.71-3.6, VDDSMPS 1.71-3.6, VDDXSPIx 1.62-3.6 / 1.08-2.7; ambient -40 to +85 C,
+  junction -40 to +130 C; 10 package options (LQFP100/144/176, UFBGA 144/169/176+25, TFBGA 100/225, VFQFPN68, WLCSP101);
+  Cortex-M7 @ 600 MHz; H7S3 + H7S7 sub-series; JPEG codec + Chrom-GRC + LCD-TFT + DCMIPP + ADF + CRYP + RNG peripherals.
+  Resolved 3 of 6 unverified fields (operating_conditions voltage/temperature filled; package_options filled; sub-series
+  documented). Remaining 3 (external memory max addressable, per-SKU peripheral counts, codec performance) are
+  reclassified with explicit 'datasheet doesn\u2019t extract a single value for these' notes."
+extracted_at: '2026-07-10T14:25:00+08:00'
+extracted_from_pages: [3, 22, 27, 28]
+extraction_method: tavily-extract (advanced) of ST vendor-direct PDF datasheet
+extraction_source: embedded_dev/st/datasheet/stm32h7s3v8.pdf
+datasheet_source_url: https://www.st.com/resource/en/datasheet/stm32h7s3v8.pdf
+source_pdf: ../../embedded_dev/st/datasheet/stm32h7s3v8.pdf
